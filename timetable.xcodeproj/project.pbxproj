@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85E5D41521907901002BE951 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D41421907901002BE951 /* Node.swift */; };
+		85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4162190792F002BE951 /* Linked List Queue.swift */; };
 		85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF652188F85F006F8A6C /* AppDelegate.swift */; };
-		85EDAF682188F85F006F8A6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF672188F85F006F8A6C /* ViewController.swift */; };
+		85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF672188F85F006F8A6C /* Agenda.swift */; };
 		85EDAF6B2188F85F006F8A6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85EDAF692188F85F006F8A6C /* Main.storyboard */; };
 		85EDAF6E2188F85F006F8A6C /* timetable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF6C2188F85F006F8A6C /* timetable.xcdatamodeld */; };
 		85EDAF702188F861006F8A6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85EDAF6F2188F861006F8A6C /* Assets.xcassets */; };
@@ -35,9 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		85E5D41421907901002BE951 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		85E5D4162190792F002BE951 /* Linked List Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Linked List Queue.swift"; sourceTree = "<group>"; };
 		85EDAF622188F85F006F8A6C /* timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EDAF652188F85F006F8A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		85EDAF672188F85F006F8A6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		85EDAF672188F85F006F8A6C /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
 		85EDAF6A2188F85F006F8A6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85EDAF6D2188F85F006F8A6C /* timetable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = timetable.xcdatamodel; sourceTree = "<group>"; };
 		85EDAF6F2188F861006F8A6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85E5D413219078E1002BE951 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				85E5D41421907901002BE951 /* Node.swift */,
+				85E5D4162190792F002BE951 /* Linked List Queue.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		85EDAF592188F85F006F8A6C = {
 			isa = PBXGroup;
 			children = (
@@ -100,12 +113,13 @@
 			isa = PBXGroup;
 			children = (
 				85EDAF652188F85F006F8A6C /* AppDelegate.swift */,
-				85EDAF672188F85F006F8A6C /* ViewController.swift */,
 				85EDAF692188F85F006F8A6C /* Main.storyboard */,
 				85EDAF6F2188F861006F8A6C /* Assets.xcassets */,
 				85EDAF712188F861006F8A6C /* LaunchScreen.storyboard */,
 				85EDAF742188F861006F8A6C /* Info.plist */,
 				85EDAF6C2188F85F006F8A6C /* timetable.xcdatamodeld */,
+				85EDAF962188FB43006F8A6C /* Agenda */,
+				85E5D413219078E1002BE951 /* Classes */,
 			);
 			path = timetable;
 			sourceTree = "<group>";
@@ -126,6 +140,14 @@
 				85EDAF8A2188F862006F8A6C /* Info.plist */,
 			);
 			path = timetableUITests;
+			sourceTree = "<group>";
+		};
+		85EDAF962188FB43006F8A6C /* Agenda */ = {
+			isa = PBXGroup;
+			children = (
+				85EDAF672188F85F006F8A6C /* Agenda.swift */,
+			);
+			path = Agenda;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85EDAF682188F85F006F8A6C /* ViewController.swift in Sources */,
+				85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */,
+				85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */,
+				85E5D41521907901002BE951 /* Node.swift in Sources */,
 				85EDAF6E2188F85F006F8A6C /* timetable.xcdatamodeld in Sources */,
 				85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */,
 			);
