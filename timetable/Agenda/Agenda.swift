@@ -13,10 +13,17 @@ class Agenda: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var goalsLabel: UILabel!
     
+    var timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
+        
     }
+    
+   
+        
 
 
 }
