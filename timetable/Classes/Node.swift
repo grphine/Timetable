@@ -8,7 +8,7 @@
 
 
 
-public class LinkedList<T> { //Node class. Generic datatype "T"
+public class LinkedList<T> { //Node class for a linked list. Generic datatype "T"
     var data: T
     var next: LinkedList?
     public init(data: T){
