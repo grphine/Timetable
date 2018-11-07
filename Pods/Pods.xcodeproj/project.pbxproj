@@ -1,0 +1,1001 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05C822D3F75F374FC6FA6AF1CCC732CF /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6F2EA4FF99BC9A436549F755B543B /* ScrollView.swift */; };
+		0A46CBF52740E6F30BD850A731D39695 /* IndexPath+Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25441E15CC3F25EB59DF94079C25578B /* IndexPath+Column.swift */; };
+		0E8259064EBA4E6F9E13C50245E75BF1 /* SpreadsheetView+UIViewHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D43A63DF5F3B822E79C5D1EDC959BF /* SpreadsheetView+UIViewHierarchy.swift */; };
+		165A98441FA4B94A565D1DE8BC7E934E /* SpreadsheetViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB61A0DBC08039336DD58B84B17E2B5 /* SpreadsheetViewDataSource.swift */; };
+		1A25EC6C1E230817D2FD1A0FF30A6221 /* Pods-timetableTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6025C6EF1AD6EFC418207447B196E755 /* Pods-timetableTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A8F9A8D26B23B170CEABF0099F89F9B /* SpreadsheetView+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D4F0E9E1360954672FA9FB58D64C8 /* SpreadsheetView+UIScrollView.swift */; };
+		1B4E51E91549A5B531DC10A08C8030C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		32E2391BF4694404FE7F3412A402F94D /* SpreadsheetViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C107519577426D0ACD7945E47189ADF /* SpreadsheetViewDelegate.swift */; };
+		35946AFD47FC7A31D4B704CF6B4FE399 /* LayoutEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EA790FA7FEA6BC4C615A643D9B133 /* LayoutEngine.swift */; };
+		3616DDF63F2AA217FFA75074FA503E12 /* ReuseQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D308BCE0E77158918E91614BBF31A9 /* ReuseQueue.swift */; };
+		3EA8FFCCDF55EDE71A4C877FE3A9AD4C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6C5CA4878A7200D5DAE614E91E3DBB /* Location.swift */; };
+		423BB87A7A23213C43E999E2ACCCD083 /* SpreadsheetView+CirclularScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD35725A669C709E34C27F9BD822B7 /* SpreadsheetView+CirclularScrolling.swift */; };
+		42FBCEA57BAB9A6F8E4EBC7678AB482B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		4B0515A9E8EF83EEB8D9D89CA7093424 /* CircularScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCBCF670DE8E942E31E381F68408388 /* CircularScrolling.swift */; };
+		4C3D896F5BC490F0B1AE0F2B5DA63D38 /* Pods-timetableUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 397881E5ACEA05C55E38911D6DA41995 /* Pods-timetableUITests-dummy.m */; };
+		574906AD14DD857DB6CC180A38F3B9DC /* Pods-timetableUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BE79EDB46176463BC635ABA758DDF822 /* Pods-timetableUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58930E2B9051EB191A3698464D4AB2A0 /* SpreadsheetView+UISnapshotting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD541E85FEF7BE617D965E77EDDA372C /* SpreadsheetView+UISnapshotting.swift */; };
+		67D37B908FFD7E8823078220487AA8CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		6AE08DDF097E2CD95037C22CEF9BD70E /* SpreadsheetView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9650B94571B56C6513796AE8686F48A9 /* SpreadsheetView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7310ED6BB6E3F17795DC1E5AD0FEB4B1 /* Array+BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9907B468518A1710BF8C3720EADE60A9 /* Array+BinarySearch.swift */; };
+		77AF230E55A14758F295AA75A069D07F /* SpreadsheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DD07A25E1A4DF7960D1A23B6853AB0 /* SpreadsheetView.swift */; };
+		7A0902BFF844EB3D325B88202C7D1ED4 /* ScrollPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDEB0FB7E50977E3FC164122A0190D9 /* ScrollPosition.swift */; };
+		83F7098A672A0A0382A58B6F648E495E /* Pods-timetableTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4966B319E9A9555046C27E33E1269945 /* Pods-timetableTests-dummy.m */; };
+		8BB736D979C930EFB2578ADA9BC695CE /* CellRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF20FF8EFE7A0B41F3AAEADEA41B19C /* CellRange.swift */; };
+		8E68D4AD38E3E5DD7BAD03D0C462F455 /* SpreadsheetView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B30276C812CF70494782DB144061925 /* SpreadsheetView-dummy.m */; };
+		94E55A1C0639087E78EEFBBD60712CB7 /* Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96D560F35AA6213EFBC80738C98CD /* Borders.swift */; };
+		9E6AEBD9CD02403B94D6529324821F01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		ACCBDA3ACE8E31E517970334FA30A304 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F13031C017CFD74926EF34C9E2989 /* Address.swift */; };
+		B31B97397E259AD28CF56ED10FE8B57A /* SpreadsheetView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B33F8C4EBAB9E3AB9AD6D34DCC91 /* SpreadsheetView+Layout.swift */; };
+		B5E73F588AA6EBCC2FA7D350083113FA /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F626E70B74C0FD6B3EBD89B86B47D87E /* Cell.swift */; };
+		BC266DC555B9EA6C1703A5D5F7DA9FDD /* Gridlines.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FE1AD64DC0AEF0E158881DF5588693 /* Gridlines.swift */; };
+		C39E0207DA59E8CF764447F5273B5C0A /* Pods-timetable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF8B623B6D36A3467B2F5D8B58133B /* Pods-timetable-dummy.m */; };
+		D04B182D231CFEC09B6B2F1E4EE2C110 /* SpreadsheetView+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157449B98EE8DBF567FCAF1887880ED /* SpreadsheetView+Touches.swift */; };
+		D309D7F0CB88ADB5A33A9D42BCBDA9A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
+		DF2E0C66512E5723AA3A9F00B808E76B /* Pods-timetable-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D9C56FE916F612667A8BE81C67D9A8 /* Pods-timetable-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E0F7F0142C7CC0664715EEF8109C176A /* SpreadsheetView+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196B5B395FD9D045D3255C6BB67909CE /* SpreadsheetView+UIScrollViewDelegate.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		486C7F96164A89564FF0FF19F592CB3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0B8DCAD7306A4D932809B880F547045;
+			remoteInfo = "Pods-timetable";
+		};
+		4BF3E9B9142AE2CC14BAB4A082109749 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0B8DCAD7306A4D932809B880F547045;
+			remoteInfo = "Pods-timetable";
+		};
+		9F1AEAD6D2D37A5644A4273CB581AC95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85B50C0077E0A0570A8D03FCCC70F479;
+			remoteInfo = SpreadsheetView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03596E74102BF52F3135E587266399E2 /* Pods-timetable-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-timetable-acknowledgements.plist"; sourceTree = "<group>"; };
+		06F778FF66F44EB76501782C2901EDB3 /* SpreadsheetView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SpreadsheetView.modulemap; sourceTree = "<group>"; };
+		11DD07A25E1A4DF7960D1A23B6853AB0 /* SpreadsheetView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpreadsheetView.swift; path = Framework/Sources/SpreadsheetView.swift; sourceTree = "<group>"; };
+		12A4A2214094134785EAB179C1FE6C6E /* Pods_timetable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timetable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12D43A63DF5F3B822E79C5D1EDC959BF /* SpreadsheetView+UIViewHierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+UIViewHierarchy.swift"; path = "Framework/Sources/SpreadsheetView+UIViewHierarchy.swift"; sourceTree = "<group>"; };
+		196B5B395FD9D045D3255C6BB67909CE /* SpreadsheetView+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+UIScrollViewDelegate.swift"; path = "Framework/Sources/SpreadsheetView+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
+		1A812A9EFA01962770FCAD64362C27C6 /* Pods_timetableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timetableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C5EA790FA7FEA6BC4C615A643D9B133 /* LayoutEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutEngine.swift; path = Framework/Sources/LayoutEngine.swift; sourceTree = "<group>"; };
+		25441E15CC3F25EB59DF94079C25578B /* IndexPath+Column.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IndexPath+Column.swift"; path = "Framework/Sources/IndexPath+Column.swift"; sourceTree = "<group>"; };
+		25BD35725A669C709E34C27F9BD822B7 /* SpreadsheetView+CirclularScrolling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+CirclularScrolling.swift"; path = "Framework/Sources/SpreadsheetView+CirclularScrolling.swift"; sourceTree = "<group>"; };
+		284547681E25084A20F26FBDCAFEB460 /* Pods-timetableUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-timetableUITests-resources.sh"; sourceTree = "<group>"; };
+		2A2DDBC0EC0B61C1A49FC17ABBF1247B /* Pods-timetableTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-timetableTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2A6C5CA4878A7200D5DAE614E91E3DBB /* Location.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Framework/Sources/Location.swift; sourceTree = "<group>"; };
+		313D369950162C8676BF8E7C0D9D7946 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		397881E5ACEA05C55E38911D6DA41995 /* Pods-timetableUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-timetableUITests-dummy.m"; sourceTree = "<group>"; };
+		3B3F13031C017CFD74926EF34C9E2989 /* Address.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Address.swift; path = Framework/Sources/Address.swift; sourceTree = "<group>"; };
+		3DDEB0FB7E50977E3FC164122A0190D9 /* ScrollPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollPosition.swift; path = Framework/Sources/ScrollPosition.swift; sourceTree = "<group>"; };
+		418C4E682BF8996AEE544E576700F1E1 /* Pods-timetableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-timetableTests.release.xcconfig"; sourceTree = "<group>"; };
+		4845AA3DB8B2A50A8894DC0708CB6591 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4966B319E9A9555046C27E33E1269945 /* Pods-timetableTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-timetableTests-dummy.m"; sourceTree = "<group>"; };
+		4C107519577426D0ACD7945E47189ADF /* SpreadsheetViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpreadsheetViewDelegate.swift; path = Framework/Sources/SpreadsheetViewDelegate.swift; sourceTree = "<group>"; };
+		576C609F88E2E696B0B49BDC3355D74F /* Pods-timetableTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-timetableTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		5CD45E2671910F3FEF4DEAB9AEEA85EA /* Pods-timetableUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-timetableUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5DF20FF8EFE7A0B41F3AAEADEA41B19C /* CellRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CellRange.swift; path = Framework/Sources/CellRange.swift; sourceTree = "<group>"; };
+		6025C6EF1AD6EFC418207447B196E755 /* Pods-timetableTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-timetableTests-umbrella.h"; sourceTree = "<group>"; };
+		651947897A7792A86592DA8C8C585CE3 /* Pods-timetable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-timetable.release.xcconfig"; sourceTree = "<group>"; };
+		6A5B1A831CA1F0DDA37E4282FF90F759 /* Pods-timetable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-timetable.modulemap"; sourceTree = "<group>"; };
+		7603B542CBAF5776BD2B773803B796E9 /* Pods-timetableTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-timetableTests-frameworks.sh"; sourceTree = "<group>"; };
+		7ADE7AB954C82B68F6BB5AA60417447F /* Pods-timetableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-timetableTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B30276C812CF70494782DB144061925 /* SpreadsheetView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SpreadsheetView-dummy.m"; sourceTree = "<group>"; };
+		7E370F204536040411BD2102057B3245 /* Pods-timetable-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-timetable-frameworks.sh"; sourceTree = "<group>"; };
+		83A11E729D39FC2ABAA4EE5EEABDB60B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BD38ECDC7781C854E36E37F11ED27A2 /* Pods_timetableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timetableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CCBCF670DE8E942E31E381F68408388 /* CircularScrolling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CircularScrolling.swift; path = Framework/Sources/CircularScrolling.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9650B94571B56C6513796AE8686F48A9 /* SpreadsheetView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SpreadsheetView-umbrella.h"; sourceTree = "<group>"; };
+		9907B468518A1710BF8C3720EADE60A9 /* Array+BinarySearch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+BinarySearch.swift"; path = "Framework/Sources/Array+BinarySearch.swift"; sourceTree = "<group>"; };
+		9BEF8B623B6D36A3467B2F5D8B58133B /* Pods-timetable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-timetable-dummy.m"; sourceTree = "<group>"; };
+		9E479AE1A9F744F7204E76AC50C36F81 /* Pods-timetable-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-timetable-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A3B1D25256FD8B18E604C1BEADC191C6 /* Pods-timetableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-timetableUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A556CC8E95BCD4801FFF47B2F2AE83A2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEE96D560F35AA6213EFBC80738C98CD /* Borders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Borders.swift; path = Framework/Sources/Borders.swift; sourceTree = "<group>"; };
+		B28EB160848E0A0ED468C804BC4F99CD /* Pods-timetableUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-timetableUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B2FE1AD64DC0AEF0E158881DF5588693 /* Gridlines.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Gridlines.swift; path = Framework/Sources/Gridlines.swift; sourceTree = "<group>"; };
+		B46CA46E305099D7EAA170FC8863DA6D /* SpreadsheetView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SpreadsheetView.xcconfig; sourceTree = "<group>"; };
+		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		BE79EDB46176463BC635ABA758DDF822 /* Pods-timetableUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-timetableUITests-umbrella.h"; sourceTree = "<group>"; };
+		C0D308BCE0E77158918E91614BBF31A9 /* ReuseQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReuseQueue.swift; path = Framework/Sources/ReuseQueue.swift; sourceTree = "<group>"; };
+		C86D4F0E9E1360954672FA9FB58D64C8 /* SpreadsheetView+UIScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+UIScrollView.swift"; path = "Framework/Sources/SpreadsheetView+UIScrollView.swift"; sourceTree = "<group>"; };
+		D438ECDCFC2C890D366D0D650E99A93F /* Pods-timetableUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-timetableUITests.modulemap"; sourceTree = "<group>"; };
+		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D8D9C56FE916F612667A8BE81C67D9A8 /* Pods-timetable-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-timetable-umbrella.h"; sourceTree = "<group>"; };
+		DDFC19CDCF63C0A928C7DC79CED7F22C /* Pods-timetableTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-timetableTests.modulemap"; sourceTree = "<group>"; };
+		DF04193B5C6DCD6F12C4D1156EB9925E /* Pods-timetable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-timetable.debug.xcconfig"; sourceTree = "<group>"; };
+		E157449B98EE8DBF567FCAF1887880ED /* SpreadsheetView+Touches.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+Touches.swift"; path = "Framework/Sources/SpreadsheetView+Touches.swift"; sourceTree = "<group>"; };
+		E67CDA669D5038BDAA245F6470B9A2AD /* Pods-timetable-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-timetable-resources.sh"; sourceTree = "<group>"; };
+		EEB61A0DBC08039336DD58B84B17E2B5 /* SpreadsheetViewDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpreadsheetViewDataSource.swift; path = Framework/Sources/SpreadsheetViewDataSource.swift; sourceTree = "<group>"; };
+		EFA6F2EA4FF99BC9A436549F755B543B /* ScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = Framework/Sources/ScrollView.swift; sourceTree = "<group>"; };
+		F2E018F34259A73ABB4C20F70C083FE2 /* Pods-timetableUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-timetableUITests-frameworks.sh"; sourceTree = "<group>"; };
+		F557F9C9B9FCA54100489D210AFBBA70 /* SpreadsheetView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpreadsheetView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F626E70B74C0FD6B3EBD89B86B47D87E /* Cell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cell.swift; path = Framework/Sources/Cell.swift; sourceTree = "<group>"; };
+		F755B33F8C4EBAB9E3AB9AD6D34DCC91 /* SpreadsheetView+Layout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+Layout.swift"; path = "Framework/Sources/SpreadsheetView+Layout.swift"; sourceTree = "<group>"; };
+		F866225B70AC9F520ABA7F081BDCAB41 /* SpreadsheetView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SpreadsheetView-prefix.pch"; sourceTree = "<group>"; };
+		FA2D6CE78707D292A3BDD40DBF5A3BEA /* Pods-timetableUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-timetableUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FC067FCDDAED5E064754A44AED447C5E /* Pods-timetableTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-timetableTests-resources.sh"; sourceTree = "<group>"; };
+		FD541E85FEF7BE617D965E77EDDA372C /* SpreadsheetView+UISnapshotting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+UISnapshotting.swift"; path = "Framework/Sources/SpreadsheetView+UISnapshotting.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A2C418E43AA46FA6860FAC13B235DAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42FBCEA57BAB9A6F8E4EBC7678AB482B /* Foundation.framework in Frameworks */,
+				D309D7F0CB88ADB5A33A9D42BCBDA9A6 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5110C92274709F019088118D5491294C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E6AEBD9CD02403B94D6529324821F01 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6914C8F53B12380749EDCEC4BE602840 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B4E51E91549A5B531DC10A08C8030C1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB3B6EE624E378B42F8F1F21A5C94068 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67D37B908FFD7E8823078220487AA8CB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07687C03908D8B6441982B21A52B847E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				588A84F4D33D47980A5E5D1CA5C5646B /* Pods-timetable */,
+				D55FFEA891709658BE488E96861A0795 /* Pods-timetableTests */,
+				7B4CFD201BADF2903E8AC533573150C2 /* Pods-timetableUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				438B396F6B4147076630CAEFE34282C1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		438B396F6B4147076630CAEFE34282C1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */,
+				B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		588A84F4D33D47980A5E5D1CA5C5646B /* Pods-timetable */ = {
+			isa = PBXGroup;
+			children = (
+				83A11E729D39FC2ABAA4EE5EEABDB60B /* Info.plist */,
+				6A5B1A831CA1F0DDA37E4282FF90F759 /* Pods-timetable.modulemap */,
+				9E479AE1A9F744F7204E76AC50C36F81 /* Pods-timetable-acknowledgements.markdown */,
+				03596E74102BF52F3135E587266399E2 /* Pods-timetable-acknowledgements.plist */,
+				9BEF8B623B6D36A3467B2F5D8B58133B /* Pods-timetable-dummy.m */,
+				7E370F204536040411BD2102057B3245 /* Pods-timetable-frameworks.sh */,
+				E67CDA669D5038BDAA245F6470B9A2AD /* Pods-timetable-resources.sh */,
+				D8D9C56FE916F612667A8BE81C67D9A8 /* Pods-timetable-umbrella.h */,
+				DF04193B5C6DCD6F12C4D1156EB9925E /* Pods-timetable.debug.xcconfig */,
+				651947897A7792A86592DA8C8C585CE3 /* Pods-timetable.release.xcconfig */,
+			);
+			name = "Pods-timetable";
+			path = "Target Support Files/Pods-timetable";
+			sourceTree = "<group>";
+		};
+		76D368B2F04B18B50A5708F49B064516 /* SpreadsheetView */ = {
+			isa = PBXGroup;
+			children = (
+				3B3F13031C017CFD74926EF34C9E2989 /* Address.swift */,
+				9907B468518A1710BF8C3720EADE60A9 /* Array+BinarySearch.swift */,
+				AEE96D560F35AA6213EFBC80738C98CD /* Borders.swift */,
+				F626E70B74C0FD6B3EBD89B86B47D87E /* Cell.swift */,
+				5DF20FF8EFE7A0B41F3AAEADEA41B19C /* CellRange.swift */,
+				8CCBCF670DE8E942E31E381F68408388 /* CircularScrolling.swift */,
+				B2FE1AD64DC0AEF0E158881DF5588693 /* Gridlines.swift */,
+				25441E15CC3F25EB59DF94079C25578B /* IndexPath+Column.swift */,
+				1C5EA790FA7FEA6BC4C615A643D9B133 /* LayoutEngine.swift */,
+				2A6C5CA4878A7200D5DAE614E91E3DBB /* Location.swift */,
+				C0D308BCE0E77158918E91614BBF31A9 /* ReuseQueue.swift */,
+				3DDEB0FB7E50977E3FC164122A0190D9 /* ScrollPosition.swift */,
+				EFA6F2EA4FF99BC9A436549F755B543B /* ScrollView.swift */,
+				11DD07A25E1A4DF7960D1A23B6853AB0 /* SpreadsheetView.swift */,
+				25BD35725A669C709E34C27F9BD822B7 /* SpreadsheetView+CirclularScrolling.swift */,
+				F755B33F8C4EBAB9E3AB9AD6D34DCC91 /* SpreadsheetView+Layout.swift */,
+				E157449B98EE8DBF567FCAF1887880ED /* SpreadsheetView+Touches.swift */,
+				C86D4F0E9E1360954672FA9FB58D64C8 /* SpreadsheetView+UIScrollView.swift */,
+				196B5B395FD9D045D3255C6BB67909CE /* SpreadsheetView+UIScrollViewDelegate.swift */,
+				FD541E85FEF7BE617D965E77EDDA372C /* SpreadsheetView+UISnapshotting.swift */,
+				12D43A63DF5F3B822E79C5D1EDC959BF /* SpreadsheetView+UIViewHierarchy.swift */,
+				EEB61A0DBC08039336DD58B84B17E2B5 /* SpreadsheetViewDataSource.swift */,
+				4C107519577426D0ACD7945E47189ADF /* SpreadsheetViewDelegate.swift */,
+				C697A70A198D007745086F0E4710C243 /* Support Files */,
+			);
+			path = SpreadsheetView;
+			sourceTree = "<group>";
+		};
+		78A6866063C3B0C8EF19A05BB952C98B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76D368B2F04B18B50A5708F49B064516 /* SpreadsheetView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7B4CFD201BADF2903E8AC533573150C2 /* Pods-timetableUITests */ = {
+			isa = PBXGroup;
+			children = (
+				313D369950162C8676BF8E7C0D9D7946 /* Info.plist */,
+				D438ECDCFC2C890D366D0D650E99A93F /* Pods-timetableUITests.modulemap */,
+				5CD45E2671910F3FEF4DEAB9AEEA85EA /* Pods-timetableUITests-acknowledgements.markdown */,
+				B28EB160848E0A0ED468C804BC4F99CD /* Pods-timetableUITests-acknowledgements.plist */,
+				397881E5ACEA05C55E38911D6DA41995 /* Pods-timetableUITests-dummy.m */,
+				F2E018F34259A73ABB4C20F70C083FE2 /* Pods-timetableUITests-frameworks.sh */,
+				284547681E25084A20F26FBDCAFEB460 /* Pods-timetableUITests-resources.sh */,
+				BE79EDB46176463BC635ABA758DDF822 /* Pods-timetableUITests-umbrella.h */,
+				FA2D6CE78707D292A3BDD40DBF5A3BEA /* Pods-timetableUITests.debug.xcconfig */,
+				A3B1D25256FD8B18E604C1BEADC191C6 /* Pods-timetableUITests.release.xcconfig */,
+			);
+			name = "Pods-timetableUITests";
+			path = "Target Support Files/Pods-timetableUITests";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				78A6866063C3B0C8EF19A05BB952C98B /* Pods */,
+				F1905528B9AF9019CA80E614AD916DF0 /* Products */,
+				07687C03908D8B6441982B21A52B847E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		C697A70A198D007745086F0E4710C243 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A556CC8E95BCD4801FFF47B2F2AE83A2 /* Info.plist */,
+				06F778FF66F44EB76501782C2901EDB3 /* SpreadsheetView.modulemap */,
+				B46CA46E305099D7EAA170FC8863DA6D /* SpreadsheetView.xcconfig */,
+				7B30276C812CF70494782DB144061925 /* SpreadsheetView-dummy.m */,
+				F866225B70AC9F520ABA7F081BDCAB41 /* SpreadsheetView-prefix.pch */,
+				9650B94571B56C6513796AE8686F48A9 /* SpreadsheetView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SpreadsheetView";
+			sourceTree = "<group>";
+		};
+		D55FFEA891709658BE488E96861A0795 /* Pods-timetableTests */ = {
+			isa = PBXGroup;
+			children = (
+				4845AA3DB8B2A50A8894DC0708CB6591 /* Info.plist */,
+				DDFC19CDCF63C0A928C7DC79CED7F22C /* Pods-timetableTests.modulemap */,
+				2A2DDBC0EC0B61C1A49FC17ABBF1247B /* Pods-timetableTests-acknowledgements.markdown */,
+				576C609F88E2E696B0B49BDC3355D74F /* Pods-timetableTests-acknowledgements.plist */,
+				4966B319E9A9555046C27E33E1269945 /* Pods-timetableTests-dummy.m */,
+				7603B542CBAF5776BD2B773803B796E9 /* Pods-timetableTests-frameworks.sh */,
+				FC067FCDDAED5E064754A44AED447C5E /* Pods-timetableTests-resources.sh */,
+				6025C6EF1AD6EFC418207447B196E755 /* Pods-timetableTests-umbrella.h */,
+				7ADE7AB954C82B68F6BB5AA60417447F /* Pods-timetableTests.debug.xcconfig */,
+				418C4E682BF8996AEE544E576700F1E1 /* Pods-timetableTests.release.xcconfig */,
+			);
+			name = "Pods-timetableTests";
+			path = "Target Support Files/Pods-timetableTests";
+			sourceTree = "<group>";
+		};
+		F1905528B9AF9019CA80E614AD916DF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12A4A2214094134785EAB179C1FE6C6E /* Pods_timetable.framework */,
+				1A812A9EFA01962770FCAD64362C27C6 /* Pods_timetableTests.framework */,
+				8BD38ECDC7781C854E36E37F11ED27A2 /* Pods_timetableUITests.framework */,
+				F557F9C9B9FCA54100489D210AFBBA70 /* SpreadsheetView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7A09DD20144074D4D94243750345556F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF2E0C66512E5723AA3A9F00B808E76B /* Pods-timetable-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86DBC197A199C570F4D413EDAF0DE65D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				574906AD14DD857DB6CC180A38F3B9DC /* Pods-timetableUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D40CF7142C958BF5D618088314330E8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A25EC6C1E230817D2FD1A0FF30A6221 /* Pods-timetableTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0CE178A15F08F21622612F542448B4E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AE08DDF097E2CD95037C22CEF9BD70E /* SpreadsheetView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		779B0A120DBB8785337B57586E077560 /* Pods-timetableUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAD3CD64663E9F37402294EEFD50F587 /* Build configuration list for PBXNativeTarget "Pods-timetableUITests" */;
+			buildPhases = (
+				B660D931A382F9BCA21D1B10196A6D7D /* Sources */,
+				6914C8F53B12380749EDCEC4BE602840 /* Frameworks */,
+				86DBC197A199C570F4D413EDAF0DE65D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C3CF12DC190AAA8705F096603C76F7C /* PBXTargetDependency */,
+			);
+			name = "Pods-timetableUITests";
+			productName = "Pods-timetableUITests";
+			productReference = 8BD38ECDC7781C854E36E37F11ED27A2 /* Pods_timetableUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		85B50C0077E0A0570A8D03FCCC70F479 /* SpreadsheetView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DACBD742FA218CB58628D3975E457FB4 /* Build configuration list for PBXNativeTarget "SpreadsheetView" */;
+			buildPhases = (
+				D2FB9AA2E0A7DDBC05A0F67FE542225F /* Sources */,
+				4A2C418E43AA46FA6860FAC13B235DAC /* Frameworks */,
+				E0CE178A15F08F21622612F542448B4E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpreadsheetView;
+			productName = SpreadsheetView;
+			productReference = F557F9C9B9FCA54100489D210AFBBA70 /* SpreadsheetView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B0B8DCAD7306A4D932809B880F547045 /* Pods-timetable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A20113C9225DB8B91DE968AE45F8600C /* Build configuration list for PBXNativeTarget "Pods-timetable" */;
+			buildPhases = (
+				480D92F6D1CE786073C9E7ACAF6E2516 /* Sources */,
+				5110C92274709F019088118D5491294C /* Frameworks */,
+				7A09DD20144074D4D94243750345556F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B4EAB8319F9E29742DA88188732DCA0 /* PBXTargetDependency */,
+			);
+			name = "Pods-timetable";
+			productName = "Pods-timetable";
+			productReference = 12A4A2214094134785EAB179C1FE6C6E /* Pods_timetable.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE088C340BF61417E4C490C334B3BF6B /* Pods-timetableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50264AE067C463F0280BF3BBC5C7D135 /* Build configuration list for PBXNativeTarget "Pods-timetableTests" */;
+			buildPhases = (
+				A52E655A523F1058162284AA094C74F1 /* Sources */,
+				CB3B6EE624E378B42F8F1F21A5C94068 /* Frameworks */,
+				9D40CF7142C958BF5D618088314330E8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B563EA2CC07105B4C7C42F240FC7C03 /* PBXTargetDependency */,
+			);
+			name = "Pods-timetableTests";
+			productName = "Pods-timetableTests";
+			productReference = 1A812A9EFA01962770FCAD64362C27C6 /* Pods_timetableTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 1000;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = F1905528B9AF9019CA80E614AD916DF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0B8DCAD7306A4D932809B880F547045 /* Pods-timetable */,
+				BE088C340BF61417E4C490C334B3BF6B /* Pods-timetableTests */,
+				779B0A120DBB8785337B57586E077560 /* Pods-timetableUITests */,
+				85B50C0077E0A0570A8D03FCCC70F479 /* SpreadsheetView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		480D92F6D1CE786073C9E7ACAF6E2516 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39E0207DA59E8CF764447F5273B5C0A /* Pods-timetable-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52E655A523F1058162284AA094C74F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83F7098A672A0A0382A58B6F648E495E /* Pods-timetableTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B660D931A382F9BCA21D1B10196A6D7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C3D896F5BC490F0B1AE0F2B5DA63D38 /* Pods-timetableUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2FB9AA2E0A7DDBC05A0F67FE542225F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACCBDA3ACE8E31E517970334FA30A304 /* Address.swift in Sources */,
+				7310ED6BB6E3F17795DC1E5AD0FEB4B1 /* Array+BinarySearch.swift in Sources */,
+				94E55A1C0639087E78EEFBBD60712CB7 /* Borders.swift in Sources */,
+				B5E73F588AA6EBCC2FA7D350083113FA /* Cell.swift in Sources */,
+				8BB736D979C930EFB2578ADA9BC695CE /* CellRange.swift in Sources */,
+				4B0515A9E8EF83EEB8D9D89CA7093424 /* CircularScrolling.swift in Sources */,
+				BC266DC555B9EA6C1703A5D5F7DA9FDD /* Gridlines.swift in Sources */,
+				0A46CBF52740E6F30BD850A731D39695 /* IndexPath+Column.swift in Sources */,
+				35946AFD47FC7A31D4B704CF6B4FE399 /* LayoutEngine.swift in Sources */,
+				3EA8FFCCDF55EDE71A4C877FE3A9AD4C /* Location.swift in Sources */,
+				3616DDF63F2AA217FFA75074FA503E12 /* ReuseQueue.swift in Sources */,
+				7A0902BFF844EB3D325B88202C7D1ED4 /* ScrollPosition.swift in Sources */,
+				05C822D3F75F374FC6FA6AF1CCC732CF /* ScrollView.swift in Sources */,
+				423BB87A7A23213C43E999E2ACCCD083 /* SpreadsheetView+CirclularScrolling.swift in Sources */,
+				B31B97397E259AD28CF56ED10FE8B57A /* SpreadsheetView+Layout.swift in Sources */,
+				D04B182D231CFEC09B6B2F1E4EE2C110 /* SpreadsheetView+Touches.swift in Sources */,
+				1A8F9A8D26B23B170CEABF0099F89F9B /* SpreadsheetView+UIScrollView.swift in Sources */,
+				E0F7F0142C7CC0664715EEF8109C176A /* SpreadsheetView+UIScrollViewDelegate.swift in Sources */,
+				58930E2B9051EB191A3698464D4AB2A0 /* SpreadsheetView+UISnapshotting.swift in Sources */,
+				0E8259064EBA4E6F9E13C50245E75BF1 /* SpreadsheetView+UIViewHierarchy.swift in Sources */,
+				8E68D4AD38E3E5DD7BAD03D0C462F455 /* SpreadsheetView-dummy.m in Sources */,
+				77AF230E55A14758F295AA75A069D07F /* SpreadsheetView.swift in Sources */,
+				165A98441FA4B94A565D1DE8BC7E934E /* SpreadsheetViewDataSource.swift in Sources */,
+				32E2391BF4694404FE7F3412A402F94D /* SpreadsheetViewDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B4EAB8319F9E29742DA88188732DCA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SpreadsheetView;
+			target = 85B50C0077E0A0570A8D03FCCC70F479 /* SpreadsheetView */;
+			targetProxy = 9F1AEAD6D2D37A5644A4273CB581AC95 /* PBXContainerItemProxy */;
+		};
+		4C3CF12DC190AAA8705F096603C76F7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-timetable";
+			target = B0B8DCAD7306A4D932809B880F547045 /* Pods-timetable */;
+			targetProxy = 4BF3E9B9142AE2CC14BAB4A082109749 /* PBXContainerItemProxy */;
+		};
+		7B563EA2CC07105B4C7C42F240FC7C03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-timetable";
+			target = B0B8DCAD7306A4D932809B880F547045 /* Pods-timetable */;
+			targetProxy = 486C7F96164A89564FF0FF19F592CB3F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0802AFA0279BBE421295FEE1987FAB0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7ADE7AB954C82B68F6BB5AA60417447F /* Pods-timetableTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-timetableTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-timetableTests/Pods-timetableTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0E12B7268EF0862DFEEB8B6B0BD7C9F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		194804DE0E1E3FFF785C882F04D6BFD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF04193B5C6DCD6F12C4D1156EB9925E /* Pods-timetable.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-timetable/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-timetable/Pods-timetable.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6A9956D254C6C98821A4535A41C2C748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B46CA46E305099D7EAA170FC8863DA6D /* SpreadsheetView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SpreadsheetView/SpreadsheetView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SpreadsheetView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SpreadsheetView/SpreadsheetView.modulemap";
+				PRODUCT_MODULE_NAME = SpreadsheetView;
+				PRODUCT_NAME = SpreadsheetView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9957FE3AFA7DAEF433299558A9A8AC65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 418C4E682BF8996AEE544E576700F1E1 /* Pods-timetableTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-timetableTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-timetableTests/Pods-timetableTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A2295E1B8771DBDF8B26A6DC0AEDC5DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 651947897A7792A86592DA8C8C585CE3 /* Pods-timetable.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-timetable/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-timetable/Pods-timetable.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BE294C4E417D69F9C07A02658D77E8EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA2D6CE78707D292A3BDD40DBF5A3BEA /* Pods-timetableUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-timetableUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-timetableUITests/Pods-timetableUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CD8324D57CD462761E218EEA4EA91EC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		E5D02C7FBD441FD2E17FD16137BA1F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B46CA46E305099D7EAA170FC8863DA6D /* SpreadsheetView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SpreadsheetView/SpreadsheetView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SpreadsheetView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SpreadsheetView/SpreadsheetView.modulemap";
+				PRODUCT_MODULE_NAME = SpreadsheetView;
+				PRODUCT_NAME = SpreadsheetView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EE8BE727F54A08D47831E4F1C4FCB1AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3B1D25256FD8B18E604C1BEADC191C6 /* Pods-timetableUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-timetableUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-timetableUITests/Pods-timetableUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E12B7268EF0862DFEEB8B6B0BD7C9F4 /* Debug */,
+				CD8324D57CD462761E218EEA4EA91EC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50264AE067C463F0280BF3BBC5C7D135 /* Build configuration list for PBXNativeTarget "Pods-timetableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0802AFA0279BBE421295FEE1987FAB0A /* Debug */,
+				9957FE3AFA7DAEF433299558A9A8AC65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A20113C9225DB8B91DE968AE45F8600C /* Build configuration list for PBXNativeTarget "Pods-timetable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				194804DE0E1E3FFF785C882F04D6BFD0 /* Debug */,
+				A2295E1B8771DBDF8B26A6DC0AEDC5DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DACBD742FA218CB58628D3975E457FB4 /* Build configuration list for PBXNativeTarget "SpreadsheetView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A9956D254C6C98821A4535A41C2C748 /* Debug */,
+				E5D02C7FBD441FD2E17FD16137BA1F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAD3CD64663E9F37402294EEFD50F587 /* Build configuration list for PBXNativeTarget "Pods-timetableUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE294C4E417D69F9C07A02658D77E8EC /* Debug */,
+				EE8BE727F54A08D47831E4F1C4FCB1AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
