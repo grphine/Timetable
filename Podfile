@@ -8,6 +8,8 @@ target 'timetable' do
   # Pods for timetable
 
     pod 'SpreadsheetView'
+    pod 'RealmSwift'
+    pod 'SideMenu'
 
   target 'timetableTests' do
     inherit! :search_paths
