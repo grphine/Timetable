@@ -8,6 +8,9 @@ target 'timetable' do
   # Pods for timetable
 
     pod 'SpreadsheetView'
+    pod 'KYDrawerController'
+    pod 'RealmSwift'
+     
 
   target 'timetableTests' do
     inherit! :search_paths
