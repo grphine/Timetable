@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC782821D57FD0BBDE84119B7FFDD566"
-               BlueprintName = "SpreadsheetView"
+               BlueprintIdentifier = "9200527ACDAFDBBF44E558C0B9089D40"
+               BlueprintName = "SideMenu"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "SpreadsheetView.framework">
+               BuildableName = "SideMenu.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

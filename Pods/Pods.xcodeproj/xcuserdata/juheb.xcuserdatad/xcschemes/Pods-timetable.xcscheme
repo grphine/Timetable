@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0B8DCAD7306A4D932809B880F547045"
+               BlueprintIdentifier = "FD41AA2E7CE36B1BB455AFB974AF589E"
                BuildableName = "Pods_timetable.framework"
                BlueprintName = "Pods-timetable"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0B8DCAD7306A4D932809B880F547045"
+            BlueprintIdentifier = "FD41AA2E7CE36B1BB455AFB974AF589E"
             BuildableName = "Pods_timetable.framework"
             BlueprintName = "Pods-timetable"
             ReferencedContainer = "container:Pods.xcodeproj">

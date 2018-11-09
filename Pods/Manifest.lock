@@ -1,16 +1,30 @@
 PODS:
+  - Realm (3.11.1):
+    - Realm/Headers (= 3.11.1)
+  - Realm/Headers (3.11.1)
+  - RealmSwift (3.11.1):
+    - Realm (= 3.11.1)
+  - SideMenu (5.0.3)
   - SpreadsheetView (0.8.4)
 
 DEPENDENCIES:
+  - RealmSwift
+  - SideMenu
   - SpreadsheetView
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Realm
+    - RealmSwift
+    - SideMenu
     - SpreadsheetView
 
 SPEC CHECKSUMS:
+  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
+  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   SpreadsheetView: 17c55b6dc82099993cc2ceb818248d19f3220998
 
-PODFILE CHECKSUM: 5b63d5f37fa86ba90169af5cec4d149a18a8b702
+PODFILE CHECKSUM: 9b7132b6dc217663454ec17c0df045ff421dd46d
 
 COCOAPODS: 1.5.0

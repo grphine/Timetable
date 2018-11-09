@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC782821D57FD0BBDE84119B7FFDD566"
-               BlueprintName = "SpreadsheetView"
+               BlueprintIdentifier = "6AF22A1012C9BBD1B248E5A5F89E0426"
+               BlueprintName = "Realm"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "SpreadsheetView.framework">
+               BuildableName = "Realm.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
