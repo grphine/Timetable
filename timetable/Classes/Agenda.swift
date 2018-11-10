@@ -38,11 +38,10 @@ class AgendaViewController: UIViewController {
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
-        SideMenuManager.default.menuFadeStatusBar = false
+        SideMenuManager.default.menuFadeStatusBar = false //fix black menu
         
     }
     
-   
     
 
 
