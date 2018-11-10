@@ -47,6 +47,8 @@ class AgendaViewController: UIViewController {
         
         m.default.menuPresentMode = .viewSlideInOut //The existing view slides out while the menu slides in.
         
+        
+        
     }
     
     
