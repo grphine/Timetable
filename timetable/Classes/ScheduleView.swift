@@ -65,7 +65,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
-        return 1 + 1 + hours.count
+        return 2 + hours.count
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
