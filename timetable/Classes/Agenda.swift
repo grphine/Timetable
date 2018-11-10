@@ -28,17 +28,24 @@ class AgendaViewController: UIViewController {
     }
     
     fileprivate func setupSideMenu() {
+        
+        typealias m = SideMenuManager //typealias SideMenuManager to ease typing
+        
         // Define the menus
-        SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
+        m.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
         //SideMenuManager.default.menuRightNavigationController = storyboard!.instantiateViewController(withIdentifier: "RightMenuNavigationController") as? UISideMenuNavigationController
 
         
         // Enable gestures. The left and/or right menus must be set up above for these to work.
         // Note that these continue to work on the Navigation Controller independent of the View Controller it displays!
-        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        m.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        m.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
-        SideMenuManager.default.menuFadeStatusBar = false //fix black menu
+        m.default.menuFadeStatusBar = false //fix black menu
+        
+        m.default.menuPushStyle = .popWhenPossible //If a view controller already in the stack is of the same class as the pushed view controller, the stack is instead popped back to the existing view controller. This behavior can help users from getting lost in a deep navigation stack.
+        
+        m.default.menuPresentMode = .viewSlideInOut //The existing view slides out while the menu slides in.
         
     }
     
