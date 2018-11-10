@@ -60,9 +60,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="iQq-Gp-qhy">
-                        <barButtonItem key="rightBarButtonItem" title="Right Menu" id="TTf-qp-7uE">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="TTf-qp-7uE">
                             <connections>
-                                <segue destination="zMm-zd-ntj" kind="presentation" id="uak-vG-3U1"/>
+                                <segue destination="F7J-S1-N7s" kind="presentation" id="mgN-lp-lt6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -79,6 +79,7 @@
         <!--Side Menu Table View Controller-->
         <scene sceneID="U5c-DP-wVk">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDd-66-Uiv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="uCP-aR-jHS" customClass="SideMenuTableViewController" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pa0-yu-gji">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -101,9 +102,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Y6T-da-MuU" kind="presentation" id="SmR-nJ-swc"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="slY-VQ-4VL">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
@@ -146,7 +144,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="l9E-vS-54a"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cDd-66-Uiv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="962" y="36"/>
         </scene>
@@ -224,19 +221,112 @@
             <point key="canvasLocation" x="-1247" y="36"/>
         </scene>
         <!--Side Menu Navigation Controller-->
-        <scene sceneID="GRP-Ti-U6q">
+        <scene sceneID="vnc-6V-ZZP">
             <objects>
-                <navigationController storyboardIdentifier="LeftMenuNavigationController" navigationBarHidden="YES" id="zMm-zd-ntj" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hkB-al-TwI">
+                <navigationController storyboardIdentifier="LeftMenuNavigationController" navigationBarHidden="YES" id="F7J-S1-N7s" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="w4c-dJ-KO9"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="otf-jC-Zvw">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="uCP-aR-jHS" kind="relationship" relationship="rootViewController" id="eIg-Tz-bfw"/>
+                        <segue destination="7ww-Zw-VRV" kind="relationship" relationship="rootViewController" id="uhr-Cu-Vm7"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="70K-aN-xRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qSR-SN-S9C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244" y="36"/>
+            <point key="canvasLocation" x="244" y="809"/>
+        </scene>
+        <!--Side Menu Table View Controller-->
+        <scene sceneID="fao-ML-O19">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D3V-ZL-byp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="7ww-Zw-VRV" customClass="SideMenuTableViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CzP-on-nyk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="8" maxY="0.0"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="AUT-Z5-1XG">
+                            <rect key="frame" x="0.0" y="132" width="375" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <sections>
+                            <tableViewSection id="KYb-LB-3qy">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="4o8-74-hi5" style="IBUITableViewCellStyleDefault" id="UAg-Gi-Lxz" customClass="UITableViewVibrantCell" customModule="SideMenu">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UAg-Gi-Lxz" id="G0X-8O-JnO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4o8-74-hi5">
+                                                    <rect key="frame" x="15" y="0.0" width="344" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <segue destination="Y6T-da-MuU" kind="show" id="Ill-EM-vtC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Smp-cz-TIZ" style="IBUITableViewCellStyleDefault" id="dn8-fl-DQY" customClass="UITableViewVibrantCell" customModule="SideMenu">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dn8-fl-DQY" id="rkd-pJ-iaR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Push View Controller 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Smp-cz-TIZ">
+                                                    <rect key="frame" x="15" y="0.0" width="344" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Lze-vv-cqe" style="IBUITableViewCellStyleDefault" id="AlH-l4-lvp" customClass="UITableViewVibrantCell" customModule="SideMenu">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AlH-l4-lvp" id="PzR-i9-2uO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Push View Controller 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lze-vv-cqe">
+                                                    <rect key="frame" x="15" y="0.0" width="344" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="7ww-Zw-VRV" id="WG4-TR-f7Y"/>
+                            <outlet property="delegate" destination="7ww-Zw-VRV" id="VSX-UW-QOD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="GSY-kc-7MR"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="961" y="808"/>
         </scene>
     </scenes>
 </document>
