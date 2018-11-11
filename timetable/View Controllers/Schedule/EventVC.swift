@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Event: UIViewController {
+class EventVC: UIViewController {
     
     var rowColumn: [Int]!
 
