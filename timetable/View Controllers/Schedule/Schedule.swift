@@ -109,7 +109,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         var subject = ""
         
         for event in RepeatingEvents{
-            if event.occurences[column] == row{
+            if event.occurences[column-1] == [row-4]{
                 subject = event.name
                 print (subject)
             } //make clause for multiple items / ensure no conflicts
