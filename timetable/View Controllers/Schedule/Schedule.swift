@@ -55,6 +55,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(DayTitleCell.self, forCellWithReuseIdentifier: String(describing: DayTitleCell.self))
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
+       
         
     }
     
@@ -148,6 +149,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         column = indexPath.column
         
         print("Selected: (row: \(row), column: \(column))")
+        
+        performSegue(withIdentifier: "eventCreationSegue", sender: nil)
         
     }
     
