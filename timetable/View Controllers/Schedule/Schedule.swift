@@ -56,7 +56,11 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
        
+        let english = Event(name: "English", colour: 0xF2F16F, occurences: [[10,11],[10],[2],[4],[1],[],[]], description: "english lesson")
+        let maths = Event(name: "Maths", colour: 0xF2F16F, occurences: [[9, 12, 13],[9],[1],[3],[4,12,5,4],[],[]], description: "maths lesson")
         
+        RepeatingEvents.append(english)
+        RepeatingEvents.append(maths)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,9 +104,17 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         return 2
     }
     
-    func cellPopulator(column: Int, row: Int){
+    func cellPopulator(column: Int, row: Int) -> String{ //function to get event name at that time
         
+        var subject = ""
         
+        for event in RepeatingEvents{
+            if event.occurences[column] == row{
+                subject = event.name
+                print (subject)
+            } //make clause for multiple items / ensure no conflicts
+        }
+        return subject
         
     }
     
@@ -137,11 +149,10 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         //c1-end,r2-end (i.e. rest of the table) - set all other cells
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
-            let text = data[indexPath.column - 1][indexPath.row - 2]
             
-            //run function
+            let text = cellPopulator(column: indexPath.column, row: indexPath.row)
             
-            if !text.isEmpty {
+            if text == "" {
                 cell.label.text = text
                 let color = dayColors[indexPath.column - 1]
                 cell.label.textColor = color
@@ -154,6 +165,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
                 cell.borders.top = .none
                 cell.borders.bottom = .none
             }
+            
+            
             return cell
         }
         return nil

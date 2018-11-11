@@ -5,7 +5,7 @@
 //  Created by Juheb on 11/11/2018.
 //
 
-public var RepeatingEvents = ["Maths": [0x778BCD, [1: [9, 12, 13], 2: [9]], "Maths lessons", "reminders"], "English": [0xF2F16F, [1: [10, 14, 15], 2: [10]], "English lessons", "reminders"]]
+
 
 public var SingleEvents = ["dd/MM/yyyy": ["subject/name", "time", "colour", "description", "reminders"]]
 
@@ -13,15 +13,15 @@ var Hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
 
 
 
-struct Event { //struct to create events for timetable
+public struct Event {
     
     var name: String
     var colour: Int
-    var occurences: [Int: [Int]]
+    var occurences: [[Int]]
     var description: String
     //var reminder: Any
     
-    init(name: String, colour: Int, occurences: [Int: [Int]], description: String){
+    init(name: String, colour: Int, occurences: [[Int]], description: String){
         self.name = name
         self.colour = colour
         self.occurences = occurences
@@ -29,6 +29,16 @@ struct Event { //struct to create events for timetable
     }
 }
 
+public var RepeatingEvents: [Event] = []
+
+
+//func add(){
+//let maths = Event(name: "Maths", colour: 0xF2F16F, occurences: [[9, 12, 13],[9],[1],[3],[4,12,5,4],[],[]], description: "maths lesson")
+//let english = Event(name: "English", colour: 0xF2F16F, occurences: [[10,11],[10],[2],[4],[1],[],[]], description: "english lesson")
+//
+//RepeatingEvents.append(maths)
+//RepeatingEvents.append(english)
+//}
 
 
 /* array of dictionaries, for each item
