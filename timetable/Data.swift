@@ -5,7 +5,7 @@
 //  Created by Juheb on 11/11/2018.
 //
 
-
+import UIKit
 
 public var SingleEvents = ["dd/MM/yyyy": ["subject/name", "time", "colour", "description", "reminders"]]
 
@@ -16,12 +16,12 @@ var Hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
 public struct Event {
     
     var name: String
-    var colour: Int
+    var colour: UIColor
     var occurences: [[Int]]
     var description: String
     //var reminder: Any
     
-    init(name: String, colour: Int, occurences: [[Int]], description: String){
+    init(name: String, colour: UIColor, occurences: [[Int]], description: String){
         self.name = name
         self.colour = colour
         self.occurences = occurences
@@ -30,6 +30,7 @@ public struct Event {
 }
 
 public var RepeatingEvents: [Event] = []
+
 
 
 //func add(){

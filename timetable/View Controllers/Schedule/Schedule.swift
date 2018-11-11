@@ -56,8 +56,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
        
-        let english = Event(name: "English", colour: 0xF2F16F, occurences: [[10,11],[10],[2],[4],[1],[],[]], description: "english lesson")
-        let maths = Event(name: "Maths", colour: 0xF2F16F, occurences: [[9, 12, 13],[9],[1],[3],[4,12,5,4],[],[]], description: "maths lesson")
+        let english = Event(name: "English", colour: UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1), occurences: [[10,11],[10],[2],[4],[1],[],[]], description: "english lesson")
+        let maths = Event(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[9, 12, 13],[9],[1],[3],[4,12,5,4],[],[]], description: "maths lesson")
         
         RepeatingEvents.append(english)
         RepeatingEvents.append(maths)
@@ -104,18 +104,29 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         return 2
     }
     
-    func cellPopulator(column: Int, row: Int) -> String{ //function to get event name at that time
+    func nameFinder(column: Int, row: Int) -> String{ //function to get event name at that time
         
         var subject = ""
         
         for event in RepeatingEvents{
             if event.occurences[column-1] == [row-4]{
                 subject = event.name
-                print (subject)
             } //make clause for multiple items / ensure no conflicts
         }
         return subject
         
+    }
+    
+    func colourFinder(name: String) -> UIColor{
+        
+        var colour = UIColor()
+        for event in RepeatingEvents{
+            if event.name == name{
+                colour = event.colour
+            }
+        }
+        return colour
+            
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
@@ -150,15 +161,15 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             
-            let text = cellPopulator(column: indexPath.column, row: indexPath.row)
+            let text = nameFinder(column: indexPath.column, row: indexPath.row)
             
-            if text == "" {
+            if text != "" {
                 cell.label.text = text
-                let color = dayColors[indexPath.column - 1]
-                cell.label.textColor = color
-                cell.color = color.withAlphaComponent(0.2)
-                cell.borders.top = .solid(width: 2, color: color)
-                cell.borders.bottom = .solid(width: 2, color: color)
+                let colour = colourFinder(name: text.lowercased())
+                cell.label.textColor = colour
+                cell.color = colour.withAlphaComponent(0.2)
+                cell.borders.top = .solid(width: 2, color: colour)
+                cell.borders.bottom = .solid(width: 2, color: colour)
             } else {
                 cell.label.text = nil
                 cell.color = indexPath.row % 2 == 0 ? evenRowColor : oddRowColor
