@@ -100,6 +100,12 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         return 2
     }
     
+    func cellPopulator(column: Int, row: Int){
+        
+        
+        
+    }
+    
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
         
         //c1-end,r0 - set the date of the columns
@@ -132,6 +138,9 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             let text = data[indexPath.column - 1][indexPath.row - 2]
+            
+            //run function
+            
             if !text.isEmpty {
                 cell.label.text = text
                 let color = dayColors[indexPath.column - 1]
