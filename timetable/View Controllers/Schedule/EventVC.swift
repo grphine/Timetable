@@ -11,27 +11,32 @@ class EventVC: UIViewController {
     
     var event = Event()
     var name = String()
+    var columnRow: [Int]!
+    var eventItem = [EventItem]()
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var repeatSwitch: UISwitch!
     @IBOutlet weak var dateLabel: UITextField!
     @IBOutlet weak var priorityLabel: UITextField!
     @IBOutlet weak var descriptionLabel: UITextView!
-    
-    
-    var columnRow: [Int]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        name = event.nameByCell(column: columnRow[0], row: columnRow[1])
+        //name = event.nameByCell(column: columnRow[0], row: columnRow[1])
+        
+        eventItem = event.eventByCell(column: columnRow[0], row: columnRow[1])
+        
+        name = eventItem[0].name //since it is cast into an array. Not sure how to pull the event otherwise
         
         if name == ""{
             //error
         }
         else{
             nameLabel.text = name
-            descriptionLabel.text = event.descByCell(column: columnRow[0], row: columnRow[1])
+            descriptionLabel.text = eventItem[0].description
+            priorityLabel.text = String(describing: eventItem[0].priority)
+            dateLabel.text = String(describing: eventItem[0].occurences)
         }
         
         //print(columnRow as [Int])
