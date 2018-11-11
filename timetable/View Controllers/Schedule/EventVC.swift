@@ -9,6 +9,7 @@ import UIKit
 
 class EventVC: UIViewController {
     
+    //MARK: Variables
     var event = Event()
     var name = String()
     var columnRow: [Int]!
@@ -26,10 +27,9 @@ class EventVC: UIViewController {
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        //MARK: Setup data
         //name = event.nameByCell(column: columnRow[0], row: columnRow[1])
-        
         eventItem = event.eventByCell(column: columnRow[0], row: columnRow[1])
-        
         if eventItem.isEmpty == true {
             print("empty")
             //edit button unlocked automatically
@@ -49,28 +49,8 @@ class EventVC: UIViewController {
         
     }
     
-    @IBAction func submitButton(_ sender: UIButton) {
-        
-        
-        /*case (item conflict){
-            store where the conflict was found and output as popup
-         case (item out of range)
-            output error. Also check inputs dynamically maybe?
-         case (repeat event)
-            tell user to tap on event in ssv and edit
-        */
-        
-        //if all good:
-        
-        //delete current data and append new data
-        
-        //new struct initialisation for adding new event
-        
-        //send alerts of data being updated
-        
-        
-    }
     
+    //MARK: Edit button
     override func setEditing(_ editing: Bool, animated: Bool){
         
         super.setEditing(editing, animated: animated)
@@ -88,6 +68,29 @@ class EventVC: UIViewController {
             //unlock submit button
         }
         check += 1
+        
+    }
+    
+    //MARK: Submit button
+    @IBAction func submitButton(_ sender: UIButton) {
+        
+        
+        /*case (item conflict){
+         store where the conflict was found and output as popup
+         case (item out of range)
+         output error. Also check inputs dynamically maybe?
+         case (repeat event)
+         tell user to tap on event in ssv and edit
+         */
+        
+        //if all good:
+        
+        //delete current data and append new data
+        
+        //new struct initialisation for adding new event
+        
+        //send alerts of data being updated
+        
         
     }
     

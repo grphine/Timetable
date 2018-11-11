@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
+//MARK: Event class
 public class Event {
     
+    //MARK: nameByCell
     func nameByCell(column: Int, row: Int) -> String{ //get event name by cell
         var subject = ""
         for event in RepeatingEvents{
@@ -24,6 +26,7 @@ public class Event {
         
     }
     
+    //MARK: colourByCell
     func colourByCell(column: Int, row: Int) -> UIColor{ //get event colour by cell
         var colour = UIColor()
         for event in RepeatingEvents{
@@ -37,6 +40,7 @@ public class Event {
         
     }
     
+    //MARK: descByCell
     func descByCell(column: Int, row: Int) -> String{ //get event description by cell
         var desc = ""
         for event in RepeatingEvents{
@@ -50,6 +54,7 @@ public class Event {
         
     }
     
+    //MARK: eventByCell
     func eventByCell(column: Int, row: Int) -> [EventItem]{ //get event by cell
         var event = [EventItem]()
         for item in RepeatingEvents{
@@ -62,6 +67,7 @@ public class Event {
         return event
     }
     
+    //MARK: eventByName
     func eventByName(name: String) -> [EventItem] {
         var event = [EventItem]()
         for item in RepeatingEvents{
@@ -75,6 +81,7 @@ public class Event {
     
 }
 
+//MARK: EventItem struct
 public struct EventItem {
     
     var name: String

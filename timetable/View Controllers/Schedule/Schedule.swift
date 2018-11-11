@@ -2,8 +2,6 @@
 //  ViewController.swift
 //  SpreadsheetView
 //
-//  Created by Kishikawa Katsumi on 5/7/17.
-//  Copyright © 2017 Kishikawa Katsumi. All rights reserved.
 //
 
 import UIKit
@@ -29,15 +27,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
                  "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM", "11:00 PM"]
     let evenRowColor = UIColor(red: 0.914, green: 0.914, blue: 0.906, alpha: 1)
     let oddRowColor: UIColor = .white
-    let data = [
-        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
-    ]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +46,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(DayTitleCell.self, forCellWithReuseIdentifier: String(describing: DayTitleCell.self))
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
+        //MARK: Dummy Data
         let english = EventItem(name: "English", colour: UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1), occurences: [[9,10,11],[12],[11],[],[],[],[]], description: "english lesson", priority: 3)
         let maths = EventItem(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[11,12],[11],[13],[],[],[14],[14]], description: "maths lesson", priority: 3)
         
@@ -164,7 +155,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     
     /// Delegate
     
-    
+    //MARK: Segueing to EventVC
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
         
         row = indexPath.row
@@ -172,6 +163,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         //print("Selected: (column: \(column), row: \(row),)")
         
+        //TODO: prevent segue when locked cells tapped
         performSegue(withIdentifier: "eventCreationSegue", sender: nil)
         
     }

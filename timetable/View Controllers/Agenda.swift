@@ -27,6 +27,7 @@ class AgendaViewController: UIViewController {
         
     }
     
+    //MARK: Menu setup
     fileprivate func setupSideMenu() {
         
         typealias m = SideMenuManager //typealias SideMenuManager to ease typing

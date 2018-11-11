@@ -27,7 +27,7 @@ public class Queue<T> {
     }
     
     
-    
+    //MARK: Enqueue
     func enqueue(key: T) {
         let nextItem = Node(data: key)
         if let lastNode = last {
@@ -36,6 +36,8 @@ public class Queue<T> {
             head = nextItem
         }
     }
+    
+    //MARK: Dequeue
     func dequeue() -> T? {
         if self.head?.data == nil { return nil  }
         let out = head?.data
