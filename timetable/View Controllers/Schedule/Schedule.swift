@@ -165,7 +165,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
             
             if text != "" {
                 cell.label.text = text
-                let colour = colourFinder(name: text.lowercased())
+                //let colour = colourFinder(name: text.lowercased())
+                let colour = dayColors[indexPath.column - 1]
                 cell.label.textColor = colour
                 cell.color = colour.withAlphaComponent(0.2)
                 cell.borders.top = .solid(width: 2, color: colour)
