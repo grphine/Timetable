@@ -14,7 +14,7 @@ target 'timetable' do
   target 'timetableTests' do
     inherit! :search_paths
     # Pods for testing
-  end
+  end 
 
   target 'timetableUITests' do
     inherit! :search_paths
