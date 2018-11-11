@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/juheb/OneDrive - Eton College/Computer Science/Coursework/Timetable Xcode Project/timetable/timetable/View Controllers/Event.swift">
+   </FileRef>
+   <FileRef
       location = "group:timetable.xcodeproj">
    </FileRef>
    <FileRef

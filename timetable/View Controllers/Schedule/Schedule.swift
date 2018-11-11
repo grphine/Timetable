@@ -12,6 +12,9 @@ import SpreadsheetView
 class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
     
+    var row = 0
+    var column = 0 //to send row and column data to event view
+    
     let dates = ["01/11/18", "02/11/2018", "03/11/2018", "04/11/2018", "05/11/2018", "06/11/2018", "08/11/2018"]
     let days = ["MONDAY", "TUESDAY", "WEDNSDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     let dayColors = [UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1),
@@ -136,8 +139,20 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     
     /// Delegate
     
+    
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected: (row: \(indexPath.row), column: \(indexPath.column))")
+        
+        row = indexPath.row
+        column = indexPath.column
+        
+        print("Selected: (row: \(row), column: \(column))")
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
     }
     
     
