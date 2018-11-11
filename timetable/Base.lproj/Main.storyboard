@@ -105,7 +105,7 @@
                     <navigationItem key="navigationItem" title="DAILY SCHEDULE" id="62g-LM-r1l"/>
                     <connections>
                         <outlet property="spreadsheetView" destination="dzT-yf-jOf" id="dcg-DH-ALm"/>
-                        <segue destination="i7A-dO-FGm" kind="show" id="GiC-9J-sfk"/>
+                        <segue destination="i7A-dO-FGm" kind="show" identifier="eventCreationSegue" id="GiC-9J-sfk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5a-kB-6yT" sceneMemberID="firstResponder"/>
