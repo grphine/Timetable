@@ -158,8 +158,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         if segue.identifier == "eventCreationSegue"{
         
-            var destinationVC = segue.destination as! EventVC
-            destinationVC.rowColumn = [row, column]
+            let destinationVC = segue.destination as! EventVC
+            destinationVC.rowColumn = [row, column] //send row and column to event creation view
         }
         
     }
