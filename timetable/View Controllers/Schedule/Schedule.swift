@@ -56,8 +56,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(DayTitleCell.self, forCellWithReuseIdentifier: String(describing: DayTitleCell.self))
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
-        let english = EventItem(name: "English", colour: UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1), occurences: [[9,10,11],[12],[11],[],[],[],[]], description: "english lesson")
-        let maths = EventItem(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[11,12],[11],[13],[],[],[14],[14]], description: "maths lesson")
+        let english = EventItem(name: "English", colour: UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1), occurences: [[9,10,11],[12],[11],[],[],[],[]], description: "english lesson", priority: 3)
+        let maths = EventItem(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[11,12],[11],[13],[],[],[14],[14]], description: "maths lesson", priority: 3)
         
         RepeatingEvents.append(english)
         RepeatingEvents.append(maths)
@@ -147,8 +147,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
                 //let colour = dayColors[indexPath.column - 1]
                 cell.label.textColor = colour
                 cell.color = colour.withAlphaComponent(0.2)
-                cell.borders.top = .solid(width: 2, color: colour)
-                cell.borders.bottom = .solid(width: 2, color: colour)
+                cell.borders.top = .solid(width: 1, color: colour)
+                cell.borders.bottom = .solid(width: 1, color: colour)
             } else {
                 cell.label.text = nil
                 cell.color = indexPath.row % 2 == 0 ? evenRowColor : oddRowColor

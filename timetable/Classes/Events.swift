@@ -11,20 +11,20 @@ import UIKit
 
 public class Event {
     
-    func nameByCell(column: Int, row: Int) -> String{ //function to get event name at that time
+    func nameByCell(column: Int, row: Int) -> String{ //get event name by cell
         var subject = ""
         for event in RepeatingEvents{
             for rows in event.occurences[column-1]{
                 if rows == row + 4{
                     subject = event.name
                 }
-            } //make clause for multiple items / ensure no conflicts
+            }
         }
         return subject
         
     }
     
-    func colourByCell(column: Int, row: Int) -> UIColor{
+    func colourByCell(column: Int, row: Int) -> UIColor{ //get event colour by cell
         var colour = UIColor()
         for event in RepeatingEvents{
             for rows in event.occurences[column-1]{
@@ -37,17 +37,39 @@ public class Event {
         
     }
     
-    func descByCell(column: Int, row: Int) -> String{ //function to get event name at that time
+    func descByCell(column: Int, row: Int) -> String{ //get event description by cell
         var desc = ""
         for event in RepeatingEvents{
             for rows in event.occurences[column-1]{
                 if rows == row + 4{
                     desc = event.description
                 }
-            } //make clause for multiple items / ensure no conflicts
+            }
         }
         return desc
         
+    }
+    
+    func eventByCell(column: Int, row: Int) -> [EventItem]{ //get event by cell
+        var event = [EventItem]()
+        for item in RepeatingEvents{
+            for rows in item.occurences[column-1]{
+                if rows == row + 4{
+                    event = [item]
+                }
+            }
+        }
+        return event
+    }
+    
+    func eventByName(name: String) -> [EventItem] {
+        var event = [EventItem]()
+        for item in RepeatingEvents{
+            if item.name == name{
+                event = [item]
+            }
+        }
+        return event
     }
     
     
@@ -59,13 +81,15 @@ public struct EventItem {
     var colour: UIColor //Swift doesn't handle hex well
     var occurences: [[Int]]
     var description: String
+    var priority: Int
     //var reminder: Any
     
-    init(name: String, colour: UIColor, occurences: [[Int]], description: String){
+    init(name: String, colour: UIColor, occurences: [[Int]], description: String, priority: Int){
         self.name = name
         self.colour = colour
         self.occurences = occurences
         self.description = description
+        self.priority = priority
     }
 }
 

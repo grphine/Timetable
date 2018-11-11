@@ -35,11 +35,25 @@ class EventVC: UIViewController {
         }
         
         //print(columnRow as [Int])
+        
+        //let maths = EventItem(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[11,12],[11],[13],[],[],[14],[14]], description: "maths lesson")
 
         
     }
     
-
+    @IBAction func submitButton(_ sender: UIButton) {
+        
+        /*case (item conflict){
+            store where the conflict was found and output as popup
+         case (item out of range)
+            output error. Also check inputs dynamically maybe?
+         case (repeat event)
+            tell user to tap on event in ssv and edit
+ 
+        */
+        
+    }
+    
     /*
     // MARK: - Navigation
 
