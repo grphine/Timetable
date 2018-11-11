@@ -170,7 +170,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         row = indexPath.row
         column = indexPath.column
         
-        print("Selected: (row: \(row), column: \(column))")
+        print("Selected: column: \(column), (row: \(row),)")
         
         performSegue(withIdentifier: "eventCreationSegue", sender: nil)
         
@@ -181,7 +181,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         if segue.identifier == "eventCreationSegue"{
         
             let destinationVC = segue.destination as! EventVC
-            destinationVC.rowColumn = [row, column] //send row and column to event creation view
+            destinationVC.columnRow = [column, row] //send column and row to event creation view
         }
         
     }

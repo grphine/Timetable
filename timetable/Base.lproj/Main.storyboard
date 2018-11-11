@@ -102,7 +102,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oVc-JC-ldj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="DAILY SCHEDULE" id="62g-LM-r1l" userLabel="Schedule"/>
+                    <navigationItem key="navigationItem" title="Schedule" id="62g-LM-r1l" userLabel="Schedule"/>
                     <connections>
                         <outlet property="spreadsheetView" destination="dzT-yf-jOf" id="dcg-DH-ALm"/>
                         <segue destination="i7A-dO-FGm" kind="show" identifier="eventCreationSegue" id="GiC-9J-sfk"/>
@@ -346,14 +346,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Colour Picker"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MD9-fN-WPM">
-                                <rect key="frame" x="16" y="482" width="343" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <string key="text">Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3R-Ii-BOU">
                                 <rect key="frame" x="140" y="150" width="93" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -371,7 +363,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" text="Priority" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UaD-t7-02h">
-                                <rect key="frame" x="16" y="433" width="178" height="30"/>
+                                <rect key="frame" x="16" y="387" width="178" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -391,10 +383,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHW-N7-8BV">
+                                <rect key="frame" x="162" y="617" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MD9-fN-WPM">
+                                <rect key="frame" x="16" y="446" width="343" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <string key="text">Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="c6w-19-3oK"/>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="CEa-Yn-P05" id="Stq-rk-UjP"/>
+                        <outlet property="descriptionLabel" destination="MD9-fN-WPM" id="H7J-0f-Zsf"/>
+                        <outlet property="nameLabel" destination="QGh-u2-WFN" id="gVJ-9T-2qN"/>
+                        <outlet property="priorityLabel" destination="UaD-t7-02h" id="dxy-0t-lNI"/>
+                        <outlet property="repeatSwitch" destination="8QA-Pb-9mY" id="I6f-BY-eVh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ll7-3E-nva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -37,6 +37,19 @@ public class EventItem {
         
     }
     
+    func descFinder(column: Int, row: Int) -> String{ //function to get event name at that time
+        var desc = ""
+        for event in RepeatingEvents{
+            for rows in event.occurences[column-1]{
+                if rows == row + 4{
+                    desc = event.description
+                }
+            } //make clause for multiple items / ensure no conflicts
+        }
+        return desc
+        
+    }
+    
     
 }
 
