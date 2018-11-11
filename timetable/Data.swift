@@ -9,7 +9,7 @@ import UIKit
 
 public var SingleEvents = ["dd/MM/yyyy": ["subject/name", "time", "colour", "description", "reminders"]]
 
-public var RepeatingEvents: [Event] = []
+public var RepeatingEvents: [EventItem] = []
 
 
 

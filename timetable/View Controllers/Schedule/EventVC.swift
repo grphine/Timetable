@@ -9,7 +9,7 @@ import UIKit
 
 class EventVC: UIViewController {
     
-    var eventItem = EventItem()
+    var event = Event()
     var name = String()
     
     @IBOutlet weak var nameLabel: UITextField!
@@ -24,14 +24,14 @@ class EventVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        name = eventItem.nameByCell(column: columnRow[0], row: columnRow[1])
+        name = event.nameByCell(column: columnRow[0], row: columnRow[1])
         
         if name == ""{
             //error
         }
         else{
             nameLabel.text = name
-            descriptionLabel.text = eventItem.descByCell(column: columnRow[0], row: columnRow[1])
+            descriptionLabel.text = event.descByCell(column: columnRow[0], row: columnRow[1])
         }
         
         //print(columnRow as [Int])

@@ -12,7 +12,7 @@ import SpreadsheetView
 class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
     
-    var eventItem = EventItem()
+    var event = Event()
     var row = 0
     var column = 0 //to send row and column data to event view
     
@@ -56,8 +56,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(DayTitleCell.self, forCellWithReuseIdentifier: String(describing: DayTitleCell.self))
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
-        let english = Event(name: "English", colour: UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1), occurences: [[],[],[],[],[],[],[]], description: "english lesson")
-        let maths = Event(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[6],[7,8],[9,10,11],[12,13,14,15],[],[14],[14]], description: "maths lesson")
+        let english = EventItem(name: "English", colour: UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1), occurences: [[9,10,11],[12],[11],[],[],[],[]], description: "english lesson")
+        let maths = EventItem(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[11,12],[11],[13],[],[],[14],[14]], description: "maths lesson")
         
         RepeatingEvents.append(english)
         RepeatingEvents.append(maths)
@@ -139,11 +139,11 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             
-            let text = eventItem.nameByCell(column: indexPath.column, row: indexPath.row)
+            let text = event.nameByCell(column: indexPath.column, row: indexPath.row)
             
             if text != "" {
                 cell.label.text = text
-                let colour = eventItem.colourByCell(column: indexPath.column, row: indexPath.row)
+                let colour = event.colourByCell(column: indexPath.column, row: indexPath.row)
                 //let colour = dayColors[indexPath.column - 1]
                 cell.label.textColor = colour
                 cell.color = colour.withAlphaComponent(0.2)
@@ -170,7 +170,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         row = indexPath.row
         column = indexPath.column
         
-        print("Selected: column: \(column), (row: \(row),)")
+        //print("Selected: (column: \(column), row: \(row),)")
         
         performSegue(withIdentifier: "eventCreationSegue", sender: nil)
         

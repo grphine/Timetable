@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class EventItem {
+public class Event {
     
     func nameByCell(column: Int, row: Int) -> String{ //function to get event name at that time
         var subject = ""
@@ -53,7 +53,7 @@ public class EventItem {
     
 }
 
-public struct Event {
+public struct EventItem {
     
     var name: String
     var colour: UIColor //Swift doesn't handle hex well
