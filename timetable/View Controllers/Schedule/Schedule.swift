@@ -29,13 +29,13 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     let evenRowColor = UIColor(red: 0.914, green: 0.914, blue: 0.906, alpha: 1)
     let oddRowColor: UIColor = .white
     let data = [
-        ["a", "b", "c", "d", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "s", "", "", "", "n", "", "", "", "", "d", "", "a", "", ""],
-        ["", "", "a", "", "", "b", "c", "", "", "", "", "d", "", "", "", "", "", "", "", ""],
-        ["d", "", "", "s", "", "", "d", "", "", "d", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "a", "v", "", "h", "", "", "", "j", "", "", "", "", "", "", "", "", "", ""],
-        ["", "s", "", "", "", "v", "", "", "", "g", "", "", "j", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "b", "", "", "", "", "", "j", "", "l", "x", "", "", ""]
+        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
     ]
     
     override func viewDidLoad() {
@@ -101,24 +101,34 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
+        
+        //c1-end,r0 - set the date of the columns
         if case (1...(dates.count + 1), 0) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: DateCell.self), for: indexPath) as! DateCell
             cell.label.text = dates[indexPath.column - 1]
             return cell
+            
+        //c1-end,r1 - set day names of columns
         } else if case (1...(days.count + 1), 1) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: DayTitleCell.self), for: indexPath) as! DayTitleCell
             cell.label.text = days[indexPath.column - 1]
             cell.label.textColor = dayColors[indexPath.column - 1]
             return cell
+            
+        //c0,r1 - set cell name to TIME
         } else if case (0, 1) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: TimeTitleCell.self), for: indexPath) as! TimeTitleCell
             cell.label.text = "TIME"
             return cell
+            
+        //c0,r2-end - set hours of columns
         } else if case (0, 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: TimeCell.self), for: indexPath) as! TimeCell
             cell.label.text = hours[indexPath.row - 2]
             cell.backgroundColor = indexPath.row % 2 == 0 ? evenRowColor : oddRowColor
             return cell
+            
+        //c1-end,r2-end (i.e. rest of the table) - set all other cells
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             let text = data[indexPath.column - 1][indexPath.row - 2]
