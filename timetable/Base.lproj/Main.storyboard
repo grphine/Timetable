@@ -318,10 +318,10 @@
             </objects>
             <point key="canvasLocation" x="964" y="36.431784107946029"/>
         </scene>
-        <!--Event Creation-->
+        <!--Event-->
         <scene sceneID="fZY-fQ-8fY">
             <objects>
-                <viewController id="i7A-dO-FGm" customClass="EventCreation" sceneMemberID="viewController">
+                <viewController id="i7A-dO-FGm" customClass="Event" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VUq-3D-wSV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

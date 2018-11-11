@@ -156,8 +156,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //let destinationVC = segue.destination as! Event
-        //destinationVC.rowColumn = [row, column]
+        let destinationVC = segue.destination as! Event
+        destinationVC.rowColumn = [row, column]
         
     }
     
