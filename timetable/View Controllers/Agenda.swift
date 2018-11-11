@@ -39,7 +39,7 @@ class AgendaViewController: UIViewController {
         // Enable gestures. The left and/or right menus must be set up above for these to work.
         // Note that these continue to work on the Navigation Controller independent of the View Controller it displays!
         m.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-        m.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        m.default.menuAddScreenEdgePanGesturesToPresent(toView:forMenu:) //gestures for one menu
         
         m.default.menuFadeStatusBar = false //fix black menu
         
