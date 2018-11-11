@@ -13,6 +13,7 @@ class EventVC: UIViewController {
     var name = String()
     var columnRow: [Int]!
     var eventItem = [EventItem]()
+    var check = 0 //for edit button
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var repeatSwitch: UISwitch!
@@ -22,6 +23,8 @@ class EventVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         //name = event.nameByCell(column: columnRow[0], row: columnRow[1])
         
@@ -48,25 +51,46 @@ class EventVC: UIViewController {
     
     @IBAction func submitButton(_ sender: UIButton) {
         
+        
         /*case (item conflict){
             store where the conflict was found and output as popup
          case (item out of range)
             output error. Also check inputs dynamically maybe?
          case (repeat event)
             tell user to tap on event in ssv and edit
- 
         */
+        
+        //if all good:
+        
+        //delete current data and append new data
+        
+        //new struct initialisation for adding new event
+        
+        //send alerts of data being updated
+        
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func setEditing(_ editing: Bool, animated: Bool){
+        
+        super.setEditing(editing, animated: animated)
+        if check % 2 == 0{
+            //if check is even, user interaction enabled
+            //patientID.isUserInteractionEnabled = true
+            //put all fields into an array and set them all, potentially
+            //lock submit button
+            
+        }
+        else{
+            //user interaction disabled, while data input is then updated
+            //patientID.isUserInteractionEnabled = false
+            
+            //unlock submit button
+        }
+        check += 1
+        
     }
-    */
+    
+   
 
 }
