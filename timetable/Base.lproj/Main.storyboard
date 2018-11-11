@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="-514" y="37"/>
         </scene>
-        <!--DAILY SCHEDULE-->
+        <!--Schedule-->
         <scene sceneID="vby-PH-OJS">
             <objects>
-                <viewController id="Y6T-da-MuU" customClass="ScheduleView" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6T-da-MuU" userLabel="Schedule" customClass="ScheduleView" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wt2-YW-NfB"/>
                         <viewControllerLayoutGuide type="bottom" id="w9J-Ev-7TZ"/>
@@ -161,22 +161,22 @@
                         <color key="separatorColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="8" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="AUT-Z5-1XG">
-                            <rect key="frame" x="0.0" y="386" width="375" height="0.0"/>
+                            <rect key="frame" x="0.0" y="326" width="375" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <sections>
                             <tableViewSection id="KYb-LB-3qy">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="BjC-Uj-ipH" rowHeight="122" style="IBUITableViewCellStyleDefault" id="sbD-fd-udf" customClass="UITableViewVibrantCell" customModule="SideMenu">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="122"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="BjC-Uj-ipH" rowHeight="62" style="IBUITableViewCellStyleDefault" id="sbD-fd-udf" customClass="UITableViewVibrantCell" customModule="SideMenu">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sbD-fd-udf" id="QQC-4e-OSE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="121.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BjC-Uj-ipH">
-                                                    <rect key="frame" x="15" y="0.0" width="344" height="121.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="344" height="61.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -187,7 +187,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="4o8-74-hi5" style="IBUITableViewCellStyleDefault" id="UAg-Gi-Lxz" customClass="UITableViewVibrantCell" customModule="SideMenu">
-                                        <rect key="frame" x="0.0" y="122" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="62" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UAg-Gi-Lxz" id="G0X-8O-JnO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -208,7 +208,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="5kW-MK-sAQ" style="IBUITableViewCellStyleDefault" id="u9W-YR-5iC" customClass="UITableViewVibrantCell" customModule="SideMenu">
-                                        <rect key="frame" x="0.0" y="166" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="106" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u9W-YR-5iC" id="pOP-ri-yRg">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -229,7 +229,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="aYO-4C-99T" style="IBUITableViewCellStyleDefault" id="nVL-D8-ItC" customClass="UITableViewVibrantCell" customModule="SideMenu">
-                                        <rect key="frame" x="0.0" y="210" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="150" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nVL-D8-ItC" id="sqC-sI-Sz1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -250,7 +250,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="h08-8h-8rR" style="IBUITableViewCellStyleDefault" id="GLU-A9-wiT" customClass="UITableViewVibrantCell" customModule="SideMenu">
-                                        <rect key="frame" x="0.0" y="254" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="194" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLU-A9-wiT" id="1se-t8-IS5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -271,7 +271,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="fQ4-QA-zKI" style="IBUITableViewCellStyleDefault" id="xRC-Xb-kB1" customClass="UITableViewVibrantCell" customModule="SideMenu">
-                                        <rect key="frame" x="0.0" y="298" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="238" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xRC-Xb-kB1" id="OZ8-bE-s8W">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -292,7 +292,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="kfb-36-A6I" style="IBUITableViewCellStyleDefault" id="xp0-rl-X9B" customClass="UITableViewVibrantCell" customModule="SideMenu">
-                                        <rect key="frame" x="0.0" y="342" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="282" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xp0-rl-X9B" id="7bf-Ga-MLo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
