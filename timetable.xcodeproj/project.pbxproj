@@ -14,7 +14,7 @@
 		85E5D47921975945002BE951 /* SideMenuTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D47821975945002BE951 /* SideMenuTable.swift */; };
 		85E5D47C219799D8002BE951 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D47B219799D8002BE951 /* Alarm.swift */; };
 		85E5D4822198695F002BE951 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4812198695F002BE951 /* Data.swift */; };
-		85E5D48421987228002BE951 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48321987228002BE951 /* Event.swift */; };
+		85E5D4872198735E002BE951 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4862198735E002BE951 /* Event.swift */; };
 		85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF652188F85F006F8A6C /* AppDelegate.swift */; };
 		85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF672188F85F006F8A6C /* Agenda.swift */; };
 		85EDAF6B2188F85F006F8A6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85EDAF692188F85F006F8A6C /* Main.storyboard */; };
@@ -58,7 +58,7 @@
 		85E5D47821975945002BE951 /* SideMenuTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTable.swift; sourceTree = "<group>"; };
 		85E5D47B219799D8002BE951 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		85E5D4812198695F002BE951 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		85E5D48321987228002BE951 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Event.swift; path = "/Users/juheb/OneDrive - Eton College/Computer Science/Coursework/Timetable Xcode Project/timetable/timetable/View Controllers/Event.swift"; sourceTree = "<absolute>"; };
+		85E5D4862198735E002BE951 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Event.swift; path = "/Users/juheb/OneDrive - Eton College/Computer Science/Coursework/Timetable Xcode Project/timetable/timetable/View Controllers/Schedule/Event.swift"; sourceTree = "<absolute>"; };
 		85EDAF622188F85F006F8A6C /* timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EDAF652188F85F006F8A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85EDAF672188F85F006F8A6C /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				85E5D461219601CD002BE951 /* Schedule.swift */,
-				85E5D48321987228002BE951 /* Event.swift */,
+				85E5D4862198735E002BE951 /* Event.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -433,9 +433,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */,
-				85E5D48421987228002BE951 /* Event.swift in Sources */,
 				85E5D4822198695F002BE951 /* Data.swift in Sources */,
 				85E5D464219601F7002BE951 /* Cells.swift in Sources */,
+				85E5D4872198735E002BE951 /* Event.swift in Sources */,
 				85E5D47C219799D8002BE951 /* Alarm.swift in Sources */,
 				85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */,
 				85E5D41521907901002BE951 /* Node.swift in Sources */,
