@@ -27,12 +27,12 @@ class EventVC: UIViewController {
         
         eventItem = event.eventByCell(column: columnRow[0], row: columnRow[1])
         
-        name = eventItem[0].name //since it is cast into an array. Not sure how to pull the event otherwise
-        
-        if name == ""{
-            //error
+        if eventItem.isEmpty == true {
+            print("empty")
+            //edit button unlocked automatically
         }
         else{
+            name = eventItem[0].name //since it is cast into an array. Not sure how to pull the event otherwise
             nameLabel.text = name
             descriptionLabel.text = eventItem[0].description
             priorityLabel.text = String(describing: eventItem[0].priority)
