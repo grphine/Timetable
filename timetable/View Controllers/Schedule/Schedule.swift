@@ -12,6 +12,7 @@ import SpreadsheetView
 class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
     
+    var eventItem = EventItem()
     var row = 0
     var column = 0 //to send row and column data to event view
     
@@ -55,12 +56,12 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(DayTitleCell.self, forCellWithReuseIdentifier: String(describing: DayTitleCell.self))
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
-       
         let english = Event(name: "English", colour: UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1), occurences: [[],[],[],[],[],[],[]], description: "english lesson")
         let maths = Event(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[6],[7,8],[9,10,11],[12,13,14,15],[],[14],[14]], description: "maths lesson")
         
         RepeatingEvents.append(english)
         RepeatingEvents.append(maths)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -104,34 +105,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         return 2
     }
     
-    func nameFinder(column: Int, row: Int) -> String{ //function to get event name at that time
-        
-        var subject = ""
-        
-        for event in RepeatingEvents{
-            for rows in event.occurences[column-1]{
-                if rows == row + 4{
-                subject = event.name
-                }
-            } //make clause for multiple items / ensure no conflicts
-        }
-        return subject
-        
-    }
     
-    func colourFinder(column: Int, row: Int) -> UIColor{
-        
-        var colour = UIColor()
-        for event in RepeatingEvents{
-            for rows in event.occurences[column-1]{
-                if rows == row + 4{
-                    colour = event.colour
-                }
-            } //make clause for multiple items / ensure no conflicts
-        }
-        return colour
-            
-    }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
         
@@ -165,11 +139,11 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             
-            let text = nameFinder(column: indexPath.column, row: indexPath.row)
+            let text = eventItem.nameFinder(column: indexPath.column, row: indexPath.row)
             
             if text != "" {
                 cell.label.text = text
-                let colour = colourFinder(column: indexPath.column, row: indexPath.row)
+                let colour = eventItem.colourFinder(column: indexPath.column, row: indexPath.row)
                 //let colour = dayColors[indexPath.column - 1]
                 cell.label.textColor = colour
                 cell.color = colour.withAlphaComponent(0.2)
