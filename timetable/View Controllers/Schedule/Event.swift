@@ -8,9 +8,13 @@
 import UIKit
 
 class Event: UIViewController {
+    
+    var rowColumn: [Int]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(rowColumn)
 
         // Do any additional setup after loading the view.
     }

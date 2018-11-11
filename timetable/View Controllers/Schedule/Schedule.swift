@@ -54,6 +54,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(TimeCell.self, forCellWithReuseIdentifier: String(describing: TimeCell.self))
         spreadsheetView.register(DayTitleCell.self, forCellWithReuseIdentifier: String(describing: DayTitleCell.self))
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -150,8 +152,9 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        let toSend = segue.destination as! Event
+        toSend.rowColumn = [row, column]
         
     }
     
