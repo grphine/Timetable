@@ -11,7 +11,7 @@ import UIKit
 
 public class EventItem {
     
-    func nameFinder(column: Int, row: Int) -> String{ //function to get event name at that time
+    func nameByCell(column: Int, row: Int) -> String{ //function to get event name at that time
         var subject = ""
         for event in RepeatingEvents{
             for rows in event.occurences[column-1]{
@@ -24,7 +24,7 @@ public class EventItem {
         
     }
     
-    func colourFinder(column: Int, row: Int) -> UIColor{
+    func colourByCell(column: Int, row: Int) -> UIColor{
         var colour = UIColor()
         for event in RepeatingEvents{
             for rows in event.occurences[column-1]{
@@ -37,7 +37,7 @@ public class EventItem {
         
     }
     
-    func descFinder(column: Int, row: Int) -> String{ //function to get event name at that time
+    func descByCell(column: Int, row: Int) -> String{ //function to get event name at that time
         var desc = ""
         for event in RepeatingEvents{
             for rows in event.occurences[column-1]{

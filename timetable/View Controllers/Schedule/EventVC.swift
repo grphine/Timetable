@@ -24,14 +24,14 @@ class EventVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        name = eventItem.nameFinder(column: columnRow[0], row: columnRow[1])
+        name = eventItem.nameByCell(column: columnRow[0], row: columnRow[1])
         
         if name == ""{
             //error
         }
         else{
             nameLabel.text = name
-            descriptionLabel.text = eventItem.descFinder(column: columnRow[0], row: columnRow[1])
+            descriptionLabel.text = eventItem.descByCell(column: columnRow[0], row: columnRow[1])
         }
         
         //print(columnRow as [Int])

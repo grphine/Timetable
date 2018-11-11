@@ -139,11 +139,11 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             
-            let text = eventItem.nameFinder(column: indexPath.column, row: indexPath.row)
+            let text = eventItem.nameByCell(column: indexPath.column, row: indexPath.row)
             
             if text != "" {
                 cell.label.text = text
-                let colour = eventItem.colourFinder(column: indexPath.column, row: indexPath.row)
+                let colour = eventItem.colourByCell(column: indexPath.column, row: indexPath.row)
                 //let colour = dayColors[indexPath.column - 1]
                 cell.label.textColor = colour
                 cell.color = colour.withAlphaComponent(0.2)
