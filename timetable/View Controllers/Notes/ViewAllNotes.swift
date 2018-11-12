@@ -22,10 +22,10 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 40
+        tableView.rowHeight = 70
         
-        //noteStore.append(["3", "aigbaigbafg"])
-        //noteStore.append(["4", "asdufbadsfybasdofuybasdfasdfsdfasdfafvzdfbvbdvasdasdszvzdfv"])
+        noteStore.append(["3", "aigbaigbafg"])
+        noteStore.append(["4", "asdufbadsfybasdofuybasdfasdfsdfasdfafvzdfbvbdvasdasdszvzdfv"])
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
