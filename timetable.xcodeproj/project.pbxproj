@@ -17,6 +17,7 @@
 		85E5D4872198735E002BE951 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4862198735E002BE951 /* EventVC.swift */; };
 		85E5D4892198B3BF002BE951 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4882198B3BF002BE951 /* Events.swift */; };
 		85E5D48B2199C937002BE951 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48A2199C937002BE951 /* Alert.swift */; };
+		85E5D48D2199CAAC002BE951 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48C2199CAAC002BE951 /* Notes.swift */; };
 		85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF652188F85F006F8A6C /* AppDelegate.swift */; };
 		85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF672188F85F006F8A6C /* Agenda.swift */; };
 		85EDAF6B2188F85F006F8A6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85EDAF692188F85F006F8A6C /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		85E5D4862198735E002BE951 /* EventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventVC.swift; path = "/Users/juheb/OneDrive - Eton College/Computer Science/Coursework/Timetable Xcode Project/timetable/timetable/View Controllers/Schedule/EventVC.swift"; sourceTree = "<absolute>"; };
 		85E5D4882198B3BF002BE951 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Events.swift; path = timetable/Classes/Events.swift; sourceTree = SOURCE_ROOT; };
 		85E5D48A2199C937002BE951 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = timetable/Classes/Alert.swift; sourceTree = SOURCE_ROOT; };
+		85E5D48C2199CAAC002BE951 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Notes.swift; path = "timetable/View Controllers/Notes.swift"; sourceTree = SOURCE_ROOT; };
 		85EDAF622188F85F006F8A6C /* timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EDAF652188F85F006F8A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85EDAF672188F85F006F8A6C /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				85E5D47B219799D8002BE951 /* Alarm.swift */,
 				85EDAF672188F85F006F8A6C /* Agenda.swift */,
 				85E5D47821975945002BE951 /* SideMenuTable.swift */,
+				85E5D48C2199CAAC002BE951 /* Notes.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				85E5D41521907901002BE951 /* Node.swift in Sources */,
 				85EDAF6E2188F85F006F8A6C /* timetable.xcdatamodeld in Sources */,
 				85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */,
+				85E5D48D2199CAAC002BE951 /* Notes.swift in Sources */,
 				85E5D462219601CD002BE951 /* Schedule.swift in Sources */,
 				85E5D47921975945002BE951 /* SideMenuTable.swift in Sources */,
 			);
