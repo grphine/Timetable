@@ -633,7 +633,7 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notesCell" rowHeight="106" id="f5a-ld-tlL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notesCell" rowHeight="106" id="f5a-ld-tlL" customClass="NotesCell" customModule="timetable" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="106"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f5a-ld-tlL" id="4sD-vf-EnU">
@@ -657,6 +657,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="contentView" destination="4sD-vf-EnU" id="Tfz-Ot-4h1"/>
+                                    <outlet property="descriptionLabel" destination="Row-fm-tSM" id="g7s-Sv-A19"/>
+                                    <outlet property="titleLabel" destination="ga2-hJ-PCW" id="TOi-3x-ItI"/>
                                     <segue destination="XMY-l7-tGH" kind="show" identifier="showNote" id="S52-cx-VVl"/>
                                 </connections>
                             </tableViewCell>

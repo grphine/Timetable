@@ -20,6 +20,7 @@
 		85E5D48D2199CAAC002BE951 /* ViewAllNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */; };
 		85E5D4922199D878002BE951 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4912199D877002BE951 /* Notes.swift */; };
 		85E5D4942199DA0A002BE951 /* RealmSetupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4932199DA0A002BE951 /* RealmSetupFile.swift */; };
+		85E5D496219A0643002BE951 /* NotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D495219A0643002BE951 /* NotesCell.swift */; };
 		85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF652188F85F006F8A6C /* AppDelegate.swift */; };
 		85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF672188F85F006F8A6C /* Agenda.swift */; };
 		85EDAF6B2188F85F006F8A6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85EDAF692188F85F006F8A6C /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewAllNotes.swift; path = "timetable/View Controllers/Notes/ViewAllNotes.swift"; sourceTree = SOURCE_ROOT; };
 		85E5D4912199D877002BE951 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		85E5D4932199DA0A002BE951 /* RealmSetupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSetupFile.swift; sourceTree = "<group>"; };
+		85E5D495219A0643002BE951 /* NotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCell.swift; sourceTree = "<group>"; };
 		85EDAF622188F85F006F8A6C /* timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EDAF652188F85F006F8A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85EDAF672188F85F006F8A6C /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				85E5D4912199D877002BE951 /* Notes.swift */,
 				85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */,
+				85E5D495219A0643002BE951 /* NotesCell.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				85E5D41521907901002BE951 /* Node.swift in Sources */,
 				85EDAF6E2188F85F006F8A6C /* timetable.xcdatamodeld in Sources */,
 				85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */,
+				85E5D496219A0643002BE951 /* NotesCell.swift in Sources */,
 				85E5D48D2199CAAC002BE951 /* ViewAllNotes.swift in Sources */,
 				85E5D462219601CD002BE951 /* Schedule.swift in Sources */,
 				85E5D47921975945002BE951 /* SideMenuTable.swift in Sources */,
