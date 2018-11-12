@@ -163,7 +163,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         //print("Selected: (column: \(column), row: \(row),)")
         
-        //TODO: prevent segue when locked cells tapped
+        //FIXME: prevent segue when locked cells tapped
         performSegue(withIdentifier: "eventCreationSegue", sender: nil)
         
     }
