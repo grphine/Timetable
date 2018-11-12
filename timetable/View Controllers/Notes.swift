@@ -8,10 +8,18 @@
 
 import UIKit
 
-class Notes: UITableViewController {
+class Notes: UITableViewController, UISearchResultsUpdating {
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        <#code#>
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
