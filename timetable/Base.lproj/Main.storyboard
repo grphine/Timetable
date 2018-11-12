@@ -611,10 +611,10 @@
             </objects>
             <point key="canvasLocation" x="47" y="1081"/>
         </scene>
-        <!--Notes-->
+        <!--View All Notes-->
         <scene sceneID="6X0-eR-Itv">
             <objects>
-                <tableViewController id="4YO-rC-v8a" customClass="Notes" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4YO-rC-v8a" customClass="ViewAllNotes" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dOa-U2-Pet">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -671,10 +671,10 @@
             </objects>
             <point key="canvasLocation" x="1013.6" y="1083.5082458770617"/>
         </scene>
-        <!--View Note-->
+        <!--Notes-->
         <scene sceneID="fRf-pX-TLz">
             <objects>
-                <viewController id="XMY-l7-tGH" customClass="ViewNote" sceneMemberID="viewController">
+                <viewController id="XMY-l7-tGH" customClass="Notes" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qZy-FD-sAY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -711,6 +711,10 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pUy-Yo-VjI"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="aCW-BG-Qcc"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bodyField" destination="FzS-21-25d" id="4VO-Mp-5E9"/>
+                        <outlet property="titleField" destination="JGg-fI-AGG" id="rmp-Hy-GrV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXX-mI-9lr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

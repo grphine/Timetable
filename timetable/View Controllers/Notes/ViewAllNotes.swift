@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Notes: UITableViewController, UISearchResultsUpdating {
+class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     
     
     func updateSearchResults(for searchController: UISearchController) {
