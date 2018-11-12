@@ -22,6 +22,8 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = 40
+        
         //noteStore.append(["3", "aigbaigbafg"])
         //noteStore.append(["4", "asdufbadsfybasdofuybasdfasdfsdfasdfafvzdfbvbdvasdasdszvzdfv"])
 
@@ -47,7 +49,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell", for: indexPath) as! NotesCell
-
+        
         let fullnote = noteStore[indexPath.row]
         // Configure the cell...
         cell.configureCell(note: fullnote)
