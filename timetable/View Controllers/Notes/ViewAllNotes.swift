@@ -14,6 +14,10 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     //pull the notes from realm
     //get array of notes
     
+    var cell = 0
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
     func updateSearchResults(for searchController: UISearchController) {
         
     }
@@ -22,7 +26,13 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 70
+        tableView.rowHeight = 80
+        
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
+        //defines the search bar's actions
         
         noteStore.append(["3", "aigbaigbafg"])
         noteStore.append(["4", "asdufbadsfybasdofuybasdfasdfsdfasdfafvzdfbvbdvasdasdszvzdfv"])
@@ -94,14 +104,33 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     }
  
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: Navigation
+    func tableView(_ tableView: UITableView, didSelectItemAt indexPath: IndexPath) {
+        
+        cell = indexPath.row
+        
+        //print("Selected: (column: \(column), row: \(row),)")
+        
+        performSegue(withIdentifier: "showNote", sender: nil)
+        
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showNote"{
+            
+            let destinationVC = segue.destination as! Notes
+            destinationVC.cell = cell
+            destinationVC.addNoteSegue = false
+            
+        }
+        else if segue.identifier == "addNote"{
+        
+            let destinationVC = segue.destination as! Notes
+            destinationVC.addNoteSegue = true
+            
+        }
+        
+    }
 
 }

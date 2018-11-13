@@ -288,7 +288,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="ZqQ-N3-U6F" kind="show" id="OYD-Ta-MGx"/>
+                                            <segue destination="4YO-rC-v8a" kind="show" id="ZVZ-nC-syB"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="kfb-36-A6I" style="IBUITableViewCellStyleDefault" id="xp0-rl-X9B" customClass="UITableViewVibrantCell" customModule="SideMenu">
@@ -624,24 +624,24 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notesCell" rowHeight="106" id="f5a-ld-tlL" customClass="NotesCell" customModule="timetable" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="106"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notesCell" rowHeight="80" id="f5a-ld-tlL" customClass="NotesCell" customModule="timetable" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f5a-ld-tlL" id="4sD-vf-EnU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga2-hJ-PCW">
-                                            <rect key="frame" x="16" y="12" width="43" height="27"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Row-fm-tSM">
+                                            <rect key="frame" x="16" y="46" width="343" height="23"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Row-fm-tSM">
-                                            <rect key="frame" x="16" y="33" width="343" height="62"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga2-hJ-PCW">
+                                            <rect key="frame" x="16" y="11" width="43" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -663,14 +663,14 @@
                     <navigationItem key="navigationItem" id="pgl-gG-rPh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="I86-rJ-Rmj">
                             <connections>
-                                <segue destination="tS9-9m-Qou" kind="presentation" identifier="addItem" id="sfO-1Q-Fpc"/>
+                                <segue destination="tS9-9m-Qou" kind="presentation" identifier="addNote" id="sfO-1Q-Fpc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBj-g9-EFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1823" y="1020"/>
+            <point key="canvasLocation" x="1821.5999999999999" y="1019.640179910045"/>
         </scene>
         <!--Notes-->
         <scene sceneID="fRf-pX-TLz">
@@ -690,7 +690,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FzS-21-25d">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Note Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FzS-21-25d">
                                 <rect key="frame" x="16" y="119" width="343" height="528"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -709,8 +709,16 @@
                         <viewLayoutGuide key="safeArea" id="Fxt-DF-xlE"/>
                     </view>
                     <navigationItem key="navigationItem" id="DfZ-0t-Fvk">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pUy-Yo-VjI"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aCW-BG-Qcc"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pUy-Yo-VjI">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="XMY-l7-tGH" id="TwG-zO-Ejv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aCW-BG-Qcc">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="XMY-l7-tGH" id="N9U-LB-Aht"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bodyField" destination="FzS-21-25d" id="4VO-Mp-5E9"/>
@@ -875,6 +883,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="S52-cx-VVl"/>
+        <segue reference="Ey8-Bl-EGY"/>
+        <segue reference="Zct-HI-3io"/>
     </inferredMetricsTieBreakers>
 </document>
