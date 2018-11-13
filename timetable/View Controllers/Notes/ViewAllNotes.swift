@@ -88,8 +88,9 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            noteStore.remove(at: indexPath.row) //delete item from data
             tableView.deleteRows(at: [indexPath], with: .fade) //delete item from table
-            noteStore.remove(at: indexPath.row) //and from data
+            
         }
         
         tableView.reloadData() //reload after delete
@@ -112,7 +113,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
  
 
     //MARK: Navigation
-    func tableView(_ tableView: UITableView, didSelectItemAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tapped = indexPath.row
         print(indexPath.row)
         print(tapped)
