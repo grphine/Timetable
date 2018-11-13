@@ -23,15 +23,15 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(cell)
+        print(addNoteSegue)
+        print (noteStore)
+        
         alertController.addAction(dismissAction)
         
         if addNoteSegue == false{ //load data if user tapped on cell
             titleField.text = noteStore[cell][0]
             bodyField.text = noteStore[cell][1]
-        }
-        else if addNoteSegue == true{
-            titleField.text = ""
-            bodyField.text = ""
         }
         
         titleField.delegate = self
@@ -71,19 +71,21 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
             //if empty, present warning alert
         }
         else{
-            noteStore[cell][0] = titleField.text! //else, update data
-            noteStore[cell][1] = bodyField.text!
+            print (noteStore)
             
-//            if addNoteSegue == false{
-//                self.navigationController!.popViewController(animated: true)
-//
-//            }
-//            else if addNoteSegue == true{
-//                self.dismiss(animated: true, completion: nil)
-//            }
+            if addNoteSegue == false{
+                noteStore[cell][0] = titleField.text! //else, update data
+                noteStore[cell][1] = bodyField.text!
+                //self.navigationController!.popViewController(animated: true)
+
+            }
+            else if addNoteSegue == true{
+                noteStore.append([titleField.text!, bodyField.text!])
+                //self.dismiss(animated: true, completion: nil)
+            }
             self.navigationController!.popViewController(animated: true)
         }
-        print (noteStore)
+        
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem){
@@ -130,7 +132,7 @@ extension UITextField{
         self.layer.backgroundColor = UIColor.white.cgColor
         
         self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor(red: 80.0/255.0, green: 80.0/255.0, blue: 80.0/255.0, alpha: 0.5).cgColor
+        self.layer.shadowColor = UIColor(red: 80.0/255.0, green: 80.0/255.0, blue: 80.0/255.0, alpha: 0.25).cgColor
         self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0

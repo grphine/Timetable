@@ -14,7 +14,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     //pull the notes from realm
     //get array of notes
     
-    var cell = 0
+    var tapped = 0
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -113,10 +113,11 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
     //MARK: Navigation
     func tableView(_ tableView: UITableView, didSelectItemAt indexPath: IndexPath) {
-        
-        cell = indexPath.row
+        tapped = indexPath.row
+        print(indexPath.row)
+        print(tapped)
         performSegue(withIdentifier: "showNote", sender: nil)
-        print(cell)
+        
     }
     @IBAction func addNoteButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "addNote", sender: nil)
@@ -125,9 +126,9 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showNote"{
-            
+            print(tapped)
             let destinationVC = segue.destination as! Notes
-            destinationVC.cell = cell
+            destinationVC.cell = tapped
             destinationVC.addNoteSegue = false
             
         }
