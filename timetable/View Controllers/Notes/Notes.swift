@@ -54,20 +54,22 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
             noteStore[cell][1] = bodyField.text!
             
             if addNoteSegue == false{
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
+                
             }
             else if addNoteSegue == true{
-                self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem){
         if addNoteSegue == false{
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
+            
         }
         else if addNoteSegue == true{
-            self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
