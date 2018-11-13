@@ -639,7 +639,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga2-hJ-PCW">
-                                            <rect key="frame" x="16" y="11" width="43" height="27"/>
+                                            <rect key="frame" x="16" y="11" width="343" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                             <nil key="textColor"/>
@@ -883,7 +883,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ey8-Bl-EGY"/>
+        <segue reference="S52-cx-VVl"/>
         <segue reference="Zct-HI-3io"/>
     </inferredMetricsTieBreakers>
 </document>
