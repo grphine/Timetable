@@ -34,9 +34,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         tableView.tableHeaderView = searchController.searchBar
         //defines the search bar's actions
         
-        noteStore.append(["3", "aigbaigbafg"])
-        noteStore.append(["4", "asdufbadsfybasdofuybasdfasdfsdfasdfafvzdfbvbdvasdasdszvzdfv"])
-
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -113,20 +111,17 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
  
 
     //MARK: Navigation
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tapped = indexPath.row
-        print(indexPath.row)
-        print(tapped)
-        performSegue(withIdentifier: "showNote", sender: nil)
-        
-    }
-    @IBAction func addNoteButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "addNote", sender: nil)
-    }
+    
+//    @IBAction func addNoteButtonPressed(_ sender: Any) {
+//        performSegue(withIdentifier: "addNote", sender: nil)
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showNote"{
+            if let indexPath = self.tableView.indexPathForSelectedRow { //get indexPath.row here instead of did select row function
+                tapped = indexPath.row
+            }
             print(tapped)
             let destinationVC = segue.destination as! Notes
             destinationVC.cell = tapped

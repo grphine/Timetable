@@ -663,7 +663,6 @@
                     <navigationItem key="navigationItem" id="pgl-gG-rPh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="I86-rJ-Rmj">
                             <connections>
-                                <action selector="addNoteButtonPressed:" destination="4YO-rC-v8a" id="uxG-Xe-a9e"/>
                                 <segue destination="XMY-l7-tGH" kind="show" identifier="addNote" id="nI7-sb-Yqx"/>
                             </connections>
                         </barButtonItem>
@@ -866,7 +865,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nI7-sb-Yqx"/>
+        <segue reference="S52-cx-VVl"/>
         <segue reference="Zct-HI-3io"/>
     </inferredMetricsTieBreakers>
 </document>
