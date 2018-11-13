@@ -43,6 +43,13 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //sortedIDs = allData.keys.sorted()
+        //filteredPatients = sortedIDs.sorted()
+        super.viewWillAppear(true)
+        self.tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
@@ -81,8 +88,8 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.deleteRows(at: [indexPath], with: .fade) //delete item from table
+            noteStore.remove(at: indexPath.row) //and from data
         }
         
         tableView.reloadData() //reload after delete
