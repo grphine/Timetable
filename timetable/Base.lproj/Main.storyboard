@@ -663,7 +663,8 @@
                     <navigationItem key="navigationItem" id="pgl-gG-rPh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="I86-rJ-Rmj">
                             <connections>
-                                <segue destination="tS9-9m-Qou" kind="presentation" identifier="addNote" id="sfO-1Q-Fpc"/>
+                                <action selector="addNoteButtonPressed:" destination="4YO-rC-v8a" id="uxG-Xe-a9e"/>
+                                <segue destination="XMY-l7-tGH" kind="show" identifier="addNote" id="nI7-sb-Yqx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -846,24 +847,6 @@
             <point key="canvasLocation" x="2553" y="-1537"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ah0-ue-H9L">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tc6-A2-eqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tS9-9m-Qou" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="18M-UF-XcU">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XMY-l7-tGH" kind="relationship" relationship="rootViewController" id="Ey8-Bl-EGY"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="1822" y="1727"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="v97-gD-BRS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZqQ-N3-U6F" sceneMemberID="viewController">
@@ -883,7 +866,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="S52-cx-VVl"/>
+        <segue reference="nI7-sb-Yqx"/>
         <segue reference="Zct-HI-3io"/>
     </inferredMetricsTieBreakers>
 </document>

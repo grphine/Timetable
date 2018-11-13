@@ -75,27 +75,25 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
             noteStore[cell][1] = bodyField.text!
             
 //            if addNoteSegue == false{
-//                self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
+//                self.navigationController!.popViewController(animated: true)
 //
 //            }
 //            else if addNoteSegue == true{
 //                self.dismiss(animated: true, completion: nil)
 //            }
-            self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
-            
+            self.navigationController!.popViewController(animated: true)
         }
+        print (noteStore)
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem){
 //        if addNoteSegue == false{
-//            self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
-//
+//            self.navigationController!.popViewController(animated: true)
 //        }
 //        else if addNoteSegue == true{
 //            self.dismiss(animated: true, completion: nil)
 //        }
-        self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
-        
+        self.navigationController!.popViewController(animated: true)
     }
     
     //Text Field
@@ -132,7 +130,7 @@ extension UITextField{
         self.layer.backgroundColor = UIColor.white.cgColor
         
         self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor(red: 80.0/255.0, green: 80.0/255.0, blue: 80.0/255.0, alpha: 1.0).cgColor
+        self.layer.shadowColor = UIColor(red: 80.0/255.0, green: 80.0/255.0, blue: 80.0/255.0, alpha: 0.5).cgColor
         self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0

@@ -115,11 +115,11 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     func tableView(_ tableView: UITableView, didSelectItemAt indexPath: IndexPath) {
         
         cell = indexPath.row
-        
-        //print("Selected: (column: \(column), row: \(row),)")
-        
         performSegue(withIdentifier: "showNote", sender: nil)
-        
+        print(cell)
+    }
+    @IBAction func addNoteButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "addNote", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -139,5 +139,8 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         }
         
     }
+    
+    
+    
 
 }
