@@ -76,12 +76,13 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
             
 //            if addNoteSegue == false{
 //                self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
-//                
+//
 //            }
 //            else if addNoteSegue == true{
 //                self.dismiss(animated: true, completion: nil)
 //            }
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
+            
         }
     }
     
@@ -93,7 +94,8 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
 //        else if addNoteSegue == true{
 //            self.dismiss(animated: true, completion: nil)
 //        }
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController!.popViewController(animated: true) //add note presents modally. Therefore pop from stack
+        
     }
     
     //Text Field
