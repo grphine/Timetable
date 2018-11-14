@@ -114,7 +114,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
             filteredNotes = allNotes.filter { individual in
-                return (individual.body.contains(searchText) || individual.title.contains(searchText))
+                return (individual.body.contains(searchText.lowercased()) || individual.title.contains(searchText.lowercased()))
             }
         } else {
             filteredNotes = allNotes
