@@ -70,8 +70,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell", for: indexPath) as! NotesCell
         
         let fullnote = allNotes[indexPath.row]
-//        cell.titleLabel.text = (fullnote as AnyObject).title
-//        cell.descriptionLabel.text = (fullnote as AnyObject).body
         cell.configureCell(note: fullnote as! NoteData)
         return cell
     }
@@ -89,14 +87,28 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            noteStore.remove(at: indexPath.row) //delete item from data
+            //allNotes.remove(at: indexPath.row) //delete item from array
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                tappedId = (allNotes[indexPath.row] as AnyObject).id
+                let noteToBeDeleted = uiRealm.object(ofType: NoteData.self, forPrimaryKey: tappedId)! //get note by primary key
+                try! uiRealm.write {
+                    uiRealm.delete(noteToBeDeleted)
+                }
+            }
             tableView.deleteRows(at: [indexPath], with: .fade) //delete item from table
-            //FIXME: delete
         }
-        
+        allNotes = uiRealm.objects(NoteData.self).toArray()
         tableView.reloadData() //reload after delete
     }
     
+    //add delete note button?
+    //    // let cheeseBook = ... Book stored in Realm
+    //
+    //    // Delete an object with a transaction
+    //    try! uiRealm.write {
+    //    uiRealm.delete(cheeseBook)
+    //    }
 
     
     // Override to support rearranging the table view.
