@@ -89,16 +89,16 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         if editingStyle == .delete {
             //allNotes.remove(at: indexPath.row) //delete item from array
             
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                tappedId = (allNotes[indexPath.row] as AnyObject).id
-                let noteToBeDeleted = uiRealm.object(ofType: NoteData.self, forPrimaryKey: tappedId)! //get note by primary key
-                try! uiRealm.write {
-                    uiRealm.delete(noteToBeDeleted)
-                }
+            tappedId = (allNotes[indexPath.row] as AnyObject).id
+            let noteToBeDeleted = uiRealm.object(ofType: NoteData.self, forPrimaryKey: tappedId)! //get note by primary key
+            print(noteToBeDeleted)
+            try! uiRealm.write {
+                uiRealm.delete(noteToBeDeleted)
             }
+            
+            allNotes = uiRealm.objects(NoteData.self).toArray() //update change made to array
             tableView.deleteRows(at: [indexPath], with: .fade) //delete item from table
         }
-        allNotes = uiRealm.objects(NoteData.self).toArray()
         tableView.reloadData() //reload after delete
     }
     
