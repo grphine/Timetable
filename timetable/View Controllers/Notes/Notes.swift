@@ -23,6 +23,8 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
     let alertController = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
     let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil)
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +32,7 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         
         if addNoteSegue == false{ //load data if user tapped on cell
             currentNote = realm.object(ofType: NoteData.self, forPrimaryKey: noteId)! //get note by primary key
-            //String(describing: noteId) in case quesry must be string
+            
         }
         
         titleField.delegate = self

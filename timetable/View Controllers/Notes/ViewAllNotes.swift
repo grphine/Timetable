@@ -14,7 +14,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     //pull the notes from realm
     //get array of notes
     
-    var tappedId = Date()
+    var tappedId = String()
     let realm = try! Realm()
     var allNotes = [Any]()
     
@@ -28,11 +28,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //allNotes = realm.objects(NoteData.self) // retrieves all notes from the default Realm
         
-        let allNotes2 = realm.objects(NoteData.self) // retrieves all Notes from the default Realm
-        
-        print(allNotes2)
         tableView.rowHeight = 80
         
         searchController.searchResultsUpdater = self
@@ -40,17 +36,12 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         //defines the search bar's actions
-        
-        
-        
-    
+       
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +92,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         if editingStyle == .delete {
             noteStore.remove(at: indexPath.row) //delete item from data
             tableView.deleteRows(at: [indexPath], with: .fade) //delete item from table
-            
+            //FIXME: delete
         }
         
         tableView.reloadData() //reload after delete
@@ -125,32 +116,24 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
     //MARK: Navigation
     
-//    @IBAction func addNoteButtonPressed(_ sender: Any) {
-//        performSegue(withIdentifier: "addNote", sender: nil)
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showNote"{
             if let indexPath = self.tableView.indexPathForSelectedRow { //get indexPath.row here instead of did select row function
-                //tappedId = indexPath.row
+                tappedId = (allNotes[indexPath.row] as AnyObject).id
             }
             print(tappedId)
             let destinationVC = segue.destination as! Notes
-            //destinationVC.cell = noteId
             destinationVC.addNoteSegue = false
+            destinationVC.noteId = tappedId
             
         }
         else if segue.identifier == "addNote"{
         
             let destinationVC = segue.destination as! Notes
             destinationVC.addNoteSegue = true
-            
         }
         
     }
     
-    
-    
-
 }
