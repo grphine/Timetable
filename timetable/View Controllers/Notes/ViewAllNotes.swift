@@ -15,8 +15,8 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     //get array of notes
     
     var tappedId = String()
-    var allNotes = [Any]()
-    var filteredNotes = [Any]()
+    var allNotes = [NoteData]()
+    var filteredNotes = [NoteData]()
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -25,7 +25,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         super.viewDidLoad()
         
         tableView.rowHeight = 80
-        
         
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
@@ -43,8 +42,10 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        allNotes = uiRealm.objects(NoteData.self).toArray() //add all note items to allNotes array
+        allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //add all note items to allNotes array
         filteredNotes = allNotes
+        
+        
         self.tableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,7 +72,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell", for: indexPath) as! NotesCell
         
         let fullnote = filteredNotes[indexPath.row]
-        cell.configureCell(note: fullnote as! NoteData)
+        cell.configureCell(note: fullnote)
         return cell
     }
 
@@ -94,7 +95,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             }
             tableView.deleteRows(at: [indexPath], with: .fade) //delete item from table
         }
-        allNotes = uiRealm.objects(NoteData.self).toArray()
+        allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData]
         tableView.reloadData() //reload after delete
     }
     
@@ -113,7 +114,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
             filteredNotes = allNotes.filter { individual in
-                return (individual as AnyObject).contains(searchText)
+                return (individual.body.contains(searchText) || individual.title.contains(searchText))
             }
         } else {
             filteredNotes = allNotes
