@@ -14,7 +14,10 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     //pull the notes from realm
     //get array of notes
     
-    var tapped = 0
+    var tappedId = Date()
+    let realm = try! Realm()
+    var allNotes = [Any]()
+    
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -25,7 +28,11 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //allNotes = realm.objects(NoteData.self) // retrieves all notes from the default Realm
         
+        let allNotes2 = realm.objects(NoteData.self) // retrieves all Notes from the default Realm
+        
+        print(allNotes2)
         tableView.rowHeight = 80
         
         searchController.searchResultsUpdater = self
@@ -34,18 +41,25 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         tableView.tableHeaderView = searchController.searchBar
         //defines the search bar's actions
         
+        
+        
     
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //sortedIDs = allData.keys.sorted()
         //filteredPatients = sortedIDs.sorted()
         super.viewWillAppear(true)
+        
+        allNotes = realm.objects(NoteData.self).toArray() //add all note items to allNotes array
+        print(allNotes)
         self.tableView.reloadData()
     }
 
@@ -58,18 +72,17 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return noteStore.count
+        return allNotes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell", for: indexPath) as! NotesCell
         
-        let fullnote = noteStore[indexPath.row]
-        // Configure the cell...
-        cell.configureCell(note: fullnote)
-        //cannot configure cell
-        
+        let fullnote = allNotes[indexPath.row]
+//        cell.titleLabel.text = (fullnote as AnyObject).title
+//        cell.descriptionLabel.text = (fullnote as AnyObject).body
+        cell.configureCell(note: fullnote as! NoteData)
         return cell
     }
     
@@ -120,11 +133,11 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         
         if segue.identifier == "showNote"{
             if let indexPath = self.tableView.indexPathForSelectedRow { //get indexPath.row here instead of did select row function
-                tapped = indexPath.row
+                //tappedId = indexPath.row
             }
-            print(tapped)
+            print(tappedId)
             let destinationVC = segue.destination as! Notes
-            destinationVC.cell = tapped
+            //destinationVC.cell = noteId
             destinationVC.addNoteSegue = false
             
         }

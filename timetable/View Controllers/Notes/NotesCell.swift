@@ -25,10 +25,9 @@ class NotesCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(note: [String]) {
-        self.titleLabel.text = note[0]
-        self.descriptionLabel.text = note[1]
-        
+    func configureCell(note: NoteData) {
+        self.titleLabel.text = note.title
+        self.descriptionLabel.text = note.body
     }
 
 }

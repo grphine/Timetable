@@ -11,7 +11,27 @@ import RealmSwift
 
 class NoteData: Object {
     
+    @objc dynamic var id = ""
+    
     @objc dynamic var title = ""
-    @objc dynamic var datetime = NSDate()
+    @objc dynamic var age = Date()
     @objc dynamic var body = ""
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
+extension Results {
+    
+    func toArray() -> [Any] {
+        return self.map{$0}
+    }
+}
+
+extension RealmSwift.List {
+    
+    func toArray() -> [Any] {
+        return self.map{$0}
+    }
 }

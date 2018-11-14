@@ -14,8 +14,11 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var bodyField: UITextView!
     
-    var cell: Int!
-    var addNoteSegue: Bool!
+    var addNoteSegue: Bool! //check whether adding or modifying note
+    var noteId: String! //ID is string
+    var currentNote = NoteData() //instantiate note and write the values to database
+    
+    let realm = try! Realm() //instantiate realm
     
     let alertController = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
     let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil)
@@ -23,15 +26,11 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(cell)
-        print(addNoteSegue)
-        print (noteStore)
-        
         alertController.addAction(dismissAction)
         
         if addNoteSegue == false{ //load data if user tapped on cell
-            titleField.text = noteStore[cell][0]
-            bodyField.text = noteStore[cell][1]
+            currentNote = realm.object(ofType: NoteData.self, forPrimaryKey: noteId)! //get note by primary key
+            //String(describing: noteId) in case quesry must be string
         }
         
         titleField.delegate = self
@@ -41,26 +40,6 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         
     }
     
-  /*
-     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        if addNoteSegue == false{ //load data if user tapped on cell
-            titleField.text = noteStore[cell][0]
-            bodyField.text = noteStore[cell][1]
-        }
-        else if addNoteSegue == true{
-            titleField.text = ""
-            bodyField.text = ""
-        }
-        
-        titleField.delegate = self
-        bodyField.delegate = self
-        
-        titleField.setBottomBorder() //add border style to title
-        
-    }
-     */
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem){
         if (titleField.text == "" || bodyField.text == "" || bodyField.text == "Note Description") { //check if empty
@@ -71,32 +50,36 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
             //if empty, present warning alert
         }
         else{
-            print (noteStore)
             
-            if addNoteSegue == false{
-                noteStore[cell][0] = titleField.text! //else, update data
-                noteStore[cell][1] = bodyField.text!
-                //self.navigationController!.popViewController(animated: true)
-
+            if addNoteSegue == true{
+                noteId = String(describing: Date(timeIntervalSince1970: 1)) //create new ID
             }
-            else if addNoteSegue == true{
-                noteStore.append([titleField.text!, bodyField.text!])
-                //self.dismiss(animated: true, completion: nil)
+            
+            currentNote.title = titleField.text!
+            currentNote.body = bodyField.text!
+            currentNote.age = Date(timeIntervalSinceNow: 1)
+            currentNote.id = noteId
+            
+            try! realm.write {
+                realm.add(currentNote, update: true)
             }
+            
             self.navigationController!.popViewController(animated: true)
         }
         
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem){
-//        if addNoteSegue == false{
-//            self.navigationController!.popViewController(animated: true)
-//        }
-//        else if addNoteSegue == true{
-//            self.dismiss(animated: true, completion: nil)
-//        }
         self.navigationController!.popViewController(animated: true)
     }
+    
+    //add delete note button?
+//    // let cheeseBook = ... Book stored in Realm
+//
+//    // Delete an object with a transaction
+//    try! realm.write {
+//    realm.delete(cheeseBook)
+//    }
     
     //Text Field
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -109,20 +92,6 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
             textView.text = ""
         }
     }
-    
-    
-   /*
- 
-    onsubmit
-        carry out validation the fields aren't empty
-        submit the field data to realm
-     
-     let newNote = NoteData()
-     newNote.title = titleField.text!
-     newNote.body = bodyField.text!
-
-     
-    */
 
 }
 
