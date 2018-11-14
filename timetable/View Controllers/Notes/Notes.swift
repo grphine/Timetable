@@ -88,8 +88,14 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
 
     
     //Text Field
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    func textFieldShouldReturn(_ textField: UITextField, textView: UITextView) -> Bool {
+        if let nextText = textView.superview?.viewWithTag(textField.tag + 1) as? UITextView{
+            nextText.becomeFirstResponder()
+        }
+        else{
+            textField.resignFirstResponder()
+        }
+        
         return false
     }
     
