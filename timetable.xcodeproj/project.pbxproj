@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B01D2BA219C95BB00B864BE /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B01D2B9219C95BB00B864BE /* EventVC.swift */; };
 		85E5D41521907901002BE951 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D41421907901002BE951 /* Node.swift */; };
 		85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4162190792F002BE951 /* Linked List Queue.swift */; };
 		85E5D462219601CD002BE951 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D461219601CD002BE951 /* Schedule.swift */; };
@@ -14,7 +15,6 @@
 		85E5D47921975945002BE951 /* SideMenuTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D47821975945002BE951 /* SideMenuTable.swift */; };
 		85E5D47C219799D8002BE951 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D47B219799D8002BE951 /* Alarm.swift */; };
 		85E5D4822198695F002BE951 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4812198695F002BE951 /* Data.swift */; };
-		85E5D4872198735E002BE951 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4862198735E002BE951 /* EventVC.swift */; };
 		85E5D4892198B3BF002BE951 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4882198B3BF002BE951 /* Events.swift */; };
 		85E5D48B2199C937002BE951 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48A2199C937002BE951 /* Alert.swift */; };
 		85E5D48D2199CAAC002BE951 /* ViewAllNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */; };
@@ -56,6 +56,7 @@
 		18A0AA455F4F19CA3040F15C /* Pods_timetableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timetableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30CA08320809A54904896F3F /* Pods_timetableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timetableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59677FD43000C9CB9E16977F /* Pods-timetableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetableUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-timetableUITests/Pods-timetableUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6B01D2B9219C95BB00B864BE /* EventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventVC.swift; path = "/Users/habib.j/OneDrive - Eton College/Computer Science/Coursework/Timetable Xcode Project/timetable/timetable/View Controllers/Schedule/EventVC.swift"; sourceTree = "<absolute>"; };
 		7587BFE866153DD791EC0648 /* Pods-timetableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-timetableTests/Pods-timetableTests.release.xcconfig"; sourceTree = "<group>"; };
 		85E5D41421907901002BE951 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		85E5D4162190792F002BE951 /* Linked List Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Linked List Queue.swift"; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		85E5D47821975945002BE951 /* SideMenuTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTable.swift; sourceTree = "<group>"; };
 		85E5D47B219799D8002BE951 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		85E5D4812198695F002BE951 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		85E5D4862198735E002BE951 /* EventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventVC.swift; path = "/Users/juheb/OneDrive - Eton College/Computer Science/Coursework/Timetable Xcode Project/timetable/timetable/View Controllers/Schedule/EventVC.swift"; sourceTree = "<absolute>"; };
 		85E5D4882198B3BF002BE951 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Events.swift; path = timetable/Classes/Events.swift; sourceTree = SOURCE_ROOT; };
 		85E5D48A2199C937002BE951 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = timetable/Classes/Alert.swift; sourceTree = SOURCE_ROOT; };
 		85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewAllNotes.swift; path = "timetable/View Controllers/Notes/ViewAllNotes.swift"; sourceTree = SOURCE_ROOT; };
@@ -171,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				85E5D461219601CD002BE951 /* Schedule.swift */,
-				85E5D4862198735E002BE951 /* EventVC.swift */,
+				6B01D2B9219C95BB00B864BE /* EventVC.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -463,7 +463,6 @@
 				85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */,
 				85E5D4822198695F002BE951 /* Data.swift in Sources */,
 				85E5D464219601F7002BE951 /* Cells.swift in Sources */,
-				85E5D4872198735E002BE951 /* EventVC.swift in Sources */,
 				85E5D4922199D878002BE951 /* Notes.swift in Sources */,
 				85E5D48B2199C937002BE951 /* Alert.swift in Sources */,
 				85E5D47C219799D8002BE951 /* Alarm.swift in Sources */,
@@ -473,6 +472,7 @@
 				85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */,
 				85E5D496219A0643002BE951 /* NotesCell.swift in Sources */,
 				85E5D48D2199CAAC002BE951 /* ViewAllNotes.swift in Sources */,
+				6B01D2BA219C95BB00B864BE /* EventVC.swift in Sources */,
 				85E5D462219601CD002BE951 /* Schedule.swift in Sources */,
 				85E5D47921975945002BE951 /* SideMenuTable.swift in Sources */,
 			);
