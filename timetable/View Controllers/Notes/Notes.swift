@@ -29,7 +29,7 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         alertController.addAction(dismissAction)
         
         if addNoteSegue == false{ //load data if user tapped on cell
-            currentNote = realm.object(ofType: NoteData.self, forPrimaryKey: noteId)! //get note by primary key
+            currentNote = uiRealm.object(ofType: NoteData.self, forPrimaryKey: noteId)! //get note by primary key
             
             titleField.text = currentNote.title
             bodyField.text = currentNote.body
@@ -62,9 +62,10 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
             currentNote.age = Date(timeIntervalSinceNow: 1)
             currentNote.id = noteId
             
-            try! realm.write { () -> Void in
-                realm.add(currentNote, update: true)
+            try! uiRealm.write {
+                uiRealm.add(currentNote, update: true)
             }
+            
             
             self.navigationController!.popViewController(animated: true)
         }
@@ -79,8 +80,8 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
 //    // let cheeseBook = ... Book stored in Realm
 //
 //    // Delete an object with a transaction
-//    try! realm.write {
-//    realm.delete(cheeseBook)
+//    try! uiRealm.write {
+//    uiRealm.delete(cheeseBook)
 //    }
     
     //Text Field

@@ -48,7 +48,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         //filteredPatients = sortedIDs.sorted()
         super.viewWillAppear(true)
         
-        allNotes = realm.objects(NoteData.self).toArray() //add all note items to allNotes array
+        allNotes = uiRealm.objects(NoteData.self).toArray() //add all note items to allNotes array
         print(allNotes)
         self.tableView.reloadData()
     }

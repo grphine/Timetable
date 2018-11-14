@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-let realm = try! Realm() //instantiate realm
+let uiRealm = try! Realm() //instantiate realm
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
