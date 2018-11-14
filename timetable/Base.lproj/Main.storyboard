@@ -661,6 +661,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="pgl-gG-rPh">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="5yM-gL-tJ1">
+                            <rect key="frame" x="97.5" y="7.5" width="180" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Date"/>
+                                <segment title="A-Z"/>
+                            </segments>
+                            <connections>
+                                <action selector="didSelectSort:" destination="4YO-rC-v8a" eventType="valueChanged" id="67K-fV-6Hy"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="I86-rJ-Rmj">
                             <connections>
                                 <segue destination="XMY-l7-tGH" kind="show" identifier="addNote" id="nI7-sb-Yqx"/>

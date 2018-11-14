@@ -113,8 +113,8 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     //MARK: Search
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            filteredNotes = allNotes.filter { individual in
-                return (individual.body.contains(searchText.lowercased()) || individual.title.contains(searchText.lowercased()))
+            filteredNotes = allNotes.filter { notes in
+                return (notes.body.contains(searchText.lowercased()) || notes.title.contains(searchText.lowercased()))
             }
         } else {
             filteredNotes = allNotes
@@ -123,9 +123,28 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         tableView.reloadData()
         //reloads tableview with new data given by searching
     }
+    
+    @IBAction func didSelectSort(_ sender: UISegmentedControl) {
+        
+        if sender.selectedSegmentIndex == 0{
+            
+            // Date
+            //self.lists = self.lists.sorted("name")
+            print("date")
+            print(filteredNotes[0].age)
+        }
+        else{
+            // A-Z
+            //self.lists = self.lists.sorted("createdAt", ascending:false)
+            print("az")
+            print(filteredNotes[0].age > filteredNotes[1].age)
+        }
+        //self.taskListsTableView.reloadData()
+        print(filteredNotes[0])
+    }
+    
 
     //MARK: Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showNote"{
