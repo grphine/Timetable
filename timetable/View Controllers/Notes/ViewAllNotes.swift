@@ -18,25 +18,9 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     var allNotes = [Any]()
     var filteredNotes = [Any]()
     
-    
     let searchController = UISearchController(searchResultsController: nil)
     
-    //MARK: Search
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            filteredNotes = allNotes.filter { individual in
-                return (individual as AnyObject).contains(searchText)
-            }
-        } else {
-            filteredNotes = allNotes
-            //since the tableview only displayed what has been searched (filtered), if there are no searches, filtered = all
-        }
-        tableView.reloadData()
-        //reloads tableview with new data given by searching
-    }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,26 +65,21 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         }
         return notes.count
         //displays as many notes as there are in filteredNote
-
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell", for: indexPath) as! NotesCell
         
-        let fullnote = allNotes[indexPath.row]
+        let fullnote = filteredNotes[indexPath.row]
         cell.configureCell(note: fullnote as! NoteData)
         return cell
     }
-    
 
-    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
-
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -119,9 +98,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         tableView.reloadData() //reload after delete
     }
     
-    
-
-    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
@@ -133,7 +109,19 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         return false
     }
     
-    
+    //MARK: Search
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            filteredNotes = allNotes.filter { individual in
+                return (individual as AnyObject).contains(searchText)
+            }
+        } else {
+            filteredNotes = allNotes
+            //since the tableview only displayed what has been searched (filtered), if there are no searches, filtered = all
+        }
+        tableView.reloadData()
+        //reloads tableview with new data given by searching
+    }
 
     //MARK: Navigation
     
