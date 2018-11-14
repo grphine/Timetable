@@ -57,20 +57,22 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
                 noteId = String(describing: Date(timeIntervalSince1970: 1)) //create new ID
             }
             
-            currentNote.title = titleField.text!
-            currentNote.body = bodyField.text!
-            currentNote.age = Date(timeIntervalSinceNow: 1)
-            currentNote.id = noteId
-            
-            try! uiRealm.write {
+            try! uiRealm.write { //place all updates within a transaction
+                currentNote.title = titleField.text!
+                currentNote.body = bodyField.text!
+                currentNote.age = Date(timeIntervalSinceNow: 1)
+                currentNote.id = noteId
+                
                 uiRealm.add(currentNote, update: true)
             }
             
+            print(currentNote)
             
             self.navigationController!.popViewController(animated: true)
         }
         
     }
+    
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem){
         self.navigationController!.popViewController(animated: true)
