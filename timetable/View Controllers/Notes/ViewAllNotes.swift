@@ -15,7 +15,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     //get array of notes
     
     var tappedId = String()
-    let realm = try! Realm()
     var allNotes = [Any]()
     
     

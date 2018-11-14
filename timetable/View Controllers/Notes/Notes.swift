@@ -18,8 +18,6 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
     var noteId: String! //ID is string
     var currentNote = NoteData() //instantiate note and write the values to database
     
-    let realm = try! Realm() //instantiate realm
-    
     let alertController = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
     let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil)
     
@@ -64,7 +62,7 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
             currentNote.age = Date(timeIntervalSinceNow: 1)
             currentNote.id = noteId
             
-            try! realm.write {
+            try! realm.write { () -> Void in
                 realm.add(currentNote, update: true)
             }
             
