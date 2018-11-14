@@ -15,7 +15,7 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
     @IBOutlet weak var bodyField: UITextView!
     
     var addNoteSegue: Bool! //check whether adding or modifying note
-    var noteId: String! //ID is string
+    var noteId: String! //ID has to be string or int
     var currentNote = NoteData() //instantiate note and write the values to database
     
     let alertController = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
@@ -25,7 +25,6 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         alertController.addAction(dismissAction)
         
         if addNoteSegue == false{ //load data if user tapped on cell

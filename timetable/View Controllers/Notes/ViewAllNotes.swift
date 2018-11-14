@@ -16,19 +16,32 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     
     var tappedId = String()
     var allNotes = [Any]()
+    var filteredNotes = [Any]()
     
     
     let searchController = UISearchController(searchResultsController: nil)
     
+    //MARK: Search
     func updateSearchResults(for searchController: UISearchController) {
-        
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            filteredNotes = allNotes.filter { individual in
+                return (individual as AnyObject).contains(searchText)
+            }
+        } else {
+            filteredNotes = allNotes
+            //since the tableview only displayed what has been searched (filtered), if there are no searches, filtered = all
+        }
+        tableView.reloadData()
+        //reloads tableview with new data given by searching
     }
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 80
+        
         
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
@@ -44,13 +57,15 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //sortedIDs = allData.keys.sorted()
-        //filteredPatients = sortedIDs.sorted()
         super.viewWillAppear(true)
         
         allNotes = uiRealm.objects(NoteData.self).toArray() //add all note items to allNotes array
-        print(allNotes)
+        filteredNotes = allNotes
         self.tableView.reloadData()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchController.dismiss(animated: false, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -61,11 +76,14 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return allNotes.count
+        guard let notes = filteredNotes as Optional else {
+            return 0
+        }
+        return notes.count
+        //displays as many notes as there are in filteredNote
+
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell", for: indexPath) as! NotesCell
         
@@ -87,7 +105,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //allNotes.remove(at: indexPath.row) //delete item from array
             
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 tappedId = (allNotes[indexPath.row] as AnyObject).id
@@ -102,13 +119,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         tableView.reloadData() //reload after delete
     }
     
-    //add delete note button?
-    //    // let cheeseBook = ... Book stored in Realm
-    //
-    //    // Delete an object with a transaction
-    //    try! uiRealm.write {
-    //    uiRealm.delete(cheeseBook)
-    //    }
+    
 
     
     // Override to support rearranging the table view.
@@ -116,14 +127,13 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
     }
     
-
-    
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
-        return true
+        return false
     }
- 
+    
+    
 
     //MARK: Navigation
     
