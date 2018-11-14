@@ -55,17 +55,25 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
             
             if addNoteSegue == true{
                 noteId = String(describing: Date(timeIntervalSince1970: 1)) //create new ID
-            }
-            
-            try! uiRealm.write { //place all updates within a transaction
-                currentNote.title = titleField.text!
-                currentNote.body = bodyField.text!
-                currentNote.age = Date(timeIntervalSinceNow: 1)
-                currentNote.id = noteId
                 
-                uiRealm.add(currentNote, update: true)
+                try! uiRealm.write { //place all updates within a transaction
+                    currentNote.title = titleField.text!
+                    currentNote.body = bodyField.text!
+                    currentNote.age = Date(timeIntervalSinceNow: 1)
+                    currentNote.id = noteId //write id as primary key for new note
+                    
+                    uiRealm.add(currentNote, update: true)
+                }
             }
-            
+            else{
+                try! uiRealm.write { //place all updates within a transaction
+                    currentNote.title = titleField.text!
+                    currentNote.body = bodyField.text!
+                    currentNote.age = Date(timeIntervalSinceNow: 1)
+                    
+                    uiRealm.add(currentNote, update: true)
+                }
+            }
             print(currentNote)
             
             self.navigationController!.popViewController(animated: true)
