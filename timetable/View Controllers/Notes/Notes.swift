@@ -55,14 +55,15 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
             
             if addNoteSegue == true{
                 noteId = String(describing: Date(timeIntervalSince1970: 1)) //create new ID
+                let newNote = NoteData() //instantiate a new note object
                 
                 try! uiRealm.write { //place all updates within a transaction
-                    currentNote.title = titleField.text!
-                    currentNote.body = bodyField.text!
-                    currentNote.age = Date(timeIntervalSinceNow: 1)
-                    currentNote.id = noteId //write id as primary key for new note
+                    newNote.title = titleField.text!
+                    newNote.body = bodyField.text!
+                    newNote.age = Date(timeIntervalSinceNow: 1)
+                    newNote.id = noteId //write id as primary key for new note
                     
-                    uiRealm.add(currentNote, update: true)
+                    uiRealm.add(newNote, update: true)
                 }
             }
             else{
