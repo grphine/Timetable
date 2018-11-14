@@ -137,10 +137,18 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             // A-Z
             //self.lists = self.lists.sorted("createdAt", ascending:false)
             print("az")
-            print(filteredNotes[0].age > filteredNotes[1].age)
+            print(filteredNotes[1])
+            //print(filteredNotes[1].age as! Double)
+            
         }
         //self.taskListsTableView.reloadData()
-        print(filteredNotes[0])
+        var arr = [Double]()
+        var arr2 = [Date]()
+        for item in filteredNotes{
+            //arr.append(item.age as! Double)
+            arr2.append(item.age)
+            
+        }
     }
     
 
