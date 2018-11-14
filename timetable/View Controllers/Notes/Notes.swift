@@ -33,6 +33,8 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         if addNoteSegue == false{ //load data if user tapped on cell
             currentNote = realm.object(ofType: NoteData.self, forPrimaryKey: noteId)! //get note by primary key
             
+            titleField.text = currentNote.title
+            bodyField.text = currentNote.body
         }
         
         titleField.delegate = self
