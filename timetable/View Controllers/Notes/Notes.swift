@@ -54,16 +54,14 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         else{
             
             if addNoteSegue == true{
-                noteId = String(describing: Date(timeIntervalSince1970: 1)) //create new ID
-                let newNote = NoteData() //instantiate a new note object
                 
                 try! uiRealm.write { //place all updates within a transaction
-                    newNote.title = titleField.text!
-                    newNote.body = bodyField.text!
-                    newNote.age = Date(timeIntervalSinceNow: 1)
-                    newNote.id = noteId //write id as primary key for new note
+                    currentNote.title = titleField.text!
+                    currentNote.body = bodyField.text!
+                    currentNote.age = Date(timeIntervalSinceNow: 1)
+                    currentNote.id = String(describing: Date(timeIntervalSinceNow: 1)) //write id as primary key for new note, set as time of initial creation
                     
-                    uiRealm.add(newNote, update: true)
+                    uiRealm.add(currentNote)
                 }
             }
             else{
@@ -72,7 +70,7 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
                     currentNote.body = bodyField.text!
                     currentNote.age = Date(timeIntervalSinceNow: 1)
                     
-                    uiRealm.add(currentNote, update: true)
+                    uiRealm.add(currentNote, update: true) //updates object
                 }
             }
             print(currentNote)
@@ -87,13 +85,7 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         self.navigationController!.popViewController(animated: true)
     }
     
-    //add delete note button?
-//    // let cheeseBook = ... Book stored in Realm
-//
-//    // Delete an object with a transaction
-//    try! uiRealm.write {
-//    uiRealm.delete(cheeseBook)
-//    }
+
     
     //Text Field
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
