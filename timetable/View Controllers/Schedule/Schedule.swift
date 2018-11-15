@@ -10,10 +10,11 @@ import SpreadsheetView
 class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
     
-    var event = Event()
+    var currentEvent = Event()
+    var allEvents = [Event]()
     var row = 0
     var column = 0 //to send row and column data to event view
-    
+
     let dates = ["01/11/18", "02/11/2018", "03/11/2018", "04/11/2018", "05/11/2018", "06/11/2018", "08/11/2018"]
     let days = ["MONDAY", "TUESDAY", "WEDNSDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     let dayColors = [UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1),
@@ -40,6 +41,9 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.intercellSpacing = CGSize(width: 4, height: 1)
         spreadsheetView.gridStyle = .none
         
+        //Load data into array
+        allEvents = uiRealm.objects(Event.self).toArray() as! [Event]
+        
         spreadsheetView.register(DateCell.self, forCellWithReuseIdentifier: String(describing: DateCell.self))
         spreadsheetView.register(TimeTitleCell.self, forCellWithReuseIdentifier: String(describing: TimeTitleCell.self))
         spreadsheetView.register(TimeCell.self, forCellWithReuseIdentifier: String(describing: TimeCell.self))
@@ -47,11 +51,11 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
         //MARK: Dummy Data
-        let english = EventItem(name: "English", colour: UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1), occurences: [[9,10,11],[12],[11],[],[],[],[]], description: "english lesson", priority: 3)
-        let maths = EventItem(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[11,12],[11],[13],[],[],[14],[14]], description: "maths lesson", priority: 3)
-        
-        RepeatingEvents.append(english)
-        RepeatingEvents.append(maths)
+//        let english = EventItem(name: "English", colour: UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1), occurences: [[9,10,11],[12],[11],[],[],[],[]], description: "english lesson", priority: 3)
+//        let maths = EventItem(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[11,12],[11],[13],[],[],[14],[14]], description: "maths lesson", priority: 3)
+//        
+//        RepeatingEvents.append(english)
+//        RepeatingEvents.append(maths)
         
     }
     
@@ -160,8 +164,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         row = indexPath.row
         column = indexPath.column
-        
-        //print("Selected: (column: \(column), row: \(row),)")
         
         //FIXME: prevent segue when locked cells tapped
         performSegue(withIdentifier: "eventCreationSegue", sender: nil)
