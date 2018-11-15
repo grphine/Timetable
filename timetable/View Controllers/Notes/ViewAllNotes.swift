@@ -129,26 +129,25 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         if sender.selectedSegmentIndex == 0{
             
             // Date
-            //self.lists = self.lists.sorted("name")
-            print("date")
-            print(filteredNotes[0].age)
+//            //self.lists = self.lists.sorted("name")
+//            print("date")
+//            print(filteredNotes[0].age)
         }
         else{
             // A-Z
-            //self.lists = self.lists.sorted("createdAt", ascending:false)
-            print("az")
-            print(filteredNotes[1])
-            //print(filteredNotes[1].age as! Double)
+//            //self.lists = self.lists.sorted("createdAt", ascending:false)
+//            print("az")
+//            print(filteredNotes[1])
+//            //print(filteredNotes[1].age as! Double)
             
         }
         //self.taskListsTableView.reloadData()
-        var arr = [Double]()
-        var arr2 = [Date]()
-        for item in filteredNotes{
-            //arr.append(item.age as! Double)
-            arr2.append(item.age)
-            
-        }
+//        var arr = [Double]()
+//        var arr2 = [Date]()
+//        for item in filteredNotes{
+//            //arr.append(item.age as! Double)
+//            arr2.append(item.age)
+        
     }
     
 
