@@ -26,7 +26,7 @@ class Event: Object{
     
     @objc dynamic var name = ""
     @objc dynamic var colour = ""
-    @objc dynamic var occurences = [[Int]]()
+    var occurences = List<Position>()
     @objc dynamic var desc = ""
     @objc dynamic var priority = 3
     
@@ -34,6 +34,12 @@ class Event: Object{
         return "name"
     }
     
+}
+
+class Position: Object{
+    @objc dynamic var column = Int()
+    @objc dynamic var row = Int()
+    @objc dynamic var date = NSDate()
 }
 
 
