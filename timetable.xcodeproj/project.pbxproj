@@ -221,13 +221,13 @@
 		85EDAF642188F85F006F8A6C /* timetable */ = {
 			isa = PBXGroup;
 			children = (
-				851E3CAA219DFBC3002467D9 /* Extensions */,
 				85E5D4812198695F002BE951 /* Data.swift */,
 				85EDAF652188F85F006F8A6C /* AppDelegate.swift */,
 				85EDAF692188F85F006F8A6C /* Main.storyboard */,
 				85EDAF712188F861006F8A6C /* LaunchScreen.storyboard */,
 				85E5D47A21977E1F002BE951 /* View Controllers */,
 				85E5D413219078E1002BE951 /* Classes */,
+				851E3CAA219DFBC3002467D9 /* Extensions */,
 				85EDAF6C2188F85F006F8A6C /* timetable.xcdatamodeld */,
 				85EDAF742188F861006F8A6C /* Info.plist */,
 				85EDAF6F2188F861006F8A6C /* Assets.xcassets */,
