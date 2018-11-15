@@ -33,6 +33,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         spreadsheetView.dataSource = self
         spreadsheetView.delegate = self
         
@@ -134,12 +135,13 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             
-            let text = event.nameByCell(column: indexPath.column, row: indexPath.row)
+            let text = nameByCell(array: allEvents, column: indexPath.column, row: indexPath.row)
+            //get event name by its index path and row
             
             if text != "" {
                 cell.label.text = text
-                let colour = event.colourByCell(column: indexPath.column, row: indexPath.row)
-                //let colour = dayColors[indexPath.column - 1]
+                let colour = colourByCell(array: allEvents, column: indexPath.column, row: indexPath.row)
+                //get event colour
                 cell.label.textColor = colour
                 cell.color = colour.withAlphaComponent(0.2)
                 cell.borders.top = .solid(width: 1, color: colour)
@@ -178,6 +180,76 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
             destinationVC.columnRow = [column, row] //send column and row to event creation view
         }
         
+    }
+    
+    
+    
+    
+    
+    //MARK: Getting event data
+    func nameByCell(array: [Event], column: Int, row: Int) -> String{ //get event name by cell
+        var subject = ""
+        for event in array{
+            for rows in event.occurences[column-1]{
+                if rows == row + 4{
+                    subject = event.name
+                }
+            }
+        }
+        return subject
+        
+    }
+    
+    
+    func colourByCell(array: [Event], column: Int, row: Int) -> UIColor{ //get event colour by cell
+        var colour = UIColor()
+        for event in array{
+            for rows in event.occurences[column-1]{
+                if rows == row + 4{
+                    colour = event.colour
+                }
+            }
+        }
+        return colour
+        
+    }
+    
+    
+    func descByCell(array: [Event], column: Int, row: Int) -> String{ //get event description by cell
+        var desc = ""
+        for event in array{
+            for rows in event.occurences[column-1]{
+                if rows == row + 4{
+                    desc = event.description
+                }
+            }
+        }
+        return desc
+        
+    }
+    
+    
+    func eventByCell(array: [Event], column: Int, row: Int) -> Event{ //get event by cell
+        var event = Event()
+        for item in array{
+            for rows in item.occurences[column-1]{
+                if rows == row + 4{
+                    event = item
+                }
+            }
+        }
+        return event
+    }
+    
+    
+    func eventByName(array: [Event], name: String) -> Event { //get event by event name
+        var event = Event()
+        for item in array{
+            if item.name == name{
+                event = item
+            }
+        }
+        return event
     }
     
     
