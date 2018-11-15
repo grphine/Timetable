@@ -20,7 +20,7 @@
 		85E5D48B2199C937002BE951 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48A2199C937002BE951 /* Alert.swift */; };
 		85E5D48D2199CAAC002BE951 /* ViewAllNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */; };
 		85E5D4922199D878002BE951 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4912199D877002BE951 /* Notes.swift */; };
-		85E5D4942199DA0A002BE951 /* RealmSetupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4932199DA0A002BE951 /* RealmSetupFile.swift */; };
+		85E5D4942199DA0A002BE951 /* RealmSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4932199DA0A002BE951 /* RealmSetup.swift */; };
 		85E5D496219A0643002BE951 /* NotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D495219A0643002BE951 /* NotesCell.swift */; };
 		85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF652188F85F006F8A6C /* AppDelegate.swift */; };
 		85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF672188F85F006F8A6C /* Agenda.swift */; };
@@ -71,7 +71,7 @@
 		85E5D48A2199C937002BE951 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = timetable/Classes/Alert.swift; sourceTree = SOURCE_ROOT; };
 		85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewAllNotes.swift; path = "timetable/View Controllers/Notes/ViewAllNotes.swift"; sourceTree = SOURCE_ROOT; };
 		85E5D4912199D877002BE951 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
-		85E5D4932199DA0A002BE951 /* RealmSetupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSetupFile.swift; sourceTree = "<group>"; };
+		85E5D4932199DA0A002BE951 /* RealmSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSetup.swift; sourceTree = "<group>"; };
 		85E5D495219A0643002BE951 /* NotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCell.swift; sourceTree = "<group>"; };
 		85EDAF622188F85F006F8A6C /* timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EDAF652188F85F006F8A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 			children = (
 				85E5D47B219799D8002BE951 /* Alarm.swift */,
 				85E5D47821975945002BE951 /* SideMenuTable.swift */,
-				85E5D4932199DA0A002BE951 /* RealmSetupFile.swift */,
+				85E5D4932199DA0A002BE951 /* RealmSetup.swift */,
 				85E5D48A2199C937002BE951 /* Alert.swift */,
 				85E5D4882198B3BF002BE951 /* Events.swift */,
 				85E5D463219601F6002BE951 /* Cells.swift */,
@@ -470,7 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85E5D4892198B3BF002BE951 /* Events.swift in Sources */,
-				85E5D4942199DA0A002BE951 /* RealmSetupFile.swift in Sources */,
+				85E5D4942199DA0A002BE951 /* RealmSetup.swift in Sources */,
 				85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */,
 				851E3CAC219DFBEF002467D9 /* UIColor+Hex.swift in Sources */,
 				85E5D4822198695F002BE951 /* Data.swift in Sources */,

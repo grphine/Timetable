@@ -42,7 +42,7 @@ class RepeatingEvent: Object{
     
     @objc dynamic var name = ""
     @objc dynamic var colour = ""
-    let occurences = List<EventPosition>()
+    let week = List<Day>() //collection of all the occurences of a repeating item in a week
     @objc dynamic var desc = ""
     @objc dynamic var priority = 3
     
@@ -52,9 +52,16 @@ class RepeatingEvent: Object{
     
 }
 
-class EventPosition: Object{
-    let row = List<Int>()
+class Day: Object { //the column the event appears in
+    
+    let day = List<Time>()
 }
+
+class Time: Object { //the row the event appears in
+    
+    @objc dynamic var time = Int()
+}
+
 
 
 
