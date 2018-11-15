@@ -54,7 +54,7 @@ class RepeatingEvent: Object{
 
 class Day: Object { //the column the event appears in
     
-    let day = List<Time>()
+    let times = List<Time>()
 }
 
 class Time: Object { //the row the event appears in

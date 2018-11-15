@@ -10,10 +10,10 @@ import UIKit
 class EventVC: UIViewController {
     
     //MARK: Variables
-    var event = Event()
+    var event = RepeatingEvent()
     var name = String()
     var columnRow: [Int]!
-    var eventItem = [EventItem]()
+    var eventItem = [RepeatingEvent]()
     var check = 0 //for edit button
     
     @IBOutlet weak var nameLabel: UITextField!
@@ -29,7 +29,7 @@ class EventVC: UIViewController {
         
         //MARK: Setup data
         //name = event.nameByCell(column: columnRow[0], row: columnRow[1])
-        eventItem = event.eventByCell(column: columnRow[0], row: columnRow[1])
+        //eventItem = event.eventByCell(column: columnRow[0], row: columnRow[1])
         if eventItem.isEmpty == true {
             print("empty")
             //edit button unlocked automatically
@@ -39,7 +39,7 @@ class EventVC: UIViewController {
             nameLabel.text = name
             descriptionLabel.text = eventItem[0].description
             priorityLabel.text = String(describing: eventItem[0].priority)
-            dateLabel.text = String(describing: eventItem[0].occurences)
+            //dateLabel.text = String(describing: eventItem[0].occurences)
         }
         
         //print(columnRow as [Int])

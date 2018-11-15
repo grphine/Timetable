@@ -26,7 +26,10 @@ extension UIColor {
             Int(b * 0xff)
         )
     }
+}
 
+    
+extension UIColor {
     convenience init(hex: String) {
         let scanner = Scanner(string: hex)
         scanner.scanLocation = 0
