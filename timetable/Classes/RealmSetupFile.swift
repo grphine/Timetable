@@ -22,11 +22,27 @@ class NoteData: Object {
     }
 }
 
-class Event: Object{
+class AllEvents: Object{
+    
+    let repeating = List<RepeatingEvent>()
+    let single = List<SingleEvent>()
+}
+
+class SingleEvent: Object{
     
     @objc dynamic var name = ""
     @objc dynamic var colour = ""
-    var occurences = List<Position>()
+    @objc dynamic var day = NSDate()
+    @objc dynamic var time = Int()
+    @objc dynamic var desc = ""
+    @objc dynamic var priority = 3
+}
+
+class RepeatingEvent: Object{
+    
+    @objc dynamic var name = ""
+    @objc dynamic var colour = ""
+    let occurences = List<EventPosition>()
     @objc dynamic var desc = ""
     @objc dynamic var priority = 3
     
@@ -36,10 +52,8 @@ class Event: Object{
     
 }
 
-class Position: Object{
-    @objc dynamic var column = Int()
-    @objc dynamic var row = Int()
-    @objc dynamic var date = NSDate()
+class EventPosition: Object{
+    let row = List<Int>()
 }
 
 
