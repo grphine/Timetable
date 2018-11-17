@@ -100,10 +100,10 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
 //            currentEvent.week.append(sat)
 //            currentEvent.week.append(sun)
             
-        try! uiRealm.write { //place all updates within a transaction
-            
-            uiRealm.add(ce, update: true)
-        }
+//        try! uiRealm.write { //place all updates within a transaction
+//
+//            uiRealm.add(ce, update: true)
+//        }
         
         //Load data into array
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
@@ -197,7 +197,9 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
             
         //c1-end,r2-end (i.e. rest of the table) - set all other cells
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
-//            let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
+            let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
+            
+            
 //
 //            let text = nameByCell(array: allEvents, column: indexPath.column, row: indexPath.row)
 //            //get event name by its index path and row
@@ -232,9 +234,10 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         column = indexPath.column
         
         //get event by above
+        if (column >= 1 && row >= 2){
+            performSegue(withIdentifier: "eventCreationSegue", sender: nil)
+        }
         
-        //FIXME: prevent segue when locked cells tapped
-        performSegue(withIdentifier: "eventCreationSegue", sender: nil)
         
     }
     
@@ -247,6 +250,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         }
         
     }
+    
+    //-----------------------------------------
     
     func addEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int, modify: Bool) -> RepeatingEvent{
         let event = RepeatingEvent()
@@ -284,6 +289,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         return new
     }
+    
+    
     
     
     
