@@ -53,11 +53,11 @@ class RepeatingEvent: Object{
 }
 
 class Day: Object { //the column the event appears in
-    let day = List<Time>()
+    let dayItem = List<Hour>()
 }
 
-class Time: Object { //the row the event appears in
-    @objc dynamic var time = Int()
+class Hour: Object { //the row the event appears in
+    @objc dynamic var hourItem = Int()
 }
 
 

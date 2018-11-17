@@ -14,6 +14,9 @@ class AgendaViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var goalsLabel: UILabel!
     
+    var currentEvent = RepeatingEvent()
+    var allEvents = [RepeatingEvent]()
+    
     var timer = Timer()
     
     override func viewDidLoad() {
@@ -23,6 +26,8 @@ class AgendaViewController: UIViewController {
         
         dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
         
+        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
+        print(allEvents)
         
         
     }
