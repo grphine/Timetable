@@ -314,15 +314,16 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{
 
         var eventTimes = [String: [[Int]]]()
-        var dayHours = [[Int]]()
-        var hours = [Int]()
-
+        
         for event in all{
+            var dayHours = [[Int]]()
+            
             for day in event.week{
+                var hours = [Int]()
+                
                 for hour in day.dayItem{
                     hours.append(hour.hourItem)
                 }
-
                 dayHours.append(hours)
             }
             eventTimes[event.name] = dayHours
