@@ -172,11 +172,11 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
 
         //get event and trigger segue
-        if (column >= 1 && row >= 2){ //prevent locked cells performing segue
+        //if (column >= 1 && row >= 2){ //prevent locked cells performing segue
             name = getEventName(dict: allDict, column: indexPath.column, row: indexPath.row)
             print("A")
             performSegue(withIdentifier: "eventCreationSegue", sender: nil)
-        }
+        //}
         
         
     }

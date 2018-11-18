@@ -33,7 +33,7 @@ class EventVC: UIViewController {
         //MARK: Setup data
         
         
-        if allEvents.isEmpty == true {
+        if name == "" {
             print("empty")
             //unlock edit button
         }
