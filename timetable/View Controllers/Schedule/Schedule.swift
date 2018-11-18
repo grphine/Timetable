@@ -15,6 +15,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     var row = 0
     var column = 0 //to send row and column data to event view
     var allDict = [String: [[Int]]]() //hold each event, its days, and occurences per day
+    var name = String()
     
 
     let dates = ["01/11/18", "02/11/2018", "03/11/2018", "04/11/2018", "05/11/2018", "06/11/2018", "08/11/2018"]
@@ -134,17 +135,9 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         //c1-end,r2-end (i.e. rest of the table) - set all other cells
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
-            var text = String()
             
-            whole: for event in allDict{ //get event name at cell position
-                for hour in event.value[indexPath.column-1]{
-                    if hour == (indexPath.row+4){
-                        text = event.key
-                        break whole //escapes entire loop once value is found
-                    }
-                }
-            }
-
+            let text = getEventName(dict: allDict, column: indexPath.column, row: indexPath.row)
+    
             if text != "" {
                 cell.label.text = text
                 var colour = UIColor()
@@ -177,12 +170,11 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     
     //MARK: Segueing to EventVC
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
-        
-        row = indexPath.row
-        column = indexPath.column
-        
-        //get event by above
+
+        //get event and trigger segue
         if (column >= 1 && row >= 2){ //prevent locked cells performing segue
+            name = getEventName(dict: allDict, column: indexPath.column, row: indexPath.row)
+            print("A")
             performSegue(withIdentifier: "eventCreationSegue", sender: nil)
         }
         
@@ -192,13 +184,28 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "eventCreationSegue"{
-        
+            print("B")
             let destinationVC = segue.destination as! EventVC
-            destinationVC.columnRow = [column, row] //send column and row to event creation view
+            destinationVC.eventName = name //event name
+            destinationVC.allEvents = allEvents //send dictionary (saves generating again)
         }
         
     }
     
+    func getEventName(dict: [String: [[Int]]], column: Int, row: Int) -> String{
+        var name = String()
+        whole: for event in dict{ //get event name at cell position
+            for hour in event.value[column-1]{
+                if hour == (row+4){
+                    name = event.key
+                    break whole //escapes entire loop once value is found
+                }
+            }
+        }
+        
+        return name
+    }
+        
    
     func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{ //adds all events to a dictionary
 

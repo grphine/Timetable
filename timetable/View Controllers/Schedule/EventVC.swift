@@ -10,11 +10,14 @@ import UIKit
 class EventVC: UIViewController {
     
     //MARK: Variables
-    var event = RepeatingEvent()
+    var singleEvent = RepeatingEvent()
     var name = String()
-    var columnRow: [Int]!
-    var eventItem = [RepeatingEvent]()
-    var check = 0 //for edit button
+    var check = 1 //edit disabled
+    
+    //Sent variables
+    var eventName: String!
+    var allEvents: [RepeatingEvent]!
+    
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var repeatSwitch: UISwitch!
@@ -28,18 +31,25 @@ class EventVC: UIViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         //MARK: Setup data
-        //name = event.nameByCell(column: columnRow[0], row: columnRow[1])
-        //eventItem = event.eventByCell(column: columnRow[0], row: columnRow[1])
-        if eventItem.isEmpty == true {
+        
+        
+        if allEvents.isEmpty == true {
             print("empty")
-            //edit button unlocked automatically
+            //unlock edit button
         }
         else{
-            name = eventItem[0].name //since it is cast into an array. Not sure how to pull the event otherwise
-            nameLabel.text = name
-            descriptionLabel.text = eventItem[0].description
-            priorityLabel.text = String(describing: eventItem[0].priority)
-            //dateLabel.text = String(describing: eventItem[0].occurences)
+            
+            singleEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)!
+            
+            nameLabel.text = singleEvent.name
+            descriptionLabel.text = singleEvent.desc
+            priorityLabel.text = String(describing: singleEvent.priority)
+            
+            
+//            name = eventItem[0].name //since it is cast into an array. Not sure how to pull the event otherwise
+//            nameLabel.text = name
+//
+//            //dateLabel.text = String(describing: eventItem[0].occurences)
         }
         
         
@@ -61,18 +71,16 @@ class EventVC: UIViewController {
         super.setEditing(editing, animated: animated)
         if check % 2 == 0{
             //if check is even, user interaction enabled
-            //patientID.isUserInteractionEnabled = true
-            //put all fields into an array and set them all, potentially
-            //lock submit button
+            //textfield.isUserInteractionEnabled = true
+            
             
         }
         else{
             //user interaction disabled, while data input is then updated
             //patientID.isUserInteractionEnabled = false
             
-            //unlock submit button
         }
-        check += 1
+        check += 1 //changes lock state
         
     }
     
@@ -117,7 +125,7 @@ class EventVC: UIViewController {
     }
     
     
-    func timesToDay(times: [Int]) -> Day{
+    func timesToDay(times: [Int]) -> Day{ //create Day objects
         
         let newDay = Day()
         
@@ -129,7 +137,7 @@ class EventVC: UIViewController {
         return newDay
     }
     
-    func hoursToTime(hour: Int) -> Hour{
+    func hoursToTime(hour: Int) -> Hour{ //create Hour objects
         let new = Hour()
         new.hourItem = hour
         
