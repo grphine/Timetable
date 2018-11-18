@@ -44,41 +44,25 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.intercellSpacing = CGSize(width: 4, height: 1)
         spreadsheetView.gridStyle = .none
         
-        
-        
-//        let ce = addEvent(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1).toHexString, week: [[9, 12, 13],[9],[13],[13],[14,15,16],[],[]], description: "Maths lesson", priority: 3, modify: false)
-        
-//        try! uiRealm.write { //place all updates within a transaction
-//
-//            uiRealm.add(ce, update: true)
-//        }
-        
-        //Load data into array
-        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
-        //print(allEvents)
-
-        
-        allDict = addToDictionary(all: allEvents)
-        print(allDict)
-        
         spreadsheetView.register(DateCell.self, forCellWithReuseIdentifier: String(describing: DateCell.self))
         spreadsheetView.register(TimeTitleCell.self, forCellWithReuseIdentifier: String(describing: TimeTitleCell.self))
         spreadsheetView.register(TimeCell.self, forCellWithReuseIdentifier: String(describing: TimeCell.self))
         spreadsheetView.register(DayTitleCell.self, forCellWithReuseIdentifier: String(describing: DayTitleCell.self))
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
-        //MARK: Dummy Data
-//        let english = EventItem(name: "English", colour: UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1), occurences: [[9,10,11],[12],[11],[],[],[],[]], description: "english lesson", priority: 3)
-//        let maths = EventItem(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[11,12],[11],[13],[],[],[14],[14]], description: "maths lesson", priority: 3)
-//        
-//        RepeatingEvents.append(english)
-//        RepeatingEvents.append(maths)
+        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
+        allDict = addToDictionary(all: allEvents)
+        //load data
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         spreadsheetView.flashScrollIndicators()
+        
+        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
+        allDict = addToDictionary(all: allEvents)
+        //reload data when view loads
     }
     
     // MARK: DataSource
@@ -152,7 +136,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             var text = String()
             
-            whole: for event in allDict{
+            whole: for event in allDict{ //get event name at cell position
                 for hour in event.value[indexPath.column-1]{
                     if hour == (indexPath.row+4){
                         text = event.key
@@ -165,9 +149,10 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
                 cell.label.text = text
                 var colour = UIColor()
                 
-                for event in allEvents{
+                for event in allEvents{ //get colour for event name
                     if event.name == text{
                         colour = UIColor(hex: event.colour)
+                        break
                     }
                 }
                 
@@ -197,7 +182,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         column = indexPath.column
         
         //get event by above
-        if (column >= 1 && row >= 2){
+        if (column >= 1 && row >= 2){ //prevent locked cells performing segue
             performSegue(withIdentifier: "eventCreationSegue", sender: nil)
         }
         
@@ -214,46 +199,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
     }
     
-    //-----------------------------------------
-    
-    func addEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int, modify: Bool) -> RepeatingEvent{
-        let event = RepeatingEvent()
-        
-        //make a check whether to modify or not. true, edit params by primary key. otherwise wipe and add as new
-        
-        event.name = name //add all parameters
-        event.colour = colour
-        event.desc = description
-        event.priority = priority
-        
-        for day in week{ //for every day in the week, append the day to the week
-            event.week.append(timesToDay(times: day))
-        }
-        
-        return event
-    }
-    
-    
-    func timesToDay(times: [Int]) -> Day{
-        
-        let newDay = Day()
-        
-        for item in times{
-            let hour = hoursToTime(hour: item)
-            newDay.dayItem.append(hour)
-        }
-    
-        return newDay
-    }
-    
-    func hoursToTime(hour: Int) -> Hour{
-        let new = Hour()
-        new.hourItem = hour
-        
-        return new
-    }
-
-
+   
     func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{ //adds all events to a dictionary
 
         var eventTimes = [String: [[Int]]]()

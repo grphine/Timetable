@@ -50,7 +50,7 @@ extension UIColor {
     }
 }
 
-extension Dictionary where Value: Equatable {
+extension Dictionary where Value: Equatable { //gets the key for input value of dictionary. may be useless now
     func allKeys(forValue val: Value) -> [Key] {
         return self.filter { $1 == val }.map { $0.0 }
     }

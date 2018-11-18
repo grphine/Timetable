@@ -42,10 +42,15 @@ class EventVC: UIViewController {
             //dateLabel.text = String(describing: eventItem[0].occurences)
         }
         
-        //print(columnRow as [Int])
         
-        //let maths = EventItem(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1), occurences: [[11,12],[11],[13],[],[],[14],[14]], description: "maths lesson")
-
+        ///Creating event
+        //        let ce = addEvent(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1).toHexString, week: [[9, 12, 13],[9],[13],[13],[14,15,16],[],[]], description: "Maths lesson", priority: 3, modify: false)
+        
+        //        try! uiRealm.write { //place all updates within a transaction
+        //
+        //            uiRealm.add(ce, update: true)
+        //        }
+        
         
     }
     
@@ -92,6 +97,43 @@ class EventVC: UIViewController {
         //send alerts of data being updated
         
         
+    }
+    
+    func addEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int, modify: Bool) -> RepeatingEvent{
+        let event = RepeatingEvent()
+        
+        //make a check whether to modify or not. true, edit params by primary key. otherwise wipe and add as new
+        
+        event.name = name //add all parameters
+        event.colour = colour
+        event.desc = description
+        event.priority = priority
+        
+        for day in week{ //for every day in the week, append the day to the week
+            event.week.append(timesToDay(times: day))
+        }
+        
+        return event
+    }
+    
+    
+    func timesToDay(times: [Int]) -> Day{
+        
+        let newDay = Day()
+        
+        for item in times{
+            let hour = hoursToTime(hour: item)
+            newDay.dayItem.append(hour)
+        }
+        
+        return newDay
+    }
+    
+    func hoursToTime(hour: Int) -> Hour{
+        let new = Hour()
+        new.hourItem = hour
+        
+        return new
     }
     
    
