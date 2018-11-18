@@ -14,6 +14,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     var allEvents = [RepeatingEvent]()
     var row = 0
     var column = 0 //to send row and column data to event view
+    var allDict = [String: [[Int]]]() //hold each event, its days, and occurences per day
     
 
     let dates = ["01/11/18", "02/11/2018", "03/11/2018", "04/11/2018", "05/11/2018", "06/11/2018", "08/11/2018"]
@@ -42,6 +43,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         spreadsheetView.intercellSpacing = CGSize(width: 4, height: 1)
         spreadsheetView.gridStyle = .none
+        
+        
         
         let ce = addEvent(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1).toHexString, week: [[9, 12, 13],[9],[13],[13],[14,15,16],[],[]], description: "Maths lesson", priority: 3, modify: false)
         
@@ -107,7 +110,20 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         //Load data into array
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
-        print(allEvents)
+        //print(allEvents)
+        
+//        for event in allEvents{
+//            for day in event.week{
+//                for hour in day.dayItem{
+//                print("Event: \(event.name) day:\(day)")
+//                }
+//
+//            }
+//        }
+//
+        
+        allDict = addToDictionary(all: allEvents)
+        print(allDict)
         
         spreadsheetView.register(DateCell.self, forCellWithReuseIdentifier: String(describing: DateCell.self))
         spreadsheetView.register(TimeTitleCell.self, forCellWithReuseIdentifier: String(describing: TimeTitleCell.self))
@@ -199,9 +215,11 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             
+            //let text = nameByCell(all: allEvents, column: indexPath.column, row: indexPath.row)
             
-//
-//            let text = nameByCell(array: allEvents, column: indexPath.column, row: indexPath.row)
+            //print(text)
+
+//            let text = nameByCell(all: allEvents, column: indexPath.column, row: indexPath.row)
 //            //get event name by its index path and row
 //
 //            if text != "" {
@@ -218,9 +236,9 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
 //                cell.borders.top = .none
 //                cell.borders.bottom = .none
 //            }
-//
-//
-            //return cell
+
+
+            return cell
         }
         return nil
     }
@@ -289,30 +307,50 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         return new
     }
+
     
+    //MARK: Getting event data
+
+    func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{
+
+        var eventTimes = [String: [[Int]]]()
+        var dayHours = [[Int]]()
+        var hours = [Int]()
+
+        for event in all{
+            for day in event.week{
+                for hour in day.dayItem{
+                    hours.append(hour.hourItem)
+                }
+
+                dayHours.append(hours)
+            }
+            eventTimes[event.name] = dayHours
+        }
+
+        return eventTimes
+    }
     
-    
-    
-    
-    
-    
-//    //MARK: Getting event data
-//    func nameByCell(array: [RepeatingEvent], column: Int, row: Int) -> String{ //get event name by cell
+//    func nameByCell(all: [RepeatingEvent], column: Int, row: Int) -> String{ //get event name by cell
+//
 //        var subject = ""
-//        for event in array{
-//            event.occurences
+//        let string = "week[\(column-1)][\(row+4)]"
 //
-//
-//            for rows in event.occurences[column-1]{
-//                if rows == row + 4{
-//                    subject = event.name
-//                }
+//        for single in all{
+//            guard
+//                let event = single.week.filter(string)
+//                print(event)
+//                else{
+//                print("error")
 //            }
 //        }
+//
+//
+//
 //        return subject
 //
 //    }
-//
+
     
 //    func colourByCell(array: [RepeatingEvent], column: Int, row: Int) -> UIColor{ //get event colour by cell
 //        var colour = UIColor()
