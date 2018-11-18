@@ -38,6 +38,7 @@ class EventVC: UIViewController {
             //unlock edit button
         }
         else{
+            print(name)
             
             singleEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)!
             

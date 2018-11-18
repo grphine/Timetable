@@ -172,11 +172,11 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
 
         //get event and trigger segue
-        //if (column >= 1 && row >= 2){ //prevent locked cells performing segue
+        if (indexPath.column >= 1 || indexPath.row >= 2){ //prevent locked cells performing segue
             name = getEventName(dict: allDict, column: indexPath.column, row: indexPath.row)
-            print("A")
+            print(name)
             performSegue(withIdentifier: "eventCreationSegue", sender: nil)
-        //}
+        }
         
         
     }
@@ -184,9 +184,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "eventCreationSegue"{
-            print("B")
             let destinationVC = segue.destination as! EventVC
-            destinationVC.eventName = name //event name
+            destinationVC.eventName = name //send event name
             destinationVC.allEvents = allEvents //send dictionary (saves generating again)
         }
         
