@@ -11,7 +11,6 @@ class EventVC: UIViewController {
     
     //MARK: Variables
     var singleEvent = RepeatingEvent()
-    var name = String()
     var check = 1 //edit disabled
     
     //Sent variables
@@ -33,12 +32,11 @@ class EventVC: UIViewController {
         //MARK: Setup data
         
         
-        if name == "" {
+        if eventName == "" {
             print("empty")
             //unlock edit button
         }
         else{
-            print(name)
             
             singleEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)!
             
