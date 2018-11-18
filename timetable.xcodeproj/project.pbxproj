@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		851E3CA8219CC06B002467D9 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CA7219CC06B002467D9 /* EventVC.swift */; };
-		851E3CAC219DFBEF002467D9 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CAB219DFBEF002467D9 /* UIColor+Hex.swift */; };
+		851E3CAC219DFBEF002467D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CAB219DFBEF002467D9 /* Extensions.swift */; };
 		85E5D41521907901002BE951 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D41421907901002BE951 /* Node.swift */; };
 		85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4162190792F002BE951 /* Linked List Queue.swift */; };
 		85E5D462219601CD002BE951 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D461219601CD002BE951 /* Schedule.swift */; };
@@ -59,7 +59,7 @@
 		59677FD43000C9CB9E16977F /* Pods-timetableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetableUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-timetableUITests/Pods-timetableUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7587BFE866153DD791EC0648 /* Pods-timetableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-timetableTests/Pods-timetableTests.release.xcconfig"; sourceTree = "<group>"; };
 		851E3CA7219CC06B002467D9 /* EventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventVC.swift; sourceTree = "<group>"; };
-		851E3CAB219DFBEF002467D9 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		851E3CAB219DFBEF002467D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		85E5D41421907901002BE951 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		85E5D4162190792F002BE951 /* Linked List Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Linked List Queue.swift"; sourceTree = "<group>"; };
 		85E5D461219601CD002BE951 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -144,14 +144,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		851E3CAA219DFBC3002467D9 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				851E3CAB219DFBEF002467D9 /* UIColor+Hex.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		85E5D413219078E1002BE951 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,7 +219,7 @@
 				85EDAF712188F861006F8A6C /* LaunchScreen.storyboard */,
 				85E5D47A21977E1F002BE951 /* View Controllers */,
 				85E5D413219078E1002BE951 /* Classes */,
-				851E3CAA219DFBC3002467D9 /* Extensions */,
+				851E3CAB219DFBEF002467D9 /* Extensions.swift */,
 				85EDAF6C2188F85F006F8A6C /* timetable.xcdatamodeld */,
 				85EDAF742188F861006F8A6C /* Info.plist */,
 				85EDAF6F2188F861006F8A6C /* Assets.xcassets */,
@@ -472,7 +464,7 @@
 				85E5D4892198B3BF002BE951 /* Events.swift in Sources */,
 				85E5D4942199DA0A002BE951 /* RealmSetup.swift in Sources */,
 				85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */,
-				851E3CAC219DFBEF002467D9 /* UIColor+Hex.swift in Sources */,
+				851E3CAC219DFBEF002467D9 /* Extensions.swift in Sources */,
 				85E5D4822198695F002BE951 /* Data.swift in Sources */,
 				85E5D464219601F7002BE951 /* Cells.swift in Sources */,
 				85E5D4922199D878002BE951 /* Notes.swift in Sources */,
