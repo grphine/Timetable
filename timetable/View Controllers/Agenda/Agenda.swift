@@ -28,6 +28,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     
     var allEvents = [RepeatingEvent]()
     var timer = Timer()
+    let queue = LinkedList(data: String())
     
     override func viewDidLoad() {
         super.viewDidLoad()
