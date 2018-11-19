@@ -46,9 +46,12 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         
         allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //add all note items to allNotes array
         filteredNotes = allNotes
-        
-        
+
         self.tableView.reloadData()
+    }
+    func reloadData(){
+        allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //add all note items to allNotes array
+        filteredNotes = allNotes
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -66,6 +69,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         guard let notes = filteredNotes as Optional else {
             return 0
         }
+        print(notes.count)
         return notes.count
         //displays as many notes as there are in filteredNote
     }
@@ -86,18 +90,36 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                tappedId = (allNotes[indexPath.row] as AnyObject).id
-                let noteToBeDeleted = uiRealm.object(ofType: NoteData.self, forPrimaryKey: tappedId)! //get note by primary key
-                try! uiRealm.write {
-                    uiRealm.delete(noteToBeDeleted)
-                }
+//        if editingStyle == .delete {
+//            print("A")
+//            if let indexPath = self.tableView.indexPathForSelectedRow {
+//                print("B")
+//                tappedId = (allNotes[indexPath.row] as AnyObject).id
+//                print(filteredNotes)
+//                print(tappedId)
+//                let noteToBeDeleted = uiRealm.object(ofType: NoteData.self, forPrimaryKey: tappedId)! //get note by primary key
+//                print(noteToBeDeleted)
+//                try! uiRealm.write {
+//                    uiRealm.delete(noteToBeDeleted)
+//                }
+//            }
+//            print(filteredNotes)
+//            tableView.deleteRows(at: [indexPath], with: .fade) //delete item from table
+//        }
+        if editingStyle == .delete{
+            tappedId = (filteredNotes[indexPath.row]).id
+            let noteToDelete = uiRealm.object(ofType: NoteData.self, forPrimaryKey: tappedId)!
+            print(noteToDelete)
+            try! uiRealm.write {
+                uiRealm.delete(noteToDelete)
             }
-            tableView.deleteRows(at: [indexPath], with: .fade) //delete item from table
+            allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData]
+            filteredNotes = allNotes
+            print(filteredNotes)
+            tableView.deleteRows(at: [indexPath], with: .left)
         }
-        allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData]
+        
+       
         tableView.reloadData() //reload after delete
     }
     
