@@ -52,13 +52,7 @@ class EventVC: UIViewController {
         }
         
         
-        ///Creating event
-        //        let ce = addEvent(name: "Maths", colour: UIColor(red: 0.200, green: 0.620, blue: 0.565, alpha: 1).toHexString, week: [[9, 12, 13],[9],[13],[13],[14,15,16],[],[]], description: "Maths lesson", priority: 3, modify: false)
         
-        //        try! uiRealm.write { //place all updates within a transaction
-        //
-        //            uiRealm.add(ce, update: true)
-        //        }
         
         
     }
@@ -70,6 +64,7 @@ class EventVC: UIViewController {
         super.setEditing(editing, animated: animated)
         if check % 2 == 0{
             //if check is even, user interaction enabled
+            //enable interaction
             //textfield.isUserInteractionEnabled = true
             
             
@@ -103,10 +98,17 @@ class EventVC: UIViewController {
         
         //send alerts of data being updated
         
+        //FIXME: Colour is empty string
+        let newEvent = addEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: Int(priorityLabel.text!)!)
+        
+                try! uiRealm.write { //place all updates within a transaction
+                    uiRealm.add(newEvent, update: true)
+                }
+        
         
     }
     
-    func addEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int, modify: Bool) -> RepeatingEvent{
+    func addEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int) -> RepeatingEvent{
         let event = RepeatingEvent()
         
         //make a check whether to modify or not. true, edit params by primary key. otherwise wipe and add as new
