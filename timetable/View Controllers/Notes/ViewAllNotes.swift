@@ -17,6 +17,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     var tappedId = String()
     var allNotes = [NoteData]()
     var filteredNotes = [NoteData]()
+    let queue = LinkedList(data: String())
     
     let searchController = UISearchController(searchResultsController: nil)
     

@@ -68,6 +68,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="agendaTableView" destination="4BZ-23-Bu9" id="Rq1-j2-0t3"/>
                         <outlet property="dateLabel" destination="iWB-j7-ZKa" id="jzz-kY-lhF"/>
                         <outlet property="goalsLabel" destination="sWZ-1k-5sp" id="Gh3-hG-riQ"/>
                     </connections>

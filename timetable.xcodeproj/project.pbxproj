@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		851E3CA8219CC06B002467D9 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CA7219CC06B002467D9 /* EventVC.swift */; };
 		851E3CAC219DFBEF002467D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CAB219DFBEF002467D9 /* Extensions.swift */; };
+		851E3CAF21A2C245002467D9 /* AgendaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CAE21A2C245002467D9 /* AgendaCell.swift */; };
 		85E5D41521907901002BE951 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D41421907901002BE951 /* Node.swift */; };
 		85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4162190792F002BE951 /* Linked List Queue.swift */; };
 		85E5D462219601CD002BE951 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D461219601CD002BE951 /* Schedule.swift */; };
@@ -60,6 +61,7 @@
 		7587BFE866153DD791EC0648 /* Pods-timetableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-timetableTests/Pods-timetableTests.release.xcconfig"; sourceTree = "<group>"; };
 		851E3CA7219CC06B002467D9 /* EventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventVC.swift; sourceTree = "<group>"; };
 		851E3CAB219DFBEF002467D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		851E3CAE21A2C245002467D9 /* AgendaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaCell.swift; sourceTree = "<group>"; };
 		85E5D41421907901002BE951 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		85E5D4162190792F002BE951 /* Linked List Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Linked List Queue.swift"; sourceTree = "<group>"; };
 		85E5D461219601CD002BE951 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -144,10 +146,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		851E3CAD21A2C222002467D9 /* Agenda */ = {
+			isa = PBXGroup;
+			children = (
+				85EDAF672188F85F006F8A6C /* Agenda.swift */,
+				851E3CAE21A2C245002467D9 /* AgendaCell.swift */,
+			);
+			path = Agenda;
+			sourceTree = "<group>";
+		};
 		85E5D413219078E1002BE951 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				85E5D47B219799D8002BE951 /* Alarm.swift */,
 				85E5D47821975945002BE951 /* SideMenuTable.swift */,
 				85E5D4932199DA0A002BE951 /* RealmSetup.swift */,
 				85E5D48A2199C937002BE951 /* Alert.swift */,
@@ -162,7 +172,8 @@
 		85E5D47A21977E1F002BE951 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				85EDAF672188F85F006F8A6C /* Agenda.swift */,
+				851E3CAD21A2C222002467D9 /* Agenda */,
+				85E5D47B219799D8002BE951 /* Alarm.swift */,
 				85E5D4902199D704002BE951 /* Notes */,
 				85E5D4852198722F002BE951 /* Schedule */,
 			);
@@ -467,6 +478,7 @@
 				851E3CAC219DFBEF002467D9 /* Extensions.swift in Sources */,
 				85E5D4822198695F002BE951 /* Data.swift in Sources */,
 				85E5D464219601F7002BE951 /* Cells.swift in Sources */,
+				851E3CAF21A2C245002467D9 /* AgendaCell.swift in Sources */,
 				85E5D4922199D878002BE951 /* Notes.swift in Sources */,
 				85E5D48B2199C937002BE951 /* Alert.swift in Sources */,
 				85E5D47C219799D8002BE951 /* Alarm.swift in Sources */,

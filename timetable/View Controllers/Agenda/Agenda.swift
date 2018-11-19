@@ -9,12 +9,14 @@
 import UIKit
 import SideMenu
 
-class AgendaViewController: UIViewController {
+class AgendaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var goalsLabel: UILabel!
+    @IBOutlet weak var agendaTableView: UITableView!
     
-    
+    var allEvents = [RepeatingEvent]()
     var timer = Timer()
     
     override func viewDidLoad() {
@@ -24,8 +26,35 @@ class AgendaViewController: UIViewController {
         
         dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
         
+        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
+        
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        //allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //add all note items to allNotes array
+        //filteredNotes = allNotes
+        
+        
+        self.agendaTableView.reloadData()
+    }
+    
+    //MARK: TableView
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
+    
     
     //MARK: Menu setup
     fileprivate func setupSideMenu() {
@@ -51,9 +80,6 @@ class AgendaViewController: UIViewController {
         
         
     }
-    
-    
-    
     
 
 
