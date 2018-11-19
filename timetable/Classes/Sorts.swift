@@ -11,32 +11,34 @@ import Foundation
 class Sorts {
     
     //MARK: Quick Sort
-    func partition<T: Comparable>(array: inout [T], startIndex: Int, endIndex: Int) -> Int {
-        var q = startIndex
-        for index in startIndex..<endIndex {
-            if array[index] < array[endIndex] {
-                array.swapAt(q, index)
-                q += 1
-            }
-        }
-        array.swapAt(q, endIndex)
+    func quick(_ arr: [String]) -> [String]{
         
-        return q
-    }
-    
-    func quickSort<T: Comparable>(array: inout [T], startIndex: Int, endIndex: Int) {
-        // Base case
-        if startIndex >= endIndex {
-            return
+        var less = [String]()
+        var equal = [String]()
+        var more = [String]()
+        
+        if arr.count > 1{
+            let pivot = arr[arr.count/2]
+            
+            for value in arr{
+                if value > pivot{
+                    more.append(value)
+                }
+                else if value < pivot{
+                    less.append(value)
+                }
+                if value == pivot{
+                    equal.append(value)
+                }
+            }
+            return quick(less) + equal + quick(more)
+            
         }
-        let placedItemIndex = partition(array: &array, startIndex: startIndex, endIndex: endIndex)
-        quickSort(array: &array, startIndex: startIndex, endIndex: placedItemIndex-1)
-        quickSort(array: &array, startIndex: placedItemIndex+1, endIndex: endIndex)
+        else{
+            return arr
+        }
     }
-    
-    func quickSort<T: Comparable>(array: inout [T]) {
-        quickSort(array: &array, startIndex: 0, endIndex: array.count-1)
-    }
+
     
     
     //MARK: Merge Sort

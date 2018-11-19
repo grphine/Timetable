@@ -22,12 +22,12 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
  
  */
     
-    @IBOutlet weak var dateTimeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var goalsLabel: UILabel!
     @IBOutlet weak var agendaTableView: UITableView!
     
     var allEvents = [RepeatingEvent]()
-    var timer = Timer()
+    //var timer = Timer()
     let queue = LinkedList(data: String())
     
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         agendaTableView.delegate = self //setup tableview
         agendaTableView.dataSource = self
         
-        //dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
+        //dateTimeLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         
     }
@@ -47,7 +47,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        //dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
+        //dateTimeLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         
         

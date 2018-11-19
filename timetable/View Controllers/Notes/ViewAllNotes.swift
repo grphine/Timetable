@@ -19,6 +19,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     var filteredNotes = [NoteData]()
     let sort = Sorts()
     
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     
@@ -127,8 +128,10 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     
     @IBAction func didSelectSort(_ sender: UISegmentedControl) {
         
+        var titleArray = [String]()
+        var ageArray = [Date]()
+        
         if sender.selectedSegmentIndex == 0{
-            
             // Date
 //            //self.lists = self.lists.sorted("name")
 //            print("date")
@@ -136,12 +139,51 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         }
         else{
             // A-Z
+            
+            for singleNote in filteredNotes{
+                titleArray.append(singleNote.title)
+                
+                titleArray = sort.quick(titleArray)
+                
+            }
+            
+            var newArray = [NoteData]()
+            for name in titleArray{
+                //match item to allnote object name and output item in correct position in filtered array
+                let newItem = uiRealm.objects(NoteData.self).filter("title == '\(name)'")
+                newArray.append(newItem.first!)
+            }
+            filteredNotes = newArray
+            print(filteredNotes)
+            
+            
+            
+            //let array = Array(uiRealm.objects(NoteData.self).filter("title == '\(titleArray[0])'"))
+            
+//            var count = 0
+//            var abc = [Any]()
+//            for _ in filteredNotes{
+//                abc.append(uiRealm.objects(NoteData.self).filter("title == '\(titleArray[count])'"))
+//                print(abc)
+//                count += 1
+//            }
+            
+//            var not = uiRealm.objects(NoteData.self).filter("title = 'AB'")
+//            print(not)
+            //var newarr = [Any]()
+//            for _ in filteredNotes{
+//                newarr.append(uiRealm.objects(NoteData.self).filter("name == \(titleArray[0])"))
+//            }
+//            print(newarr)
+//
+            
 //            //self.lists = self.lists.sorted("createdAt", ascending:false)
 //            print("az")
 //            print(filteredNotes[1])
 //            //print(filteredNotes[1].age as! Double)
             
         }
+        
         //self.taskListsTableView.reloadData()
 //        var arr = [Double]()
 //        var arr2 = [Date]()
@@ -150,6 +192,8 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 //            arr2.append(item.age)
         
     }
+    
+   
     
 
     //MARK: Navigation
