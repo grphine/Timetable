@@ -32,7 +32,7 @@ class SingleEvent: Object{
     
     @objc dynamic var name = ""
     @objc dynamic var colour = ""
-    @objc dynamic var day = NSDate()
+    @objc dynamic var day = Date()
     @objc dynamic var time = Int()
     @objc dynamic var desc = ""
     @objc dynamic var priority = 3

@@ -137,6 +137,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 //            //self.lists = self.lists.sorted("name")
 //            print("date")
 //            print(filteredNotes[0].age)
+            
             for singleNote in filteredNotes{
                 ageArray.append(singleNote.age)
                 
@@ -147,6 +148,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             filteredNotes = []
             for date in ageArray{
                 //match item to allnote object name and output item in correct position in filtered array
+                
                 let newItem = uiRealm.objects(NoteData.self).filter("age == '\(date)'")
                 filteredNotes.append(newItem.first!)
             }
