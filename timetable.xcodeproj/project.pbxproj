@@ -172,8 +172,8 @@
 		85E5D47A21977E1F002BE951 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				851E3CAD21A2C222002467D9 /* Agenda */,
 				85E5D47B219799D8002BE951 /* Alarm.swift */,
+				851E3CAD21A2C222002467D9 /* Agenda */,
 				85E5D4902199D704002BE951 /* Notes */,
 				85E5D4852198722F002BE951 /* Schedule */,
 			);

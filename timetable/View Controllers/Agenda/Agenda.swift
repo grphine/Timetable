@@ -11,8 +11,18 @@ import SideMenu
 
 class AgendaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-
-    @IBOutlet weak var dateLabel: UILabel!
+    /*
+     get day
+     find all events happening on that day
+     sort those events (could be repeating) into order of appearance
+     as they appear, output to table
+     once time has passed, clear from table
+     
+     allow user to tap on item and view its details
+ 
+ */
+    
+    @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var goalsLabel: UILabel!
     @IBOutlet weak var agendaTableView: UITableView!
     
@@ -24,15 +34,21 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
         setupSideMenu() //left menu setup
         
-        dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
+        agendaTableView.delegate = self //setup tableview
+        agendaTableView.dataSource = self
         
+        //dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
-        
         
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        //dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
+        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
+        
         
         //allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //add all note items to allNotes array
         //filteredNotes = allNotes
@@ -46,11 +62,13 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = AgendaCell()
+        
+        return cell
     }
     
     
@@ -76,8 +94,6 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         m.default.menuPushStyle = .popWhenPossible //If a view controller already in the stack is of the same class as the pushed view controller, the stack is instead popped back to the existing view controller. This behavior can help users from getting lost in a deep navigation stack.
         
         m.default.menuPresentMode = .viewSlideInOut //The existing view slides out while the menu slides in.
-        
-        
         
     }
     
