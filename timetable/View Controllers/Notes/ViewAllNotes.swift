@@ -131,11 +131,26 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         var titleArray = [String]()
         var ageArray = [Date]()
         
+        
         if sender.selectedSegmentIndex == 0{
             // Date
 //            //self.lists = self.lists.sorted("name")
 //            print("date")
 //            print(filteredNotes[0].age)
+            for singleNote in filteredNotes{
+                ageArray.append(singleNote.age)
+                
+                ageArray = sort.mergeSort(ageArray)
+                
+            }
+            
+            filteredNotes = []
+            for date in ageArray{
+                //match item to allnote object name and output item in correct position in filtered array
+                let newItem = uiRealm.objects(NoteData.self).filter("age == '\(date)'")
+                filteredNotes.append(newItem.first!)
+            }
+            
         }
         else{
             // A-Z
@@ -143,18 +158,17 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             for singleNote in filteredNotes{
                 titleArray.append(singleNote.title)
                 
-                titleArray = sort.quick(titleArray)
+                titleArray = sort.quickSort(titleArray)
                 
             }
             
-            var newArray = [NoteData]()
+            filteredNotes = []
             for name in titleArray{
                 //match item to allnote object name and output item in correct position in filtered array
                 let newItem = uiRealm.objects(NoteData.self).filter("title == '\(name)'")
-                newArray.append(newItem.first!)
+                filteredNotes.append(newItem.first!)
             }
-            filteredNotes = newArray
-            print(filteredNotes)
+            
             
             
             
@@ -190,6 +204,8 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 //        for item in filteredNotes{
 //            //arr.append(item.age as! Double)
 //            arr2.append(item.age)
+        
+        tableView.reloadData() //reload after sort
         
     }
     

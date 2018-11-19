@@ -10,8 +10,8 @@ import Foundation
 
 class Sorts {
     
-    //MARK: Quick Sort
-    func quick(_ arr: [String]) -> [String]{
+    //MARK: Quick Sort a string
+    func quickSort(_ arr: [String]) -> [String]{
         
         var less = [String]()
         var equal = [String]()
@@ -31,7 +31,7 @@ class Sorts {
                     equal.append(value)
                 }
             }
-            return quick(less) + equal + quick(more)
+            return quickSort(less) + equal + quickSort(more)
             
         }
         else{
@@ -41,8 +41,8 @@ class Sorts {
 
     
     
-    //MARK: Merge Sort
-    func mergeSort(_ arr: [Int]) -> [Int]{
+    //MARK: Merge Sort a date
+    func mergeSort(_ arr: [Date]) -> [Date]{
         var array = arr
         
         if array.count == 1{
@@ -58,9 +58,9 @@ class Sorts {
         
     }
     
-    func merge(_ a: [Int],_ b: [Int]) -> [Int]{
+    func merge(_ a: [Date],_ b: [Date]) -> [Date]{
         
-        var array = [Int]()
+        var array = [Date]()
         var indexa = 0
         var indexb = 0
         
