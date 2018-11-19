@@ -11,17 +11,11 @@ import RealmSwift
 
 class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     
-    //pull the notes from realm
-    //get array of notes
-    
     var tappedId = String()
     var allNotes = [NoteData]()
     var filteredNotes = [NoteData]()
     let sort = Sorts()
-    
-    
     let searchController = UISearchController(searchResultsController: nil)
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +43,12 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
         self.tableView.reloadData()
     }
-    func reloadData(){
-        allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //add all note items to allNotes array
-        filteredNotes = allNotes
-    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchController.dismiss(animated: false, completion: nil)
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -69,16 +58,15 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         guard let notes = filteredNotes as Optional else {
             return 0
         }
-        print(notes.count)
         return notes.count
-        //displays as many notes as there are in filteredNote
+        //displays as many notes as there are in filteredNotes
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell", for: indexPath) as! NotesCell
         
         let fullnote = filteredNotes[indexPath.row]
-        cell.configureCell(note: fullnote)
+        cell.configureCell(note: fullnote) //function configures each cell
         return cell
     }
 
@@ -89,37 +77,17 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     }
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            print("A")
-//            if let indexPath = self.tableView.indexPathForSelectedRow {
-//                print("B")
-//                tappedId = (allNotes[indexPath.row] as AnyObject).id
-//                print(filteredNotes)
-//                print(tappedId)
-//                let noteToBeDeleted = uiRealm.object(ofType: NoteData.self, forPrimaryKey: tappedId)! //get note by primary key
-//                print(noteToBeDeleted)
-//                try! uiRealm.write {
-//                    uiRealm.delete(noteToBeDeleted)
-//                }
-//            }
-//            print(filteredNotes)
-//            tableView.deleteRows(at: [indexPath], with: .fade) //delete item from table
-//        }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == .delete{
-            tappedId = (filteredNotes[indexPath.row]).id
-            let noteToDelete = uiRealm.object(ofType: NoteData.self, forPrimaryKey: tappedId)!
-            print(noteToDelete)
+            let noteToDelete = (filteredNotes[indexPath.row]) //get note object from filtered array
             try! uiRealm.write {
                 uiRealm.delete(noteToDelete)
             }
-            allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData]
+            allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //reset data after deleting note
             filteredNotes = allNotes
-            print(filteredNotes)
             tableView.deleteRows(at: [indexPath], with: .left)
         }
         
-       
         tableView.reloadData() //reload after delete
     }
     
@@ -162,15 +130,12 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             
             for singleNote in filteredNotes{
                 ageArray.append(singleNote.age)
-                
                 ageArray = sort.mergeSort(ageArray)
-                
             }
             
             filteredNotes = []
             for date in ageArray{
                 //match item to allnote object name and output item in correct position in filtered array
-                
                 let newItem = uiRealm.objects(NoteData.self).filter("age == '\(date)'")
                 filteredNotes.append(newItem.first!)
             }
@@ -178,64 +143,20 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         }
         else{
             // A-Z
-            
             for singleNote in filteredNotes{
                 titleArray.append(singleNote.title)
-                
                 titleArray = sort.quickSort(titleArray)
-                
             }
-            
             filteredNotes = []
             for name in titleArray{
                 //match item to allnote object name and output item in correct position in filtered array
                 let newItem = uiRealm.objects(NoteData.self).filter("title == '\(name)'")
                 filteredNotes.append(newItem.first!)
             }
-            
-            
-            
-            
-            //let array = Array(uiRealm.objects(NoteData.self).filter("title == '\(titleArray[0])'"))
-            
-//            var count = 0
-//            var abc = [Any]()
-//            for _ in filteredNotes{
-//                abc.append(uiRealm.objects(NoteData.self).filter("title == '\(titleArray[count])'"))
-//                print(abc)
-//                count += 1
-//            }
-            
-//            var not = uiRealm.objects(NoteData.self).filter("title = 'AB'")
-//            print(not)
-            //var newarr = [Any]()
-//            for _ in filteredNotes{
-//                newarr.append(uiRealm.objects(NoteData.self).filter("name == \(titleArray[0])"))
-//            }
-//            print(newarr)
-//
-            
-//            //self.lists = self.lists.sorted("createdAt", ascending:false)
-//            print("az")
-//            print(filteredNotes[1])
-//            //print(filteredNotes[1].age as! Double)
-            
         }
-        
-        //self.taskListsTableView.reloadData()
-//        var arr = [Double]()
-//        var arr2 = [Date]()
-//        for item in filteredNotes{
-//            //arr.append(item.age as! Double)
-//            arr2.append(item.age)
-        
         tableView.reloadData() //reload after sort
-        
     }
     
-   
-    
-
     //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
