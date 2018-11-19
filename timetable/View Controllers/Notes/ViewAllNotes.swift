@@ -130,13 +130,19 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             
             for singleNote in filteredNotes{
                 ageArray.append(singleNote.age)
-                ageArray = sort.mergeSort(ageArray)
             }
+            print(ageArray)
+            ageArray = sort.mergeSort(ageArray)
+            print(ageArray)
             
             filteredNotes = []
             for date in ageArray{
+                
                 //match item to allnote object name and output item in correct position in filtered array
-                let newItem = uiRealm.objects(NoteData.self).filter("age == '\(date)'")
+                let predicate = NSPredicate(format: "age = %@", "\(date)")
+                print(predicate)
+                let newItem = uiRealm.objects(NoteData.self).filter(predicate)
+                print(newItem)
                 filteredNotes.append(newItem.first!)
             }
             
@@ -145,8 +151,9 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             // A-Z
             for singleNote in filteredNotes{
                 titleArray.append(singleNote.title)
-                titleArray = sort.quickSort(titleArray)
             }
+            titleArray = sort.quickSort(titleArray)
+            
             filteredNotes = []
             for name in titleArray{
                 //match item to allnote object name and output item in correct position in filtered array

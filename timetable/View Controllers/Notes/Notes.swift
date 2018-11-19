@@ -72,7 +72,6 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
                     uiRealm.add(currentNote, update: true) //updates object
                 }
             }
-            print(currentNote)
             
             self.navigationController!.popViewController(animated: true)
         }
