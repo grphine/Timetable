@@ -33,6 +33,14 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        let someDateTime = formatter.date(from: "2016/10/08 22:31")
+        
+        let theAge: Date = (2018-11-20 20:03:34 +0000)
+        let abc = uiRealm.objects(NoteData.self).filter("age = '\(theAge)'")
+        print(abc)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +48,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         
         allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //add all note items to allNotes array
         filteredNotes = allNotes
+        print(allNotes)
 
         self.tableView.reloadData()
     }
@@ -139,9 +148,8 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             for date in ageArray{
                 
                 //match item to allnote object name and output item in correct position in filtered array
-                let predicate = NSPredicate(format: "age = %@", "\(date)")
-                print(predicate)
-                let newItem = uiRealm.objects(NoteData.self).filter(predicate)
+                
+                let newItem = uiRealm.objects(NoteData.self).filter("age = '\(date)'")
                 print(newItem)
                 filteredNotes.append(newItem.first!)
             }
