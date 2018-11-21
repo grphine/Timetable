@@ -46,7 +46,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         
         allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //add all note items to allNotes array
         filteredNotes = allNotes
-        //print(allNotes)
 
         self.tableView.reloadData()
     }
@@ -177,7 +176,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             if let indexPath = self.tableView.indexPathForSelectedRow { //get indexPath.row here instead of did select row function
                 tappedId = (allNotes[indexPath.row] as AnyObject).id
             }
-            print(tappedId)
             let destinationVC = segue.destination as! Notes
             destinationVC.addNoteSegue = false
             destinationVC.noteId = tappedId

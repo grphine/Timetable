@@ -17,13 +17,12 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
     var addNoteSegue: Bool! //check whether adding or modifying note
     var noteId: String! //ID has to be string or int
     var currentNote = NoteData() //instantiate note and write the values to database
-    let formatter = DateFormatter() //FIXME: May not be needed
     
     let alertController = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
     let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil)
     
     
-    
+    //MARK: Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         alertController.addAction(dismissAction)
@@ -38,14 +37,11 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         titleField.delegate = self
         bodyField.delegate = self
         
-        titleField.setBottomBorder() //add border style to title
-        
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss zzzz" //set datetime format
-        //let someDateTime = formatter.date(from: "2018-11-20 20:03:34")
+        titleField.setBottomBorder() //add border style to title text field
         
     }
     
-    
+    //MARK: Save
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem){
         if (titleField.text == "" || bodyField.text == "" || bodyField.text == "Note Description") { //check if empty
             
@@ -84,14 +80,14 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         
     }
     
-    
+    //MARK: Cancel
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem){
         self.navigationController!.popViewController(animated: true)
     }
     
 
     
-    //Text Field
+    //MARK: Text Field
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
@@ -106,16 +102,5 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
 
 }
 
-extension UITextField{
-    func setBottomBorder(){
-        self.borderStyle = .none
-        self.layer.backgroundColor = UIColor.white.cgColor
-        
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor(red: 80.0/255.0, green: 80.0/255.0, blue: 80.0/255.0, alpha: 0.25).cgColor
-        self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        self.layer.shadowOpacity = 1.0
-        self.layer.shadowRadius = 0.0
-    }
-}
+
 

@@ -174,7 +174,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         //get event and trigger segue
         if (indexPath.column >= 1 || indexPath.row >= 2){ //prevent locked cells performing segue
             name = getEventName(dict: allDict, column: indexPath.column, row: indexPath.row)
-            print(name)
             performSegue(withIdentifier: "eventCreationSegue", sender: nil)
         }
         
