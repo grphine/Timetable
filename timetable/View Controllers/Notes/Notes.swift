@@ -17,6 +17,7 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
     var addNoteSegue: Bool! //check whether adding or modifying note
     var noteId: String! //ID has to be string or int
     var currentNote = NoteData() //instantiate note and write the values to database
+    let formatter = DateFormatter() //FIXME: May not be needed
     
     let alertController = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
     let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil)
@@ -39,6 +40,9 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         
         titleField.setBottomBorder() //add border style to title
         
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss" //set datetime format
+        //let someDateTime = formatter.date(from: "2018-11-20 20:03:34")
+        
     }
     
     
@@ -52,13 +56,15 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         }
         else{
             
+            let currentDateTime = String(describing: Date(timeIntervalSinceNow: 1)) //convert current date and time into string
+            
             if addNoteSegue == true{
                 
                 try! uiRealm.write { //place all updates within a transaction
                     currentNote.title = titleField.text!
                     currentNote.body = bodyField.text!
-                    currentNote.age = Date(timeIntervalSinceNow: 1)
-                    currentNote.id = String(describing: Date(timeIntervalSinceNow: 1)) //write id as primary key for new note, set as time of initial creation
+                    currentNote.age =  currentDateTime
+                    currentNote.id = currentDateTime //write id as primary key for new note, set as time of initial creation
                     
                     uiRealm.add(currentNote)
                 }
@@ -67,7 +73,7 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
                 try! uiRealm.write { //place all updates within a transaction
                     currentNote.title = titleField.text!
                     currentNote.body = bodyField.text!
-                    currentNote.age = Date(timeIntervalSinceNow: 1)
+                    currentNote.age = currentDateTime
                     
                     uiRealm.add(currentNote, update: true) //updates object
                 }

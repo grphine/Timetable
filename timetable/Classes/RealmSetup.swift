@@ -14,7 +14,7 @@ class NoteData: Object {
     @objc dynamic var id = ""
     
     @objc dynamic var title = ""
-    @objc dynamic var age = Date()
+    @objc dynamic var age = ""
     @objc dynamic var body = ""
     
     override static func primaryKey() -> String? {

@@ -16,6 +16,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     var filteredNotes = [NoteData]()
     let sort = Sorts()
     let searchController = UISearchController(searchResultsController: nil)
+    let formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +35,14 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        let someDateTime = formatter.date(from: "2016/10/08 22:31")
         
-        let theAge: Date = (2018-11-20 20:03:34 +0000)
-        let abc = uiRealm.objects(NoteData.self).filter("age = '\(theAge)'")
-        print(abc)
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        //let someDateTime = formatter.date(from: "2018-11-20 20:03:34")
+//        print(someDateTime)
+//
+//        //let theAge: Date = (2018-11-20 20:03:34 +0000)
+//        let abc = uiRealm.objects(NoteData.self).filter("age = '\(someDateTime!)'")
+//        print(abc)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,6 +127,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         //reloads tableview with new data given by searching
     }
     
+    //MARK: Sort
     @IBAction func didSelectSort(_ sender: UISegmentedControl) {
         
         var titleArray = [String]()
@@ -138,7 +141,13 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 //            print(filteredNotes[0].age)
             
             for singleNote in filteredNotes{
-                ageArray.append(singleNote.age)
+                print(singleNote.age)
+                
+                let age = formatter.date(from: singleNote.age)
+                print(age)
+                
+                ageArray.append(age) //convert ages into date types
+                
             }
             print(ageArray)
             ageArray = sort.mergeSort(ageArray)
