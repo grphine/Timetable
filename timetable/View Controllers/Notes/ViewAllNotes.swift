@@ -11,6 +11,7 @@ import RealmSwift
 
 class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     
+    //MARK: Variables & Constants
     var tappedId = String()
     var allNotes = [NoteData]()
     var filteredNotes = [NoteData]()
@@ -18,6 +19,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     let searchController = UISearchController(searchResultsController: nil)
     let formatter = DateFormatter()
     
+    //MARK: Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,7 +84,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     }
     
     // Override to support editing the table view.
-    //MARK: Delete
+    //MARK: Row modification
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == .delete{
             let noteToDelete = (filteredNotes[indexPath.row]) //get note object from filtered array
