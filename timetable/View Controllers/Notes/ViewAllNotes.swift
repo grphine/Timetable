@@ -36,7 +36,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss zzzz"
         //let someDateTime = formatter.date(from: "2018-11-20 20:03:34")
 //        print(someDateTime)
 //
@@ -50,7 +50,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         
         allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //add all note items to allNotes array
         filteredNotes = allNotes
-        print(allNotes)
+        //print(allNotes)
 
         self.tableView.reloadData()
     }
@@ -146,7 +146,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
                 let age = formatter.date(from: singleNote.age)
                 print(age)
                 
-                ageArray.append(age) //convert ages into date types
+                ageArray.append(age!) //convert ages into date types
                 
             }
             print(ageArray)

@@ -40,7 +40,7 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         
         titleField.setBottomBorder() //add border style to title
         
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss" //set datetime format
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss zzzz" //set datetime format
         //let someDateTime = formatter.date(from: "2018-11-20 20:03:34")
         
     }
