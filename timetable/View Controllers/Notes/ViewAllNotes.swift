@@ -34,15 +34,9 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss zzzz" //set date format
         
-        
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss zzzz"
-        //let someDateTime = formatter.date(from: "2018-11-20 20:03:34")
-//        print(someDateTime)
-//
-//        //let theAge: Date = (2018-11-20 20:03:34 +0000)
-//        let abc = uiRealm.objects(NoteData.self).filter("age = '\(someDateTime!)'")
-//        print(abc)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -136,31 +130,21 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         
         if sender.selectedSegmentIndex == 0{
             // Date
-//            //self.lists = self.lists.sorted("name")
-//            print("date")
-//            print(filteredNotes[0].age)
             
             for singleNote in filteredNotes{
-                print(singleNote.age)
-                
                 let age = formatter.date(from: singleNote.age)
-                print(age)
-                
                 ageArray.append(age!) //convert ages into date types
-                
             }
-            print(ageArray)
-            ageArray = sort.mergeSort(ageArray)
-            print(ageArray)
             
-            filteredNotes = []
-            for date in ageArray{
+            if ageArray.count > 0{ //sort only if there are items in the array
+                ageArray = sort.mergeSort(ageArray)
                 
-                //match item to allnote object name and output item in correct position in filtered array
-                
-                let newItem = uiRealm.objects(NoteData.self).filter("age = '\(date)'")
-                print(newItem)
-                filteredNotes.append(newItem.first!)
+                filteredNotes = []
+                for date in ageArray{
+                    //match item to allnote object name and output item in correct position in filtered array
+                    let newItem = uiRealm.objects(NoteData.self).filter("age = '\(date)'")
+                    filteredNotes.append(newItem.first!)
+                }
             }
             
         }
@@ -169,13 +153,15 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             for singleNote in filteredNotes{
                 titleArray.append(singleNote.title)
             }
-            titleArray = sort.quickSort(titleArray)
-            
-            filteredNotes = []
-            for name in titleArray{
-                //match item to allnote object name and output item in correct position in filtered array
-                let newItem = uiRealm.objects(NoteData.self).filter("title == '\(name)'")
-                filteredNotes.append(newItem.first!)
+            if titleArray.count > 0{
+                titleArray = sort.quickSort(titleArray)
+                
+                filteredNotes = []
+                for name in titleArray{
+                    //match item to allnote object name and output item in correct position in filtered array
+                    let newItem = uiRealm.objects(NoteData.self).filter("title == '\(name)'")
+                    filteredNotes.append(newItem.first!)
+                }
             }
         }
         tableView.reloadData() //reload after sort
