@@ -82,14 +82,15 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     }
     
     // Override to support editing the table view.
+    //MARK: Delete
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == .delete{
             let noteToDelete = (filteredNotes[indexPath.row]) //get note object from filtered array
             try! uiRealm.write {
                 uiRealm.delete(noteToDelete)
             }
+            filteredNotes.remove(at: indexPath.row) //in case during search, since stored and displayed notes are different
             allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //reset data after deleting note
-            filteredNotes = allNotes
             tableView.deleteRows(at: [indexPath], with: .left)
         }
         
