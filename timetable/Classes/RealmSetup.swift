@@ -60,25 +60,12 @@ class Hour: Object { //the row the event appears in
     @objc dynamic var hourItem = Int()
 }
 
-
-
-
 extension Results {
     func toArray() -> [Any] { //put items into an array
         return self.map{$0}
     }
     
 }
-
-//func toEvent(event: Event, name: String, colour: UIColor, occurences: [[Int]], description: String, priority: Int) -> Event{ //create/modify an event
-//    event.name = name
-//    event.colour = colour
-//    event.occurences = occurences
-//    event.desc = description
-//    event.priority = priority
-//
-//    return event
-//}
 
 extension RealmSwift.List {
     func toArray() -> [Any] {

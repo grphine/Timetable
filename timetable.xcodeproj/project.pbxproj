@@ -12,15 +12,12 @@
 		851E3CAF21A2C245002467D9 /* AgendaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CAE21A2C245002467D9 /* AgendaCell.swift */; };
 		851E3CB121A2C67D002467D9 /* Sorts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CB021A2C67C002467D9 /* Sorts.swift */; };
 		851E3CB321A5ABA3002467D9 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CB221A5ABA3002467D9 /* Countdown.swift */; };
-		85E5D41521907901002BE951 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D41421907901002BE951 /* Node.swift */; };
 		85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4162190792F002BE951 /* Linked List Queue.swift */; };
 		85E5D462219601CD002BE951 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D461219601CD002BE951 /* Schedule.swift */; };
 		85E5D464219601F7002BE951 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D463219601F6002BE951 /* Cells.swift */; };
 		85E5D47921975945002BE951 /* SideMenuTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D47821975945002BE951 /* SideMenuTable.swift */; };
 		85E5D47C219799D8002BE951 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D47B219799D8002BE951 /* Alarm.swift */; };
 		85E5D4822198695F002BE951 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4812198695F002BE951 /* Data.swift */; };
-		85E5D4892198B3BF002BE951 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4882198B3BF002BE951 /* Events.swift */; };
-		85E5D48B2199C937002BE951 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48A2199C937002BE951 /* Alert.swift */; };
 		85E5D48D2199CAAC002BE951 /* ViewAllNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */; };
 		85E5D4922199D878002BE951 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4912199D877002BE951 /* Notes.swift */; };
 		85E5D4942199DA0A002BE951 /* RealmSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4932199DA0A002BE951 /* RealmSetup.swift */; };
@@ -66,15 +63,12 @@
 		851E3CAE21A2C245002467D9 /* AgendaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaCell.swift; sourceTree = "<group>"; };
 		851E3CB021A2C67C002467D9 /* Sorts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorts.swift; sourceTree = "<group>"; };
 		851E3CB221A5ABA3002467D9 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
-		85E5D41421907901002BE951 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		85E5D4162190792F002BE951 /* Linked List Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Linked List Queue.swift"; sourceTree = "<group>"; };
 		85E5D461219601CD002BE951 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		85E5D463219601F6002BE951 /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
 		85E5D47821975945002BE951 /* SideMenuTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTable.swift; sourceTree = "<group>"; };
 		85E5D47B219799D8002BE951 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		85E5D4812198695F002BE951 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		85E5D4882198B3BF002BE951 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Events.swift; path = timetable/Classes/Events.swift; sourceTree = SOURCE_ROOT; };
-		85E5D48A2199C937002BE951 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = timetable/Classes/Alert.swift; sourceTree = SOURCE_ROOT; };
 		85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewAllNotes.swift; path = "timetable/View Controllers/Notes/ViewAllNotes.swift"; sourceTree = SOURCE_ROOT; };
 		85E5D4912199D877002BE951 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		85E5D4932199DA0A002BE951 /* RealmSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSetup.swift; sourceTree = "<group>"; };
@@ -162,11 +156,8 @@
 		85E5D413219078E1002BE951 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				85E5D48A2199C937002BE951 /* Alert.swift */,
 				85E5D463219601F6002BE951 /* Cells.swift */,
-				85E5D4882198B3BF002BE951 /* Events.swift */,
 				85E5D4162190792F002BE951 /* Linked List Queue.swift */,
-				85E5D41421907901002BE951 /* Node.swift */,
 				85E5D4932199DA0A002BE951 /* RealmSetup.swift */,
 				851E3CB021A2C67C002467D9 /* Sorts.swift */,
 				85E5D47821975945002BE951 /* SideMenuTable.swift */,
@@ -177,8 +168,8 @@
 		85E5D47A21977E1F002BE951 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				851E3CB221A5ABA3002467D9 /* Countdown.swift */,
 				85E5D47B219799D8002BE951 /* Alarm.swift */,
+				851E3CB221A5ABA3002467D9 /* Countdown.swift */,
 				851E3CAD21A2C222002467D9 /* Agenda */,
 				85E5D4902199D704002BE951 /* Notes */,
 				85E5D4852198722F002BE951 /* Schedule */,
@@ -478,7 +469,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85E5D4892198B3BF002BE951 /* Events.swift in Sources */,
 				85E5D4942199DA0A002BE951 /* RealmSetup.swift in Sources */,
 				85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */,
 				851E3CAC219DFBEF002467D9 /* Extensions.swift in Sources */,
@@ -486,10 +476,8 @@
 				85E5D464219601F7002BE951 /* Cells.swift in Sources */,
 				851E3CAF21A2C245002467D9 /* AgendaCell.swift in Sources */,
 				85E5D4922199D878002BE951 /* Notes.swift in Sources */,
-				85E5D48B2199C937002BE951 /* Alert.swift in Sources */,
 				85E5D47C219799D8002BE951 /* Alarm.swift in Sources */,
 				85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */,
-				85E5D41521907901002BE951 /* Node.swift in Sources */,
 				85EDAF6E2188F85F006F8A6C /* timetable.xcdatamodeld in Sources */,
 				85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */,
 				85E5D496219A0643002BE951 /* NotesCell.swift in Sources */,
