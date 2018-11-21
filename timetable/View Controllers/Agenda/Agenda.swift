@@ -27,7 +27,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var agendaTableView: UITableView!
     
     var allEvents = [RepeatingEvent]()
-    //var timer = Timer()
+    var timer = Timer()
     let queue = LinkedList(data: String())
     
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         agendaTableView.delegate = self //setup tableview
         agendaTableView.dataSource = self
         
-        //dateTimeLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
+        dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         
     }
@@ -63,6 +63,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //number of events that haven't passed
         return 1
     }
     
@@ -97,6 +98,8 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         m.default.menuPresentMode = .viewSlideInOut //The existing view slides out while the menu slides in.
         
     }
+    
+    
     
 
 
