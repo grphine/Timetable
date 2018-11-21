@@ -905,7 +905,7 @@
         <!--Countdown Timer-->
         <scene sceneID="2il-xN-hBl">
             <objects>
-                <viewController title="Countdown Timer" id="Rni-CM-1dE" customClass="Countdown" sceneMemberID="viewController">
+                <viewController title="Countdown Timer" id="Rni-CM-1dE" customClass="Countdown" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HsH-ny-0UK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -921,11 +921,17 @@
                                 <rect key="frame" x="49" y="358" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButton:" destination="Rni-CM-1dE" eventType="touchUpInside" id="eoK-84-3UF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7z-EK-AjE">
                                 <rect key="frame" x="136" y="358" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="pauseButton:" destination="Rni-CM-1dE" eventType="touchUpInside" id="aT1-15-Mf9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aun-II-kBD">
                                 <rect key="frame" x="226" y="358" width="60" height="60"/>
@@ -933,11 +939,19 @@
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetButton:" destination="Rni-CM-1dE" eventType="touchUpInside" id="pUH-pi-qXq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xen-J8-Lro"/>
                     </view>
+                    <connections>
+                        <outlet property="pauseButton" destination="K7z-EK-AjE" id="fP0-v6-BfD"/>
+                        <outlet property="startButton" destination="ExM-Rc-rup" id="Rud-DG-Drp"/>
+                        <outlet property="timerLabel" destination="uvN-bm-2vg" id="ZJZ-DI-JQ9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpW-Uv-Dw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
