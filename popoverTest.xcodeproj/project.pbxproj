@@ -15,6 +15,8 @@
 		851E3CD621A715CF002467D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 851E3CD421A715CF002467D9 /* LaunchScreen.storyboard */; };
 		851E3CE121A715CF002467D9 /* popoverTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CE021A715CF002467D9 /* popoverTestTests.swift */; };
 		851E3CEC21A715CF002467D9 /* popoverTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CEB21A715CF002467D9 /* popoverTestUITests.swift */; };
+		851E3CFA21A71766002467D9 /* ColourPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CF921A71766002467D9 /* ColourPicker.swift */; };
+		851E3CFC21A71856002467D9 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CFB21A71856002467D9 /* PopoverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		851E3CE721A715CF002467D9 /* popoverTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = popoverTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		851E3CEB21A715CF002467D9 /* popoverTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popoverTestUITests.swift; sourceTree = "<group>"; };
 		851E3CED21A715CF002467D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		851E3CF921A71766002467D9 /* ColourPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPicker.swift; sourceTree = "<group>"; };
+		851E3CFB21A71856002467D9 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				851E3CC821A715CA002467D9 /* AppDelegate.swift */,
 				851E3CCA21A715CA002467D9 /* ViewController.swift */,
 				851E3CCC21A715CA002467D9 /* Main.storyboard */,
+				851E3CFB21A71856002467D9 /* PopoverViewController.swift */,
+				851E3CF921A71766002467D9 /* ColourPicker.swift */,
 				851E3CD221A715CF002467D9 /* Assets.xcassets */,
 				851E3CD421A715CF002467D9 /* LaunchScreen.storyboard */,
 				851E3CD721A715CF002467D9 /* Info.plist */,
@@ -261,7 +267,9 @@
 			files = (
 				851E3CCB21A715CA002467D9 /* ViewController.swift in Sources */,
 				851E3CD121A715CA002467D9 /* popoverTest.xcdatamodeld in Sources */,
+				851E3CFC21A71856002467D9 /* PopoverViewController.swift in Sources */,
 				851E3CC921A715CA002467D9 /* AppDelegate.swift in Sources */,
+				851E3CFA21A71766002467D9 /* ColourPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
