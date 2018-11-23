@@ -16,7 +16,7 @@ public class Queue<T> {
     var first: Node? { return head }
     var last: Node? {
         
-        if var node = self.head {
+        if var node = self.head { //finds first node in list
             while case let next? = node.next {
                 node = next
             }
@@ -29,20 +29,20 @@ public class Queue<T> {
     
     //MARK: Enqueue
     func enqueue(key: T) {
-        let nextItem = Node(data: key)
+        let nextItem = Node(data: key) //item to be added as node
         if let lastNode = last {
-            lastNode.next = nextItem
+            lastNode.next = nextItem //last node moved to added item
         } else {
-            head = nextItem
+            head = nextItem //unless item is added to empty queue
         }
     }
     
     //MARK: Dequeue
     func dequeue() -> T? {
-        if self.head?.data == nil { return nil  }
+        if self.head?.data == nil { return nil } //cannot dequeue if queue empty
         let out = head?.data
         if let nextItem = self.head?.next {
-            head = nextItem
+            head = nextItem //next node set as head
         } else {
             head = nil
         }
