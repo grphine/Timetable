@@ -12,6 +12,8 @@
 		851E3CAF21A2C245002467D9 /* AgendaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CAE21A2C245002467D9 /* AgendaCell.swift */; };
 		851E3CB121A2C67D002467D9 /* Sorts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CB021A2C67C002467D9 /* Sorts.swift */; };
 		851E3CB321A5ABA3002467D9 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CB221A5ABA3002467D9 /* Countdown.swift */; };
+		851E3D0421A8B561002467D9 /* OccurencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3D0321A8B561002467D9 /* OccurencesCell.swift */; };
+		851E3D0621A8B577002467D9 /* OccurencesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3D0521A8B577002467D9 /* OccurencesTVC.swift */; };
 		85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4162190792F002BE951 /* Linked List Queue.swift */; };
 		85E5D462219601CD002BE951 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D461219601CD002BE951 /* Schedule.swift */; };
 		85E5D464219601F7002BE951 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D463219601F6002BE951 /* Cells.swift */; };
@@ -63,6 +65,8 @@
 		851E3CAE21A2C245002467D9 /* AgendaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaCell.swift; sourceTree = "<group>"; };
 		851E3CB021A2C67C002467D9 /* Sorts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorts.swift; sourceTree = "<group>"; };
 		851E3CB221A5ABA3002467D9 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
+		851E3D0321A8B561002467D9 /* OccurencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurencesCell.swift; sourceTree = "<group>"; };
+		851E3D0521A8B577002467D9 /* OccurencesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurencesTVC.swift; sourceTree = "<group>"; };
 		85E5D4162190792F002BE951 /* Linked List Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Linked List Queue.swift"; sourceTree = "<group>"; };
 		85E5D461219601CD002BE951 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		85E5D463219601F6002BE951 /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
@@ -153,6 +157,15 @@
 			path = Agenda;
 			sourceTree = "<group>";
 		};
+		851E3D0221A8B53E002467D9 /* Occurences */ = {
+			isa = PBXGroup;
+			children = (
+				851E3D0321A8B561002467D9 /* OccurencesCell.swift */,
+				851E3D0521A8B577002467D9 /* OccurencesTVC.swift */,
+			);
+			path = Occurences;
+			sourceTree = "<group>";
+		};
 		85E5D413219078E1002BE951 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +193,7 @@
 		85E5D4852198722F002BE951 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				851E3D0221A8B53E002467D9 /* Occurences */,
 				851E3CA7219CC06B002467D9 /* EventVC.swift */,
 				85E5D461219601CD002BE951 /* Schedule.swift */,
 			);
@@ -473,6 +487,7 @@
 				85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */,
 				851E3CAC219DFBEF002467D9 /* Extensions.swift in Sources */,
 				85E5D4822198695F002BE951 /* Data.swift in Sources */,
+				851E3D0421A8B561002467D9 /* OccurencesCell.swift in Sources */,
 				85E5D464219601F7002BE951 /* Cells.swift in Sources */,
 				851E3CAF21A2C245002467D9 /* AgendaCell.swift in Sources */,
 				85E5D4922199D878002BE951 /* Notes.swift in Sources */,
@@ -481,6 +496,7 @@
 				85EDAF6E2188F85F006F8A6C /* timetable.xcdatamodeld in Sources */,
 				85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */,
 				85E5D496219A0643002BE951 /* NotesCell.swift in Sources */,
+				851E3D0621A8B577002467D9 /* OccurencesTVC.swift in Sources */,
 				85E5D48D2199CAAC002BE951 /* ViewAllNotes.swift in Sources */,
 				851E3CA8219CC06B002467D9 /* EventVC.swift in Sources */,
 				851E3CB121A2C67D002467D9 /* Sorts.swift in Sources */,
