@@ -94,12 +94,19 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
         return false
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) { //automatically remove text
+        if (textField.text == "Title"){
+            textField.text = ""
+        }
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) { //automatically remove text
         if (textView.text == "Note Description"){
             textView.text = ""
         }
     }
 
+    
 }
 
 

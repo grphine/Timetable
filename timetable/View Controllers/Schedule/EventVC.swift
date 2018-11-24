@@ -179,9 +179,9 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         }
     }
     
-    func textFieldDidBeginEditing(_ textView: UITextField) { //automatically remove text from text field
-        if (textView.text == "Event Name"){
-            textView.text = ""
+    func textFieldDidBeginEditing(_ textField: UITextField) { //automatically remove text from text field
+        if (textField.text == "Event Name"){
+            textField.text = ""
         }
     }
     
