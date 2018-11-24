@@ -452,11 +452,10 @@
                                     <action selector="submitButtonPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="y8l-zk-uFM"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MD9-fN-WPM">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Extra Information" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MD9-fN-WPM">
                                 <rect key="frame" x="16" y="446" width="343" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <string key="text">Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra Data Extra </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

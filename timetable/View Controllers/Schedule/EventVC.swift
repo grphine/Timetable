@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EventVC: UIViewController {
+class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     //MARK: Variables
     var singleEvent = RepeatingEvent()
@@ -29,11 +29,15 @@ class EventVC: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     //TODO: Add reminder has no connection
+    //TODO: Priority should be low medium high picker view
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO: change field placeholder text, set priority input as int only
+        
+        nameLabel.delegate = self
+        descriptionLabel.delegate = self
         
         if eventName == "" {
             //unlock interaction for fields when new event is being added
@@ -168,6 +172,19 @@ class EventVC: UIViewController {
         submitButton.isUserInteractionEnabled = set
         deleteButton.isUserInteractionEnabled = set
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) { //automatically remove text from text view
+        if (textView.text == "Extra Information"){
+            textView.text = ""
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textView: UITextField) { //automatically remove text from text field
+        if (textView.text == "Event Name"){
+            textView.text = ""
+        }
+    }
+    
     
     
     
