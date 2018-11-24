@@ -9,6 +9,8 @@
 import UIKit
 
 class OccurencesCell: UITableViewCell {
+    
+    //TODO: Make uncheckable, remember to check multiple answers stack
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -19,10 +19,17 @@ class EventVC: UIViewController {
     
     
     @IBOutlet weak var nameLabel: UITextField!
-    @IBOutlet weak var repeatSwitch: UISwitch!
     @IBOutlet weak var dateLabel: UITextField!
     @IBOutlet weak var priorityLabel: UITextField!
     @IBOutlet weak var descriptionLabel: UITextView!
+    @IBOutlet weak var repeatSwitch: UISwitch!
+    
+    @IBOutlet weak var colourPickerButton: UIButton!
+    @IBOutlet weak var occurenceButton: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    //TODO: Add reminder has no connection
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +40,20 @@ class EventVC: UIViewController {
         
         
         if eventName == "" {
-            print("empty")
-            //unlock edit button
+            //unlock interaction for fields when new event is being added
+            modifyInteraction(set: true)
+            //TODO: prevent edit button showing? move code above to else statment
+            
         }
         else{
             
-            singleEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)!
+            singleEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)! //pull data about event
             
-            nameLabel.text = singleEvent.name
+            nameLabel.text = singleEvent.name //set data
             descriptionLabel.text = singleEvent.desc
             priorityLabel.text = String(describing: singleEvent.priority)
+            
+            modifyInteraction(set: false) //disable interaction
             
             
 //            name = eventItem[0].name //since it is cast into an array. Not sure how to pull the event otherwise
@@ -67,11 +78,15 @@ class EventVC: UIViewController {
             //enable interaction
             //textfield.isUserInteractionEnabled = true
             
+            modifyInteraction(set: true)
+
             
         }
         else{
             //user interaction disabled, while data input is then updated
             //patientID.isUserInteractionEnabled = false
+            
+            modifyInteraction(set: false)
             
         }
         check += 1 //changes lock state
@@ -79,7 +94,7 @@ class EventVC: UIViewController {
     }
     
     //MARK: Submit button
-    @IBAction func submitButton(_ sender: UIButton) {
+    @IBAction func submitButtonPressed(_ sender: UIButton) {
         
         
         /*case (item conflict){
@@ -92,22 +107,30 @@ class EventVC: UIViewController {
         
         //if all good:
         
-        //delete current data and append new data
-        
-        //new struct initialisation for adding new event
+        //Make sure event was grabbed by primary key to ensure it is edited rather than remade
+        //Unless they are adding a new event, in which case the above is unecessary. Add bool for check
         
         //send alerts of data being updated
         
         //FIXME: Colour is empty string
         let newEvent = addEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: Int(priorityLabel.text!)!)
         
-                try! uiRealm.write { //place all updates within a transaction
-                    uiRealm.add(newEvent, update: true)
-                }
+        try! uiRealm.write { //place all updates within a transaction
+            uiRealm.add(newEvent, update: true)
+        }
+        
+        //TODO: Show alert for successful add, return to previous view
         
         
     }
     
+    //MARK: Delete Button
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        //TODO: Throw alert if user presses delete
+        //Delete, then return to previous view
+    }
+    
+    //MARK: Add event
     func addEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int) -> RepeatingEvent{
         let event = RepeatingEvent()
         
@@ -124,7 +147,6 @@ class EventVC: UIViewController {
         
         return event
     }
-    
     
     func timesToDay(times: [Int]) -> Day{ //create Day objects
         
@@ -144,6 +166,21 @@ class EventVC: UIViewController {
         
         return new
     }
+    
+    //MARK: Modify interaction
+    func modifyInteraction(set: Bool){
+        nameLabel.isUserInteractionEnabled = set
+        repeatSwitch.isUserInteractionEnabled = set
+        dateLabel.isUserInteractionEnabled = set
+        priorityLabel.isUserInteractionEnabled = set
+        descriptionLabel.isUserInteractionEnabled = set
+        colourPickerButton.isUserInteractionEnabled = set
+        occurenceButton.isUserInteractionEnabled = set
+        submitButton.isUserInteractionEnabled = set
+        deleteButton.isUserInteractionEnabled = set
+    }
+    
+    
     
    
 

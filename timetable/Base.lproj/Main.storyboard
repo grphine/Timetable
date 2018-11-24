@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="-514" y="37"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="MPt-py-GId">
             <objects>
-                <viewController id="LPg-g3-HVA" sceneMemberID="viewController">
+                <viewController title="Settings" id="LPg-g3-HVA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hg3-OY-2dK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -442,11 +442,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHW-N7-8BV">
-                                <rect key="frame" x="162" y="617" width="49" height="30"/>
+                                <rect key="frame" x="268" y="617" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <action selector="submitButton:" destination="i7A-dO-FGm" eventType="touchUpInside" id="ghR-ic-S9W"/>
+                                    <action selector="submitButtonPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="y8l-zk-uFM"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MD9-fN-WPM">
@@ -465,16 +465,28 @@
                                     <segue destination="mRC-mJ-iDc" kind="show" id="fZ7-ly-UPe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30f-il-MsT">
+                                <rect key="frame" x="59" y="617" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="fKx-tZ-11F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="c6w-19-3oK"/>
                     </view>
                     <connections>
+                        <outlet property="colourPickerButton" destination="W5L-fC-xRX" id="B1Q-bv-OKC"/>
                         <outlet property="dateLabel" destination="CEa-Yn-P05" id="Stq-rk-UjP"/>
+                        <outlet property="deleteButton" destination="30f-il-MsT" id="rt5-Hm-rCU"/>
                         <outlet property="descriptionLabel" destination="MD9-fN-WPM" id="H7J-0f-Zsf"/>
                         <outlet property="nameLabel" destination="QGh-u2-WFN" id="gVJ-9T-2qN"/>
+                        <outlet property="occurenceButton" destination="vHd-lS-mQU" id="36U-iQ-r0a"/>
                         <outlet property="priorityLabel" destination="UaD-t7-02h" id="dxy-0t-lNI"/>
                         <outlet property="repeatSwitch" destination="8QA-Pb-9mY" id="I6f-BY-eVh"/>
+                        <outlet property="submitButton" destination="sHW-N7-8BV" id="wz7-oO-UHw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ll7-3E-nva" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,6 +9,8 @@
 import UIKit
 
 class OccurencesTVC: UITableViewController {
+    
+    //TODO: Get these collapsing
 
     override func viewDidLoad() {
         super.viewDidLoad()

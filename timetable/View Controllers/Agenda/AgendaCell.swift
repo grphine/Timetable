@@ -26,13 +26,11 @@ class AgendaCell: UITableViewCell {
 //        // Configure the view for the selected state
 //    }
 //
-//    func configureCell(note: NoteData) {
-//        self.titleLabel.text = note.title
-//        self.descriptionLabel.text = note.body
-//    }
-    
+
+    //TODO: Navigate to event view when cell tapped
     func configureCell(event: RepeatingEvent){
-        
+        //self.titleLabel.text = RepeatingEvent.name
+        //colour = priority level. If three, col = hex string, but low alpha
     }
     
 }
