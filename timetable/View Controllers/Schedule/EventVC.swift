@@ -120,13 +120,18 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //MARK: Add data to Realm
         //FIXME: Colour is empty string
         //FIXME: Cannot add event until picker view sorted
-//        let newEvent = addEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: Int(priorityLabel.text!)!)
+//        let newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: Int(priorityLabel.text!)!)
 //
 //        try! uiRealm.write { //place all updates within a transaction
 //            uiRealm.add(newEvent, update: true)
 //        }
         
-        //TODO: Show alert for successful add, pop view
+        
+        let alert = UIAlertController(title: "Info", message: "Schedule Updated", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Return", style: .default, handler: { action in
+            self.navigationController?.popViewController(animated: true) //return to Schedule after submitting
+        }))
+        self.present(alert, animated: true)
     }
     
     //MARK: Delete Button
@@ -137,6 +142,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             try! uiRealm.write {
                 uiRealm.delete(self.singleEvent)
             }
+            self.navigationController?.popViewController(animated: true) //return to Schedule after deleting
         }))
         
         self.present(alert, animated: true)
@@ -144,7 +150,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     }
     
     //MARK: Add Event Method and Constituents
-    func addEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int) -> RepeatingEvent{
+    func createEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int) -> RepeatingEvent{
         let event = RepeatingEvent()
         
         //make a check whether to modify or not. true, edit params by primary key. otherwise add as new
