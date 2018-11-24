@@ -173,6 +173,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         deleteButton.isUserInteractionEnabled = set
     }
     
+    //MARK: Text setup
     func textViewDidBeginEditing(_ textView: UITextView) { //automatically remove text from text view
         if (textView.text == "Extra Information"){
             textView.text = ""

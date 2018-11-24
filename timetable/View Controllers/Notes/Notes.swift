@@ -43,12 +43,18 @@ class Notes: UIViewController, UITextFieldDelegate, UITextViewDelegate, UINaviga
     
     //MARK: Save
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem){
-        if (titleField.text == "" || bodyField.text == "" || bodyField.text == "Note Description") { //check if empty
+        if (titleField.text == "" || bodyField.text == "") { //check if empty
             
             alertController.title = "Warning"
             alertController.message = "Please leave no empty fields when saving"
             self.present(alertController, animated: true, completion: nil)
             //if empty, present warning alert
+        }
+        else if (bodyField.text == "Note Description" || titleField.text == "Title"){
+            alertController.title = "Warning"
+            alertController.message = "Please add your own text or cancel"
+            self.present(alertController, animated: true, completion: nil)
+            //if left to default, present warning alert
         }
         else{
             
