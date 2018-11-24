@@ -59,16 +59,11 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
             //priorityLabel.text = String(describing: singleEvent.priority)
             //FIXME: Get priority from picker view
-            
-        
             modifyInteraction(set: false) //disable interaction
-            
-            
         }
-        
-    
     }
     
+    //MARK: Picker view
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -77,17 +72,20 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         return 3
     }
     
+    //MARK: Occurence Button
     @IBAction func occurenceButtonPressed(_ sender: UIButton){
         //get data from collapsable tableview date picker for dates
         //presented as popover
+        //Return 2d array, including empties
     }
     
+    //MARK: Colour Picker Button
     @IBAction func colourPickerPressed(_ sender: UIButton){
         //pick colours somehow, maybe a popover
     }
     
     
-    //MARK: Edit button
+    //MARK: Edit Button
     override func setEditing(_ editing: Bool, animated: Bool){
         super.setEditing(editing, animated: animated)
         
@@ -129,28 +127,23 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
 //        }
         
         //TODO: Show alert for successful add, pop view
-        
-        
     }
     
     //MARK: Delete Button
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        //TODO: Throw alert if user presses delete
-        //Delete, then pop view
         let alert = UIAlertController(title: "Warning", message: "This will permanently delete this event", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
-            //TODO: Delete item from Realm
-            //get primary key
-            //remove from realm
-            print("X")
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in //Delete event if user confirms
+            try! uiRealm.write {
+                uiRealm.delete(self.singleEvent)
+            }
         }))
         
         self.present(alert, animated: true)
         
     }
     
-    //MARK: Add event
+    //MARK: Add Event Method and Constituents
     func addEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int) -> RepeatingEvent{
         let event = RepeatingEvent()
         
@@ -187,7 +180,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         return new
     }
     
-    //MARK: Modify interaction
+    //MARK: Modify Interactability
     func modifyInteraction(set: Bool){
         nameLabel.isUserInteractionEnabled = set
         repeatSwitch.isUserInteractionEnabled = set
@@ -198,22 +191,16 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         submitButton.isUserInteractionEnabled = set
     }
     
-    //MARK: Text setup
+    //MARK: Text Setup
     func textViewDidBeginEditing(_ textView: UITextView) { //automatically remove text from text view
         if (textView.text == "Extra Information"){
             textView.text = ""
         }
     }
-    
     func textFieldDidBeginEditing(_ textField: UITextField) { //automatically remove text from text field
         if (textField.text == "Event Name"){
             textField.text = ""
         }
     }
     
-    
-    
-    
-   
-
 }
