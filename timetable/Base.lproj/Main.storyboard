@@ -384,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="964" y="36.431784107946029"/>
         </scene>
-        <!--EventVC-->
+        <!--Event-->
         <scene sceneID="fZY-fQ-8fY">
             <objects>
-                <viewController id="i7A-dO-FGm" customClass="EventVC" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Event" id="i7A-dO-FGm" customClass="EventVC" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VUq-3D-wSV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

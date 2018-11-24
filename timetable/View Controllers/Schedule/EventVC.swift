@@ -41,9 +41,14 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         nameLabel.delegate = self
         descriptionLabel.delegate = self
         
+        //TODO: Change add occurence text depending on whether adding or not
+        //Change view triggered depending on whether repeating event or not
         if eventName == "" {
             //unlock interaction for fields when new event is being added
             modifyInteraction(set: true)
+            deleteButton.isUserInteractionEnabled = false
+            occurenceButton.setTitle("Add Occurences (Day/Time)", for: .normal)
+            
         }
         else{
             self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
@@ -52,9 +57,11 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             
             nameLabel.text = singleEvent.name //set data
             descriptionLabel.text = singleEvent.desc
+            occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
             //priorityLabel.text = String(describing: singleEvent.priority)
             //FIXME: Get priority from picker view
             
+        
             modifyInteraction(set: false) //disable interaction
             
             
@@ -131,6 +138,17 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         //TODO: Throw alert if user presses delete
         //Delete, then pop view
+        let alert = UIAlertController(title: "Warning", message: "This will permanently delete this event", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            //TODO: Delete item from Realm
+            //get primary key
+            //remove from realm
+            print("X")
+        }))
+        
+        self.present(alert, animated: true)
+        
     }
     
     //MARK: Add event
@@ -180,7 +198,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         colourPickerButton.isUserInteractionEnabled = set
         occurenceButton.isUserInteractionEnabled = set
         submitButton.isUserInteractionEnabled = set
-        deleteButton.isUserInteractionEnabled = set
     }
     
     //MARK: Text setup
