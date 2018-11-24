@@ -7,7 +7,9 @@
 
 import UIKit
 
-class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+    
+    
     
     //MARK: Variables
     var singleEvent = RepeatingEvent()
@@ -20,9 +22,10 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var dateLabel: UITextField!
-    @IBOutlet weak var priorityLabel: UITextField!
     @IBOutlet weak var descriptionLabel: UITextView!
+    
     @IBOutlet weak var repeatSwitch: UISwitch!
+    @IBOutlet weak var priorityPicker: UIPickerView!
     
     @IBOutlet weak var colourPickerButton: UIButton!
     @IBOutlet weak var occurenceButton: UIButton!
@@ -52,7 +55,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
             
             nameLabel.text = singleEvent.name //set data
             descriptionLabel.text = singleEvent.desc
-            priorityLabel.text = String(describing: singleEvent.priority)
+            //priorityLabel.text = String(describing: singleEvent.priority)
+            //FIXME: Get priority from picker view
             
             modifyInteraction(set: false) //disable interaction
             
@@ -60,6 +64,14 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         }
         
     
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 3
     }
     
     @IBAction func occurenceButtonPressed(_ sender: UIButton){
@@ -106,11 +118,12 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         
         //MARK: Add data to Realm
         //FIXME: Colour is empty string
-        let newEvent = addEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: Int(priorityLabel.text!)!)
-        
-        try! uiRealm.write { //place all updates within a transaction
-            uiRealm.add(newEvent, update: true)
-        }
+        //FIXME: Cannot add event until picker view sorted
+//        let newEvent = addEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: Int(priorityLabel.text!)!)
+//        
+//        try! uiRealm.write { //place all updates within a transaction
+//            uiRealm.add(newEvent, update: true)
+//        }
         
         //TODO: Show alert for successful add, pop view
         

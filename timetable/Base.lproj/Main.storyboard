@@ -423,13 +423,6 @@
                                 <rect key="frame" x="206" y="186" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" text="Priority" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UaD-t7-02h">
-                                <rect key="frame" x="16" y="387" width="178" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zk2-Hj-I03">
                                 <rect key="frame" x="16" y="275" width="38" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -478,6 +471,17 @@
                                     <action selector="deleteButtonPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="fKx-tZ-11F"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rf8-Tt-Q5y">
+                                <rect key="frame" x="115" y="377" width="202" height="61"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBN-Ys-evt">
+                                <rect key="frame" x="26" y="397" width="55" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="c6w-19-3oK"/>
@@ -489,14 +493,14 @@
                         <outlet property="descriptionLabel" destination="MD9-fN-WPM" id="H7J-0f-Zsf"/>
                         <outlet property="nameLabel" destination="QGh-u2-WFN" id="gVJ-9T-2qN"/>
                         <outlet property="occurenceButton" destination="vHd-lS-mQU" id="36U-iQ-r0a"/>
-                        <outlet property="priorityLabel" destination="UaD-t7-02h" id="dxy-0t-lNI"/>
+                        <outlet property="priorityPicker" destination="Rf8-Tt-Q5y" id="aKV-Wa-Q2g"/>
                         <outlet property="repeatSwitch" destination="8QA-Pb-9mY" id="I6f-BY-eVh"/>
                         <outlet property="submitButton" destination="sHW-N7-8BV" id="wz7-oO-UHw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ll7-3E-nva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="-861"/>
+            <point key="canvasLocation" x="-164" y="-861.3193403298352"/>
         </scene>
         <!--OccurencesTVC-->
         <scene sceneID="m6C-YY-vqy">
