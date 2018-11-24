@@ -59,6 +59,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let notes = filteredNotes as Optional else {
@@ -66,6 +67,9 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         }
         return notes.count
         //displays as many notes as there are in filteredNotes
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
+        return "All Notes"
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

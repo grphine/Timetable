@@ -37,7 +37,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: change field placeholder text, set priority input as int only
         
         nameLabel.delegate = self
         descriptionLabel.delegate = self
@@ -45,8 +44,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         if eventName == "" {
             //unlock interaction for fields when new event is being added
             modifyInteraction(set: true)
-            
-            
         }
         else{
             self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
@@ -120,7 +117,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //FIXME: Colour is empty string
         //FIXME: Cannot add event until picker view sorted
 //        let newEvent = addEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: Int(priorityLabel.text!)!)
-//        
+//
 //        try! uiRealm.write { //place all updates within a transaction
 //            uiRealm.add(newEvent, update: true)
 //        }
@@ -178,7 +175,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         nameLabel.isUserInteractionEnabled = set
         repeatSwitch.isUserInteractionEnabled = set
         dateLabel.isUserInteractionEnabled = set
-        priorityLabel.isUserInteractionEnabled = set
+        priorityPicker.isUserInteractionEnabled = set
         descriptionLabel.isUserInteractionEnabled = set
         colourPickerButton.isUserInteractionEnabled = set
         occurenceButton.isUserInteractionEnabled = set
