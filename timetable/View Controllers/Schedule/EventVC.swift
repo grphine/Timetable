@@ -70,21 +70,12 @@ class EventVC: UIViewController {
     
     //MARK: Edit button
     override func setEditing(_ editing: Bool, animated: Bool){
-        
         super.setEditing(editing, animated: animated)
-        if check % 2 == 0{ //if check is even, user interaction enabled
-            
-            modifyInteraction(set: true)
-            
-        }
-        else{
-            //user interaction disabled
-            
-            modifyInteraction(set: false)
-            
-        }
-        check += 1 //changes lock state
         
+        if check % 2 == 0 { modifyInteraction(set: true) } //enable interaction on edit button press
+        else { modifyInteraction(set: false) } //disable interaction on second press
+        
+        check += 1 //changes lock state
     }
     
     //MARK: Submit button
@@ -109,6 +100,7 @@ class EventVC: UIViewController {
         
         //send alerts of data being updated
         
+        //MARK: Add data to Realm
         //FIXME: Colour is empty string
         let newEvent = addEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: Int(priorityLabel.text!)!)
         
@@ -116,7 +108,7 @@ class EventVC: UIViewController {
             uiRealm.add(newEvent, update: true)
         }
         
-        //TODO: Show alert for successful add, return to previous view
+        //TODO: Show alert for successful add, pop view
         
         
     }
@@ -124,14 +116,14 @@ class EventVC: UIViewController {
     //MARK: Delete Button
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         //TODO: Throw alert if user presses delete
-        //Delete, then return to previous view
+        //Delete, then pop view
     }
     
     //MARK: Add event
     func addEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int) -> RepeatingEvent{
         let event = RepeatingEvent()
         
-        //make a check whether to modify or not. true, edit params by primary key. otherwise wipe and add as new
+        //make a check whether to modify or not. true, edit params by primary key. otherwise add as new
         
         event.name = name //add all parameters
         event.colour = colour
