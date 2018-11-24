@@ -34,7 +34,7 @@ class EventVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
         
         //MARK: Setup data
         
@@ -46,6 +46,7 @@ class EventVC: UIViewController {
             
         }
         else{
+            self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
             
             singleEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)! //pull data about event
             
@@ -56,16 +57,9 @@ class EventVC: UIViewController {
             modifyInteraction(set: false) //disable interaction
             
             
-//            name = eventItem[0].name //since it is cast into an array. Not sure how to pull the event otherwise
-//            nameLabel.text = name
-//
-//            //dateLabel.text = String(describing: eventItem[0].occurences)
         }
         
-        
-        
-        
-        
+    
     }
     
     
@@ -73,18 +67,13 @@ class EventVC: UIViewController {
     override func setEditing(_ editing: Bool, animated: Bool){
         
         super.setEditing(editing, animated: animated)
-        if check % 2 == 0{
-            //if check is even, user interaction enabled
-            //enable interaction
-            //textfield.isUserInteractionEnabled = true
+        if check % 2 == 0{ //if check is even, user interaction enabled
             
             modifyInteraction(set: true)
-
             
         }
         else{
-            //user interaction disabled, while data input is then updated
-            //patientID.isUserInteractionEnabled = false
+            //user interaction disabled
             
             modifyInteraction(set: false)
             
