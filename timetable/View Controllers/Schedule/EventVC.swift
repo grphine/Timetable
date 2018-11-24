@@ -21,7 +21,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     
     @IBOutlet weak var nameLabel: UITextField!
-    @IBOutlet weak var dateLabel: UITextField!
     @IBOutlet weak var descriptionLabel: UITextView!
     
     @IBOutlet weak var repeatSwitch: UISwitch!
@@ -192,7 +191,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     func modifyInteraction(set: Bool){
         nameLabel.isUserInteractionEnabled = set
         repeatSwitch.isUserInteractionEnabled = set
-        dateLabel.isUserInteractionEnabled = set
         priorityPicker.isUserInteractionEnabled = set
         descriptionLabel.isUserInteractionEnabled = set
         colourPickerButton.isUserInteractionEnabled = set
