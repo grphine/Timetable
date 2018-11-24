@@ -105,6 +105,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
          output error. Also check inputs dynamically maybe?
          case (repeat event)
          tell user to tap on event in ssv and edit
+         
+         use some table to store taken event times, and if time check table for conflicts (ideally inform user which has conflict)
          */
         
         //if all good:
@@ -120,11 +122,13 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //MARK: Add data to Realm
         //FIXME: Colour is empty string
         //FIXME: Cannot add event until picker view sorted
-//        let newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: Int(priorityLabel.text!)!)
-//
-//        try! uiRealm.write { //place all updates within a transaction
-//            uiRealm.add(newEvent, update: true)
-//        }
+        let newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: 3)
+        
+        //if event exists,
+        
+        try! uiRealm.write { //place all updates within a transaction
+            uiRealm.add(newEvent, update: true)
+        }
         
         
         let alert = UIAlertController(title: "Info", message: "Schedule Updated", preferredStyle: .alert)
@@ -159,6 +163,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         event.colour = colour
         event.desc = description
         event.priority = priority
+        //FIXME: Events need to be ID'd in some way. If a user changes the event name, the ID is also changed, giving two events
         
         for day in week{ //for every day in the week, append the day to the week
             event.week.append(timesToDay(times: day))
