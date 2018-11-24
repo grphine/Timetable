@@ -403,6 +403,9 @@
                                 <rect key="frame" x="141" y="112" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Colour Picker"/>
+                                <connections>
+                                    <action selector="colourPickerPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="nbD-wC-wlJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3R-Ii-BOU">
                                 <rect key="frame" x="140" y="150" width="93" height="30"/>
@@ -462,7 +465,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="add occurence (day/time)"/>
                                 <connections>
-                                    <segue destination="mRC-mJ-iDc" kind="show" id="fZ7-ly-UPe"/>
+                                    <action selector="occurenceButtonPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="X9H-ce-bOC"/>
+                                    <segue destination="mRC-mJ-iDc" kind="popoverPresentation" popoverAnchorView="vHd-lS-mQU" id="fZ7-ly-UPe">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30f-il-MsT">

@@ -15,7 +15,7 @@ class EventVC: UIViewController {
     
     //Sent variables
     var eventName: String!
-    var allEvents: [RepeatingEvent]!
+    var allEvents: [RepeatingEvent]! //FIXME: This is not currently used? Sent from last view
     
     
     @IBOutlet weak var nameLabel: UITextField!
@@ -33,16 +33,12 @@ class EventVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        //MARK: Setup data
-        
+        //TODO: change field placeholder text, set priority input as int only
         
         if eventName == "" {
             //unlock interaction for fields when new event is being added
             modifyInteraction(set: true)
-            //TODO: prevent edit button showing? move code above to else statment
+            
             
         }
         else{
@@ -60,6 +56,15 @@ class EventVC: UIViewController {
         }
         
     
+    }
+    
+    @IBAction func occurenceButtonPressed(_ sender: UIButton){
+        //get data from collapsable tableview date picker for dates
+        //presented as popover
+    }
+    
+    @IBAction func colourPickerPressed(_ sender: UIButton){
+        //pick colours somehow, maybe a popover
     }
     
     
@@ -98,6 +103,9 @@ class EventVC: UIViewController {
         
         //Make sure event was grabbed by primary key to ensure it is edited rather than remade
         //Unless they are adding a new event, in which case the above is unecessary. Add bool for check
+        
+        //perform validation on data input (priority is int, occurences isn't nil)
+        //present popup depending on issue
         
         //send alerts of data being updated
         
