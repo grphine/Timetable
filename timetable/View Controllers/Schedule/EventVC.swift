@@ -102,6 +102,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         
         var valid = false //check whether all input is valid
         
+        
+        
         /*case (item conflict){
          store where the conflict was found and output as popup
          case (item out of range)
@@ -109,7 +111,12 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
          case (repeat event)
          tell user to tap on event in ssv and edit
          
+         //TODO: Occurences table
          use some table to store taken event times, and if time check table for conflicts (ideally inform user which has conflict)
+         //create occurences 2d array. [day][hour] = event name
+         //perform check whether [day][hour] == ""
+         //if so, throw error
+         //when deleting event, reset all its events to default
          */
         
         //if all good:

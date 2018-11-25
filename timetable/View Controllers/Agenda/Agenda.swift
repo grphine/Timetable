@@ -11,6 +11,7 @@ import SideMenu
 
 class AgendaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    //TODO: Add uiRealm.deleteAll() to settings VC
     /*
      get day
      find all events happening on that day
