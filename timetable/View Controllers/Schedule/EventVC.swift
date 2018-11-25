@@ -12,6 +12,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     //MARK: Variables
     var singleEvent = RepeatingEvent()
     var check = 1 //edit disabled
+    let priorities = ["Normal", "Important", "Urgent"]
     
     //Sent variables
     var eventName: String!
@@ -29,7 +30,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     //TODO: Add reminder has no connection
-    //TODO: Priority should be low medium high picker view
+    
     
 
     override func viewDidLoad() {
@@ -37,6 +38,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         
         nameLabel.delegate = self
         descriptionLabel.delegate = self
+        priorityPicker.delegate = self
+        priorityPicker.dataSource = self
         
         //TODO: Change view triggered depending on whether repeating event or not
         if eventName == "" {
@@ -66,7 +69,11 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
+        return priorities.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return priorities[row]
     }
     
     //MARK: Occurence Button
@@ -134,21 +141,30 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //MARK: Create/modify event object
         var newEvent = RepeatingEvent()
         if (check == 1){ //edit button has not been pressed, therefore new event added
-            newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: 3)
+            newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
         }
         else{
-            newEvent = modifyEvent(event: singleEvent, name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: 3)
+            newEvent = modifyEvent(event: singleEvent, name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
         }
-        //MARK: Alert
-        let alert = UIAlertController(title: "Info", message: "Schedule Updated", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Return", style: .default, handler: { action in
-            self.navigationController?.popViewController(animated: true) //return to Schedule after submitting
-        }))
         
+        //MARK: Update schedule
         if valid == true{ //only submit if all data is valid
+            //MARK: Alert
+            let alert = UIAlertController(title: "Info", message: "Schedule Updated", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Return", style: .default, handler: { action in
+                self.navigationController?.popViewController(animated: true) //return to Schedule after submitting
+            }))
+            
             try! uiRealm.write { //update within a transaction
                 uiRealm.add(newEvent, update: true)
             }
+            self.present(alert, animated: true)
+        }
+        else{
+            //TODO: Present different alert depending on what the invalid is
+            let alert = UIAlertController(title: "Info", message: "Some fields may have invalid data \n Please try again", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            
             self.present(alert, animated: true)
         }
     }
