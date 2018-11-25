@@ -185,7 +185,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         if segue.identifier == "eventCreationSegue"{
             let destinationVC = segue.destination as! EventVC
             destinationVC.eventName = name //send event name
-            destinationVC.allEvents = allEvents //send dictionary (saves generating again)
+            //destinationVC.allEvents = allEvents //send dictionary (saves generating again), currently unused
         }
         
     }

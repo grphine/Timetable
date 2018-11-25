@@ -16,7 +16,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     //Sent variables
     var eventName: String!
-    var allEvents: [RepeatingEvent]! //FIXME: This is not currently used? Sent from last view
+    //var allEvents: [RepeatingEvent]! //FIXME: This is not currently used? Sent from last view
     
     
     @IBOutlet weak var nameLabel: UITextField!
@@ -30,8 +30,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     //TODO: Add reminder has no connection
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +43,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         if eventName == "" {
             //unlock interaction for fields when new event is being added
             modifyInteraction(set: true)
-            deleteButton.isUserInteractionEnabled = false
+            deleteButton.isHidden = true
             occurenceButton.setTitle("Add Occurences (Day/Time)", for: .normal)
             
         }
@@ -108,8 +106,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
         var valid = false //check whether all input is valid
-        
-        
         
         /*case (item conflict){
          store where the conflict was found and output as popup
