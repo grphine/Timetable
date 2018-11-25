@@ -55,6 +55,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             nameLabel.text = singleEvent.name //set data
             descriptionLabel.text = singleEvent.desc
             occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
+            priorityPicker.selectRow(singleEvent.priority, inComponent: 0, animated: true)
             //priorityLabel.text = String(describing: singleEvent.priority)
             //FIXME: output rest of data
             modifyInteraction(set: false) //disable interaction
