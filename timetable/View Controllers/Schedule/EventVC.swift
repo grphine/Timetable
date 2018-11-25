@@ -122,6 +122,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //MARK: Add data to Realm
         //FIXME: Colour is empty string
         //FIXME: Cannot add event until picker view sorted
+        
         let newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: 3)
         
         //if event exists,
@@ -153,17 +154,31 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         
     }
     
-    //MARK: Add Event Method and Constituents
+    //MARK: Add Event and Constituents
     func createEvent(name: String, colour: String, week: [[Int]], description: String, priority: Int) -> RepeatingEvent{
         let event = RepeatingEvent()
-        
-        //make a check whether to modify or not. true, edit params by primary key. otherwise add as new
         
         event.name = name //add all parameters
         event.colour = colour
         event.desc = description
         event.priority = priority
+        
+        event.id = name
         //FIXME: Events need to be ID'd in some way. If a user changes the event name, the ID is also changed, giving two events
+        
+        for day in week{ //for every day in the week, append the day to the week
+            event.week.append(timesToDay(times: day))
+        }
+        
+        return event
+    }
+    
+    func modifyEvent(event: RepeatingEvent, name: String, colour: String, week: [[Int]], description: String, priority: Int) -> RepeatingEvent{
+        
+        event.name = name //modify all parameters
+        event.colour = colour
+        event.desc = description
+        event.priority = priority
         
         for day in week{ //for every day in the week, append the day to the week
             event.week.append(timesToDay(times: day))
