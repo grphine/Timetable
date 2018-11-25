@@ -98,6 +98,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     //MARK: Submit button
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
+        var valid = false //check whether all input is valid
         
         /*case (item conflict){
          store where the conflict was found and output as popup
@@ -111,9 +112,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         
         //if all good:
         
-        //Make sure event was grabbed by primary key to ensure it is edited rather than remade
-        //Unless they are adding a new event, in which case the above is unecessary. Add bool for check
-        
         //perform validation on data input (priority is int, occurences isn't nil)
         //present popup depending on issue
         
@@ -124,25 +122,26 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //FIXME: Cannot add event until picker view sorted
         //FIXME: Validate data entry
         
+        //MARK: Create/modify event object
         var newEvent = RepeatingEvent()
-        
         if (check == 1){ //edit button has not been pressed, therefore new event added
             newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: 3)
         }
         else{
             newEvent = modifyEvent(event: singleEvent, name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: 3)
         }
-        
-        try! uiRealm.write { //update within a transaction
-            uiRealm.add(newEvent, update: true)
-        }
-        
-        
+        //MARK: Alert
         let alert = UIAlertController(title: "Info", message: "Schedule Updated", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Return", style: .default, handler: { action in
             self.navigationController?.popViewController(animated: true) //return to Schedule after submitting
         }))
-        self.present(alert, animated: true)
+        
+        if valid == true{ //only submit if all data is valid
+            try! uiRealm.write { //update within a transaction
+                uiRealm.add(newEvent, update: true)
+            }
+            self.present(alert, animated: true)
+        }
     }
     
     //MARK: Delete Button
@@ -157,7 +156,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         }))
         
         self.present(alert, animated: true)
-        
     }
     
     //MARK: Add Event and Constituents
@@ -170,7 +168,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         event.priority = priority
         
         event.id = name
-        //FIXME: Events need to be ID'd in some way. If a user changes the event name, the ID is also changed, giving two events
         
         for day in week{ //for every day in the week, append the day to the week
             event.week.append(timesToDay(times: day))
@@ -189,26 +186,21 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         for day in week{ //for every day in the week, append the day to the week
             event.week.append(timesToDay(times: day))
         }
-        
         return event
     }
     
     func timesToDay(times: [Int]) -> Day{ //create Day objects
-        
         let newDay = Day()
-        
         for item in times{
             let hour = hoursToTime(hour: item)
             newDay.dayItem.append(hour)
         }
-        
         return newDay
     }
     
     func hoursToTime(hour: Int) -> Hour{ //create Hour objects
         let new = Hour()
         new.hourItem = hour
-        
         return new
     }
     
