@@ -58,7 +58,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             descriptionLabel.text = singleEvent.desc
             occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
             //priorityLabel.text = String(describing: singleEvent.priority)
-            //FIXME: Get priority from picker view
+            //FIXME: output rest of data
             modifyInteraction(set: false) //disable interaction
         }
     }
@@ -122,12 +122,18 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //MARK: Add data to Realm
         //FIXME: Colour is empty string
         //FIXME: Cannot add event until picker view sorted
+        //FIXME: Validate data entry
         
-        let newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: 3)
+        var newEvent = RepeatingEvent()
         
-        //if event exists,
+        if (check == 1){ //edit button has not been pressed, therefore new event added
+            newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: 3)
+        }
+        else{
+            newEvent = modifyEvent(event: singleEvent, name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: 3)
+        }
         
-        try! uiRealm.write { //place all updates within a transaction
+        try! uiRealm.write { //update within a transaction
             uiRealm.add(newEvent, update: true)
         }
         
