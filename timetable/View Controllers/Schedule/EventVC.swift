@@ -40,25 +40,29 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         priorityPicker.dataSource = self
         
         //TODO: Change view triggered depending on whether repeating event or not
-        if eventName == "" {
-            //unlock interaction for fields when new event is being added
-            modifyInteraction(set: true)
-            deleteButton.isHidden = true
-            occurenceButton.setTitle("Add Occurences (Day/Time)", for: .normal)
-            
+        if repeatSwitch.isOn == true{ //event is repeating
+            if eventName == "" {
+                //unlock interaction for fields when new event is being added
+                modifyInteraction(set: true)
+                deleteButton.isHidden = true
+                occurenceButton.setTitle("Add Occurences (Day/Time)", for: .normal)
+                
+            }
+            else{
+                self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
+                
+                singleEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)! //pull data about event
+                
+                nameLabel.text = singleEvent.name //set data
+                descriptionLabel.text = singleEvent.desc
+                occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
+                priorityPicker.selectRow(singleEvent.priority, inComponent: 0, animated: true)
+                //FIXME: output rest of data
+                modifyInteraction(set: false) //disable interaction
+            }
         }
         else{
-            self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
-            
-            singleEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)! //pull data about event
-            
-            nameLabel.text = singleEvent.name //set data
-            descriptionLabel.text = singleEvent.desc
-            occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
-            priorityPicker.selectRow(singleEvent.priority, inComponent: 0, animated: true)
-            //priorityLabel.text = String(describing: singleEvent.priority)
-            //FIXME: output rest of data
-            modifyInteraction(set: false) //disable interaction
+            //TODO: Get data from single events
         }
     }
     
@@ -106,7 +110,15 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     //MARK: Submit button
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
+        let defaultAlert = UIAlertController(title: "Info", message: "", preferredStyle: .alert) //create a default alert to modify as necessary
+        defaultAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        
         var valid = false //check whether all input is valid
+        /*
+         checks made:
+         whether repeating event, and if dates selected correspond
+         fields have non-empty, non-default text
+        */
         
         /*case (item conflict){
          store where the conflict was found and output as popup
@@ -146,23 +158,22 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         
         //MARK: Update schedule
         if valid == true{ //only submit if all data is valid
-            //MARK: Alert
-            let alert = UIAlertController(title: "Info", message: "Schedule Updated", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Return", style: .default, handler: { action in
+            let successAlert = UIAlertController(title: "Info", message: "Schedule Updated", preferredStyle: .alert)
+            successAlert.addAction(UIAlertAction(title: "Return", style: .default, handler: { action in
                 self.navigationController?.popViewController(animated: true) //return to Schedule after submitting
             }))
             
             try! uiRealm.write { //update within a transaction
                 uiRealm.add(newEvent, update: true)
             }
-            self.present(alert, animated: true)
+            self.present(successAlert, animated: true)
         }
         else{
             //TODO: Present different alert depending on what the invalid is
-            let alert = UIAlertController(title: "Info", message: "Some fields may have invalid data \n Please try again", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            defaultAlert.title = "Info"
+            defaultAlert.message = "Some fields may have invalid data \n Please try again"
             
-            self.present(alert, animated: true)
+            self.present(defaultAlert, animated: true)
         }
     }
     
@@ -204,6 +215,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         event.colour = colour
         event.desc = description
         event.priority = priority
+        
+        event.week.removeAll() //clear week before appending new data
         
         for day in week{ //for every day in the week, append the day to the week
             event.week.append(timesToDay(times: day))
