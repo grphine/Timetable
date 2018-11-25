@@ -9,8 +9,6 @@ import UIKit
 
 class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    
-    
     //MARK: Variables
     var singleEvent = RepeatingEvent()
     var check = 1 //edit disabled
@@ -40,8 +38,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         nameLabel.delegate = self
         descriptionLabel.delegate = self
         
-        //TODO: Change add occurence text depending on whether adding or not
-        //Change view triggered depending on whether repeating event or not
+        //TODO: Change view triggered depending on whether repeating event or not
         if eventName == "" {
             //unlock interaction for fields when new event is being added
             modifyInteraction(set: true)
@@ -77,6 +74,11 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //get data from collapsable tableview date picker for dates
         //presented as popover
         //Return 2d array, including empties
+        
+        if check != 1{
+            //send singleEvent, otherwise send nothing
+        }
+        
     }
     
     //MARK: Colour Picker Button
