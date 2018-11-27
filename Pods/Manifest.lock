@@ -1,9 +1,9 @@
 PODS:
-  - Realm (3.11.1):
-    - Realm/Headers (= 3.11.1)
-  - Realm/Headers (3.11.1)
-  - RealmSwift (3.11.1):
-    - Realm (= 3.11.1)
+  - Realm (3.12.0):
+    - Realm/Headers (= 3.12.0)
+  - Realm/Headers (3.12.0)
+  - RealmSwift (3.12.0):
+    - Realm (= 3.12.0)
   - SideMenu (5.0.3)
   - SpreadsheetView (0.8.4)
 
@@ -20,11 +20,11 @@ SPEC REPOS:
     - SpreadsheetView
 
 SPEC CHECKSUMS:
-  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
-  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
+  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   SpreadsheetView: 17c55b6dc82099993cc2ceb818248d19f3220998
 
-PODFILE CHECKSUM: 9b7132b6dc217663454ec17c0df045ff421dd46d
+PODFILE CHECKSUM: 45a1f760cbaddeb292bc8360cad9b30e0b5bad46
 
 COCOAPODS: 1.5.0
