@@ -444,9 +444,7 @@
                                 <state key="normal" title="add occurence (day/time)"/>
                                 <connections>
                                     <action selector="occurenceButtonPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="X9H-ce-bOC"/>
-                                    <segue destination="mRC-mJ-iDc" kind="popoverPresentation" popoverAnchorView="vHd-lS-mQU" id="fZ7-ly-UPe">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="mRC-mJ-iDc" kind="show" id="fZ7-ly-UPe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30f-il-MsT">
@@ -488,7 +486,7 @@
             </objects>
             <point key="canvasLocation" x="-114" y="-861"/>
         </scene>
-        <!--OccurencesTVC-->
+        <!--Select Times-->
         <scene sceneID="m6C-YY-vqy">
             <objects>
                 <tableViewController id="mRC-mJ-iDc" customClass="OccurencesTVC" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
@@ -523,6 +521,9 @@
                             <outlet property="delegate" destination="mRC-mJ-iDc" id="LEp-0h-BJg"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Select Times" id="syb-ON-1U8">
+                        <barButtonItem key="backBarButtonItem" title="Return" id="YrI-FX-EZC"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gZ-6t-A1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1042,6 +1043,7 @@
         <!--Navigation Controller-->
         <scene sceneID="5LE-pd-mDp">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQs-SF-1Ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r31-3G-9we" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oLa-3c-m6e">
@@ -1050,17 +1052,16 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="i7A-dO-FGm" kind="relationship" relationship="rootViewController" id="YTg-Lc-SdW"/>
+                        <segue destination="mRC-mJ-iDc" kind="relationship" relationship="rootViewController" id="h9f-Hd-4A4"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQs-SF-1Ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="-1592"/>
+            <point key="canvasLocation" x="606" y="-1585"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nI7-sb-Yqx"/>
         <segue reference="Zct-HI-3io"/>
-        <segue reference="YTg-Lc-SdW"/>
+        <segue reference="h9f-Hd-4A4"/>
     </inferredMetricsTieBreakers>
 </document>
