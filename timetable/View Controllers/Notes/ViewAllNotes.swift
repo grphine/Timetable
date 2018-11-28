@@ -144,6 +144,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
             
             if ageArray.count > 0{ //sort only if there are items in the array
                 ageArray = sort.mergeSort(ageArray)
+                ageArray.reverse() //flips sorting so most recent is at top of view
                 
                 filteredNotes = []
                 for date in ageArray{

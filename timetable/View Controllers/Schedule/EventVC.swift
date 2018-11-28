@@ -64,6 +64,15 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         else{
             //TODO: Get data from single events
         }
+        
+        //dummy data
+//        let newEvent = createEvent(name: "Maths", colour: "42B6F4", week: [[9,10,11],[9,10,11],[9,10,11],[],[],[],[]], description: "Maths Repeating Event", priority: 0)
+//        let newEvent2 = createEvent(name: "English", colour: "B6F442", week: [[],[],[],[],[9,10,11],[9,10,11],[9,10,11]], description: "English Repeating Event", priority: 0)
+//
+//        try! uiRealm.write { //update within a transaction
+//            uiRealm.add(newEvent, update: true)
+//            uiRealm.add(newEvent2, update: true)
+//        }
     }
     
     //MARK: Picker view
