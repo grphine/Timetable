@@ -121,7 +121,7 @@
                     <navigationItem key="navigationItem" title="Schedule" id="62g-LM-r1l" userLabel="Schedule"/>
                     <connections>
                         <outlet property="spreadsheetView" destination="dzT-yf-jOf" id="dcg-DH-ALm"/>
-                        <segue destination="i7A-dO-FGm" kind="show" identifier="eventCreationSegue" id="NNw-Ix-C4g"/>
+                        <segue destination="i7A-dO-FGm" kind="show" identifier="editEventSegue" id="NNw-Ix-C4g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5a-kB-6yT" sceneMemberID="firstResponder"/>
@@ -444,7 +444,7 @@
                                 <state key="normal" title="add occurence (day/time)"/>
                                 <connections>
                                     <action selector="occurenceButtonPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="X9H-ce-bOC"/>
-                                    <segue destination="mRC-mJ-iDc" kind="show" id="fZ7-ly-UPe"/>
+                                    <segue destination="mRC-mJ-iDc" kind="show" identifier="occurenceSegue" id="fZ7-ly-UPe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30f-il-MsT">
@@ -480,6 +480,7 @@
                         <outlet property="priorityPicker" destination="Rf8-Tt-Q5y" id="aKV-Wa-Q2g"/>
                         <outlet property="repeatSwitch" destination="8QA-Pb-9mY" id="I6f-BY-eVh"/>
                         <outlet property="submitButton" destination="sHW-N7-8BV" id="wz7-oO-UHw"/>
+                        <outlet property="switchLabel" destination="aZC-3v-VjC" id="GDQ-Da-TdB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ll7-3E-nva" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1040,28 +1041,9 @@
             </objects>
             <point key="canvasLocation" x="698" y="1191"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5LE-pd-mDp">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQs-SF-1Ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r31-3G-9we" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oLa-3c-m6e">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="mRC-mJ-iDc" kind="relationship" relationship="rootViewController" id="h9f-Hd-4A4"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="606" y="-1585"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nI7-sb-Yqx"/>
         <segue reference="Zct-HI-3io"/>
-        <segue reference="h9f-Hd-4A4"/>
     </inferredMetricsTieBreakers>
 </document>

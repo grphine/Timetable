@@ -18,6 +18,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     var eventName: String!
     //var allEvents: [RepeatingEvent]! //FIXME: This is not currently used? Sent from last view
     
+    @IBOutlet weak var switchLabel: UILabel!
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var descriptionLabel: UITextView!
@@ -39,16 +40,17 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
         
-        //TODO: Change view triggered depending on whether repeating event or not
-        if repeatSwitch.isOn == true{ //event is repeating
-            if eventName == "" {
-                //unlock interaction for fields when new event is being added
-                modifyInteraction(set: true)
-                deleteButton.isHidden = true
-                occurenceButton.setTitle("Add Occurences (Day/Time)", for: .normal)
+        if eventName == "" { //setup in all cases when a new event is being added
+            //unlock interaction for fields when new event is being added
+            modifyInteraction(set: true)
+            deleteButton.isHidden = true
+            occurenceButton.setTitle("Add Occurences (Day/Time)", for: .normal)
+        }
+        else{
+            if repeatSwitch.isOn == true{ //TODO: Better check for repeating or not
+                repeatSwitch.isHidden = true //hide switch since user cannot modify after initial seleection
+                switchLabel.isHidden = true
                 
-            }
-            else{
                 self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
                 
                 singleEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)! //pull data about event
@@ -60,10 +62,12 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
                 //FIXME: output rest of data
                 modifyInteraction(set: false) //disable interaction
             }
+            else{
+                //TODO: Get data from single events
+            }
         }
-        else{
-            //TODO: Get data from single events
-        }
+        //TODO: Change view triggered depending on whether repeating event or not
+        
         
         //dummy data
 //        let newEvent = createEvent(name: "Maths", colour: "42B6F4", week: [[10,11,12,13],[12,13],[13,15],[],[],[],[]], description: "Maths Repeating Event", priority: 0)
@@ -271,6 +275,15 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         if (textField.text == "Event Name"){
             textField.text = ""
         }
+    }
+    
+    //MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //TODO: Fix segue
+        if segue.identifier == "occurenceSegue"{
+            //send over occurence data
+        }
+        
     }
     
 }

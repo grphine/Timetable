@@ -17,6 +17,9 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     var allDict = [String: [[Int]]]() //hold each event, its days, and occurences per day
     var name = String()
     
+    //TODO: Reload schedule on return from event
+    //TODO: Add create event button, right nav button - therefore rework how add event works
+    
 
     let dates = ["01/11/18", "02/11/2018", "03/11/2018", "04/11/2018", "05/11/2018", "06/11/2018", "08/11/2018"]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
@@ -175,7 +178,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         //get event and trigger segue
         if (indexPath.column >= 1 || indexPath.row >= 2){ //prevent locked cells performing segue
             name = getEventName(dict: allDict, column: indexPath.column, row: indexPath.row)
-            performSegue(withIdentifier: "eventCreationSegue", sender: nil)
+            performSegue(withIdentifier: "editEventSegue", sender: nil)
         }
         
         
@@ -183,7 +186,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "eventCreationSegue"{
+        if segue.identifier == "editEventSegue"{
             let destinationVC = segue.destination as! EventVC
             destinationVC.eventName = name //send event name
             //destinationVC.allEvents = allEvents //send dictionary (saves generating again), currently unused
