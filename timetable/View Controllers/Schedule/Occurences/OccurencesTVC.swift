@@ -11,9 +11,16 @@ import UIKit
 class OccurencesTVC: UITableViewController {
     
     //TODO: Get these collapsing
+    
+    let hours = [9, 10, 11, 12]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        self.tableView.allowsMultipleSelection = true
+        self.tableView.allowsMultipleSelectionDuringEditing = true
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,23 +33,23 @@ class OccurencesTVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return hours.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "timesCell", for: indexPath) as! OccurencesCell
 
-        // Configure the cell...
+        cell.nameLabel.text = String(describing: hours[indexPath.row])
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
