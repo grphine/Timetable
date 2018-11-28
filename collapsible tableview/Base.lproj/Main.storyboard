@@ -42,7 +42,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.12984204290000001" green="0.2114704747583333" blue="0.32191297743055558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="RZc-Qa-Ayc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="RZc-Qa-Ayc" customClass="CollapsibleTableViewCell" customModule="collapsible_tableview" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RZc-Qa-Ayc" id="iOT-B2-v2X">
@@ -58,6 +58,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="KbW-7F-Ohc" id="a2T-5c-AI7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
