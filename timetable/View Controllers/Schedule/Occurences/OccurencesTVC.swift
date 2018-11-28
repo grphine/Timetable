@@ -13,11 +13,10 @@ class OccurencesTVC: UITableViewController {
     //TODO: Get these collapsing
     
     let hours = [9, 10, 11, 12]
+    let days = ["MONDAY", "TUESDAY", "WEDNESDAY"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         self.tableView.allowsMultipleSelection = true
         self.tableView.allowsMultipleSelectionDuringEditing = true
@@ -32,12 +31,14 @@ class OccurencesTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 3
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return String(describing: days[section])
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return hours.count
     }
 
