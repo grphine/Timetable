@@ -66,12 +66,10 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         }
         
         //dummy data
-//        let newEvent = createEvent(name: "Maths", colour: "42B6F4", week: [[9,10,11],[9,10,11],[9,10,11],[],[],[],[]], description: "Maths Repeating Event", priority: 0)
-//        let newEvent2 = createEvent(name: "English", colour: "B6F442", week: [[],[],[],[],[9,10,11],[9,10,11],[9,10,11]], description: "English Repeating Event", priority: 0)
+//        let newEvent = createEvent(name: "Maths", colour: "42B6F4", week: [[10,11,12,13],[12,13],[13,15],[],[],[],[]], description: "Maths Repeating Event", priority: 0)
 //
 //        try! uiRealm.write { //update within a transaction
 //            uiRealm.add(newEvent, update: true)
-//            uiRealm.add(newEvent2, update: true)
 //        }
     }
     
@@ -90,6 +88,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     //MARK: Occurence Button
     @IBAction func occurenceButtonPressed(_ sender: UIButton){
+        //TODO: Occurence button
         //get data from collapsable tableview date picker for dates
         //presented as popover
         //Return 2d array, including empties
@@ -110,10 +109,12 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     override func setEditing(_ editing: Bool, animated: Bool){
         super.setEditing(editing, animated: animated)
         
+        check += 1 //changes lock state
+        
         if check % 2 == 0 { modifyInteraction(set: true) } //enable interaction on edit button press
         else { modifyInteraction(set: false) } //disable interaction on second press
         
-        check += 1 //changes lock state
+        
     }
     
     //MARK: Submit button
@@ -157,6 +158,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //FIXME: Validate data entry
         
         //MARK: Create/modify event object
+        //TODO: Needs to be protected in transaction apparently
         var newEvent = RepeatingEvent()
         if (check == 1){ //edit button has not been pressed, therefore new event added
             newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))

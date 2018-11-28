@@ -169,6 +169,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     /// Delegate
     
     //MARK: Segueing to EventVC
+    //TODO: Fix non selection of locked columns and rows
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
 
         //get event and trigger segue

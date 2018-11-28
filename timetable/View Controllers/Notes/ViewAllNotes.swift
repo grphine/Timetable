@@ -19,6 +19,8 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     let searchController = UISearchController(searchResultsController: nil)
     let formatter = DateFormatter()
     
+    //TODO: On view exit update note sorting to stay permanent
+    
     //MARK: Setup
     override func viewDidLoad() {
         super.viewDidLoad()
