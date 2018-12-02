@@ -18,6 +18,9 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     var eventName: String!
     //var allEvents: [RepeatingEvent]! //FIXME: This is not currently used? Sent from last view
     
+    //Recieved variable
+    var occurences: [[Int]]?
+    
     @IBOutlet weak var switchLabel: UILabel!
     
     @IBOutlet weak var nameLabel: UITextField!
@@ -123,6 +126,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     //MARK: Submit button
     @IBAction func submitButtonPressed(_ sender: UIButton) {
+        
+        print(occurences)
         
         let defaultAlert = UIAlertController(title: "Info", message: "", preferredStyle: .alert) //create a default alert to modify as necessary
         defaultAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

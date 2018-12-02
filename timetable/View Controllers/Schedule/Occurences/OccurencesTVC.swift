@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OccurencesTVC: UITableViewController {
+class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     
     //TODO: Get these collapsing
     //TODO: Return data to VC on submit
@@ -63,9 +63,15 @@ class OccurencesTVC: UITableViewController {
     
     @IBAction func submitButtonPressed(_ sender: UIButton){
         
+        let defaultAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        defaultAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
         let selected = self.tableView.indexPathsForSelectedRows
         
         if selected == nil{
+            defaultAlert.title = "Warning"
+            defaultAlert.message = "No times were added /n Are you sure you want to return?"
+            
             //present warning, okay pop back
             //if no dates selected, then submitting event in previous screen deletes it
             
@@ -82,8 +88,18 @@ class OccurencesTVC: UITableViewController {
             }
             
             //alert, pop back and send data
+            popViewController()
+            
         }
         
+    }
+    
+    //MARK: Navigation
+    func popViewController() { //sends data and returns to previous view
+        let stack = self.navigationController?.viewControllers
+        let previousView = stack![stack!.count - 2] as! EventVC
+        previousView.occurences = occurences
+        self.navigationController?.popViewController(animated: true)
     }
     
 
