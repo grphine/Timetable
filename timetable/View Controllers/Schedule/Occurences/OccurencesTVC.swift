@@ -63,16 +63,18 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     
     @IBAction func submitButtonPressed(_ sender: UIButton){
         
-        let defaultAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-        defaultAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
         
         let selected = self.tableView.indexPathsForSelectedRows
         
         if selected == nil{
-            defaultAlert.title = "Warning"
-            defaultAlert.message = "No times were added /n Are you sure you want to return?"
+            let alert = UIAlertController(title: "Warning", message: "No times were added \n Are you sure you want to return?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                self.navigationController?.popViewController(animated: true) //return and send empty data to EventVC
+            }))
+            self.present(alert, animated: true)
             
-            //present warning, okay pop back
             //if no dates selected, then submitting event in previous screen deletes it
             
         }
@@ -87,15 +89,18 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
                 }
             }
             
-            //alert, pop back and send data
-            popViewController()
-            
+            let alert = UIAlertController(title: "Info", message: "Save selected times?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                self.submitAndReturn() //return and send empty data to EventVC
+            }))
+            self.present(alert, animated: true)
         }
         
     }
     
     //MARK: Navigation
-    func popViewController() { //sends data and returns to previous view
+    func submitAndReturn() { //sends data and returns to previous view
         let stack = self.navigationController?.viewControllers
         let previousView = stack![stack!.count - 2] as! EventVC
         previousView.occurences = occurences

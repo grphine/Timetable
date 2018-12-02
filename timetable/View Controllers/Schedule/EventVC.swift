@@ -133,6 +133,11 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         defaultAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
         var valid = false //check whether all input is valid
+        
+        if occurences == [[], [], [], [], [], [], []]{
+            let _ = "No occurences selected"
+        }
+        
         /*
          checks made:
          whether repeating event, and if dates selected correspond
