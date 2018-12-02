@@ -16,7 +16,7 @@ class OccurencesTVC: UITableViewController {
     
     let hours = [9, 10, 11, 12]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY"]
-    var timesDictionary = [[Int]]()
+    var occurences: [[Int]] = [[], [], [], [], [], [], []]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,10 +63,24 @@ class OccurencesTVC: UITableViewController {
     
     @IBAction func submitButtonPressed(_ sender: UIButton){
         //TODO: Submit button
-        let monday = self.tableView.indexPathsForSelectedRows
-        print(monday)
+        let selected = self.tableView.indexPathsForSelectedRows
         
-        
+        if selected?.count == 0{
+            //present warning, okay pop back
+            //if no dates selected, then submitting event in previous screen deletes it
+            print("X")
+        }
+        else{
+            var day = 0
+            for item in selected!{ //loops array and adds hours to their days in occurences array
+                if item[0] == day{
+                    occurences[day].append(item[1])
+                }else{
+                    day += 1
+                }
+            }
+        }
+        print(occurences)
         
     }
     
