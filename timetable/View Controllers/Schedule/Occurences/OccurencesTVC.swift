@@ -62,13 +62,13 @@ class OccurencesTVC: UITableViewController {
     
     
     @IBAction func submitButtonPressed(_ sender: UIButton){
-        //TODO: Submit button
+        
         let selected = self.tableView.indexPathsForSelectedRows
         
-        if selected?.count == 0{
+        if selected == nil{
             //present warning, okay pop back
             //if no dates selected, then submitting event in previous screen deletes it
-            print("X")
+            
         }
         else{
             var day = 0
@@ -76,11 +76,13 @@ class OccurencesTVC: UITableViewController {
                 if item[0] == day{
                     occurences[day].append(item[1])
                 }else{
+                    occurences[day + 1].append(item[1])
                     day += 1
                 }
             }
+            
+            //alert, pop back and send data
         }
-        print(occurences)
         
     }
     
