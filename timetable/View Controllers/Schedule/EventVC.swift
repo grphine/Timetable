@@ -38,10 +38,14 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         nameLabel.delegate = self
         descriptionLabel.delegate = self
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
+        
+        occurences = [[], [], [], [], [], [], []] //setup occurences
         
         if eventName == "" { //setup in all cases when a new event is being added
             //unlock interaction for fields when new event is being added
@@ -62,6 +66,9 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
                 descriptionLabel.text = singleEvent.desc
                 occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
                 priorityPicker.selectRow(singleEvent.priority, inComponent: 0, animated: true)
+                
+                
+                
                 //FIXME: output rest of data
                 modifyInteraction(set: false) //disable interaction
             }
@@ -101,7 +108,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //Return 2d array, including empties
         
         if check != 1{
-            //send singleEvent, otherwise send nothing
+            occurences = weekToOccurences(event: singleEvent) //send single event occurences
         }
         
     }
@@ -264,6 +271,23 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         return new
     }
     
+    //MARK: Get occurences from RepeatingEvent week array
+    func weekToOccurences(event: RepeatingEvent) -> [[Int]]{
+        let week = event.week
+        
+        var weekOccurences = [[Int]]()
+        for day in week{
+            var hourOccurences = [Int]()
+            for hour in day.dayItem{
+                hourOccurences.append(hour.hourItem)
+            }
+            weekOccurences.append(hourOccurences)
+        }
+        
+        return weekOccurences
+    }
+    
+    
     //MARK: Modify Interactability
     func modifyInteraction(set: Bool){
         nameLabel.isUserInteractionEnabled = set
@@ -292,6 +316,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //TODO: Fix segue
         if segue.identifier == "occurenceSegue"{
             //send over occurence data
+            let destinationVC = segue.destination as! OccurencesTVC
+            destinationVC.occurences = occurences
         }
         
     }

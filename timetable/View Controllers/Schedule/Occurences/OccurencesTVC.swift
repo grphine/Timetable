@@ -16,13 +16,14 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     
     let hours = [9, 10, 11, 12]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY"]
-    var occurences: [[Int]] = [[], [], [], [], [], [], []]
+    var occurences: [[Int]]?  
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.allowsMultipleSelection = true
         self.tableView.allowsMultipleSelectionDuringEditing = true
+        
         
         //TODO: change back text and add submit button (no necessarily in nav bar)
         //self.navigationItem.backBarButtonItem?.title = "Cancel"
@@ -82,9 +83,10 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
             var day = 0
             for item in selected!{ //loops array and adds hours to their days in occurences array
                 if item[0] == day{
-                    occurences[day].append(item[1])
+                    occurences![day].append(item[1])
                 }else{
-                    occurences[day + 1].append(item[1])
+                    occurences![day].sort() //reorder items into chronological
+                    occurences![day + 1].append(item[1])
                     day += 1
                 }
             }
