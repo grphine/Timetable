@@ -141,9 +141,9 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         
         var valid = false //check whether all input is valid
         
-        if occurences == [[], [], [], [], [], [], []]{
-            let _ = "No occurences selected"
-        }
+//        if occurences == [[], [], [], [], [], [], []]{
+//            let _ = "No occurences selected"
+//        }
         
         /*
          checks made:
@@ -179,7 +179,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //FIXME: Validate data entry
         
         //MARK: Create/modify event object
-        //TODO: Needs to be protected in transaction apparently
+        //FIXME: Updates to existing events need to be in transactions. Stick modify within add i guess
         var newEvent = RepeatingEvent()
         if (check == 1){ //edit button has not been pressed, therefore new event added
             newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))

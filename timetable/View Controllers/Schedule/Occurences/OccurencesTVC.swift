@@ -14,8 +14,8 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     //TODO: Return data to VC on submit
     //TODO: Display already selected cells on edit
     
-    let hours = [9, 10, 11, 12]
-    let days = ["MONDAY", "TUESDAY", "WEDNESDAY"]
+    let hours = [9, 10, 11, 12, 1, 2, 3]
+    let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "TH", "FR"]
     var occurences: [[Int]]?  
 
     override func viewDidLoad() {
@@ -23,6 +23,9 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         
         self.tableView.allowsMultipleSelection = true
         self.tableView.allowsMultipleSelectionDuringEditing = true
+        
+        setupSelection() //display selected cells when view loads
+        
         
         
         //TODO: change back text and add submit button (no necessarily in nav bar)
@@ -34,9 +37,9 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+        
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return days.count
     }
@@ -64,8 +67,6 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     
     @IBAction func submitButtonPressed(_ sender: UIButton){
         
-        
-        
         let selected = self.tableView.indexPathsForSelectedRows
         
         if selected == nil{
@@ -81,6 +82,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         }
         else{
             var day = 0
+            occurences = [[], [], [], [], [], [], []]
             for item in selected!{ //loops array and adds hours to their days in occurences array
                 if item[0] == day{
                     occurences![day].append(item[1])
@@ -99,6 +101,18 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
             self.present(alert, animated: true)
         }
         
+    }
+    
+    //MARK: Setup View
+    func setupSelection(){
+        var count = 0
+        for day in occurences!{
+            for hour in day{
+                let path = NSIndexPath(row: (hour - 9), section: count) //select row for given day's hour item
+                tableView.selectRow(at: path as IndexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
+            }
+            count += 1
+        }
     }
     
     //MARK: Navigation
