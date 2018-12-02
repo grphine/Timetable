@@ -11,15 +11,21 @@ import UIKit
 class OccurencesTVC: UITableViewController {
     
     //TODO: Get these collapsing
+    //TODO: Return data to VC on submit
+    //TODO: Display already selected cells on edit
     
     let hours = [9, 10, 11, 12]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY"]
+    var timesDictionary = [[Int]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.allowsMultipleSelection = true
         self.tableView.allowsMultipleSelectionDuringEditing = true
+        
+        //TODO: change back text and add submit button (no necessarily in nav bar)
+        //self.navigationItem.backBarButtonItem?.title = "Cancel"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,7 +37,7 @@ class OccurencesTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return days.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -47,8 +53,21 @@ class OccurencesTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "timesCell", for: indexPath) as! OccurencesCell
 
         cell.nameLabel.text = String(describing: hours[indexPath.row])
+        
+        //if time is an occurence, present view with it selected
+        
 
         return cell
+    }
+    
+    
+    @IBAction func submitButtonPressed(_ sender: UIButton){
+        //TODO: Submit button
+        let monday = self.tableView.indexPathsForSelectedRows
+        print(monday)
+        
+        
+        
     }
     
 

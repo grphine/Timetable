@@ -491,10 +491,21 @@
         <scene sceneID="m6C-YY-vqy">
             <objects>
                 <tableViewController id="mRC-mJ-iDc" customClass="OccurencesTVC" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1d7-kJ-2wl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1d7-kJ-2wl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hVZ-Jd-f1N">
+                            <rect key="frame" x="0.0" y="72" width="375" height="76"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.016272511980000001" green="0.57812694279999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="submitButtonPressed:" destination="mRC-mJ-iDc" eventType="touchUpInside" id="Mm3-do-4zM"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timesCell" id="kFb-wh-ZIK" customClass="OccurencesCell" customModule="timetable" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -528,7 +539,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gZ-6t-A1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="-861"/>
+            <point key="canvasLocation" x="605.60000000000002" y="-861.3193403298352"/>
         </scene>
         <!--Do Not Disturb-->
         <scene sceneID="puS-7r-qu7">
@@ -1044,6 +1055,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nI7-sb-Yqx"/>
-        <segue reference="Zct-HI-3io"/>
+        <segue reference="ZVZ-nC-syB"/>
     </inferredMetricsTieBreakers>
 </document>
