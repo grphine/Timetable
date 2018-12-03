@@ -20,6 +20,7 @@
 		857F845221B5B83900EE9B6B /* HuePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F844D21B5B83900EE9B6B /* HuePicker.swift */; };
 		857F845321B5B83900EE9B6B /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F844E21B5B83900EE9B6B /* ColorPicker.swift */; };
 		857F845521B5BCC800EE9B6B /* ColourPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F845421B5BCC800EE9B6B /* ColourPickerViewController.swift */; };
+		857F845721B5DE0400EE9B6B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F845621B5DE0400EE9B6B /* SettingsViewController.swift */; };
 		85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4162190792F002BE951 /* Linked List Queue.swift */; };
 		85E5D462219601CD002BE951 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D461219601CD002BE951 /* Schedule.swift */; };
 		85E5D464219601F7002BE951 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D463219601F6002BE951 /* Cells.swift */; };
@@ -79,6 +80,7 @@
 		857F844D21B5B83900EE9B6B /* HuePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuePicker.swift; path = timetable/Classes/ColorPicker/HuePicker.swift; sourceTree = SOURCE_ROOT; };
 		857F844E21B5B83900EE9B6B /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPicker.swift; path = timetable/Classes/ColorPicker/ColorPicker.swift; sourceTree = SOURCE_ROOT; };
 		857F845421B5BCC800EE9B6B /* ColourPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPickerViewController.swift; sourceTree = "<group>"; };
+		857F845621B5DE0400EE9B6B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		85E5D4162190792F002BE951 /* Linked List Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Linked List Queue.swift"; sourceTree = "<group>"; };
 		85E5D461219601CD002BE951 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		85E5D463219601F6002BE951 /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				851E3CAD21A2C222002467D9 /* Agenda */,
 				85E5D4902199D704002BE951 /* Notes */,
 				85E5D4852198722F002BE951 /* Schedule */,
+				857F845621B5DE0400EE9B6B /* SettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				857F845321B5B83900EE9B6B /* ColorPicker.swift in Sources */,
 				857F845121B5B83900EE9B6B /* PickerImage.swift in Sources */,
 				857F845021B5B83900EE9B6B /* ColorWell.swift in Sources */,
+				857F845721B5DE0400EE9B6B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

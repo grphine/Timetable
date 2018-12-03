@@ -11,14 +11,12 @@ import UIKit
 class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     
     //TODO: Get these collapsing
-    //TODO: Return data to VC on submit
-    //TODO: Display already selected cells on edit
     
     let hours = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM",
                  "3:00 PM", "4:00 PM", "5:00PM"]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     var occurences: [[Int]]?
-    let timeDifference = 9 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
+    let timeDifference = 6 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +26,6 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         
         setupSelection() //display selected cells when view loads
         
-        
-        
-        //TODO: change back text and add submit button (no necessarily in nav bar)
-        //self.navigationItem.backBarButtonItem?.title = "Cancel"
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
