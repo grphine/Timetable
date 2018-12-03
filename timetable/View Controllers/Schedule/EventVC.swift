@@ -178,7 +178,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //FIXME: Validate data entry
         
         
-        
+        valid = true
+        print(occurences)
         //MARK: Update schedule
         if valid == true{ //only submit if all data is valid
             let successAlert = UIAlertController(title: "Info", message: "Schedule Updated", preferredStyle: .alert)

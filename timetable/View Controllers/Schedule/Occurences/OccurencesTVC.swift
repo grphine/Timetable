@@ -14,9 +14,10 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     //TODO: Return data to VC on submit
     //TODO: Display already selected cells on edit
     
-    let hours = [9, 10, 11, 12, 1, 2, 3]
+    let hours = [6,7,8,9,10,11,12]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "TH", "FR"]
-    var occurences: [[Int]]?  
+    var occurences: [[Int]]?
+    let timeDifference = 6 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,13 +86,15 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
             occurences = [[], [], [], [], [], [], []]
             for item in selected!{ //loops array and adds hours to their days in occurences array
                 if item[0] == day{
-                    occurences![day].append(item[1])
+                    occurences![day].append(item[1] + timeDifference)
                 }else{
                     occurences![day].sort() //reorder items into chronological
-                    occurences![day + 1].append(item[1])
+                    occurences![day + 1].append(item[1] + timeDifference)
                     day += 1
                 }
             }
+            
+            
             
             let alert = UIAlertController(title: "Info", message: "Save selected times?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
@@ -108,7 +111,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         var count = 0
         for day in occurences!{
             for hour in day{
-                let path = NSIndexPath(row: (hour - 9), section: count) //select row for given day's hour item
+                let path = NSIndexPath(row: (hour - timeDifference), section: count) 
                 tableView.selectRow(at: path as IndexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
             }
             count += 1
