@@ -68,6 +68,3 @@ extension UITextField{ //gives a bottom border to a text field
         self.layer.shadowRadius = 0.0
     }
 }
-
-
-

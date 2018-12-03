@@ -405,7 +405,7 @@
                                 <state key="normal" title="Colour Picker"/>
                                 <connections>
                                     <action selector="colourPickerPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="nbD-wC-wlJ"/>
-                                    <segue destination="mz4-EC-bez" kind="show" id="bUl-uP-2BW"/>
+                                    <segue destination="mz4-EC-bez" kind="show" identifier="colourPickerSegue" id="bUl-uP-2BW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3R-Ii-BOU">
@@ -1090,27 +1090,36 @@
                                     <constraint firstAttribute="height" constant="256" id="oQV-SX-MtU"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GH7-ms-1kz">
-                                <rect key="frame" x="112" y="574" width="151" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitButtonPressed:" destination="mz4-EC-bez" eventType="touchUpInside" id="zjo-Nb-Kix"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9A-zZ-t8W">
-                                <rect key="frame" x="139" y="418" width="102" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Colour Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9A-zZ-t8W">
+                                <rect key="frame" x="89" y="418" width="197" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GH7-ms-1kz">
+                                <rect key="frame" x="89" y="585" width="197" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.44705882352941179" blue="1" alpha="0.34126177226027399" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Confirm Colour"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="mz4-EC-bez" eventType="touchUpInside" id="zjo-Nb-Kix"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="tGm-IN-Zvc" secondAttribute="centerX" id="0AB-uA-xTC"/>
                             <constraint firstItem="tGm-IN-Zvc" firstAttribute="top" secondItem="nii-fo-mHy" secondAttribute="bottom" constant="8" symbolic="YES" id="1rU-Ve-o8U"/>
+                            <constraint firstItem="a9A-zZ-t8W" firstAttribute="top" secondItem="2Yc-cg-pvT" secondAttribute="bottom" constant="28" id="3rN-wB-ryX"/>
+                            <constraint firstItem="EH6-hC-VEO" firstAttribute="trailing" secondItem="a9A-zZ-t8W" secondAttribute="trailing" constant="60" id="7Gt-C7-Ort"/>
                             <constraint firstItem="xF8-tg-BJK" firstAttribute="top" secondItem="tGm-IN-Zvc" secondAttribute="bottom" constant="8" symbolic="YES" id="8Lr-kS-OkJ"/>
+                            <constraint firstItem="a9A-zZ-t8W" firstAttribute="leading" secondItem="EH6-hC-VEO" secondAttribute="leading" constant="60" id="Puk-Mh-WJG"/>
                             <constraint firstItem="2Yc-cg-pvT" firstAttribute="top" secondItem="xF8-tg-BJK" secondAttribute="bottom" constant="8" symbolic="YES" id="VHD-D0-mqk"/>
                             <constraint firstAttribute="centerX" secondItem="xF8-tg-BJK" secondAttribute="centerX" id="ezU-ro-CS7"/>
                             <constraint firstAttribute="centerX" secondItem="2Yc-cg-pvT" secondAttribute="centerX" id="wng-Ob-VMB"/>
