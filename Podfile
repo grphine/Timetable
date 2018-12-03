@@ -10,6 +10,7 @@ target 'timetable' do
     pod 'SpreadsheetView'
     pod 'RealmSwift'
     pod 'SideMenu'
+    pod "Color-Picker-for-iOS", "~> 2.0"
 
   target 'timetableTests' do
     inherit! :search_paths

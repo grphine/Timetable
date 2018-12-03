@@ -14,6 +14,7 @@
 		851E3CB321A5ABA3002467D9 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CB221A5ABA3002467D9 /* Countdown.swift */; };
 		851E3D0421A8B561002467D9 /* OccurencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3D0321A8B561002467D9 /* OccurencesCell.swift */; };
 		851E3D0621A8B577002467D9 /* OccurencesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3D0521A8B577002467D9 /* OccurencesTVC.swift */; };
+		8571747F21B58B7C00EE6704 /* ColourPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8571747E21B58B7C00EE6704 /* ColourPicker.swift */; };
 		85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4162190792F002BE951 /* Linked List Queue.swift */; };
 		85E5D462219601CD002BE951 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D461219601CD002BE951 /* Schedule.swift */; };
 		85E5D464219601F7002BE951 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D463219601F6002BE951 /* Cells.swift */; };
@@ -67,6 +68,7 @@
 		851E3CB221A5ABA3002467D9 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 		851E3D0321A8B561002467D9 /* OccurencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurencesCell.swift; sourceTree = "<group>"; };
 		851E3D0521A8B577002467D9 /* OccurencesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurencesTVC.swift; sourceTree = "<group>"; };
+		8571747E21B58B7C00EE6704 /* ColourPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPicker.swift; sourceTree = "<group>"; };
 		85E5D4162190792F002BE951 /* Linked List Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Linked List Queue.swift"; sourceTree = "<group>"; };
 		85E5D461219601CD002BE951 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		85E5D463219601F6002BE951 /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				851E3D0221A8B53E002467D9 /* Occurences */,
 				851E3CA7219CC06B002467D9 /* EventVC.swift */,
+				8571747E21B58B7C00EE6704 /* ColourPicker.swift */,
 				85E5D461219601CD002BE951 /* Schedule.swift */,
 			);
 			path = Schedule;
@@ -459,6 +462,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-timetable/Pods-timetable-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Color-Picker-for-iOS/Color_Picker_for_iOS.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
@@ -466,6 +470,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Color_Picker_for_iOS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
@@ -496,6 +501,7 @@
 				85EDAF6E2188F85F006F8A6C /* timetable.xcdatamodeld in Sources */,
 				85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */,
 				85E5D496219A0643002BE951 /* NotesCell.swift in Sources */,
+				8571747F21B58B7C00EE6704 /* ColourPicker.swift in Sources */,
 				851E3D0621A8B577002467D9 /* OccurencesTVC.swift in Sources */,
 				85E5D48D2199CAAC002BE951 /* ViewAllNotes.swift in Sources */,
 				851E3CA8219CC06B002467D9 /* EventVC.swift in Sources */,

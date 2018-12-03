@@ -405,6 +405,7 @@
                                 <state key="normal" title="Colour Picker"/>
                                 <connections>
                                     <action selector="colourPickerPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="nbD-wC-wlJ"/>
+                                    <segue destination="p72-9U-30a" kind="show" id="z6X-2a-OuH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3R-Ii-BOU">
@@ -1051,6 +1052,116 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpW-Uv-Dw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="698" y="1191"/>
+        </scene>
+        <!--Colour Picker-->
+        <scene sceneID="Tp3-Mg-d4U">
+            <objects>
+                <viewController title="Colour Picker" id="p72-9U-30a" customClass="HRSampleColorPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iBh-iv-kaK"/>
+                        <viewControllerLayoutGuide type="bottom" id="fgm-Bg-fOe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hob-Tj-c9S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQD-eB-wjv" customClass="HRColorPickerView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVS-nH-LBX" customClass="HRColorInfoView">
+                                        <rect key="frame" x="8" y="10" width="66" height="84"/>
+                                        <color key="backgroundColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="84" id="Znp-bv-Y6R"/>
+                                            <constraint firstAttribute="width" constant="66" id="pSo-0J-XcK"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsK-lj-dSA" customClass="HRBrightnessSlider">
+                                        <rect key="frame" x="83" y="65" width="283" height="11"/>
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.61911003490000005" blue="0.62945342689999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="11" id="l6o-UG-Vij"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="brightnessLowerLimit">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1i-2H-tCY" customClass="HRColorMapView">
+                                        <rect key="frame" x="0.0" y="104" width="375" height="543"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="saturationUpperLimit">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="tileSize">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yh-OH-cU5">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="10"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="QEv-wv-n1K"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vvm-ip-cSj">
+                                        <rect key="frame" x="0.0" y="94" width="100" height="10"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="2df-ae-cwe"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="q1i-2H-tCY" firstAttribute="leading" secondItem="AQD-eB-wjv" secondAttribute="leading" id="2jp-tH-saK"/>
+                                    <constraint firstItem="q1i-2H-tCY" firstAttribute="top" secondItem="Vvm-ip-cSj" secondAttribute="bottom" id="5iE-Xm-gAn"/>
+                                    <constraint firstItem="Vvm-ip-cSj" firstAttribute="leading" secondItem="AQD-eB-wjv" secondAttribute="leading" id="J0a-SS-wlU"/>
+                                    <constraint firstItem="Vvm-ip-cSj" firstAttribute="top" secondItem="FVS-nH-LBX" secondAttribute="bottom" id="KKG-M7-LpL"/>
+                                    <constraint firstAttribute="trailing" secondItem="q1i-2H-tCY" secondAttribute="trailing" id="L2b-YE-x6Q"/>
+                                    <constraint firstAttribute="right" secondItem="vsK-lj-dSA" secondAttribute="right" constant="9" id="Rtu-7T-oS8"/>
+                                    <constraint firstItem="0yh-OH-cU5" firstAttribute="height" secondItem="Vvm-ip-cSj" secondAttribute="height" id="ZCi-8b-xiw"/>
+                                    <constraint firstItem="0yh-OH-cU5" firstAttribute="top" secondItem="AQD-eB-wjv" secondAttribute="top" id="ZVF-Tn-55Q"/>
+                                    <constraint firstItem="q1i-2H-tCY" firstAttribute="top" secondItem="AQD-eB-wjv" secondAttribute="top" priority="250" constant="104" id="cUz-aT-9Qb"/>
+                                    <constraint firstItem="0yh-OH-cU5" firstAttribute="leading" secondItem="AQD-eB-wjv" secondAttribute="leading" id="cds-YW-eFa"/>
+                                    <constraint firstAttribute="bottom" secondItem="q1i-2H-tCY" secondAttribute="bottom" id="fDr-L3-bRg"/>
+                                    <constraint firstItem="FVS-nH-LBX" firstAttribute="top" secondItem="0yh-OH-cU5" secondAttribute="bottom" id="p7p-t3-bf0"/>
+                                    <constraint firstItem="FVS-nH-LBX" firstAttribute="leading" secondItem="AQD-eB-wjv" secondAttribute="leading" constant="8" id="psO-KF-Cow"/>
+                                    <constraint firstItem="FVS-nH-LBX" firstAttribute="bottom" secondItem="vsK-lj-dSA" secondAttribute="bottom" constant="18" id="q7D-IK-ziM"/>
+                                    <constraint firstItem="vsK-lj-dSA" firstAttribute="left" secondItem="FVS-nH-LBX" secondAttribute="right" constant="9" id="sWD-gG-k4j"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.20598814139999999" green="0.86822775139999997" blue="0.17019018220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="brightnessSlider" destination="vsK-lj-dSA" id="xXF-m2-JpB"/>
+                                    <outlet property="colorInfoView" destination="FVS-nH-LBX" id="iQX-F0-bgY"/>
+                                    <outlet property="colorMapView" destination="q1i-2H-tCY" id="hbG-B4-XCC"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AQD-eB-wjv" firstAttribute="top" secondItem="iBh-iv-kaK" secondAttribute="bottom" id="FRO-sN-Kjy"/>
+                            <constraint firstItem="AQD-eB-wjv" firstAttribute="leading" secondItem="Hob-Tj-c9S" secondAttribute="leading" id="JlF-PR-fbg"/>
+                            <constraint firstAttribute="trailing" secondItem="AQD-eB-wjv" secondAttribute="trailing" id="PlE-Lm-bPP"/>
+                            <constraint firstItem="fgm-Bg-fOe" firstAttribute="top" secondItem="AQD-eB-wjv" secondAttribute="bottom" id="aqv-kW-oSp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hgz-w8-bNU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zEy-Zg-wZC"/>
+                    <connections>
+                        <outlet property="colorPickerView" destination="AQD-eB-wjv" id="adZ-xu-mjo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWm-FL-gus" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="-1526"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

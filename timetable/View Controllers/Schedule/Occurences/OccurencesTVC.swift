@@ -11,8 +11,6 @@ import UIKit
 class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     
     //TODO: Get these collapsing
-    //TODO: Return data to VC on submit
-    //TODO: Display already selected cells on edit
     
     let hours = [6,7,8,9,10,11,12]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "TH", "FR"]
@@ -111,7 +109,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         var count = 0
         for day in occurences!{
             for hour in day{
-                let path = NSIndexPath(row: (hour - timeDifference), section: count) 
+                let path = NSIndexPath(row: (hour - timeDifference), section: count)
                 tableView.selectRow(at: path as IndexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
             }
             count += 1

@@ -9,6 +9,10 @@ import UIKit
 
 class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
+    //TODO: Colour picker
+    //TODO: Conflict res
+    //TODO: Reload cells 
+    
     //MARK: Variables
     var singleEvent = RepeatingEvent()
     var check = 1 //edit disabled
