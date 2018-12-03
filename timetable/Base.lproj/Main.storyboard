@@ -405,6 +405,9 @@
                                 <state key="normal" title="Colour Picker"/>
                                 <connections>
                                     <action selector="colourPickerPressed:" destination="i7A-dO-FGm" eventType="touchUpInside" id="nbD-wC-wlJ"/>
+                                    <segue destination="mz4-EC-bez" kind="popoverPresentation" popoverAnchorView="W5L-fC-xRX" id="bUl-uP-2BW">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3R-Ii-BOU">
@@ -1051,6 +1054,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpW-Uv-Dw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="698" y="1191"/>
+        </scene>
+        <!--Colour Picker View Controller-->
+        <scene sceneID="uE3-U1-xaE">
+            <objects>
+                <viewController id="mz4-EC-bez" customClass="ColourPickerViewController" customModule="timetable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nii-fo-mHy"/>
+                        <viewControllerLayoutGuide type="bottom" id="bP6-V0-rx7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="721-sc-KN4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGm-IN-Zvc" customClass="ColorWell" customModule="timetable" customModuleProvider="target">
+                                <rect key="frame" x="165" y="28" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="6tg-rd-drd"/>
+                                    <constraint firstAttribute="height" constant="45" id="Kg1-gm-i3D"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Yc-cg-pvT" customClass="HuePicker" customModule="timetable" customModuleProvider="target">
+                                <rect key="frame" x="59.5" y="345" width="256" height="45"/>
+                                <color key="backgroundColor" red="0.88715994359999995" green="0.2287584245" blue="0.22893077140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="muO-zj-wiY"/>
+                                    <constraint firstAttribute="width" constant="256" id="v4z-KS-ZHF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xF8-tg-BJK" customClass="ColorPicker" customModule="timetable" customModuleProvider="target">
+                                <rect key="frame" x="59.5" y="81" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="GUd-fT-bBs"/>
+                                    <constraint firstAttribute="height" constant="256" id="oQV-SX-MtU"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUq-aE-Ym9">
+                                <rect key="frame" x="127.5" y="398" width="120.5" height="58.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="49"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="tGm-IN-Zvc" secondAttribute="centerX" id="0AB-uA-xTC"/>
+                            <constraint firstItem="tGm-IN-Zvc" firstAttribute="top" secondItem="nii-fo-mHy" secondAttribute="bottom" constant="8" symbolic="YES" id="1rU-Ve-o8U"/>
+                            <constraint firstItem="xF8-tg-BJK" firstAttribute="top" secondItem="tGm-IN-Zvc" secondAttribute="bottom" constant="8" symbolic="YES" id="8Lr-kS-OkJ"/>
+                            <constraint firstItem="TUq-aE-Ym9" firstAttribute="top" secondItem="2Yc-cg-pvT" secondAttribute="bottom" constant="8" symbolic="YES" id="SNq-Qv-pN9"/>
+                            <constraint firstItem="2Yc-cg-pvT" firstAttribute="top" secondItem="xF8-tg-BJK" secondAttribute="bottom" constant="8" symbolic="YES" id="VHD-D0-mqk"/>
+                            <constraint firstAttribute="centerX" secondItem="TUq-aE-Ym9" secondAttribute="centerX" id="ajE-ja-4cB"/>
+                            <constraint firstAttribute="centerX" secondItem="xF8-tg-BJK" secondAttribute="centerX" id="ezU-ro-CS7"/>
+                            <constraint firstAttribute="centerX" secondItem="2Yc-cg-pvT" secondAttribute="centerX" id="wng-Ob-VMB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EH6-hC-VEO"/>
+                    </view>
+                    <connections>
+                        <outlet property="colorPicker" destination="xF8-tg-BJK" id="OgY-PV-PIl"/>
+                        <outlet property="colorWell" destination="tGm-IN-Zvc" id="CbC-hN-oXk"/>
+                        <outlet property="huePicker" destination="2Yc-cg-pvT" id="m5Q-2Y-Eac"/>
+                        <outlet property="label" destination="TUq-aE-Ym9" id="V7e-G8-rjb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GC3-Qx-UjQ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="-1519"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
