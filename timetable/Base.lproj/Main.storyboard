@@ -1098,9 +1098,10 @@
                                     <action selector="submitButtonPressed:" destination="mz4-EC-bez" eventType="touchUpInside" id="zjo-Nb-Kix"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9A-zZ-t8W">
-                                <rect key="frame" x="127" y="415" width="120.5" height="58.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9A-zZ-t8W">
+                                <rect key="frame" x="139" y="418" width="102" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1112,7 +1113,6 @@
                             <constraint firstItem="xF8-tg-BJK" firstAttribute="top" secondItem="tGm-IN-Zvc" secondAttribute="bottom" constant="8" symbolic="YES" id="8Lr-kS-OkJ"/>
                             <constraint firstItem="2Yc-cg-pvT" firstAttribute="top" secondItem="xF8-tg-BJK" secondAttribute="bottom" constant="8" symbolic="YES" id="VHD-D0-mqk"/>
                             <constraint firstAttribute="centerX" secondItem="xF8-tg-BJK" secondAttribute="centerX" id="ezU-ro-CS7"/>
-                            <constraint firstItem="a9A-zZ-t8W" firstAttribute="top" secondItem="2Yc-cg-pvT" secondAttribute="bottom" constant="25" id="fUF-hd-WbT"/>
                             <constraint firstAttribute="centerX" secondItem="2Yc-cg-pvT" secondAttribute="centerX" id="wng-Ob-VMB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EH6-hC-VEO"/>

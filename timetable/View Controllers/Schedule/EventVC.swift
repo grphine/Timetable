@@ -20,7 +20,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     //Recieved variable
     var occurences: [[Int]]?
-    var colour = "C90D0A"
+    var colour: String?
     
     @IBOutlet weak var switchLabel: UILabel!
     
@@ -65,6 +65,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
                 
                 nameLabel.text = singleEvent.name //set data
                 descriptionLabel.text = singleEvent.desc
+                colour = singleEvent.colour
                 occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
                 priorityPicker.selectRow(singleEvent.priority, inComponent: 0, animated: true)
                 
@@ -191,10 +192,10 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
                 //MARK: Create/modify event object
                 var newEvent = RepeatingEvent()
                 if (check == 1){ //edit button has not been pressed, therefore new event added
-                    newEvent = createEvent(name: nameLabel.text!, colour: colour, week: occurences!, description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
+                    newEvent = createEvent(name: nameLabel.text!, colour: colour!, week: occurences!, description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
                 }
                 else{
-                    newEvent = modifyEvent(event: singleEvent, name: nameLabel.text!, colour: colour, week: occurences!, description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
+                    newEvent = modifyEvent(event: singleEvent, name: nameLabel.text!, colour: colour!, week: occurences!, description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
                 }
                 uiRealm.add(newEvent, update: true)
             }
@@ -320,6 +321,10 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             //send over occurence data
             let destinationVC = segue.destination as! OccurencesTVC
             destinationVC.occurences = occurences
+        }
+        else if segue.identifier == "colourPickerSegue"{
+            let destinationVC = segue.destination as! ColourPickerViewController
+            destinationVC.colour = colour
         }
         
     }
