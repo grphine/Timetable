@@ -20,6 +20,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     //Recieved variable
     var occurences: [[Int]]?
+    var colour = "C90D0A"
     
     @IBOutlet weak var switchLabel: UILabel!
     
@@ -134,8 +135,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     //MARK: Submit button
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
-        print(occurences)
-        
         let defaultAlert = UIAlertController(title: "Info", message: "", preferredStyle: .alert) //create a default alert to modify as necessary
         defaultAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
@@ -178,15 +177,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //FIXME: Cannot add event until picker view sorted
         //FIXME: Validate data entry
         
-        //MARK: Create/modify event object
-        //FIXME: Updates to existing events need to be in transactions. Stick modify within add i guess
-        var newEvent = RepeatingEvent()
-        if (check == 1){ //edit button has not been pressed, therefore new event added
-            newEvent = createEvent(name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
-        }
-        else{
-            newEvent = modifyEvent(event: singleEvent, name: nameLabel.text!, colour: "", week: [[]], description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
-        }
+        
         
         //MARK: Update schedule
         if valid == true{ //only submit if all data is valid
@@ -196,8 +187,17 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             }))
             
             try! uiRealm.write { //update within a transaction
+                //MARK: Create/modify event object
+                var newEvent = RepeatingEvent()
+                if (check == 1){ //edit button has not been pressed, therefore new event added
+                    newEvent = createEvent(name: nameLabel.text!, colour: colour, week: occurences!, description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
+                }
+                else{
+                    newEvent = modifyEvent(event: singleEvent, name: nameLabel.text!, colour: colour, week: occurences!, description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
+                }
                 uiRealm.add(newEvent, update: true)
             }
+            
             self.present(successAlert, animated: true)
         }
         else{
@@ -253,6 +253,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         for day in week{ //for every day in the week, append the day to the week
             event.week.append(timesToDay(times: day))
         }
+        
         return event
     }
     
