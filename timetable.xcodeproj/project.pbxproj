@@ -74,11 +74,11 @@
 		851E3CB221A5ABA3002467D9 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 		851E3D0321A8B561002467D9 /* OccurencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurencesCell.swift; sourceTree = "<group>"; };
 		851E3D0521A8B577002467D9 /* OccurencesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurencesTVC.swift; sourceTree = "<group>"; };
-		857F844A21B5B83900EE9B6B /* ColorPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPickerController.swift; path = timetable/Classes/ColorPicker/ColorPickerController.swift; sourceTree = SOURCE_ROOT; };
-		857F844B21B5B83900EE9B6B /* ColorWell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorWell.swift; path = timetable/Classes/ColorPicker/ColorWell.swift; sourceTree = SOURCE_ROOT; };
-		857F844C21B5B83900EE9B6B /* PickerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerImage.swift; path = timetable/Classes/ColorPicker/PickerImage.swift; sourceTree = SOURCE_ROOT; };
-		857F844D21B5B83900EE9B6B /* HuePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuePicker.swift; path = timetable/Classes/ColorPicker/HuePicker.swift; sourceTree = SOURCE_ROOT; };
-		857F844E21B5B83900EE9B6B /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPicker.swift; path = timetable/Classes/ColorPicker/ColorPicker.swift; sourceTree = SOURCE_ROOT; };
+		857F844A21B5B83900EE9B6B /* ColorPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPickerController.swift; path = timetable/Classes/ColorPickerController.swift; sourceTree = SOURCE_ROOT; };
+		857F844B21B5B83900EE9B6B /* ColorWell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorWell.swift; path = timetable/Classes/ColorWell.swift; sourceTree = SOURCE_ROOT; };
+		857F844C21B5B83900EE9B6B /* PickerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerImage.swift; path = timetable/Classes/PickerImage.swift; sourceTree = SOURCE_ROOT; };
+		857F844D21B5B83900EE9B6B /* HuePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuePicker.swift; path = timetable/Classes/HuePicker.swift; sourceTree = SOURCE_ROOT; };
+		857F844E21B5B83900EE9B6B /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPicker.swift; path = timetable/Classes/ColorPicker.swift; sourceTree = SOURCE_ROOT; };
 		857F845421B5BCC800EE9B6B /* ColourPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPickerViewController.swift; sourceTree = "<group>"; };
 		857F845621B5DE0400EE9B6B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		85E5D4162190792F002BE951 /* Linked List Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Linked List Queue.swift"; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 			path = Occurences;
 			sourceTree = "<group>";
 		};
-		857F844921B5B80A00EE9B6B /* Color Picker */ = {
+		85E5D413219078E1002BE951 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				857F844E21B5B83900EE9B6B /* ColorPicker.swift */,
@@ -188,14 +188,6 @@
 				857F844B21B5B83900EE9B6B /* ColorWell.swift */,
 				857F844D21B5B83900EE9B6B /* HuePicker.swift */,
 				857F844C21B5B83900EE9B6B /* PickerImage.swift */,
-			);
-			path = "Color Picker";
-			sourceTree = "<group>";
-		};
-		85E5D413219078E1002BE951 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				857F844921B5B80A00EE9B6B /* Color Picker */,
 				85E5D463219601F6002BE951 /* Cells.swift */,
 				85E5D4162190792F002BE951 /* Linked List Queue.swift */,
 				85E5D4932199DA0A002BE951 /* RealmSetup.swift */,
