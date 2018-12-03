@@ -68,6 +68,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
                 colour = singleEvent.colour
                 occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
                 priorityPicker.selectRow(singleEvent.priority, inComponent: 0, animated: true)
+                submitButton.setTitle("Update Event", for: .normal)
                 
                 
                 
@@ -81,12 +82,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //TODO: Change view triggered depending on whether repeating event or not
         
         
-        //dummy data
-//        let newEvent = createEvent(name: "Maths", colour: "42B6F4", week: [[10,11,12,13],[12,13],[13,15],[],[],[],[]], description: "Maths Repeating Event", priority: 0)
-//
-//        try! uiRealm.write { //update within a transaction
-//            uiRealm.add(newEvent, update: true)
-//        }
+       
     }
     
     //MARK: Picker view

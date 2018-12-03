@@ -14,10 +14,11 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     //TODO: Return data to VC on submit
     //TODO: Display already selected cells on edit
     
-    let hours = [6,7,8,9,10,11,12]
-    let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "TH", "FR"]
+    let hours = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM",
+                 "3:00 PM", "4:00 PM", "5:00PM"]
+    let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     var occurences: [[Int]]?
-    let timeDifference = 6 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
+    let timeDifference = 9 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
 
     override func viewDidLoad() {
         super.viewDidLoad()

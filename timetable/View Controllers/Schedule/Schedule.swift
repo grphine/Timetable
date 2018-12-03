@@ -30,8 +30,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
                      UIColor(red: 0.400, green: 0.584, blue: 0.141, alpha: 1),
                      UIColor(red: 0.835, green: 0.655, blue: 0.051, alpha: 1),
                      UIColor(red: 0.153, green: 0.569, blue: 0.835, alpha: 1)]
-    let hours = ["6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM",
-                 "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM", "11:00 PM"]
+    let hours = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM",
+                 "3:00 PM", "4:00 PM", "5:00PM"]
     let evenRowColor = UIColor(red: 0.914, green: 0.914, blue: 0.906, alpha: 1)
     let oddRowColor: UIColor = .white
     
