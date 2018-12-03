@@ -28,9 +28,10 @@ class ColourPickerViewController: UIViewController {
          */
         pickerController?.onColorChange = {(color, finished) in
             
-            print(color)
+            print(color.toHexString)
             //self.label.text = color string as colour
-            self.label.backgroundColor = color
+            self.label.backgroundColor = color.withAlphaComponent(0.2)
+            self.label.textColor = color
             
         }
     }
@@ -44,7 +45,7 @@ class ColourPickerViewController: UIViewController {
 
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
-        //FIXME: Convert color to colour string
+        //FIXME: Convert color to colour string, send to vc
         let stack = self.navigationController?.viewControllers
         let previousView = stack![stack!.count - 2] as! EventVC
         //previousView.colour = colour
