@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class Settings: UIViewController {
 
-    
+    //TODO: Add uiRealm.deleteAll() 
     //TODO: Allow user to switch between 12 and 24 hour time
     //TODO: Provide slider to select hours range
     

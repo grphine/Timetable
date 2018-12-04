@@ -19,7 +19,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
      
      */
     
-    //TODO: Add uiRealm.deleteAll() to settings VC
+    
     /*
      get day
      find all events happening on that day
