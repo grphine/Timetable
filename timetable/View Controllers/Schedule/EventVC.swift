@@ -23,6 +23,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     var colour: String?
     
     @IBOutlet weak var switchLabel: UILabel!
+    @IBOutlet weak var priorityLabel: UILabel!
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var descriptionLabel: UITextView!
@@ -301,6 +302,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         
         if set == false{
             priorityPicker.alpha = 0.5
+            priorityLabel.alpha = 0.5
             colourPickerButton.alpha = 0.5
             occurenceButton.alpha = 0.5
             reminderButton.alpha = 0.5
@@ -308,6 +310,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         }
         else{
             priorityPicker.alpha = 1
+            priorityLabel.alpha = 1
             colourPickerButton.alpha = 1
             occurenceButton.alpha = 1
             reminderButton.alpha = 1

@@ -18,14 +18,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     var name = String()
     let formatter = DateFormatter()
     
-    /*
-     from monday date recieved
-     */
-    
-    //TODO: Reload schedule on return from event
-    //TODO: Add create event button, right nav button - therefore rework how add event works
-    
-
     var dates = [String]()
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     let dayColors = [UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1),
@@ -39,6 +31,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
                  "3:00 PM", "4:00 PM", "5:00PM"]
     let evenRowColor = UIColor(red: 0.914, green: 0.914, blue: 0.906, alpha: 1)
     let oddRowColor: UIColor = .white
+    
     
     @objc func addTapped(){ //funtion called when add button tapped
         name = "" //set to empty to prevent opening last selected cell
@@ -81,7 +74,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
     }
     
-  
+    //MARK: View Will Appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         spreadsheetView.flashScrollIndicators()
@@ -93,17 +86,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         //reload data when view loads
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        spreadsheetView.flashScrollIndicators()
-//
-//        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
-//        allDict = addToDictionary(all: allEvents)
-//        //reload data when view loads
-//    }
-    
     // MARK: DataSource
-    
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
         return 1 + days.count
     }
