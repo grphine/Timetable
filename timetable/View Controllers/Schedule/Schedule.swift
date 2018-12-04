@@ -16,12 +16,17 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     var column = 0 //to send row and column data to event view
     var allDict = [String: [[Int]]]() //hold each event, its days, and occurences per day
     var name = String()
+    let formatter = DateFormatter()
+    
+    /*
+     from monday date recieved
+     */
     
     //TODO: Reload schedule on return from event
     //TODO: Add create event button, right nav button - therefore rework how add event works
     
 
-    let dates = ["01/11/18", "02/11/2018", "03/11/2018", "04/11/2018", "05/11/2018", "06/11/2018", "08/11/2018"]
+    var dates = [String]()
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     let dayColors = [UIColor(red: 0.918, green: 0.224, blue: 0.153, alpha: 1),
                      UIColor(red: 0.106, green: 0.541, blue: 0.827, alpha: 1),
@@ -44,15 +49,12 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
-        
         spreadsheetView.dataSource = self
         spreadsheetView.delegate = self
         
         spreadsheetView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
-        
         spreadsheetView.intercellSpacing = CGSize(width: 4, height: 1)
         spreadsheetView.gridStyle = .none
-        
         spreadsheetView.register(DateCell.self, forCellWithReuseIdentifier: String(describing: DateCell.self))
         spreadsheetView.register(TimeTitleCell.self, forCellWithReuseIdentifier: String(describing: TimeTitleCell.self))
         spreadsheetView.register(TimeCell.self, forCellWithReuseIdentifier: String(describing: TimeCell.self))
@@ -62,6 +64,20 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         allDict = addToDictionary(all: allEvents)
         //load data
+        
+        //MARK: Populate date headers of timetable
+        formatter.dateFormat = "dd/MM/yyyy"
+        let monday = Date().startOfWeek
+        let mondayString = formatter.string(from: monday!)
+        dates.append(mondayString)
+        
+        for _ in 0...6{
+            let day = populateDates(date: monday!)
+            dates.append(day)
+        }
+        
+        
+        
         
     }
     
@@ -214,7 +230,14 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         return name
     }
+    
+    func populateDates(date: Date) -> String{ //get the string for the date of the following day to the input
         
+        let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: date)
+        let dateString = formatter.string(from: nextDate!)
+        
+        return dateString
+    }
    
     func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{ //adds all events to a dictionary
 

@@ -11,6 +11,14 @@ import SideMenu
 
 class AgendaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    /*
+     get current date
+     calculate date of monday from current date
+     find any single events with that monday date as their week id
+     
+     
+     */
+    
     //TODO: Add uiRealm.deleteAll() to settings VC
     /*
      get day
@@ -39,8 +47,9 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         agendaTableView.delegate = self //setup tableview
         agendaTableView.dataSource = self
         
-        dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
+        dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
+        
         
     }
     
