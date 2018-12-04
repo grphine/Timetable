@@ -72,8 +72,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
                 occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
                 priorityPicker.selectRow(singleEvent.priority, inComponent: 0, animated: true)
                 submitButton.setTitle("Update Event", for: .normal)
-                
-                
+                occurences = weekToOccurences(event: singleEvent)
                 
                 //FIXME: output rest of data
                 modifyInteraction(set: false) //disable interaction
@@ -108,9 +107,9 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //presented as popover
         //Return 2d array, including empties
         
-        if check != 1{
-            occurences = weekToOccurences(event: singleEvent) //send single event occurences
-        }
+//        if check != 1{ //can be carried out logically in viewDidLoad()
+//            occurences = weekToOccurences(event: singleEvent) //send single event occurences
+//        }
         
     }
     
