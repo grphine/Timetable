@@ -16,7 +16,6 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
      calculate date of monday from current date
      find any single events with that monday date as their week id
      
-     
      */
     
     
@@ -31,12 +30,14 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
  
  */
     
+    //TODO: segue to a new view when selecting cell, no modifications possible
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var goalsLabel: UILabel!
     @IBOutlet weak var agendaTableView: UITableView!
     
     var allEvents = [RepeatingEvent]()
-    var timer = Timer()
+    //var timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     let queue = LinkedList(data: String())
     
     override func viewDidLoad() {
@@ -60,11 +61,6 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         //dateTimeLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         
-        
-        //allNotes = uiRealm.objects(NoteData.self).toArray() as! [NoteData] //add all note items to allNotes array
-        //filteredNotes = allNotes
-        
-        
         self.agendaTableView.reloadData()
     }
     
@@ -83,8 +79,12 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    
-    
+    //not working
+//    //MARK: Timer
+//    @objc func update(){
+//        dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
+//        print(dateLabel.text)
+//    }
     
     //MARK: Menu setup
     fileprivate func setupSideMenu() {
