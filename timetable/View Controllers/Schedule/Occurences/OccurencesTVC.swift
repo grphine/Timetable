@@ -24,6 +24,9 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         self.tableView.allowsMultipleSelection = true
         self.tableView.allowsMultipleSelectionDuringEditing = true
         
+        let submitButton = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(submitButtonPressed))
+        navigationItem.rightBarButtonItem = submitButton
+        
         setupSelection() //display selected cells when view loads
         
         // Uncomment the following line to preserve selection between presentations
@@ -60,7 +63,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     }
     
     
-    @IBAction func submitButtonPressed(_ sender: UIButton){
+    @objc func submitButtonPressed(){
         
         let selected = self.tableView.indexPathsForSelectedRows
         
