@@ -79,19 +79,28 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
             dates.append(dateString)
         }
         
-        
-        
-        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+  
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         spreadsheetView.flashScrollIndicators()
         
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         allDict = addToDictionary(all: allEvents)
+        
+        self.spreadsheetView.reloadData()
         //reload data when view loads
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        spreadsheetView.flashScrollIndicators()
+//
+//        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
+//        allDict = addToDictionary(all: allEvents)
+//        //reload data when view loads
+//    }
     
     // MARK: DataSource
     
