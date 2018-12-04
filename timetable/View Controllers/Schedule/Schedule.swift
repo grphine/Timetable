@@ -71,9 +71,12 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         let mondayString = formatter.string(from: monday!)
         dates.append(mondayString)
         
+        var currentDate = monday
         for _ in 0...6{
-            let day = populateDates(date: monday!)
-            dates.append(day)
+            let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate!)
+            let dateString = formatter.string(from: nextDate!)
+            currentDate = nextDate
+            dates.append(dateString)
         }
         
         
@@ -229,14 +232,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         }
         
         return name
-    }
-    
-    func populateDates(date: Date) -> String{ //get the string for the date of the following day to the input
-        
-        let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: date)
-        let dateString = formatter.string(from: nextDate!)
-        
-        return dateString
     }
    
     func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{ //adds all events to a dictionary
