@@ -32,6 +32,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     @IBOutlet weak var colourPickerButton: UIButton!
     @IBOutlet weak var occurenceButton: UIButton!
+    @IBOutlet weak var reminderButton: UIButton!
+    
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     //TODO: Add reminder has no connection
@@ -53,6 +55,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             modifyInteraction(set: true)
             deleteButton.isHidden = true
             occurenceButton.setTitle("Add Occurences (Day/Time)", for: .normal)
+            submitButton.setTitle("Create Event", for: .normal)
         }
         else{
             if repeatSwitch.isOn == true{ //TODO: Better check for repeating or not
@@ -174,9 +177,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //FIXME: Cannot add event until picker view sorted
         //FIXME: Validate data entry
         
-        
         valid = true
-        print(occurences)
+        
         //MARK: Update schedule
         if valid == true{ //only submit if all data is valid
             let successAlert = UIAlertController(title: "Info", message: "Schedule Updated", preferredStyle: .alert)
@@ -295,7 +297,24 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         descriptionLabel.isUserInteractionEnabled = set
         colourPickerButton.isUserInteractionEnabled = set
         occurenceButton.isUserInteractionEnabled = set
+        reminderButton.isUserInteractionEnabled = set
         submitButton.isUserInteractionEnabled = set
+        
+        if set == false{
+            priorityPicker.alpha = 0.5
+            colourPickerButton.alpha = 0.5
+            occurenceButton.alpha = 0.5
+            reminderButton.alpha = 0.5
+            submitButton.alpha = 0.5
+        }
+        else{
+            priorityPicker.alpha = 1
+            colourPickerButton.alpha = 1
+            occurenceButton.alpha = 1
+            reminderButton.alpha = 1
+            submitButton.alpha = 1
+        }
+        
     }
     
     //MARK: Text Setup
