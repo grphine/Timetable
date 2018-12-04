@@ -35,9 +35,14 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     let evenRowColor = UIColor(red: 0.914, green: 0.914, blue: 0.906, alpha: 1)
     let oddRowColor: UIColor = .white
     
-    
+    @objc func addTapped(){ //funtion called when add button tapped
+        name = "" //set to empty to prevent opening last selected cell
+        performSegue(withIdentifier: "editEventSegue", sender: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
         
         spreadsheetView.dataSource = self
