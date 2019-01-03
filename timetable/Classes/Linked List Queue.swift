@@ -48,6 +48,19 @@ public class Queue<T> {
         }
         return out
     }
+    
+    //MARK: Length
+    func length() -> Int{
+        var count = 0
+        
+        if var node = self.head {
+            while case let next? = node.next {
+                node = next
+                count += 1
+            }
+        }
+        return count
+    }
 }
 
 

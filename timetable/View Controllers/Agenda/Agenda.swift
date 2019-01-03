@@ -65,6 +65,19 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     //MARK: TableView
+    
+    /*
+     1 section
+     queue length rows
+     
+     populate tableview as items in queue
+     
+     once item's time of occurence has passed, dequeue
+     
+     have three queues for three priorities
+     have some logic to allow moving between priorities, if time moves below certain threshhold. allow change of local priority of queue item
+     */
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -75,6 +88,11 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = AgendaCell()
+        
+        //get items in queue sequentially 
+        //set name of cell
+        //calculate occurence time
+        //colours done internally
         
         return cell
     }
