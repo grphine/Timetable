@@ -29,10 +29,13 @@ class AgendaCell: UITableViewCell {
 
     //TODO: Navigate to event view when cell tapped
     func configureCell(event: RepeatingEvent){
+        
         self.titleLabel.text = event.name
+    
+        //event time countdown
+        //when countdown reach zero, send notification
         
-        
-        switch event.priority {
+        switch event.priority { //sets colour based on priority
         case 0:
             //default priority, colour set as in schedule
             setColour(text: UIColor(hex: event.colour), back: UIColor(hex: event.colour).withAlphaComponent(0.2))

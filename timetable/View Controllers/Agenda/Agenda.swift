@@ -38,7 +38,11 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     
     var allEvents = [RepeatingEvent]()
     //var timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-    let queue = Queue<String>()
+    
+    let prioQueueOne = Queue<String>()
+    let prioQueueTwo = Queue<String>()
+    let prioQueueThree = Queue<String>()
+    var eventArray = [String]() //stores the id's of events in the order they will appear
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +55,13 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         
+        //TODO: load relevant items into queue
+        
+        //get all of todays items
+        //sort by priority, then chronologically
+        //enqueue appropriately, and push into array
+        //if removed from array, dequeue from queue
+        //timer, along with notification and self delete function
         
     }
     
@@ -61,6 +72,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         //dateTimeLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         
+        //populate queues and arrays again
         self.agendaTableView.reloadData()
     }
     
@@ -72,10 +84,11 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
      
      populate tableview as items in queue
      
-     once item's time of occurence has passed, dequeue
+     once item's time of occurence has passed or if user swipes, dequeue
      
      have three queues for three priorities
-     have some logic to allow moving between priorities, if time moves below certain threshhold. allow change of local priority of queue item
+     
+     have some logic to allow moving between priorities, if time moves below certain threshhold. allow change of local priority of queue item (local priority +1)
      */
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,17 +96,19 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //number of events in queue
-        return queue.length()
+        return (eventArray.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = AgendaCell()
         
+        //TODO: allow refresh of table, by pull down, and swipe deletes
         
-        //get items in queue sequentially 
-        //set name of cell
-        //calculate occurence time
-        //colours done internally
+        let event = eventArray[indexPath.row]
+        cell.configureCell(event: uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: event.data)!)
+        
+        //TODO: Occurence time
         
         return cell
     }
@@ -127,10 +142,5 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         m.default.menuPresentMode = .viewSlideInOut //The existing view slides out while the menu slides in.
         
     }
-    
-    
-    
-
-
 }
 

@@ -9,6 +9,8 @@ import UIKit
 
 class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
+    //TODO: Single events - warn override of repeating. allow option to override. load single after to display them above. don't allow override over other singles. check through single first when navigating to event
+    
     //MARK: Variables
     var singleEvent = RepeatingEvent()
     var check = 1 //edit disabled
