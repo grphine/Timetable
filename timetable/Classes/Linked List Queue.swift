@@ -9,7 +9,7 @@
 //MARK: LL Queue Class
 public class Queue<T> {
     
-    typealias Node = LinkedList<T>
+    typealias Node = LinkedListNode<T>
     
     var head: Node!
     public var isEmpty: Bool { return head == nil }
@@ -66,9 +66,9 @@ public class Queue<T> {
 
 
 //MARK: Node Class
-public class LinkedList<T> { //Node class for a linked list. Generic datatype "T"
+public class LinkedListNode<T> { //Node class for a linked list. Generic datatype "T"
     var data: T
-    var next: LinkedList?
+    var next: LinkedListNode?
     public init(data: T){
         self.data = data
     }

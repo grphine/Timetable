@@ -38,7 +38,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     
     var allEvents = [RepeatingEvent]()
     //var timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-    let queue = LinkedList(data: String())
+    let queue = Queue<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,12 +82,13 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //number of events that haven't passed
-        return 1
+        //number of events in queue
+        return queue.length()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = AgendaCell()
+        
         
         //get items in queue sequentially 
         //set name of cell
