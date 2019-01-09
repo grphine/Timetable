@@ -190,16 +190,14 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     /// Delegate
     
     //MARK: Segueing to EventVC
-    //TODO: Fix non selection of locked columns and rows
+    //TODO: Fix non selection of locked columns and rows / empty cells
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
-
-        //get event and trigger segue
-        if (indexPath.column >= 1 || indexPath.row >= 2){ //prevent locked cells performing segue
+        if (indexPath.column > 0 && indexPath.row > 1){ //prevent locked cells performing segue
             name = getEventName(dict: allDict, column: indexPath.column, row: indexPath.row)
-            performSegue(withIdentifier: "editEventSegue", sender: nil)
+            if name != ""{ //prevent empty cells
+                performSegue(withIdentifier: "editEventSegue", sender: nil)
+            }
         }
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
