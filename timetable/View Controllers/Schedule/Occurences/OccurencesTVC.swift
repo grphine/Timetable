@@ -11,12 +11,13 @@ import UIKit
 class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     
     //TODO: Get these collapsing
+    //FIXME: submitting now broken, line 90 index out of range. works now on testing??
     
     let hours = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM",
                  "3:00 PM", "4:00 PM", "5:00PM"]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     var occurences: [[Int]]?
-    let timeDifference = 6 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
+    let timeDifference = 9 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,23 +80,34 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
             
         }
         else{
-            var day = 0
-            occurences = [[], [], [], [], [], [], []]
-            for item in selected!{ //loops array and adds hours to their days in occurences array
-                if item[0] == day{
-                    occurences![day].append(item[1] + timeDifference)
-                }else{
-                    occurences![day].sort() //reorder items into chronological
-                    occurences![day + 1].append(item[1] + timeDifference)
-                    day += 1
-                }
-            }
-            
-            
             
             let alert = UIAlertController(title: "Info", message: "Save selected times?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+             
+                self.occurences = [[], [], [], [], [], [], []]
+                for item in selected!{ //loops array and adds hours to their days in occurences array
+                    
+                    switch item[0] { //switch statement used since IndexPath is difficult to iterate through
+                    case 0:
+                        self.occurences![0].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                    case 1:
+                        self.occurences![1].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                    case 2:
+                        self.occurences![2].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                    case 3:
+                        self.occurences![3].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                    case 4:
+                        self.occurences![4].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                    case 5:
+                        self.occurences![5].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                    case 6:
+                        self.occurences![6].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                    default: break
+                    }
+                    
+                }
+
                 self.submitAndReturn() //return and send empty data to EventVC
             }))
             self.present(alert, animated: true)
