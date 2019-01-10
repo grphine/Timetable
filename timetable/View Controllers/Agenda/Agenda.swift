@@ -11,29 +11,17 @@ import SideMenu
 
 class AgendaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    //TODO: Refresh table, deletes, implement other queues
+    //TODO: segue to schedule?
+    //TODO: Event timer countdowns, send notification at time up
+    //TODO: Variable priorities
+    //FIXME: Events displaying strangely
+    
     var hours = [9, 17] //pull from settings
     var orderDict = [Int: String]() //IDs of events keyed to the time it occurs
     var orderArray = [String]() //IDs of events in the order they are to appear
-    /*
-     get current date
-     calculate date of monday from current date
-     find any single events with that monday date as their week id
-     
-     */
+
     
-    
-    /*
-     get day
-     find all events happening on that day
-     sort those events (could be repeating) into order of appearance
-     as they appear, output to table
-     once time has passed, clear from table
-     
-     allow user to tap on item and view its details
- 
- */
-    
-    //TODO: segue to a new view when selecting cell, no modifications possible
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var goalsLabel: UILabel!
@@ -61,7 +49,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
         let allDict = addToDictionary(all: allEvents)
         
-        for event in allDict{ //FIXME: Do for single too
+        for event in allDict{ //adds events to an organised dictionary for the day  //FIXME: Do for single too
             
             if event.value[weekday] != []{ //if not empty
                 for item in event.value[weekday]{
@@ -74,7 +62,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
             
             let event = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: item.value)!
             
-            switch event.priority{
+            switch event.priority{ //queues items based on priority
             case 1:
                 prioQueueImp.enqueue(key: item.value)
             case 2:
@@ -84,13 +72,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
         
-        //get all of todays items
-        //sort by priority, then chronologically
-        //enqueue appropriately, and push into array
-        //if removed from array, dequeue from queue
-        //timer, along with notification and self delete function
-        
-        orderArray = prioQueueDef.outputArray()
+        orderArray = prioQueueDef.outputArray() //outputs array of items in order they were queued
     }
     
     
@@ -106,42 +88,21 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     
     //MARK: TableView
     
-    /*
-     1 section
-     queue length rows
-     
-     populate tableview as items in queue
-     
-     once item's time of occurence has passed or if user swipes, dequeue
-     
-     have three queues for three priorities
-     
-     have some logic to allow moving between priorities, if time moves below certain threshhold. allow change of local priority of queue item (local priority +1)
-     */
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //number of events in queue
+        //number of events in queue, currently only one array
         return (orderArray.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "agendaCell", for: indexPath) as! AgendaCell
-        
-        //TODO: allow refresh of table, by pull down, and swipe deletes
-        
         let event = orderArray[indexPath.row]
-     
         let send = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: event)
         
         cell.configureCell(event: send!)
-    
-        //event time countdown
-        //when countdown reach zero, send notification
-        //TODO: Occurence time
         
         return cell
     }
@@ -176,7 +137,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{ //adds all events to a dictionary
+    func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{ //adds all event names (and corresponding times) to a dictionary
         
         var eventTimes = [String: [[Int]]]()
         

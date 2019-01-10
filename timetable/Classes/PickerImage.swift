@@ -8,6 +8,8 @@ import ImageIO
 
 public struct PickerImage {
 
+    //FIXME: Colour picker won't open, line 100 exc_bad_instruction
+    
     var width: Int
     var height: Int
     var hue: CGFloat = 0
@@ -95,7 +97,7 @@ public struct PickerImage {
     // MARK: Generating raw image data
 
     public mutating func writeColorData(hue: CGFloat, alpha: CGFloat) {
-        lockQueue.sync() {
+//        lockQueue.sync() {
             self.hue = hue
             self.alpha = alpha
 
@@ -133,7 +135,7 @@ public struct PickerImage {
 
                 currentBrightnessIndex += 1
             }
-        }
+//        }
     }
 
     

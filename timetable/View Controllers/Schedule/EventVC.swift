@@ -10,6 +10,8 @@ import UIKit
 class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
     //TODO: Single events - warn override of repeating. allow option to override. load single after to display them above. don't allow override over other singles. check through single first when navigating to event
+    //FIXME: Pressing done when editing greys out update button
+    //FIXME: Prevent event names from being edited as they're used as IDs
     
     //MARK: Variables
     var singleEvent = RepeatingEvent()
@@ -18,6 +20,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     //Sent variables
     var eventName: String!
+    var repeating: Bool!
     //var allEvents: [RepeatingEvent]! //FIXME: This is not currently used? Sent from last view
     
     //Recieved variable
@@ -44,7 +47,9 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //print(eventName)
         
+        repeating = true
         
         nameLabel.delegate = self
         descriptionLabel.delegate = self
@@ -61,7 +66,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             submitButton.setTitle("Create Event", for: .normal)
         }
         else{
-            if repeatSwitch.isOn == true{ //TODO: Better check for repeating or not
+            if repeating == true{ //TODO: Better check for repeating or not
                 repeatSwitch.isHidden = true //hide switch since user cannot modify after initial seleection
                 switchLabel.isHidden = true
                 

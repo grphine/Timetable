@@ -11,13 +11,12 @@ import UIKit
 class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     
     //TODO: Get these collapsing
-    //FIXME: submitting now broken, line 90 index out of range. works now on testing??
     
     let hours = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM",
                  "3:00 PM", "4:00 PM", "5:00PM"]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     var occurences: [[Int]]?
-    let timeDifference = 9 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
+    let timeDifference = 6 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,23 +91,22 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
                     case 0:
                         self.occurences![0].append(item[1] + self.timeDifference) //append time indexPath + time difference
                     case 1:
-                        self.occurences![1].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                        self.occurences![1].append(item[1] + self.timeDifference)
                     case 2:
-                        self.occurences![2].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                        self.occurences![2].append(item[1] + self.timeDifference)
                     case 3:
-                        self.occurences![3].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                        self.occurences![3].append(item[1] + self.timeDifference)
                     case 4:
-                        self.occurences![4].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                        self.occurences![4].append(item[1] + self.timeDifference)
                     case 5:
-                        self.occurences![5].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                        self.occurences![5].append(item[1] + self.timeDifference)
                     case 6:
-                        self.occurences![6].append(item[1] + self.timeDifference) //append time indexPath + time difference
+                        self.occurences![6].append(item[1] + self.timeDifference)
                     default: break
                     }
-                    
                 }
-
                 self.submitAndReturn() //return and send empty data to EventVC
+                
             }))
             self.present(alert, animated: true)
         }
