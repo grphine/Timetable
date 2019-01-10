@@ -61,6 +61,19 @@ public class Queue<T> {
         }
         return count
     }
+    
+    //MARK: Return items
+    func outputArray() -> [T]{
+        var array = [T]()
+        
+        if var node = self.head {
+            while case let next? = node.next {
+                array.append(node.data)
+                node = next
+            }
+        }
+        return array
+    }
 }
 
 

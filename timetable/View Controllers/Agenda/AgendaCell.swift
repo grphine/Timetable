@@ -14,24 +14,24 @@ class AgendaCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-//
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-//
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
 
     //TODO: Navigate to event view when cell tapped
     func configureCell(event: RepeatingEvent){
         
-        self.titleLabel.text = event.name
-    
+        titleLabel.text = event.name
+        
         //event time countdown
         //when countdown reach zero, send notification
         

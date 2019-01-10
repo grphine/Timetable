@@ -12,7 +12,8 @@ import SideMenu
 class AgendaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var hours = [9, 17] //pull from settings
-    var orderDict = [Int: String]()
+    var orderDict = [Int: String]() //IDs of events keyed to the time it occurs
+    var orderArray = [String]() //IDs of events in the order they are to appear
     /*
      get current date
      calculate date of monday from current date
@@ -44,7 +45,6 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     let prioQueueDef = Queue<String>()
     let prioQueueImp = Queue<String>()
     let prioQueueUrg = Queue<String>()
-    var eventArray = [String]() //stores the id's of events in the order they will appear
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,15 +69,6 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
                 }
             }
         }
-        
-        
-        /*
-         go by dict
-         generate all hours as keys
-         append events as values
-         populate repeating first, override with single
-        */
-        
        
         for item in orderDict{
             
@@ -99,6 +90,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         //if removed from array, dequeue from queue
         //timer, along with notification and self delete function
         
+        orderArray = prioQueueDef.outputArray()
     }
     
     
@@ -132,18 +124,23 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //number of events in queue
-        return (eventArray.count)
+        return (orderArray.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = AgendaCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "agendaCell", for: indexPath) as! AgendaCell
         
         //TODO: allow refresh of table, by pull down, and swipe deletes
         
-        let event = eventArray[indexPath.row]
-        cell.configureCell(event: uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: event.data)!)
+        let event = orderArray[indexPath.row]
+     
+        let send = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: event)
         
+        cell.configureCell(event: send!)
+    
+        //event time countdown
+        //when countdown reach zero, send notification
         //TODO: Occurence time
         
         return cell
