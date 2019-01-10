@@ -11,6 +11,8 @@ import SideMenu
 
 class AgendaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var hours = [9, 17] //pull from settings
+    var orderDict = [Int: String]()
     /*
      get current date
      calculate date of monday from current date
@@ -39,9 +41,9 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     var allEvents = [RepeatingEvent]()
     //var timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     
-    let prioQueueOne = Queue<String>()
-    let prioQueueTwo = Queue<String>()
-    let prioQueueThree = Queue<String>()
+    let prioQueueDef = Queue<String>()
+    let prioQueueImp = Queue<String>()
+    let prioQueueUrg = Queue<String>()
     var eventArray = [String]() //stores the id's of events in the order they will appear
     
     override func viewDidLoad() {
@@ -55,7 +57,41 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         
-        //TODO: load relevant items into queue
+        let weekday = Calendar.current.component(.weekday, from: Date())-2 //get today's day as a number (week beginning Sunday [-1]), set Monday as 0 index [-1]
+        
+        let allDict = addToDictionary(all: allEvents)
+        
+        for event in allDict{ //FIXME: Do for single too
+            
+            if event.value[weekday] != []{ //if not empty
+                for item in event.value[weekday]{
+                    orderDict[item] = event.key
+                }
+            }
+        }
+        
+        
+        /*
+         go by dict
+         generate all hours as keys
+         append events as values
+         populate repeating first, override with single
+        */
+        
+       
+        for item in orderDict{
+            
+            let event = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: item.value)!
+            
+            switch event.priority{
+            case 1:
+                prioQueueImp.enqueue(key: item.value)
+            case 2:
+                prioQueueUrg.enqueue(key: item.value)
+            default:
+                prioQueueDef.enqueue(key: item.value)
+            }
+        }
         
         //get all of todays items
         //sort by priority, then chronologically
@@ -142,5 +178,27 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         m.default.menuPresentMode = .viewSlideInOut //The existing view slides out while the menu slides in.
         
     }
+    
+    func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{ //adds all events to a dictionary
+        
+        var eventTimes = [String: [[Int]]]()
+        
+        for event in all{
+            var dayHours = [[Int]]()
+            
+            for day in event.week{
+                var hours = [Int]()
+                
+                for hour in day.dayItem{
+                    hours.append(hour.hourItem)
+                }
+                dayHours.append(hours)
+            }
+            eventTimes[event.name] = dayHours
+        }
+        
+        return eventTimes
+    }
+    
 }
 
