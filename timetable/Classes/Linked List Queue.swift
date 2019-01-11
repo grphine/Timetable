@@ -53,11 +53,12 @@ public class Queue<T> {
     func length() -> Int{
         var count = 0
         
-        if var node = self.head {
-            while case let next? = node.next {
+        if var node = self.head { //begins count if queue not empty
+            while case let next? = node.next { //+1 every time a node has a next node
                 node = next
-                count += 1
+                count += 1 //counts nodes until end
             }
+            count += 1 //counts remaining node
         }
         return count
     }
@@ -67,10 +68,12 @@ public class Queue<T> {
         var array = [T]()
         
         if var node = self.head {
+            
             while case let next? = node.next {
-                array.append(node.data)
                 node = next
+                array.append(node.data)
             }
+            array.append(node.data)
         }
         return array
     }

@@ -49,6 +49,8 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
         let allDict = addToDictionary(all: allEvents)
         
+        toOrderDict(allDict)    //add events into organised dictionary
+        
         for event in allDict{ //adds events to an organised dictionary for the day  //FIXME: Do for single too
             
             if event.value[weekday] != []{ //if not empty
@@ -57,22 +59,36 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
                 }
             }
         }
+        
+        queueItems(orderDict)   //pushes items in ordered dictionary into relevant queue
        
-        for item in orderDict{
+        var count = 6 //time difference
+        for _ in 0...orderDict.count{
             
-            let event = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: item.value)!
+            let item = orderDict[count]
             
-            switch event.priority{ //queues items based on priority
-            case 1:
-                prioQueueImp.enqueue(key: item.value)
-            case 2:
-                prioQueueUrg.enqueue(key: item.value)
-            default:
-                prioQueueDef.enqueue(key: item.value)
+            if item != nil{
+                let event = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: item)!
+                
+                switch event.priority{ //queues items based on priority
+                case 1:
+                    prioQueueImp.enqueue(key: item!)
+                    //print(item.value, "A")
+                case 2:
+                    prioQueueUrg.enqueue(key: item!)
+                    //print(item.value, "b")
+                default:
+                    prioQueueDef.enqueue(key: item!)
+                    
+                    //print(item.value, "c")
+                    //print(prioQueueDef.length())
+                }
             }
+            count += 1
         }
         
-        orderArray = prioQueueDef.outputArray() //outputs array of items in order they were queued
+        orderArray = prioQueueUrg.outputArray() + prioQueueImp.outputArray() + prioQueueDef.outputArray() //outputs array of items in order they were queued
+        
     }
     
     
