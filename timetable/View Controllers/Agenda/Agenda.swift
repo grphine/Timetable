@@ -20,7 +20,9 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     var hours = [9, 17] //pull from settings
     var orderDict = [Int: String]() //IDs of events keyed to the time it occurs
     var orderArray = [String]() //IDs of events in the order they are to appear
-    var timeDifference = 6
+    var timeDifference = 8
+    var startTime = 6
+    var allDict = [String: [[Int]]]()
 
     
     
@@ -48,14 +50,17 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
         let weekday = Calendar.current.component(.weekday, from: Date())-2 //get today's day as a number (week beginning Sunday [-1]), set Monday as 0 index [-1]
         
-        let allDict = addToDictionary(all: allEvents)
+        var allDict = addToDictionary(all: allEvents)
         
-        var orderDict = toOrderDict(dict: allDict, weekday: weekday)    //add events into organised dictionary
+        orderDict = toOrderDict(dict: allDict, weekday: weekday)    //add events into organised dictionary
         
-        queueItems(dict: orderDict, timeDifference: timeDifference)   //pushes items in ordered dictionary into relevant queue
+        queueItems(dict: orderDict, startTime: startTime, timeDifference: timeDifference)   //pushes items in ordered dictionary into relevant queue
        
         
         orderArray = prioQueueUrg.outputArray() + prioQueueImp.outputArray() + prioQueueDef.outputArray() //outputs array of items in order they were queued
+        
+        print(prioQueueUrg.outputArray() , prioQueueImp.outputArray() , prioQueueDef.outputArray())
+        
         
     }
     
@@ -85,7 +90,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "agendaCell", for: indexPath) as! AgendaCell
         
         if tableView.numberOfRows(inSection: 0) == 0{ //default case if no events
-            cell.titleLabel.text = "No Events Today"
+            cell.titleLabel.text = "No Upcoming Events Today"
         }
         else{
             let event = orderArray[indexPath.row]
@@ -166,13 +171,14 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         return orderDict
     }
     
-    func queueItems(dict: [Int: String], timeDifference: Int){   //pushes items in ordered dictionary into relevant queue
+    func queueItems(dict: [Int: String], startTime: Int, timeDifference: Int){   //pushes items in ordered dictionary into relevant queue
     
-        var count = timeDifference
-        for _ in 0...orderDict.count{
-    
-            let item = orderDict[count]
-    
+        var count = startTime
+        
+        for _ in 0...timeDifference{
+            
+            let item = dict[count]
+            
             if item != nil{
                 let event = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: item)!
     
@@ -185,7 +191,6 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
                     prioQueueDef.enqueue(key: item!)
                 }
             }
-            
             count += 1
         }
     }

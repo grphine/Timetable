@@ -69,11 +69,12 @@ public class Queue<T> {
         
         if var node = self.head {
             
+            array.append(node.data)
             while case let next? = node.next {
                 node = next
                 array.append(node.data)
             }
-            array.append(node.data)
+            
         }
         return array
     }
