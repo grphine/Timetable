@@ -20,6 +20,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     var hours = [9, 17] //pull from settings
     var orderDict = [Int: String]() //IDs of events keyed to the time it occurs
     var orderArray = [String]() //IDs of events in the order they are to appear
+    var timeDifference = 6
 
     
     
@@ -49,43 +50,10 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
         let allDict = addToDictionary(all: allEvents)
         
-        toOrderDict(allDict)    //add events into organised dictionary
+        var orderDict = toOrderDict(dict: allDict, weekday: weekday)    //add events into organised dictionary
         
-        for event in allDict{ //adds events to an organised dictionary for the day  //FIXME: Do for single too
-            
-            if event.value[weekday] != []{ //if not empty
-                for item in event.value[weekday]{
-                    orderDict[item] = event.key
-                }
-            }
-        }
-        
-        queueItems(orderDict)   //pushes items in ordered dictionary into relevant queue
+        queueItems(dict: orderDict, timeDifference: timeDifference)   //pushes items in ordered dictionary into relevant queue
        
-        var count = 6 //time difference
-        for _ in 0...orderDict.count{
-            
-            let item = orderDict[count]
-            
-            if item != nil{
-                let event = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: item)!
-                
-                switch event.priority{ //queues items based on priority
-                case 1:
-                    prioQueueImp.enqueue(key: item!)
-                    //print(item.value, "A")
-                case 2:
-                    prioQueueUrg.enqueue(key: item!)
-                    //print(item.value, "b")
-                default:
-                    prioQueueDef.enqueue(key: item!)
-                    
-                    //print(item.value, "c")
-                    //print(prioQueueDef.length())
-                }
-            }
-            count += 1
-        }
         
         orderArray = prioQueueUrg.outputArray() + prioQueueImp.outputArray() + prioQueueDef.outputArray() //outputs array of items in order they were queued
         
@@ -115,6 +83,9 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "agendaCell", for: indexPath) as! AgendaCell
+        
+        
+        
         let event = orderArray[indexPath.row]
         let send = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: event)
         
@@ -172,6 +143,46 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         return eventTimes
+    }
+    
+    
+    
+    func toOrderDict(dict: [String: [[Int]]], weekday: Int) -> [Int: String]{
+    
+        for event in dict{ //adds events to an organised dictionary for the day  //FIXME: Do for single too
+    
+            if event.value[weekday] != []{ //if not empty
+                for item in event.value[weekday]{
+                    orderDict[item] = event.key
+                }
+            }
+        }
+        
+        return orderDict
+    }
+    
+    func queueItems(dict: [Int: String], timeDifference: Int){   //pushes items in ordered dictionary into relevant queue
+    
+        var count = timeDifference
+        for _ in 0...orderDict.count{
+    
+            let item = orderDict[count]
+    
+            if item != nil{
+                let event = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: item)!
+    
+                switch event.priority{ //queues items based on priority
+                case 1:
+                    prioQueueImp.enqueue(key: item!)
+                case 2:
+                    prioQueueUrg.enqueue(key: item!)
+                default:
+                    prioQueueDef.enqueue(key: item!)
+                }
+            }
+            
+            count += 1
+        }
     }
     
 }
