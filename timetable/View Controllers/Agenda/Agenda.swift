@@ -84,12 +84,17 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "agendaCell", for: indexPath) as! AgendaCell
         
+        if tableView.numberOfRows(inSection: 0) == 0{ //default case if no events
+            cell.titleLabel.text = "No Events Today"
+        }
+        else{
+            let event = orderArray[indexPath.row]
+            let send = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: event)
+            
+            cell.configureCell(event: send!)
+            
+        }
         
-        
-        let event = orderArray[indexPath.row]
-        let send = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: event)
-        
-        cell.configureCell(event: send!)
         
         return cell
     }
