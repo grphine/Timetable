@@ -11,11 +11,23 @@ import SideMenu
 
 class AgendaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    //TODO: Refresh table, deletes, implement other queues
+    //TODO: Refresh table, deletes
     //TODO: segue to schedule?
     //TODO: Event timer countdowns, send notification at time up
     //TODO: Variable priorities
-    //FIXME: Events displaying strangely
+    //TODO: Move addToDictionary to commonly accessible class
+    
+    /*
+     use time since now in view did load
+     function to calculate remaining time from (occurence time - time since now)
+     pass in remaining time to countdown function, to display to user, update every 15s?
+     when view appears, recalculate remaining time and redisplay countdown
+     
+     when remaining time hits a threshold, bump it up a priority level, and trigger a tableview reload
+     
+     send user notification if timer hits threshold, or trigger alarm. will probably require realm resturcturing
+ 
+    */
     
     var hours = [9, 17] //pull from settings
     var orderDict = [Int: String]() //IDs of events keyed to the time it occurs
@@ -45,22 +57,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         agendaTableView.delegate = self //setup tableview
         agendaTableView.dataSource = self
         
-        dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
-        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
-        
-        let weekday = Calendar.current.component(.weekday, from: Date())-2 //get today's day as a number (week beginning Sunday [-1]), set Monday as 0 index [-1]
-        
-        var allDict = addToDictionary(all: allEvents)
-        
-        orderDict = toOrderDict(dict: allDict, weekday: weekday)    //add events into organised dictionary
-        
-        queueItems(dict: orderDict, startTime: startTime, timeDifference: timeDifference)   //pushes items in ordered dictionary into relevant queue
-       
-        
-        orderArray = prioQueueUrg.outputArray() + prioQueueImp.outputArray() + prioQueueDef.outputArray() //outputs array of items in order they were queued
-        
-        print(prioQueueUrg.outputArray() , prioQueueImp.outputArray() , prioQueueDef.outputArray())
-        
+        setupView()
         
     }
     
@@ -68,8 +65,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        //dateTimeLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none)
-        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
+        setupView()
         
         //populate queues and arrays again
         self.agendaTableView.reloadData()
@@ -81,6 +77,12 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if orderArray.count == 0 {
+            self.agendaTableView.setEmptyMessage("No Events Today!")
+        }else{
+            self.agendaTableView.restore()
+        }
+        
         //number of events in queue, currently only one array
         return (orderArray.count)
     }
@@ -131,6 +133,26 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         m.default.menuPushStyle = .popWhenPossible //If a view controller already in the stack is of the same class as the pushed view controller, the stack is instead popped back to the existing view controller. This behavior can help users from getting lost in a deep navigation stack.
         
         m.default.menuPresentMode = .viewSlideInOut //The existing view slides out while the menu slides in.
+        
+    }
+    
+    func setupView(){
+        
+        dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
+        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
+        
+        let weekday = Calendar.current.component(.weekday, from: Date())-2 //get today's day as a number (week beginning Sunday [-1]), set Monday as 0 index [-1]
+        
+        var allDict = addToDictionary(all: allEvents)
+        
+        orderDict = toOrderDict(dict: allDict, weekday: weekday)    //add events into organised dictionary
+        
+        queueItems(dict: orderDict, startTime: startTime, timeDifference: timeDifference)   //pushes items in ordered dictionary into relevant queue
+        
+        
+        orderArray = prioQueueUrg.outputArray() + prioQueueImp.outputArray() + prioQueueDef.outputArray() //outputs array of items in order they were queued
+        
+        //print(prioQueueUrg.outputArray() , prioQueueImp.outputArray() , prioQueueDef.outputArray())
         
     }
     
