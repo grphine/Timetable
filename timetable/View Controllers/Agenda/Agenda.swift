@@ -31,10 +31,11 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     
     var hours = [9, 17] //pull from settings
     var orderDict = [Int: String]() //IDs of events keyed to the time it occurs
+    var orderDictCheck = [Int: String]() //A checking variable used to evaluate whether the original has changed
     var orderArray = [String]() //IDs of events in the order they are to appear
-    var timeDifference = 8
-    var startTime = 6
-    var allDict = [String: [[Int]]]()
+    var timeDifference = 8 //difference between the start and end time
+    var startTime = 6 //start time of day
+    var allDict = [String: [[Int]]]() //event keyed to occurrences
 
     
     
@@ -147,12 +148,11 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
         orderDict = toOrderDict(dict: allDict, weekday: weekday)    //add events into organised dictionary
         
-        queueItems(dict: orderDict, startTime: startTime, timeDifference: timeDifference)   //pushes items in ordered dictionary into relevant queue
-        
-        
-        orderArray = prioQueueUrg.outputArray() + prioQueueImp.outputArray() + prioQueueDef.outputArray() //outputs array of items in order they were queued
-        
-        //print(prioQueueUrg.outputArray() , prioQueueImp.outputArray() , prioQueueDef.outputArray())
+        if orderDict != orderDictCheck{
+            queueItems(dict: orderDict, startTime: startTime, timeDifference: timeDifference)   //pushes items in ordered dictionary into relevant queue
+            orderArray = prioQueueUrg.outputArray() + prioQueueImp.outputArray() + prioQueueDef.outputArray() //outputs array of items in order they were queued
+            orderDictCheck = orderDict
+        }
         
     }
     
