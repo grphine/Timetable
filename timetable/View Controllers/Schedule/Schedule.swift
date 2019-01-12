@@ -55,7 +55,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
-        allDict = addToDictionary(all: allEvents)
+        allDict = allEvents.addToDictionary()
         //load data
         
         //MARK: Populate date headers of timetable
@@ -80,7 +80,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.flashScrollIndicators()
         
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
-        allDict = addToDictionary(all: allEvents)
+        allDict = allEvents.addToDictionary()
         
         self.spreadsheetView.reloadData()
         //reload data when view loads
@@ -190,7 +190,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     /// Delegate
     
     //MARK: Segueing to EventVC
-    //TODO: Fix non selection of locked columns and rows / empty cells
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
         if (indexPath.column > 0 && indexPath.row > 1){ //prevent locked cells performing segue
             name = getEventName(dict: allDict, column: indexPath.column, row: indexPath.row)
@@ -222,27 +221,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         }
         
         return name
-    }
-   
-    func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{ //adds all events to a dictionary
-
-        var eventTimes = [String: [[Int]]]()
-        
-        for event in all{
-            var dayHours = [[Int]]()
-            
-            for day in event.week{
-                var hours = [Int]()
-                
-                for hour in day.dayItem{
-                    hours.append(hour.hourItem)
-                }
-                dayHours.append(hours)
-            }
-            eventTimes[event.name] = dayHours
-        }
-
-        return eventTimes
     }
     
 }

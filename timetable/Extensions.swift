@@ -103,3 +103,27 @@ extension UITableView {
         self.separatorStyle = .singleLine
     }
 }
+
+extension Array where Array == [RepeatingEvent]{
+    
+    func addToDictionary() -> [String: [[Int]]]{ //adds all event names (and corresponding times) to a dictionary
+        
+        var eventTimes = [String: [[Int]]]()
+        
+        for event in self{
+            var dayHours = [[Int]]()
+            
+            for day in event.week{
+                var hours = [Int]()
+                
+                for hour in day.dayItem{
+                    hours.append(hour.hourItem)
+                }
+                dayHours.append(hours)
+            }
+            eventTimes[event.name] = dayHours
+        }
+        
+        return eventTimes
+    }
+}

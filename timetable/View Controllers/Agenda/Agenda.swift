@@ -11,7 +11,7 @@ import SideMenu
 
 class AgendaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    //TODO: Refresh table, deletes
+    //TODO: deletes
     //TODO: segue to schedule?
     //TODO: Event timer countdowns, send notification at time up
     //TODO: Variable priorities
@@ -144,7 +144,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
         let weekday = Calendar.current.component(.weekday, from: Date())-2 //get today's day as a number (week beginning Sunday [-1]), set Monday as 0 index [-1]
         
-        var allDict = addToDictionary(all: allEvents)
+        let allDict = allEvents.addToDictionary()
         
         orderDict = toOrderDict(dict: allDict, weekday: weekday)    //add events into organised dictionary
         
@@ -155,29 +155,6 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
-    
-    func addToDictionary(all: [RepeatingEvent]) -> [String: [[Int]]]{ //adds all event names (and corresponding times) to a dictionary
-        
-        var eventTimes = [String: [[Int]]]()
-        
-        for event in all{
-            var dayHours = [[Int]]()
-            
-            for day in event.week{
-                var hours = [Int]()
-                
-                for hour in day.dayItem{
-                    hours.append(hour.hourItem)
-                }
-                dayHours.append(hours)
-            }
-            eventTimes[event.name] = dayHours
-        }
-        
-        return eventTimes
-    }
-    
-    
     
     func toOrderDict(dict: [String: [[Int]]], weekday: Int) -> [Int: String]{
     
