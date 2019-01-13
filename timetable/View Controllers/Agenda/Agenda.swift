@@ -12,10 +12,17 @@ import SideMenu
 class AgendaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //TODO: deletes
+    /*
+     find position in array
+     find length of queues to find which queue item falls in
+     traverse queue to find item at that location
+    */
+    
     //TODO: segue to schedule?
     //TODO: Event timer countdowns, send notification at time up
     //TODO: Variable priorities
     //TODO: Move addToDictionary to commonly accessible class
+    //FIXME: Reloading data after delete not working
     
     /*
      use time since now in view did load
@@ -149,6 +156,14 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         orderDict = toOrderDict(dict: allDict, weekday: weekday)    //add events into organised dictionary
         
         if orderDict != orderDictCheck{
+            
+            
+            prioQueueDef.dequeueAll() //reset the queues to empty, in case an event was deleted
+            prioQueueImp.dequeueAll()
+            prioQueueUrg.dequeueAll()
+            
+            //2d array storing all possible times. checked against for conflicys. if there are, the old item's time is overwritten by reverse searching the realm or keying to its id
+            
             queueItems(dict: orderDict, startTime: startTime, timeDifference: timeDifference)   //pushes items in ordered dictionary into relevant queue
             orderArray = prioQueueUrg.outputArray() + prioQueueImp.outputArray() + prioQueueDef.outputArray() //outputs array of items in order they were queued
             orderDictCheck = orderDict
@@ -158,16 +173,17 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     
     func toOrderDict(dict: [String: [[Int]]], weekday: Int) -> [Int: String]{
     
+        var dictionary = [Int: String]()
         for event in dict{ //adds events to an organised dictionary for the day  //FIXME: Do for single too
     
             if event.value[weekday] != []{ //if not empty
                 for item in event.value[weekday]{
-                    orderDict[item] = event.key
+                    dictionary[item] = event.key
                 }
             }
         }
         
-        return orderDict
+        return dictionary
     }
     
     func queueItems(dict: [Int: String], startTime: Int, timeDifference: Int){   //pushes items in ordered dictionary into relevant queue

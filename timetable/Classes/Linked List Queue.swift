@@ -15,7 +15,6 @@ public class Queue<T> {
     public var isEmpty: Bool { return head == nil }
     var first: Node? { return head }
     var last: Node? {
-        
         if var node = self.head { //finds first node in list
             while case let next? = node.next {
                 node = next
@@ -40,6 +39,7 @@ public class Queue<T> {
     //MARK: Dequeue
     func dequeue() -> T? {
         if self.head?.data == nil { return nil } //cannot dequeue if queue empty
+        
         let out = head?.data
         if let nextItem = self.head?.next {
             head = nextItem //next node set as head
@@ -47,6 +47,27 @@ public class Queue<T> {
             head = nil
         }
         return out
+    }
+    //MARK: Dequeue All
+    func dequeueAll(){
+//        while self.length() > 0{
+//            self.dequeue()
+//        }
+        // the above has like O(n^2) time complexity
+    /* notes:
+         setting head as nil loses (rather than deletes) queue. memory leaks
+         unable to delete data
+         
+         setting head as nil loses the queue, so it is assumed empty. this however leaves nodes in memory. since data cannot be deleted (being non-optional), i cannot remove the data from memory. the nodes also remain regardless
+    */
+        
+//        if var node = self.head{
+//            while case let next? = node.next{
+//                node = next
+//            }
+//        }
+        
+        head = nil
     }
     
     //MARK: Length
