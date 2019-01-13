@@ -202,10 +202,10 @@
 			children = (
 				85E5D47B219799D8002BE951 /* Alarm.swift */,
 				851E3CB221A5ABA3002467D9 /* Countdown.swift */,
+				857F845621B5DE0400EE9B6B /* Settings.swift */,
 				851E3CAD21A2C222002467D9 /* Agenda */,
 				85E5D4902199D704002BE951 /* Notes */,
 				85E5D4852198722F002BE951 /* Schedule */,
-				857F845621B5DE0400EE9B6B /* Settings.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -213,10 +213,10 @@
 		85E5D4852198722F002BE951 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				85E5D461219601CD002BE951 /* Schedule.swift */,
+				851E3CA7219CC06B002467D9 /* EventVC.swift */,
 				851E3D0221A8B53E002467D9 /* Occurences */,
 				857F845421B5BCC800EE9B6B /* ColourPickerViewController.swift */,
-				851E3CA7219CC06B002467D9 /* EventVC.swift */,
-				85E5D461219601CD002BE951 /* Schedule.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";

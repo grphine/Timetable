@@ -53,9 +53,9 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     var allEvents = [RepeatingEvent]()
     //var timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     
-    let prioQueueDef = Queue<String>()
-    let prioQueueImp = Queue<String>()
-    let prioQueueUrg = Queue<String>()
+    var prioQueueDef = Queue<String>()
+    var prioQueueImp = Queue<String>()
+    var prioQueueUrg = Queue<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,7 +149,8 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         
-        let weekday = Calendar.current.component(.weekday, from: Date())-2 //get today's day as a number (week beginning Sunday [-1]), set Monday as 0 index [-1]
+        var weekday = Calendar.current.component(.weekday, from: Date())-2 //get today's day as a number (week beginning Sunday [-1]), set Monday as 0 index [-1]
+        if weekday == -1 { weekday = 6 } //due to error on Sundays
         
         let allDict = allEvents.addToDictionary()
         

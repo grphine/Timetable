@@ -11,7 +11,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     //TODO: Single events - warn override of repeating. allow option to override. load single after to display them above. don't allow override over other singles. check through single first when navigating to event
     //FIXME: Pressing done when editing greys out update button
-    //FIXME: Prevent event names from being edited as they're used as IDs
+    //TODO: Edit button needs to go. it's useless
     
     //MARK: Variables
     var singleEvent = RepeatingEvent()
@@ -61,6 +61,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         if eventName == "" { //setup in all cases when a new event is being added
             //unlock interaction for fields when new event is being added
             modifyInteraction(set: true)
+            submitButton.isUserInteractionEnabled = true
             deleteButton.isHidden = true
             occurenceButton.setTitle("Add Occurences (Day/Time)", for: .normal)
             submitButton.setTitle("Create Event", for: .normal)
@@ -133,9 +134,11 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         
         check += 1 //changes lock state
         
-        if check % 2 == 0 { modifyInteraction(set: true) } //enable interaction on edit button press
-        else { modifyInteraction(set: false) } //disable interaction on second press
-        
+        if check % 2 == 0 { //enable interaction on edit button press
+            modifyInteraction(set: true)
+            submitButton.isUserInteractionEnabled = true
+            nameLabel.isUserInteractionEnabled = false
+        } else { modifyInteraction(set: false) } //disable interaction on second press
         
     }
     
@@ -298,14 +301,14 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     //MARK: Modify Interactability
     func modifyInteraction(set: Bool){
-        nameLabel.isUserInteractionEnabled = set
+        //nameLabel.isUserInteractionEnabled = set  //used as ID, therefore cannot be changed
         repeatSwitch.isUserInteractionEnabled = set
         priorityPicker.isUserInteractionEnabled = set
         descriptionLabel.isUserInteractionEnabled = set
         colourPickerButton.isUserInteractionEnabled = set
         occurenceButton.isUserInteractionEnabled = set
         reminderButton.isUserInteractionEnabled = set
-        submitButton.isUserInteractionEnabled = set
+        //submitButton.isUserInteractionEnabled = set   //disabled after user selects done
         
         if set == false{
             priorityPicker.alpha = 0.5
@@ -313,7 +316,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             colourPickerButton.alpha = 0.5
             occurenceButton.alpha = 0.5
             reminderButton.alpha = 0.5
-            submitButton.alpha = 0.5
+            //submitButton.alpha = 0.5
         }
         else{
             priorityPicker.alpha = 1
@@ -321,7 +324,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             colourPickerButton.alpha = 1
             occurenceButton.alpha = 1
             reminderButton.alpha = 1
-            submitButton.alpha = 1
+            //submitButton.alpha = 1
         }
         
     }
