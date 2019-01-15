@@ -30,12 +30,18 @@ class AllEvents: Object{
 
 class SingleEvent: Object{
     
+    @objc dynamic var id = ""
+    
     @objc dynamic var name = ""
     @objc dynamic var colour = ""
-    @objc dynamic var day = Date()
+    @objc dynamic var day = Date() 
     @objc dynamic var time = Int()
     @objc dynamic var desc = ""
-    @objc dynamic var priority = 3
+    @objc dynamic var priority = 0
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 class RepeatingEvent: Object{
@@ -46,7 +52,7 @@ class RepeatingEvent: Object{
     @objc dynamic var colour = ""
     let week = List<Day>() //collection of all the occurences of a repeating item in a week
     @objc dynamic var desc = ""
-    @objc dynamic var priority = 3
+    @objc dynamic var priority = 0
     
     override static func primaryKey() -> String? {
         return "id"

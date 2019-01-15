@@ -10,11 +10,11 @@ import UIKit
 class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
     //TODO: Single events - warn override of repeating. allow option to override. load single after to display them above. don't allow override over other singles. check through single first when navigating to event
-    //FIXME: Pressing done when editing greys out update button
-    //TODO: Edit button needs to go. it's useless
+    //TODO: Pressing set alarm sends user to alarm app? ask whether alarm or notif, and carry out action then
     
     //MARK: Variables
-    var singleEvent = RepeatingEvent()
+    var repeatingEvent = RepeatingEvent()
+    var singleEvent = SingleEvent()
     var check = 1 //edit disabled
     let priorities = ["Normal", "Important", "Urgent"]
     
@@ -73,7 +73,28 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
                 
                 self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
                 
-                singleEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)! //pull data about event
+                repeatingEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)! //pull data about event
+                
+                nameLabel.text = repeatingEvent.name //set data
+                descriptionLabel.text = repeatingEvent.desc
+                colour = repeatingEvent.colour
+                occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
+                priorityPicker.selectRow(repeatingEvent.priority, inComponent: 0, animated: true)
+                submitButton.setTitle("Update Event", for: .normal)
+                occurences = weekToOccurences(event: repeatingEvent)
+                
+                //FIXME: output rest of data
+                modifyInteraction(set: false) //disable interaction
+            }
+            else{
+                //TODO: Get data from single events
+                
+                repeatSwitch.isHidden = true //hide switch since user cannot modify after initial seleection
+                switchLabel.isHidden = true
+                
+                self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
+                
+                singleEvent = uiRealm.object(ofType: SingleEvent.self, forPrimaryKey: eventName)! //pull data about event
                 
                 nameLabel.text = singleEvent.name //set data
                 descriptionLabel.text = singleEvent.desc
@@ -81,19 +102,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
                 occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
                 priorityPicker.selectRow(singleEvent.priority, inComponent: 0, animated: true)
                 submitButton.setTitle("Update Event", for: .normal)
-                occurences = weekToOccurences(event: singleEvent)
-                
-                //FIXME: output rest of data
-                modifyInteraction(set: false) //disable interaction
-            }
-            else{
-                //TODO: Get data from single events
             }
         }
-        //TODO: Change view triggered depending on whether repeating event or not
-        
-        
-       
     }
     
     //MARK: Picker view
@@ -203,7 +213,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
                     newEvent = createEvent(name: nameLabel.text!, colour: colour!, week: occurences!, description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
                 }
                 else{
-                    newEvent = modifyEvent(event: singleEvent, name: nameLabel.text!, colour: colour!, week: occurences!, description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
+                    newEvent = modifyEvent(event: repeatingEvent, name: nameLabel.text!, colour: colour!, week: occurences!, description: descriptionLabel.text, priority: priorityPicker.selectedRow(inComponent: 0))
                 }
                 uiRealm.add(newEvent, update: true)
             }
@@ -225,7 +235,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in //Delete event if user confirms
             try! uiRealm.write {
-                uiRealm.delete(self.singleEvent)
+                uiRealm.delete(self.repeatingEvent)
             }
             self.navigationController?.popViewController(animated: true) //return to Schedule after deleting
         }))
@@ -263,7 +273,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         for day in week{ //for every day in the week, append the day to the week
             event.week.append(timesToDay(times: day))
         }
-        
+        print(event.week)
         return event
     }
     

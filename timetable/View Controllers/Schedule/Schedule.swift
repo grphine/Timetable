@@ -17,6 +17,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     var allDict = [String: [[Int]]]() //hold each event, its days, and occurences per day
     var name = String()
     let formatter = DateFormatter()
+    var startTime = 9
     
     var dates = [String]()
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
@@ -213,7 +214,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         var name = String()
         whole: for event in dict{ //get event name at cell position
             for hour in event.value[column-1]{
-                if hour == (row+4){
+                if hour == (row+startTime-2){
                     name = event.key
                     break whole //escapes entire loop once value is found
                 }

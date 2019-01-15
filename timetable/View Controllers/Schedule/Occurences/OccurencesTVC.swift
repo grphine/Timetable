@@ -16,7 +16,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
                  "3:00 PM", "4:00 PM", "5:00PM"]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     var occurences: [[Int]]?
-    let timeDifference = 6 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
+    let startTime = 9 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,23 +87,8 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
                 self.occurences = [[], [], [], [], [], [], []]
                 for item in selected!{ //loops array and adds hours to their days in occurences array
                     
-                    switch item[0] { //switch statement used since IndexPath is difficult to iterate through
-                    case 0:
-                        self.occurences![0].append(item[1] + self.timeDifference) //append time indexPath + time difference
-                    case 1:
-                        self.occurences![1].append(item[1] + self.timeDifference)
-                    case 2:
-                        self.occurences![2].append(item[1] + self.timeDifference)
-                    case 3:
-                        self.occurences![3].append(item[1] + self.timeDifference)
-                    case 4:
-                        self.occurences![4].append(item[1] + self.timeDifference)
-                    case 5:
-                        self.occurences![5].append(item[1] + self.timeDifference)
-                    case 6:
-                        self.occurences![6].append(item[1] + self.timeDifference)
-                    default: break
-                    }
+                    self.occurences![item[0]].append(item[1] + self.startTime) //append time indexPath + time difference
+                    
                 }
                 self.submitAndReturn() //return and send empty data to EventVC
                 
@@ -118,7 +103,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         var count = 0
         for day in occurences!{
             for hour in day{
-                let path = NSIndexPath(row: (hour - timeDifference), section: count) 
+                let path = NSIndexPath(row: (hour - startTime), section: count) 
                 tableView.selectRow(at: path as IndexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
             }
             count += 1
@@ -130,6 +115,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         let stack = self.navigationController?.viewControllers
         let previousView = stack![stack!.count - 2] as! EventVC
         previousView.occurences = occurences
+        print(occurences)
         self.navigationController?.popViewController(animated: true)
     }
     
