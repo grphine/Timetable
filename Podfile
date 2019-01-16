@@ -10,6 +10,7 @@ target 'timetable' do
     pod 'SpreadsheetView'
     pod 'RealmSwift'
     pod 'SideMenu'
+    pod 'SwiftRangeSlider'
 
   target 'timetableTests' do
     inherit! :search_paths

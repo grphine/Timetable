@@ -1,16 +1,18 @@
 PODS:
-  - Realm (3.12.0):
-    - Realm/Headers (= 3.12.0)
-  - Realm/Headers (3.12.0)
-  - RealmSwift (3.12.0):
-    - Realm (= 3.12.0)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
   - SideMenu (5.0.3)
   - SpreadsheetView (0.8.4)
+  - SwiftRangeSlider (2.0.0)
 
 DEPENDENCIES:
   - RealmSwift
   - SideMenu
   - SpreadsheetView
+  - SwiftRangeSlider
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -18,13 +20,15 @@ SPEC REPOS:
     - RealmSwift
     - SideMenu
     - SpreadsheetView
+    - SwiftRangeSlider
 
 SPEC CHECKSUMS:
-  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
-  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   SpreadsheetView: 17c55b6dc82099993cc2ceb818248d19f3220998
+  SwiftRangeSlider: f86e3b637c961120158fa1a89277c8343845cbe4
 
-PODFILE CHECKSUM: 45a1f760cbaddeb292bc8360cad9b30e0b5bad46
+PODFILE CHECKSUM: 044a4381f4aa35e2704f454577d87ef380b32a28
 
 COCOAPODS: 1.5.0

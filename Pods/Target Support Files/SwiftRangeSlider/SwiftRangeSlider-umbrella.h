@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double SwiftColorPickerVersionNumber;
-FOUNDATION_EXPORT const unsigned char SwiftColorPickerVersionString[];
+FOUNDATION_EXPORT double SwiftRangeSliderVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwiftRangeSliderVersionString[];
 
