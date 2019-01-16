@@ -68,6 +68,13 @@ class Hour: Object { //the row the event appears in
     @objc dynamic var hourItem = Int()
 }
 
+class SettingsStore: Object{
+    @objc dynamic var twentyFour = Bool()
+    @objc dynamic var lowerBound = Int()
+    @objc dynamic var upperBound = Int()
+    
+}
+
 extension Results {
     func toArray() -> [Any] { //put items into an array
         return self.map{$0}

@@ -10,7 +10,6 @@ import UIKit
 
 class OccurencesCell: UITableViewCell {
     
-    //TODO: Make uncheckable, remember to check multiple answers stack
     
     @IBOutlet weak var nameLabel : UILabel!
 

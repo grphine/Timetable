@@ -33,7 +33,7 @@ class Settings: UIViewController {
     
     @IBAction func rangeSliderChanged(_ sender: RangeSlider) {
         
-        hoursLabel.text = "\(rangeSlider.lowerValue) to \(rangeSlider.upperValue)"
+        hoursLabel.text = "\(rangeSlider.lowerValue)hrs to \(rangeSlider.upperValue)hrs"
         
     }
     

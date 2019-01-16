@@ -20,6 +20,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     let formatter = DateFormatter()
     
     //TODO: On view exit update note sorting to stay permanent
+    //TODO: Since sortbydate is selected, have notes add chronologically
     
     //MARK: Setup
     override func viewDidLoad() {
@@ -112,7 +113,7 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
-        return false
+        return true
     }
     
     //MARK: Search
