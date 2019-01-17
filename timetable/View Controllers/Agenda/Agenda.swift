@@ -35,12 +35,11 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
  
     */
     
-    var hours = [9, 17] //pull from settings
     var orderDict = [Int: String]() //IDs of events keyed to the time it occurs
     var orderDictCheck = [Int: String]() //A checking variable used to evaluate whether the original has changed
     var orderArray = [String]() //IDs of events in the order they are to appear
-    var timeDifference = 8 //difference between the start and end time
-    var startTime = 9 //start time of day
+    var timeDifference = Int() //difference between the start and end time
+    var startTime = Int() //start time of day
     var allDict = [String: [[Int]]]() //event keyed to occurrences
 
     
@@ -50,6 +49,7 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var agendaTableView: UITableView!
     
     var allEvents = [RepeatingEvent]()
+    var settings = SettingsStore()
     //var timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     
     var prioQueueDef = Queue<String>()
@@ -170,6 +170,9 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
         dateLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .short)
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
+        
+        timeDifference = settings.upperBound-settings.lowerBound
+        startTime = settings.lowerBound
         
         var weekday = Calendar.current.component(.weekday, from: Date())-2 //get today's day as a number (week beginning Sunday [-1]), set Monday as 0 index [-1]
         if weekday == -1 { weekday = 6 } //due to error on Sundays

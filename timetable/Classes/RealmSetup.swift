@@ -69,9 +69,9 @@ class Hour: Object { //the row the event appears in
 }
 
 class SettingsStore: Object{
-    @objc dynamic var twentyFour = Bool()
-    @objc dynamic var lowerBound = Int()
-    @objc dynamic var upperBound = Int()
+    @objc dynamic var twentyFour = false
+    @objc dynamic var lowerBound = 6
+    @objc dynamic var upperBound = 17
     
 }
 

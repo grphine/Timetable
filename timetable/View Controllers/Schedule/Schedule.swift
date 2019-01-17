@@ -12,12 +12,13 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     
     var currentEvent = RepeatingEvent()
     var allEvents = [RepeatingEvent]()
+    var settings = SettingsStore()
     var row = 0
     var column = 0 //to send row and column data to event view
     var allDict = [String: [[Int]]]() //hold each event, its days, and occurences per day
     var name = String()
     let formatter = DateFormatter()
-    var startTime = 9
+    var startTime = Int()
     
     var dates = [String]()
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
@@ -28,8 +29,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
                      UIColor(red: 0.400, green: 0.584, blue: 0.141, alpha: 1),
                      UIColor(red: 0.835, green: 0.655, blue: 0.051, alpha: 1),
                      UIColor(red: 0.153, green: 0.569, blue: 0.835, alpha: 1)]
-    let hours = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM",
-                 "3:00 PM", "4:00 PM", "5:00PM"]
+    var hours = [String]()
     let evenRowColor = UIColor(red: 0.914, green: 0.914, blue: 0.906, alpha: 1)
     let oddRowColor: UIColor = .white
     
@@ -40,6 +40,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupTimes()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
@@ -78,10 +80,13 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     //MARK: View Will Appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupTimes()
         spreadsheetView.flashScrollIndicators()
         
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         allDict = allEvents.addToDictionary()
+        
+        //reload times
         
         self.spreadsheetView.reloadData()
         //reload data when view loads
@@ -223,5 +228,45 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         return name
     }
+    
+    func setupTimes(){
+        hours = []
+        if settings.twentyFour == true{
+            //generate 24 hour times
+            for x in settings.lowerBound...settings.upperBound{
+                var string = ""
+                if x < 12{
+                    string = "0\(x):00"
+                }
+                else{
+                    string = "\(x):00"
+                }
+                hours.append(string)
+            }
+        }
+        else{
+            //generate 12 hour times
+            for x in settings.lowerBound...settings.upperBound{
+                var string = ""
+                if x < 12{
+                    if x == 0{
+                        string = "12:00am"
+                    }
+                    else{
+                        string = "\(x):00am"
+                    }
+                }
+                else{
+                    if x != 12{
+                        string = "\(x-12):00pm"
+                    }
+                    else{ string = "12:00pm"}
+                }
+                hours.append(string)
+            }
+        }
+        
+    }
+    
     
 }

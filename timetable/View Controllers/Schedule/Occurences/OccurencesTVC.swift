@@ -11,12 +11,12 @@ import UIKit
 class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     
     //TODO: Get these collapsing
-    
+    //FIXME: times here too
     let hours = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM",
                  "3:00 PM", "4:00 PM", "5:00PM"]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     var occurences: [[Int]]?
-    let startTime = 9 //Difference between cells and displayed times  //TODO: This value depends on user's selected first hour
+    let startTime = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
