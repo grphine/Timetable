@@ -41,6 +41,8 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        settings = uiRealm.object(ofType: SettingsStore.self, forPrimaryKey: "1")!
+        
         setupTimes()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
@@ -265,7 +267,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
                 hours.append(string)
             }
         }
-        
     }
     
     

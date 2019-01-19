@@ -16,10 +16,13 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
                  "3:00 PM", "4:00 PM", "5:00PM"]
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     var occurences: [[Int]]?
-    let startTime = Int()
+    var startTime = Int()
+    var settings = SettingsStore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        settings = uiRealm.object(ofType: SettingsStore.self, forPrimaryKey: "1")!
+        startTime = settings.lowerBound
         
         self.tableView.allowsMultipleSelection = true
         self.tableView.allowsMultipleSelectionDuringEditing = true
@@ -115,7 +118,6 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         let stack = self.navigationController?.viewControllers
         let previousView = stack![stack!.count - 2] as! EventVC
         previousView.occurences = occurences
-        print(occurences)
         self.navigationController?.popViewController(animated: true)
     }
     

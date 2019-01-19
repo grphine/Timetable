@@ -22,12 +22,14 @@ class Settings: UIViewController {
     
     @IBOutlet weak var hoursLabel: UILabel!
     
-    let settings = SettingsStore()
+    var settings = SettingsStore()
     var lowerVal = Double()
     var upperVal = Double()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        settings = uiRealm.object(ofType: SettingsStore.self, forPrimaryKey: "1")!
         
         setupSlider(lower: settings.lowerBound, upper: settings.upperBound) //setup slider
         
@@ -51,12 +53,19 @@ class Settings: UIViewController {
     
     @objc func saveTapped(){ //funtion called when save button tapped
         //update realm
+        try! uiRealm.write { //update within a transaction
+            
+            settings.lowerBound = Int(rangeSlider.lowerValue)
+            settings.upperBound = Int(rangeSlider.upperValue)
+            if formatSwitch.isOn == true{
+                settings.twentyFour = true
+            } else { settings.twentyFour = false }
+         
+            uiRealm.add(settings, update: true)
+        }
         
-        settings.lowerBound = Int(rangeSlider.lowerValue)
-        settings.upperBound = Int(rangeSlider.upperValue)
-        if formatSwitch.isOn == true{
-            settings.twentyFour = true
-        } else { settings.twentyFour = false }
+        print(settings)
+        
     }
     
     @IBAction func rangeSliderChanged(_ sender: RangeSlider) {
