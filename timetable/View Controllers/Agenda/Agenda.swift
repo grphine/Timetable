@@ -66,6 +66,20 @@ class AgendaViewController: UIViewController, UITableViewDataSource, UITableView
         
         setupView()
         
+        if objectExist(id: "1") == false{
+            settings.id = "1"
+            settings.twentyFour = false
+            settings.lowerBound = 6
+            settings.upperBound = 17
+            try! uiRealm.write {
+                uiRealm.add(settings, update: true)
+            }
+        }
+        
+    }
+    
+    func objectExist (id: String) -> Bool {
+        return uiRealm.object(ofType: SettingsStore.self, forPrimaryKey: "1") != nil
     }
     
     

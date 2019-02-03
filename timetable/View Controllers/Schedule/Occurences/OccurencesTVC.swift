@@ -12,8 +12,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     
     //TODO: Get these collapsing
     //FIXME: times here too
-    let hours = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM",
-                 "3:00 PM", "4:00 PM", "5:00PM"]
+    var hours = [String]()
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     var occurences: [[Int]]?
     var startTime = Int()
@@ -31,6 +30,9 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         navigationItem.rightBarButtonItem = submitButton
         
         setupSelection() //display selected cells when view loads
+        
+        setupTimes()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -110,6 +112,44 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
                 tableView.selectRow(at: path as IndexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
             }
             count += 1
+        }
+    }
+    
+    func setupTimes(){
+        hours = []
+        if settings.twentyFour == true{
+            //generate 24 hour times
+            for x in settings.lowerBound...settings.upperBound{
+                var string = ""
+                if x < 12{
+                    string = "0\(x):00"
+                }
+                else{
+                    string = "\(x):00"
+                }
+                hours.append(string)
+            }
+        }
+        else{
+            //generate 12 hour times
+            for x in settings.lowerBound...settings.upperBound{
+                var string = ""
+                if x < 12{
+                    if x == 0{
+                        string = "12:00am"
+                    }
+                    else{
+                        string = "\(x):00am"
+                    }
+                }
+                else{
+                    if x != 12{
+                        string = "\(x-12):00pm"
+                    }
+                    else{ string = "12:00pm"}
+                }
+                hours.append(string)
+            }
         }
     }
     

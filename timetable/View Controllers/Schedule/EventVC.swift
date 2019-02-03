@@ -21,7 +21,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     //Sent variables
     var eventName: String!
     var repeating: Bool!
-    //var allEvents: [RepeatingEvent]! //FIXME: This is not currently used? Sent from last view
     
     //Recieved variable
     var occurences: [[Int]]?
@@ -46,6 +45,9 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        repeatSwitch.isHidden = true
+        switchLabel.isHidden = true
         
         //print(eventName)
         
@@ -160,9 +162,9 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         
         var valid = false //check whether all input is valid
         
-//        if occurences == [[], [], [], [], [], [], []]{
-//            let _ = "No occurences selected"
-//        }
+        if (occurences == [[], [], [], [], [], [], []]) || (nameLabel.text == "" || nameLabel.text == "Event Name") || (colour == nil){
+            valid = false
+        } else {valid = true}
         
         /*
          checks made:
@@ -197,7 +199,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         //FIXME: Cannot add event until picker view sorted
         //FIXME: Validate data entry
         
-        valid = true
         
         //MARK: Update schedule
         if valid == true{ //only submit if all data is valid
