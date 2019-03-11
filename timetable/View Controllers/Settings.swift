@@ -64,7 +64,7 @@ class Settings: UIViewController {
             uiRealm.add(settings, update: true)
         }
         
-        print(settings)
+        //print(settings)
         
     }
     
@@ -82,8 +82,21 @@ class Settings: UIViewController {
    
 
     @IBAction func deleteAllButtonPressed(_ sender: UIButton) {
-        //delete all user data
-        //popup alert warning first
+        let repeating = uiRealm.objects(RepeatingEvent.self)
+        let notes = uiRealm.objects(NoteData.self)
+        
+        //Setup alert
+        let alert = UIAlertController(title: "Warning", message: "This action is not reversible", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in //Delete event if user confirms
+            try! uiRealm.write {
+                uiRealm.delete(repeating)
+                uiRealm.delete(notes)
+            }
+        }))
+        
+        self.present(alert, animated: true)
+        
     }
     
     func setupSlider(lower: Int, upper: Int){
@@ -91,33 +104,40 @@ class Settings: UIViewController {
         rangeSlider.upperValue = Double(upper)
     }
     
-    func convertToTwelve(time: Int) -> String{
-        
-        if time < 12{ //convert to am
-            if time == 0{ //12am
-                return "12am"
-            } else { return "\(String(describing: time))am" } //1 - 11am
-        }
-        else {
-            //convert to pm
-            if time != 12{
-                return "\(String(describing: time - 12))pm"
-            } else { return "12pm" }
-        }
+    func setupLabel(){
+        hoursLabel.text = "\(setupTimes(time: Int(lowerVal))) to \(setupTimes(time: Int(upperVal)))"
     }
     
-    func setupLabel(){
-        if formatSwitch.isOn == true{ //setup settings switch and slider label
-            var lowerText = ""
-            if lowerVal < 12.0{
-                lowerText = "0\(lowerVal)0"
+    func setupTimes(time: Int) -> String{
+        var string = ""
+        
+        if formatSwitch.isOn == true{
+            //generate 24 hour times
+            if time < 12{
+                string = "0\(time):00"
             }
-            else { lowerText = "\(lowerVal)0"}
-            hoursLabel.text = "\(lowerText) to \(upperVal)0"
+            else{
+                string = "\(time):00"
+            }
         }
-        else {
-            hoursLabel.text = "\(convertToTwelve(time: Int(lowerVal))) to \(convertToTwelve(time: Int(upperVal)))"
+        else{
+            //generate 12 hour times
+            if time < 12{
+                if time == 0{
+                    string = "12:00am"
+                }
+                else{
+                    string = "\(time):00am"
+                }
+            }
+            else{
+                if time != 12{
+                    string = "\(time-12):00pm"
+                }
+                else{ string = "12:00pm"}
+            }
         }
+        return string
     }
     
 }

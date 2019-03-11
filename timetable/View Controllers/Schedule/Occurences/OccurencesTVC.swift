@@ -92,7 +92,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
                 self.occurences = [[], [], [], [], [], [], []]
                 for item in selected!{ //loops array and adds hours to their days in occurences array
                     
-                    self.occurences![item[0]].append(item[1] + self.startTime) //append time indexPath + time difference
+                    self.occurences![item[0]].append(item[1]) //append time indexPath + time difference
                     
                 }
                 self.submitAndReturn() //return and send empty data to EventVC
@@ -108,7 +108,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
         var count = 0
         for day in occurences!{
             for hour in day{
-                let path = NSIndexPath(row: (hour - startTime), section: count) 
+                let path = NSIndexPath(row: hour, section: count) 
                 tableView.selectRow(at: path as IndexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
             }
             count += 1

@@ -26,7 +26,7 @@ class AllEvents: Object{
     
     let repeating = List<RepeatingEvent>()
     let single = List<SingleEvent>()
-}
+} //delete
 
 class SingleEvent: Object{
     

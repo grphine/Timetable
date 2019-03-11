@@ -124,9 +124,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3G-N7-KBL">
+                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3G-N7-KBL">
                                 <rect key="frame" x="107" y="597" width="160" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Delete All Data">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -162,9 +161,8 @@
                                     <action selector="formatSwitchPressed:" destination="LPg-g3-HVA" eventType="valueChanged" id="G4j-ad-RGn"/>
                                 </connections>
                             </switch>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bR6-ch-yLY" customClass="RangeSlider" customModule="SwiftRangeSlider">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bR6-ch-yLY" customClass="RangeSlider" customModule="SwiftRangeSlider">
                                 <rect key="frame" x="67" y="119" width="240" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
@@ -190,15 +188,31 @@
                                     <action selector="rangeSliderChanged:" destination="LPg-g3-HVA" eventType="valueChanged" id="Nxp-hm-hnC"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEW-my-MqB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEW-my-MqB">
                                 <rect key="frame" x="67" y="206" width="240" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select range of times:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDm-8U-CT6">
+                                <rect key="frame" x="67" y="90" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iDm-8U-CT6" firstAttribute="trailing" secondItem="bR6-ch-yLY" secondAttribute="trailing" id="270-of-L04"/>
+                            <constraint firstItem="iDm-8U-CT6" firstAttribute="centerX" secondItem="hg3-OY-2dK" secondAttribute="centerX" id="2XD-2S-s1t"/>
+                            <constraint firstItem="iDm-8U-CT6" firstAttribute="centerX" secondItem="F3G-N7-KBL" secondAttribute="centerX" id="A0i-rP-Nus"/>
+                            <constraint firstItem="iDm-8U-CT6" firstAttribute="leading" secondItem="nZa-tC-oYP" secondAttribute="leading" constant="67" id="GsE-8d-0zj"/>
+                            <constraint firstItem="iDm-8U-CT6" firstAttribute="leading" secondItem="bR6-ch-yLY" secondAttribute="leading" id="OBs-8Z-9OV"/>
+                            <constraint firstItem="iDm-8U-CT6" firstAttribute="trailing" secondItem="IEW-my-MqB" secondAttribute="trailing" id="Orj-HD-DSz"/>
+                            <constraint firstItem="bR6-ch-yLY" firstAttribute="top" secondItem="iDm-8U-CT6" secondAttribute="bottom" constant="8" symbolic="YES" id="Zsr-eL-22D"/>
+                            <constraint firstItem="iDm-8U-CT6" firstAttribute="leading" secondItem="IEW-my-MqB" secondAttribute="leading" id="fDM-Af-lnb"/>
+                            <constraint firstItem="iDm-8U-CT6" firstAttribute="top" secondItem="nZa-tC-oYP" secondAttribute="top" constant="70" id="ftY-J5-CWB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nZa-tC-oYP"/>
                     </view>
                     <connections>
