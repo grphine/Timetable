@@ -13,6 +13,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     var currentEvent = RepeatingEvent()
     var allEvents = [RepeatingEvent]()
     var settings = SettingsStore()
+    var hashTable = HashTable()
     var row = 0
     var column = 0 //to send row and column data to event view
     var allDict = [String: [[Int]]]() //hold each event, its days, and occurences per day
@@ -61,6 +62,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
         allDict = allEvents.addToDictionary()
+        var table = hashTable.populateTable(eventsDict: allDict, timeDifference: settings.lowerBound)
         //load data
         
         //MARK: Populate date headers of timetable
