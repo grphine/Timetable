@@ -19,7 +19,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     var allDict = [String: [[Int]]]() //hold each event, its days, and occurences per day
     var name = String()
     let formatter = DateFormatter()
-    var startTime = Int()
     
     var dates = [String]()
     let days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
@@ -61,8 +60,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
         allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
-        allDict = allEvents.addToDictionary()
-        var table = hashTable.populateTable(eventsDict: allDict, timeDifference: settings.lowerBound)
+        hashTable.populateTable(eventsDict: allEvents.addToDictionary(), timeDifference: settings.lowerBound)
         //load data
         
         //MARK: Populate date headers of timetable
@@ -165,7 +163,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         } else if case (1...(days.count + 1), 2...(hours.count + 2)) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             
-            let text = getEventName(dict: allDict, column: indexPath.column, row: indexPath.row)
+            let text = hashTable.idAtPosition(column: indexPath.column-1, row: indexPath.row+(settings.lowerBound)-2)
     
             if text != "" {
                 cell.label.text = text
@@ -202,7 +200,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
     //MARK: Segueing to EventVC
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
         if (indexPath.column > 0 && indexPath.row > 1){ //prevent locked cells performing segue
-            name = getEventName(dict: allDict, column: indexPath.column, row: indexPath.row)
+            name = hashTable.idAtPosition(column: indexPath.column-1, row: indexPath.row+(settings.lowerBound)-2)
             if name != ""{ //prevent empty cells
                 performSegue(withIdentifier: "editEventSegue", sender: nil)
             }
@@ -217,20 +215,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
             //destinationVC.allEvents = allEvents //send dictionary (saves generating again), currently unused
         }
         
-    }
-    
-    func getEventName(dict: [String: [[Int]]], column: Int, row: Int) -> String{
-        var name = String()
-        whole: for event in dict{ //get event name at cell position
-            for hour in event.value[column-1]{
-                if hour == (row+startTime-2){
-                    name = event.key
-                    break whole //escapes entire loop once value is found
-                }
-            }
-        }
-        
-        return name
     }
     
     func setupTimes(){

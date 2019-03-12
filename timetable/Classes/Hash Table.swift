@@ -24,7 +24,7 @@ class HashTable{
         6: [0:"", 1:"", 2:"", 3:"", 4:"", 5:"", 6:"", 7:"", 8:"", 9:"", 10:"", 11:"", 12:"", 13:"", 14:"", 15:"", 16:"", 17:"", 18:"", 19:"", 20:"", 21:"", 22:"", 23:""],
     ]
     
-    func populateTable(eventsDict: [String: [[Int]]], timeDifference: Int) -> [Int: [Int: String]]{
+    func populateTable(eventsDict: [String: [[Int]]], timeDifference: Int){
         
         for event in eventsDict{
             var count = 0
@@ -36,8 +36,12 @@ class HashTable{
             }
         }
         
-        return table
     }
+    
+    func idAtPosition(column: Int, row: Int) -> String{
+        return table[column]![row]!
+    }
+    
     
     
 }
