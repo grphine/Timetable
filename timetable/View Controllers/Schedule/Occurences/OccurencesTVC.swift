@@ -17,6 +17,7 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     var occurences: [[Int]]?
     var startTime = Int()
     var settings = SettingsStore()
+    var eventName: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,10 +60,26 @@ class OccurencesTVC: UITableViewController, UINavigationControllerDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "timesCell", for: indexPath) as! OccurencesCell
 
-        cell.nameLabel.text = String(describing: hours[indexPath.row])
+        let itemInTable = globalTable[indexPath.section]![indexPath.row+settings.lowerBound]
         
-        //if time is an occurence, present view with it selected
-        
+        if itemInTable == ""{ //empty position, generate all first
+            cell.nameLabel.text = String(describing: hours[indexPath.row])
+            cell.nameLabel.textColor = UIColor.black
+            cell.isUserInteractionEnabled = true
+        }
+        else{ //position is filled
+            if eventName == itemInTable{ //action to carry out in the case the item matching the event passed
+                cell.nameLabel.text = String(describing: hours[indexPath.row])
+                cell.nameLabel.textColor = UIColor.black
+                cell.isUserInteractionEnabled = true
+            }
+            else{ //cell taken up by another event
+                cell.nameLabel.text = itemInTable
+                cell.nameLabel.textColor = UIColor(hex: uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: itemInTable)!.colour)
+                cell.tintColor = UIColor.lightGray
+                cell.isUserInteractionEnabled = false
+            }
+        }
 
         return cell
     }

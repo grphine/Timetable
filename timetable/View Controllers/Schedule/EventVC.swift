@@ -361,6 +361,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             //send over occurence data
             let destinationVC = segue.destination as! OccurencesTVC
             destinationVC.occurences = occurences
+            destinationVC.eventName = eventName
         }
         else if segue.identifier == "colourPickerSegue"{
             let destinationVC = segue.destination as! ColourPickerViewController
