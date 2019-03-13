@@ -64,7 +64,6 @@ class Settings: UIViewController {
             uiRealm.add(settings, update: true)
         }
         
-        //print(settings)
         
     }
     

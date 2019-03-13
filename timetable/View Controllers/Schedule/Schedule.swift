@@ -59,8 +59,7 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         spreadsheetView.register(DayTitleCell.self, forCellWithReuseIdentifier: String(describing: DayTitleCell.self))
         spreadsheetView.register(ScheduleCell.self, forCellWithReuseIdentifier: String(describing: ScheduleCell.self))
         
-        allEvents = uiRealm.objects(RepeatingEvent.self).toArray() as! [RepeatingEvent]
-        hashTable.populateTable(eventsDict: allEvents.addToDictionary(), timeDifference: settings.lowerBound)
+        hashTable.populateTable(timeDifference: settings.lowerBound)
         //load data
         
         //MARK: Populate date headers of timetable

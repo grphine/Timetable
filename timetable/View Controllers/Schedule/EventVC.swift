@@ -15,6 +15,8 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     //MARK: Variables
     var repeatingEvent = RepeatingEvent()
     var singleEvent = SingleEvent()
+    var hashTable = HashTable()
+    var settings = SettingsStore()
     var check = 1 //edit disabled
     let priorities = ["Normal", "Important", "Urgent"]
     
@@ -49,7 +51,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         repeatSwitch.isHidden = true
         switchLabel.isHidden = true
         
-        //print(eventName)
         
         repeating = true
         
@@ -219,6 +220,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
                 uiRealm.add(newEvent, update: true)
             }
             
+            self.hashTable.populateTable(timeDifference: self.settings.lowerBound)
             self.present(successAlert, animated: true)
         }
         else{
@@ -238,6 +240,7 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             try! uiRealm.write {
                 uiRealm.delete(self.repeatingEvent)
             }
+            self.hashTable.populateTable(timeDifference: self.settings.lowerBound)
             self.navigationController?.popViewController(animated: true) //return to Schedule after deleting
         }))
         
@@ -274,7 +277,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         for day in week{ //for every day in the week, append the day to the week
             event.week.append(timesToDay(times: day))
         }
-        print(event.week)
         return event
     }
     
