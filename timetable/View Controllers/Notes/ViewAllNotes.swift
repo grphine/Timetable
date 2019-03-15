@@ -19,9 +19,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
     let searchController = UISearchController(searchResultsController: nil)
     let formatter = DateFormatter()
     
-    //TODO: On view exit update note sorting to stay permanent
-    //TODO: Since sortbydate is selected, have notes add chronologically
-    
     //MARK: Setup
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +30,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         //defines the search bar's actions
-       
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
 
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss zzzz" //set date format
         
@@ -59,7 +50,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -85,7 +75,6 @@ class ViewAllNotes: UITableViewController, UISearchResultsUpdating {
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
     

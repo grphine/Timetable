@@ -185,10 +185,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
                 cell.borders.top = .none
                 cell.borders.bottom = .none
             }
-            
-            //TODO: Populate single events too. After populating with repeating, if there is a conflict with single, make a merged cell or something
-
-
             return cell
         }
         return nil
@@ -211,7 +207,6 @@ class ScheduleView: UIViewController, SpreadsheetViewDataSource, SpreadsheetView
         if segue.identifier == "editEventSegue"{
             let destinationVC = segue.destination as! EventVC
             destinationVC.eventName = name //send event name
-            //destinationVC.allEvents = allEvents //send dictionary (saves generating again), currently unused
         }
         
     }

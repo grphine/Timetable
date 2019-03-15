@@ -9,12 +9,8 @@ import UIKit
 
 class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    //TODO: Single events - warn override of repeating. allow option to override. load single after to display them above. don't allow override over other singles. check through single first when navigating to event
-    //TODO: Pressing set alarm sends user to alarm app? ask whether alarm or notif, and carry out action then
-    
     //MARK: Variables
     var repeatingEvent = RepeatingEvent()
-    var singleEvent = SingleEvent()
     var hashTable = HashTable()
     var settings = SettingsStore()
     var check = 1 //edit disabled
@@ -39,11 +35,9 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     @IBOutlet weak var colourPickerButton: UIButton!
     @IBOutlet weak var occurenceButton: UIButton!
-    @IBOutlet weak var reminderButton: UIButton!
     
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
-    //TODO: Add reminder has no connection
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,42 +64,23 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             submitButton.setTitle("Create Event", for: .normal)
         }
         else{
-            if repeating == true{ //TODO: Better check for repeating or not
-                repeatSwitch.isHidden = true //hide switch since user cannot modify after initial seleection
-                switchLabel.isHidden = true
-                
-                self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
-                
-                repeatingEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)! //pull data about event
-                
-                nameLabel.text = repeatingEvent.name //set data
-                descriptionLabel.text = repeatingEvent.desc
-                colour = repeatingEvent.colour
-                occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
-                priorityPicker.selectRow(repeatingEvent.priority, inComponent: 0, animated: true)
-                submitButton.setTitle("Update Event", for: .normal)
-                occurences = weekToOccurences(event: repeatingEvent)
-                
-                //FIXME: output rest of data
-                modifyInteraction(set: false) //disable interaction
-            }
-            else{
-                //TODO: Get data from single events
-                
-                repeatSwitch.isHidden = true //hide switch since user cannot modify after initial seleection
-                switchLabel.isHidden = true
-                
-                self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
-                
-                singleEvent = uiRealm.object(ofType: SingleEvent.self, forPrimaryKey: eventName)! //pull data about event
-                
-                nameLabel.text = singleEvent.name //set data
-                descriptionLabel.text = singleEvent.desc
-                colour = singleEvent.colour
-                occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
-                priorityPicker.selectRow(singleEvent.priority, inComponent: 0, animated: true)
-                submitButton.setTitle("Update Event", for: .normal)
-            }
+            repeatSwitch.isHidden = true //hide switch since user cannot modify after initial seleection
+            switchLabel.isHidden = true
+            
+            self.navigationItem.rightBarButtonItem = self.editButtonItem //add edit button to modify data
+            
+            repeatingEvent = uiRealm.object(ofType: RepeatingEvent.self, forPrimaryKey: eventName)! //pull data about event
+            
+            nameLabel.text = repeatingEvent.name //set data
+            descriptionLabel.text = repeatingEvent.desc
+            colour = repeatingEvent.colour
+            occurenceButton.setTitle("Edit Occurences (Day/Time)", for: .normal)
+            priorityPicker.selectRow(repeatingEvent.priority, inComponent: 0, animated: true)
+            submitButton.setTitle("Update Event", for: .normal)
+            occurences = weekToOccurences(event: repeatingEvent)
+            
+            modifyInteraction(set: false) //disable interaction
+        
         }
     }
     
@@ -122,23 +97,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
         return priorities[row]
     }
     
-    //MARK: Occurence Button
-    @IBAction func occurenceButtonPressed(_ sender: UIButton){
-        //TODO: Occurence button
-        //get data from collapsable tableview date picker for dates
-        //presented as popover
-        //Return 2d array, including empties
-        
-//        if check != 1{ //can be carried out logically in viewDidLoad()
-//            occurences = weekToOccurences(event: singleEvent) //send single event occurences
-//        }
-        
-    }
-    
-    //MARK: Colour Picker Button
-    @IBAction func colourPickerPressed(_ sender: UIButton){
-        //pick colours somehow, maybe a popover
-    }
     
     
     //MARK: Edit Button
@@ -167,40 +125,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             valid = false
         } else {valid = true}
         
-        /*
-         checks made:
-         whether repeating event, and if dates selected correspond
-         fields have non-empty, non-default text
-        */
-        
-        /*case (item conflict){
-         store where the conflict was found and output as popup
-         case (item out of range)
-         output error. Also check inputs dynamically maybe?
-         case (repeat event)
-         tell user to tap on event in ssv and edit
-         
-         //TODO: Occurences table
-         use some table to store taken event times, and if time check table for conflicts (ideally inform user which has conflict)
-         //create occurences 2d array. [day][hour] = event name
-         //perform check whether [day][hour] == ""
-         //if so, throw error
-         //when deleting event, reset all its events to default
-         */
-        
-        //if all good:
-        
-        //perform validation on data input (priority is int, occurences isn't nil)
-        //present popup depending on issue
-        
-        //send alerts of data being updated
-        
-        //MARK: Add data to Realm
-        //FIXME: Colour is empty string
-        //FIXME: Cannot add event until picker view sorted
-        //FIXME: Validate data entry
-        
-        
         //MARK: Update schedule
         if valid == true{ //only submit if all data is valid
             let successAlert = UIAlertController(title: "Info", message: "Schedule Updated", preferredStyle: .alert)
@@ -224,7 +148,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             self.present(successAlert, animated: true)
         }
         else{
-            //TODO: Present different alert depending on what the invalid is
             defaultAlert.title = "Info"
             defaultAlert.message = "Some fields may have invalid data \n Please try again"
             
@@ -314,21 +237,17 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
     
     //MARK: Modify Interactability
     func modifyInteraction(set: Bool){
-        //nameLabel.isUserInteractionEnabled = set  //used as ID, therefore cannot be changed
         repeatSwitch.isUserInteractionEnabled = set
         priorityPicker.isUserInteractionEnabled = set
         descriptionLabel.isUserInteractionEnabled = set
         colourPickerButton.isUserInteractionEnabled = set
         occurenceButton.isUserInteractionEnabled = set
-        reminderButton.isUserInteractionEnabled = set
-        //submitButton.isUserInteractionEnabled = set   //disabled after user selects done
         
         if set == false{
             priorityPicker.alpha = 0.5
             priorityLabel.alpha = 0.5
             colourPickerButton.alpha = 0.5
             occurenceButton.alpha = 0.5
-            reminderButton.alpha = 0.5
             //submitButton.alpha = 0.5
         }
         else{
@@ -336,7 +255,6 @@ class EventVC: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPick
             priorityLabel.alpha = 1
             colourPickerButton.alpha = 1
             occurenceButton.alpha = 1
-            reminderButton.alpha = 1
             //submitButton.alpha = 1
         }
         

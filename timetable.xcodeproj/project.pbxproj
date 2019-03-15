@@ -7,30 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8510DC4B223B1471002A64B3 /* Note Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8510DC4A223B1471002A64B3 /* Note Model.swift */; };
+		8510DC4D223B1486002A64B3 /* Event Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8510DC4C223B1486002A64B3 /* Event Model.swift */; };
+		8510DC4F223B14AA002A64B3 /* Settings Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8510DC4E223B14AA002A64B3 /* Settings Model.swift */; };
+		8510DC54223B15B4002A64B3 /* ColorPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8510DC50223B15B3002A64B3 /* ColorPickerController.swift */; };
+		8510DC55223B15B4002A64B3 /* HuePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8510DC51223B15B3002A64B3 /* HuePicker.swift */; };
+		8510DC56223B15B4002A64B3 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8510DC52223B15B3002A64B3 /* ColorPicker.swift */; };
+		8510DC57223B15B4002A64B3 /* ColorWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8510DC53223B15B3002A64B3 /* ColorWell.swift */; };
+		8510DC59223B187B002A64B3 /* PickerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8510DC58223B187B002A64B3 /* PickerImage.swift */; };
 		851E3CA8219CC06B002467D9 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CA7219CC06B002467D9 /* EventVC.swift */; };
 		851E3CAC219DFBEF002467D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CAB219DFBEF002467D9 /* Extensions.swift */; };
-		851E3CAF21A2C245002467D9 /* AgendaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CAE21A2C245002467D9 /* AgendaCell.swift */; };
 		851E3CB121A2C67D002467D9 /* Sorts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CB021A2C67C002467D9 /* Sorts.swift */; };
-		851E3CB321A5ABA3002467D9 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3CB221A5ABA3002467D9 /* Countdown.swift */; };
 		851E3D0421A8B561002467D9 /* OccurencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3D0321A8B561002467D9 /* OccurencesCell.swift */; };
 		851E3D0621A8B577002467D9 /* OccurencesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851E3D0521A8B577002467D9 /* OccurencesTVC.swift */; };
 		8562F35622385C41003C4E41 /* Hash Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8562F35522385C41003C4E41 /* Hash Table.swift */; };
-		857F844F21B5B83900EE9B6B /* ColorPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F844A21B5B83900EE9B6B /* ColorPickerController.swift */; };
-		857F845021B5B83900EE9B6B /* ColorWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F844B21B5B83900EE9B6B /* ColorWell.swift */; };
-		857F845121B5B83900EE9B6B /* PickerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F844C21B5B83900EE9B6B /* PickerImage.swift */; };
-		857F845221B5B83900EE9B6B /* HuePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F844D21B5B83900EE9B6B /* HuePicker.swift */; };
-		857F845321B5B83900EE9B6B /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F844E21B5B83900EE9B6B /* ColorPicker.swift */; };
 		857F845521B5BCC800EE9B6B /* ColourPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F845421B5BCC800EE9B6B /* ColourPickerViewController.swift */; };
 		857F845721B5DE0400EE9B6B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F845621B5DE0400EE9B6B /* Settings.swift */; };
 		85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4162190792F002BE951 /* Linked List Queue.swift */; };
 		85E5D462219601CD002BE951 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D461219601CD002BE951 /* Schedule.swift */; };
 		85E5D464219601F7002BE951 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D463219601F6002BE951 /* Cells.swift */; };
 		85E5D47921975945002BE951 /* SideMenuTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D47821975945002BE951 /* SideMenuTable.swift */; };
-		85E5D47C219799D8002BE951 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D47B219799D8002BE951 /* Alarm.swift */; };
-		85E5D4822198695F002BE951 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4812198695F002BE951 /* Data.swift */; };
 		85E5D48D2199CAAC002BE951 /* ViewAllNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */; };
 		85E5D4922199D878002BE951 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4912199D877002BE951 /* Notes.swift */; };
-		85E5D4942199DA0A002BE951 /* RealmSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D4932199DA0A002BE951 /* RealmSetup.swift */; };
 		85E5D496219A0643002BE951 /* NotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5D495219A0643002BE951 /* NotesCell.swift */; };
 		85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF652188F85F006F8A6C /* AppDelegate.swift */; };
 		85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDAF672188F85F006F8A6C /* Agenda.swift */; };
@@ -68,30 +66,28 @@
 		30CA08320809A54904896F3F /* Pods_timetableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_timetableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59677FD43000C9CB9E16977F /* Pods-timetableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetableUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-timetableUITests/Pods-timetableUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7587BFE866153DD791EC0648 /* Pods-timetableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-timetableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-timetableTests/Pods-timetableTests.release.xcconfig"; sourceTree = "<group>"; };
+		8510DC4A223B1471002A64B3 /* Note Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note Model.swift"; sourceTree = "<group>"; };
+		8510DC4C223B1486002A64B3 /* Event Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event Model.swift"; sourceTree = "<group>"; };
+		8510DC4E223B14AA002A64B3 /* Settings Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings Model.swift"; sourceTree = "<group>"; };
+		8510DC50223B15B3002A64B3 /* ColorPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerController.swift; sourceTree = "<group>"; };
+		8510DC51223B15B3002A64B3 /* HuePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuePicker.swift; sourceTree = "<group>"; };
+		8510DC52223B15B3002A64B3 /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		8510DC53223B15B3002A64B3 /* ColorWell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWell.swift; sourceTree = "<group>"; };
+		8510DC58223B187B002A64B3 /* PickerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerImage.swift; sourceTree = "<group>"; };
 		851E3CA7219CC06B002467D9 /* EventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventVC.swift; sourceTree = "<group>"; };
 		851E3CAB219DFBEF002467D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		851E3CAE21A2C245002467D9 /* AgendaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaCell.swift; sourceTree = "<group>"; };
 		851E3CB021A2C67C002467D9 /* Sorts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorts.swift; sourceTree = "<group>"; };
-		851E3CB221A5ABA3002467D9 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 		851E3D0321A8B561002467D9 /* OccurencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurencesCell.swift; sourceTree = "<group>"; };
 		851E3D0521A8B577002467D9 /* OccurencesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurencesTVC.swift; sourceTree = "<group>"; };
 		8562F35522385C41003C4E41 /* Hash Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hash Table.swift"; sourceTree = "<group>"; };
-		857F844A21B5B83900EE9B6B /* ColorPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPickerController.swift; path = timetable/Classes/ColorPickerController.swift; sourceTree = SOURCE_ROOT; };
-		857F844B21B5B83900EE9B6B /* ColorWell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorWell.swift; path = timetable/Classes/ColorWell.swift; sourceTree = SOURCE_ROOT; };
-		857F844C21B5B83900EE9B6B /* PickerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerImage.swift; path = timetable/Classes/PickerImage.swift; sourceTree = SOURCE_ROOT; };
-		857F844D21B5B83900EE9B6B /* HuePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuePicker.swift; path = timetable/Classes/HuePicker.swift; sourceTree = SOURCE_ROOT; };
-		857F844E21B5B83900EE9B6B /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPicker.swift; path = timetable/Classes/ColorPicker.swift; sourceTree = SOURCE_ROOT; };
 		857F845421B5BCC800EE9B6B /* ColourPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPickerViewController.swift; sourceTree = "<group>"; };
 		857F845621B5DE0400EE9B6B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		85E5D4162190792F002BE951 /* Linked List Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Linked List Queue.swift"; sourceTree = "<group>"; };
 		85E5D461219601CD002BE951 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		85E5D463219601F6002BE951 /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
 		85E5D47821975945002BE951 /* SideMenuTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTable.swift; sourceTree = "<group>"; };
-		85E5D47B219799D8002BE951 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
-		85E5D4812198695F002BE951 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		85E5D48C2199CAAC002BE951 /* ViewAllNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewAllNotes.swift; path = "timetable/View Controllers/Notes/ViewAllNotes.swift"; sourceTree = SOURCE_ROOT; };
 		85E5D4912199D877002BE951 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
-		85E5D4932199DA0A002BE951 /* RealmSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSetup.swift; sourceTree = "<group>"; };
 		85E5D495219A0643002BE951 /* NotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCell.swift; sourceTree = "<group>"; };
 		85EDAF622188F85F006F8A6C /* timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EDAF652188F85F006F8A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,11 +160,59 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8510DC46223B1050002A64B3 /* Colour Picker */ = {
+			isa = PBXGroup;
+			children = (
+				8510DC58223B187B002A64B3 /* PickerImage.swift */,
+				8510DC52223B15B3002A64B3 /* ColorPicker.swift */,
+				8510DC53223B15B3002A64B3 /* ColorWell.swift */,
+				8510DC50223B15B3002A64B3 /* ColorPickerController.swift */,
+				8510DC51223B15B3002A64B3 /* HuePicker.swift */,
+			);
+			path = "Colour Picker";
+			sourceTree = "<group>";
+		};
+		8510DC47223B10CB002A64B3 /* External Files */ = {
+			isa = PBXGroup;
+			children = (
+				8510DC46223B1050002A64B3 /* Colour Picker */,
+				85E5D47821975945002BE951 /* SideMenuTable.swift */,
+			);
+			path = "External Files";
+			sourceTree = "<group>";
+		};
+		8510DC48223B110D002A64B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85EDAF652188F85F006F8A6C /* AppDelegate.swift */,
+				8510DC4A223B1471002A64B3 /* Note Model.swift */,
+				8510DC4E223B14AA002A64B3 /* Settings Model.swift */,
+				8510DC4C223B1486002A64B3 /* Event Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8510DC49223B1115002A64B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				85EDAF692188F85F006F8A6C /* Main.storyboard */,
+				85EDAF712188F861006F8A6C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8510DC5A223B1915002A64B3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				857F845621B5DE0400EE9B6B /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		851E3CAD21A2C222002467D9 /* Agenda */ = {
 			isa = PBXGroup;
 			children = (
 				85EDAF672188F85F006F8A6C /* Agenda.swift */,
-				851E3CAE21A2C245002467D9 /* AgendaCell.swift */,
 			);
 			path = Agenda;
 			sourceTree = "<group>";
@@ -185,17 +229,10 @@
 		85E5D413219078E1002BE951 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				857F844E21B5B83900EE9B6B /* ColorPicker.swift */,
-				857F844A21B5B83900EE9B6B /* ColorPickerController.swift */,
-				857F844B21B5B83900EE9B6B /* ColorWell.swift */,
-				857F844D21B5B83900EE9B6B /* HuePicker.swift */,
-				857F844C21B5B83900EE9B6B /* PickerImage.swift */,
-				85E5D463219601F6002BE951 /* Cells.swift */,
 				85E5D4162190792F002BE951 /* Linked List Queue.swift */,
-				85E5D4932199DA0A002BE951 /* RealmSetup.swift */,
 				851E3CB021A2C67C002467D9 /* Sorts.swift */,
-				85E5D47821975945002BE951 /* SideMenuTable.swift */,
 				8562F35522385C41003C4E41 /* Hash Table.swift */,
+				851E3CAB219DFBEF002467D9 /* Extensions.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -203,9 +240,7 @@
 		85E5D47A21977E1F002BE951 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				85E5D47B219799D8002BE951 /* Alarm.swift */,
-				851E3CB221A5ABA3002467D9 /* Countdown.swift */,
-				857F845621B5DE0400EE9B6B /* Settings.swift */,
+				8510DC5A223B1915002A64B3 /* Settings */,
 				851E3CAD21A2C222002467D9 /* Agenda */,
 				85E5D4902199D704002BE951 /* Notes */,
 				85E5D4852198722F002BE951 /* Schedule */,
@@ -217,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				85E5D461219601CD002BE951 /* Schedule.swift */,
+				85E5D463219601F6002BE951 /* Cells.swift */,
 				851E3CA7219CC06B002467D9 /* EventVC.swift */,
 				851E3D0221A8B53E002467D9 /* Occurences */,
 				857F845421B5BCC800EE9B6B /* ColourPickerViewController.swift */,
@@ -259,13 +295,11 @@
 		85EDAF642188F85F006F8A6C /* timetable */ = {
 			isa = PBXGroup;
 			children = (
-				85E5D4812198695F002BE951 /* Data.swift */,
-				85EDAF652188F85F006F8A6C /* AppDelegate.swift */,
-				85EDAF692188F85F006F8A6C /* Main.storyboard */,
-				85EDAF712188F861006F8A6C /* LaunchScreen.storyboard */,
+				8510DC49223B1115002A64B3 /* View */,
+				8510DC48223B110D002A64B3 /* Model */,
 				85E5D47A21977E1F002BE951 /* View Controllers */,
 				85E5D413219078E1002BE951 /* Classes */,
-				851E3CAB219DFBEF002467D9 /* Extensions.swift */,
+				8510DC47223B10CB002A64B3 /* External Files */,
 				85EDAF6C2188F85F006F8A6C /* timetable.xcdatamodeld */,
 				85EDAF742188F861006F8A6C /* Info.plist */,
 				85EDAF6F2188F861006F8A6C /* Assets.xcassets */,
@@ -509,18 +543,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85E5D4942199DA0A002BE951 /* RealmSetup.swift in Sources */,
-				857F844F21B5B83900EE9B6B /* ColorPickerController.swift in Sources */,
+				8510DC56223B15B4002A64B3 /* ColorPicker.swift in Sources */,
+				8510DC59223B187B002A64B3 /* PickerImage.swift in Sources */,
 				85EDAF682188F85F006F8A6C /* Agenda.swift in Sources */,
 				8562F35622385C41003C4E41 /* Hash Table.swift in Sources */,
 				851E3CAC219DFBEF002467D9 /* Extensions.swift in Sources */,
+				8510DC4D223B1486002A64B3 /* Event Model.swift in Sources */,
+				8510DC4F223B14AA002A64B3 /* Settings Model.swift in Sources */,
+				8510DC55223B15B4002A64B3 /* HuePicker.swift in Sources */,
 				857F845521B5BCC800EE9B6B /* ColourPickerViewController.swift in Sources */,
-				85E5D4822198695F002BE951 /* Data.swift in Sources */,
 				851E3D0421A8B561002467D9 /* OccurencesCell.swift in Sources */,
+				8510DC4B223B1471002A64B3 /* Note Model.swift in Sources */,
 				85E5D464219601F7002BE951 /* Cells.swift in Sources */,
-				851E3CAF21A2C245002467D9 /* AgendaCell.swift in Sources */,
 				85E5D4922199D878002BE951 /* Notes.swift in Sources */,
-				85E5D47C219799D8002BE951 /* Alarm.swift in Sources */,
 				85E5D4172190792F002BE951 /* Linked List Queue.swift in Sources */,
 				85EDAF6E2188F85F006F8A6C /* timetable.xcdatamodeld in Sources */,
 				85EDAF662188F85F006F8A6C /* AppDelegate.swift in Sources */,
@@ -529,13 +564,10 @@
 				85E5D48D2199CAAC002BE951 /* ViewAllNotes.swift in Sources */,
 				851E3CA8219CC06B002467D9 /* EventVC.swift in Sources */,
 				851E3CB121A2C67D002467D9 /* Sorts.swift in Sources */,
-				857F845221B5B83900EE9B6B /* HuePicker.swift in Sources */,
-				851E3CB321A5ABA3002467D9 /* Countdown.swift in Sources */,
+				8510DC57223B15B4002A64B3 /* ColorWell.swift in Sources */,
 				85E5D462219601CD002BE951 /* Schedule.swift in Sources */,
 				85E5D47921975945002BE951 /* SideMenuTable.swift in Sources */,
-				857F845321B5B83900EE9B6B /* ColorPicker.swift in Sources */,
-				857F845121B5B83900EE9B6B /* PickerImage.swift in Sources */,
-				857F845021B5B83900EE9B6B /* ColorWell.swift in Sources */,
+				8510DC54223B15B4002A64B3 /* ColorPickerController.swift in Sources */,
 				857F845721B5DE0400EE9B6B /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

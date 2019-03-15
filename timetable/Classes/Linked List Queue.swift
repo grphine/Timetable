@@ -50,23 +50,7 @@ public class Queue<T> {
     }
     //MARK: Dequeue All
     func dequeueAll(){
-//        while self.length() > 0{
-//            self.dequeue()
-//        }
-        // the above has like O(n^2) time complexity
-    /* notes:
-         setting head as nil loses (rather than deletes) queue. memory leaks
-         unable to delete data
-         
-         setting head as nil loses the queue, so it is assumed empty. this however leaves nodes in memory. since data cannot be deleted (being non-optional), i cannot remove the data from memory. the nodes also remain regardless
-    */
-        
-//        if var node = self.head{
-//            while case let next? = node.next{
-//                node = next
-//            }
-//        }
-        
+
         head = nil
     }
     

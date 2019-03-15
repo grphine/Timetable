@@ -53,8 +53,10 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>SwiftRangeSlider 2.xcscheme_^#shared#^_</key>
+		<key>SwiftRangeSlider 2.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>

@@ -20,8 +20,8 @@ extension UIColor {
         self.getRed(&r, green: &g, blue: &b, alpha: &a) //built-in call that returns values between 0 and 1 for each channel
         
         return String(
-            format: "%02X%02X%02X", //converted into three hex strings (using %02X - display an integer in upper-case base 16, with 0-padding up to 2 digits)
-            Int(r * 0xff), //normalise into value between 0 and 255
+            format: "%02X%02X%02X", //00 padding on 3 hex digits
+            Int(r * 0xff),
             Int(g * 0xff),
             Int(b * 0xff)
         )
@@ -124,3 +124,6 @@ extension Array where Array == [RepeatingEvent]{
         return eventTimes
     }
 }
+
+
+

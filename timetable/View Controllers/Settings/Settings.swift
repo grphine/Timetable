@@ -11,10 +11,6 @@ import SwiftRangeSlider
 
 class Settings: UIViewController {
     
-
-    //TODO: Add uiRealm.deleteAll() 
-    //TODO: Allow user to switch between 12 and 24 hour time
-    //TODO: Provide slider to select hours range
     
     @IBOutlet weak var formatSwitch: UISwitch!
     
@@ -48,7 +44,6 @@ class Settings: UIViewController {
         }
         // Do any additional setup after loading the view.
         
-        //set switch default
     }
     
     @objc func saveTapped(){ //funtion called when save button tapped

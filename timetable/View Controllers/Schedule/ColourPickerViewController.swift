@@ -53,26 +53,13 @@ class ColourPickerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //TODO: Submit button function to return colour, change button tint and text colour
-
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
-        //FIXME: Convert color to colour string, send to vc
         let stack = self.navigationController?.viewControllers
         let previousView = stack![stack!.count - 2] as! EventVC
         previousView.colour = colour
         self.navigationController?.popViewController(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 
 }
